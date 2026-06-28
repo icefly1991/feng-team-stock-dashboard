@@ -3,5 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  base: '/feng-team-stock-dashboard/',
   plugins: [react(), tailwindcss()],
 })
