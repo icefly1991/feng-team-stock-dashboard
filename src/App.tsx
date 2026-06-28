@@ -168,8 +168,9 @@ function App() {
         </motion.section>
 
         <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08, duration: 0.35 }} className="rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(250,250,248,0.78))] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.05)] backdrop-blur-sm sm:p-6">
-          <div className="-mx-1 overflow-x-auto pb-1">
-            <div className="flex min-w-max gap-2 px-1">
+          <div className="sticky top-0 z-40 -mx-1 pb-1 backdrop-blur-xl">
+            <div className="overflow-x-auto">
+              <div className="flex min-w-max gap-2 px-1">
               {tabs.map((item) => (
                 <button
                   key={item.id}
@@ -180,11 +181,12 @@ function App() {
                   {item.label}
                 </button>
               ))}
+              </div>
             </div>
           </div>
 
           <div className="mt-5 rounded-[1.85rem] border border-slate-200/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(248,247,244,0.92))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_18px_44px_rgba(15,23,42,0.04)] sm:p-5">
-            <div className="sticky top-0 z-30 -mx-4 -mt-4 mb-5 border-b border-slate-200/60 bg-[rgba(255,255,255,0.72)] px-4 py-4 backdrop-blur-xl sm:-mx-5 sm:-mt-5 sm:px-5 sm:py-5">
+            <div className="-mx-4 -mt-4 mb-5 border-b border-slate-200/60 bg-[rgba(255,255,255,0.72)] px-4 py-4 backdrop-blur-xl sm:-mx-5 sm:-mt-5 sm:px-5 sm:py-5">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-950">{metricText[tab]}榜单</h2>
@@ -194,9 +196,9 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-5 overflow-x-auto overscroll-x-contain rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
+            <div className="mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
               <div className="min-w-[960px]">
-                <div className={`sticky top-0 z-20 ${tableGridClass} border-b border-slate-200/75 bg-[rgba(252,252,251,0.82)] px-4 py-3 text-[11px] font-medium tracking-[0.18em] text-slate-400 backdrop-blur-xl`}>
+                <div className={`sticky top-[72px] z-40 ${tableGridClass} min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-4 py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400 shadow-[0_10px_24px_rgba(15,23,42,0.06)]`}>
                   <div className="flex items-center justify-center">
                     <span className="text-[10px] text-slate-300">#</span>
                   </div>
@@ -295,10 +297,10 @@ function App() {
                       )}
                     </div>
                   ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </motion.section>
       </div>
     </main>
