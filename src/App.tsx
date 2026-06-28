@@ -35,6 +35,7 @@ const metricText = {
 }
 const adjustmentText = { qfq: '前复权', none: '除权' }
 const formatPct = (value: number) => `${value.toFixed(1)}%`
+const dashboardUrl = `${import.meta.env.BASE_URL}data/dashboard.json`
 const bands = [
   { label: '上涨 20% 以上', test: (v: number) => v >= 20 },
   { label: '上涨 10% 至 20%', test: (v: number) => v >= 10 && v < 20 },
@@ -52,7 +53,7 @@ function App() {
   useEffect(() => {
     document.title = '每日数据更新'
     let mounted = true
-    fetch('/data/dashboard.json')
+    fetch(dashboardUrl)
       .then((res) => (res.ok ? res.json() : Promise.reject()))
       .then((json: DashboardData) => mounted && setData(json))
       .catch(() => mounted && setError(true))
