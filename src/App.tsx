@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 type AdjustmentKey = 'qfq' | 'none'
 type MetricKey = 'distance_ma250_pct' | 'ytd_return_pct' | 'distance_52w_high_pct'
 type SummaryKey = 'watchlist_total' | 'today_up' | 'today_down'
+
 type Row = {
   code: string
   name: string
@@ -13,6 +14,7 @@ type Row = {
   ytd_return_pct: number
   distance_52w_high_pct: number
 }
+
 type DashboardData = {
   updated_at: string
   adjustments: Record<AdjustmentKey, { summary: Record<SummaryKey, number>; rows: Row[] }>
@@ -23,26 +25,49 @@ const tabs: { id: MetricKey; label: string }[] = [
   { id: 'ytd_return_pct', label: '今年涨跌幅' },
   { id: 'distance_52w_high_pct', label: '距52周高点' },
 ]
+
+const descendingMetrics: MetricKey[] = ['distance_ma250_pct']
+
 const cards: { key: SummaryKey; label: string; note: string }[] = [
   { key: 'watchlist_total', label: '自选总数', note: '今日跟踪池' },
   { key: 'today_up', label: '今日上涨', note: '收红个股' },
   { key: 'today_down', label: '今日下跌', note: '回撤个股' },
 ]
-const metricText = {
+
+const metricText: Record<MetricKey, string> = {
   distance_ma250_pct: '距年线',
   ytd_return_pct: '今年涨跌幅',
   distance_52w_high_pct: '距52周高点',
 }
+
 const adjustmentText = { qfq: '前复权', none: '除权' }
-const formatPct = (value: number) => `${value.toFixed(1)}%`
 const dashboardUrl = `${import.meta.env.BASE_URL}data/dashboard.json`
-const bands = [
-  { label: '上涨 20% 以上', test: (v: number) => v >= 20 },
-  { label: '上涨 10% 至 20%', test: (v: number) => v >= 10 && v < 20 },
-  { label: '区间 -10% 至 10%', test: (v: number) => v > -10 && v < 10 },
-  { label: '下跌 10% 至 20%', test: (v: number) => v <= -10 && v > -20 },
-  { label: '下跌 20% 以上', test: (v: number) => v <= -20 },
+
+const descendingBands = [
+  { separator: '20%', test: (v: number) => v >= 20 },
+  { separator: '0%', test: (v: number) => v >= 0 && v < 20 },
+  { separator: '-10%', test: (v: number) => v > -10 && v < 0 },
+  { separator: '-20%', test: (v: number) => v <= -10 && v > -20 },
+  { separator: null, test: (v: number) => v <= -20 },
 ] as const
+
+const ascendingBands = [
+  { separator: '-20%', test: (v: number) => v <= -20 },
+  { separator: '-10%', test: (v: number) => v <= -10 && v > -20 },
+  { separator: '0%', test: (v: number) => v > -10 && v < 0 },
+  { separator: '20%', test: (v: number) => v >= 0 && v < 20 },
+  { separator: null, test: (v: number) => v >= 20 },
+] as const
+
+const formatPct = (value: number) => `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
+
+const getMetricTextClass = (value: number) =>
+  value > 0 ? 'text-emerald-700' : value < 0 ? 'text-rose-600' : 'text-slate-500'
+
+const getActiveMetricCellClass = (metric: MetricKey, activeMetric: MetricKey) =>
+  metric === activeMetric
+    ? 'mx-auto w-[84%] rounded-[1.1rem] border border-sky-100/90 bg-[linear-gradient(180deg,rgba(249,252,255,0.98),rgba(242,248,252,0.94))] px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_8px_24px_rgba(15,23,42,0.06)]'
+    : 'w-full px-2 py-2'
 
 function App() {
   const [data, setData] = useState<DashboardData | null>(null)
@@ -63,11 +88,23 @@ function App() {
   }, [])
 
   const current = data?.adjustments[adjustment]
-  const rows = useMemo(() => (current ? [...current.rows].sort((a, b) => b[tab] - a[tab]) : []), [current, tab])
+  const rows = useMemo(
+    () =>
+      current
+        ? [...current.rows].sort((a, b) =>
+            descendingMetrics.includes(tab) ? b[tab] - a[tab] : a[tab] - b[tab],
+          )
+        : [],
+    [current, tab],
+  )
   const maxMetric = useMemo(() => Math.max(...rows.map((row) => Math.abs(row[tab])), 1), [rows, tab])
-  const groupedRows = useMemo(() => bands.map((band) => ({ ...band, rows: rows.filter((row) => band.test(row[tab])) })), [rows, tab])
+  const groupedRows = useMemo(() => {
+    const activeBands = descendingMetrics.includes(tab) ? descendingBands : ascendingBands
+    return activeBands.map((band) => ({ ...band, rows: rows.filter((row) => band.test(row[tab])) }))
+  }, [rows, tab])
+  const tableGridClass = 'grid grid-cols-[4%_16%_11%_11%_12%_12%_28%] gap-[1%]'
   const displayGroups = useMemo(
-    () => (tab === 'distance_52w_high_pct' ? [{ label: null, rows }] : groupedRows),
+    () => (tab === 'distance_52w_high_pct' ? [{ separator: null, rows }] : groupedRows),
     [groupedRows, rows, tab],
   )
 
@@ -130,7 +167,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08, duration: 0.35 }} className="rounded-[2rem] border border-white/80 bg-white/78 p-5 shadow-[0_24px_60px_rgba(15,23,42,0.05)] backdrop-blur-sm sm:p-6">
+        <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08, duration: 0.35 }} className="rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(250,250,248,0.78))] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.05)] backdrop-blur-sm sm:p-6">
           <div className="-mx-1 overflow-x-auto pb-1">
             <div className="flex min-w-max gap-2 px-1">
               {tabs.map((item) => (
@@ -138,7 +175,7 @@ function App() {
                   key={item.id}
                   type="button"
                   onClick={() => setTab(item.id)}
-                  className={`rounded-full border px-4 py-2.5 text-sm font-medium transition ${tab === item.id ? 'border-slate-300 bg-slate-900 text-white shadow-[0_10px_24px_rgba(15,23,42,0.12)]' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}
+                  className={`rounded-full border px-4 py-2.5 text-sm font-medium transition ${tab === item.id ? 'border-slate-300/90 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,247,249,0.92))] text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_8px_22px_rgba(15,23,42,0.08)]' : 'border-slate-200/80 bg-white/72 text-slate-600 hover:border-slate-300/80 hover:bg-white/90'}`}
                 >
                   {item.label}
                 </button>
@@ -146,66 +183,113 @@ function App() {
             </div>
           </div>
 
-          <div className="mt-5 rounded-[1.75rem] border border-slate-200/80 bg-[linear-gradient(180deg,#ffffff_0%,#faf7f2_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] sm:p-5">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-5 rounded-[1.85rem] border border-slate-200/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(248,247,244,0.92))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_18px_44px_rgba(15,23,42,0.04)] sm:p-5">
+            <div className="sticky top-0 z-30 -mx-4 -mt-4 mb-5 border-b border-slate-200/60 bg-[rgba(255,255,255,0.72)] px-4 py-4 backdrop-blur-xl sm:-mx-5 sm:-mt-5 sm:px-5 sm:py-5">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-950">{metricText[tab]}榜单</h2>
                 <p className="mt-1 text-sm text-slate-600">当前展示基于 {adjustmentText[adjustment]} 口径排序</p>
               </div>
               <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">{tab === 'distance_52w_high_pct' ? '连续排序视图' : '可视化榜单'}</div>
+              </div>
             </div>
 
-            <div className="mt-5 overflow-x-auto rounded-[1.4rem] border border-slate-200/80 bg-white/85">
-              <div className="min-w-[860px]">
-                <div className="sticky top-0 z-10 grid grid-cols-[64px_1.25fr_0.82fr_0.82fr_0.86fr_1.08fr] gap-2.5 border-b border-slate-200 bg-[rgba(255,255,255,0.92)] px-4 py-3 text-xs font-medium tracking-[0.18em] text-slate-500 backdrop-blur">
-                  <div>排名</div>
-                  <div>股票</div>
-                  <div className="text-right">收盘价</div>
-                  <div className="text-right">今日</div>
-                  <div className="text-right">YTD</div>
-                  <div className="text-right">{metricText[tab]}</div>
+            <div className="mt-5 overflow-x-auto overscroll-x-contain rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
+              <div className="min-w-[960px]">
+                <div className={`sticky top-0 z-20 ${tableGridClass} border-b border-slate-200/75 bg-[rgba(252,252,251,0.82)] px-4 py-3 text-[11px] font-medium tracking-[0.18em] text-slate-400 backdrop-blur-xl`}>
+                  <div className="flex items-center justify-center">
+                    <span className="text-[10px] text-slate-300">#</span>
+                  </div>
+                  <div className="flex -translate-x-1 items-center justify-center px-2 text-center">
+                    <span>股票</span>
+                  </div>
+                  <div className="flex items-center justify-end px-2">
+                    <span>收盘价</span>
+                  </div>
+                  <div className="flex items-center justify-end px-2">
+                    <span>今日</span>
+                  </div>
+                  <div className={`${tab === 'distance_ma250_pct' ? 'hidden' : 'flex'} items-center justify-end px-2`}>
+                    <span>距年线</span>
+                  </div>
+                  <div className={`${tab === 'ytd_return_pct' ? 'hidden' : 'flex'} translate-x-1 items-center justify-self-center px-2 text-center`}>
+                    <span>YTD</span>
+                  </div>
+                  <div className={`${tab === 'distance_52w_high_pct' ? 'hidden' : 'flex'} items-center justify-end px-2`}>
+                    <span>52周高点</span>
+                  </div>
+                  <div className="flex items-center justify-center px-2 text-slate-700">
+                    <span>{metricText[tab]}</span>
+                  </div>
                 </div>
 
-                <div className="space-y-4 px-3 py-4">
+                <div className="space-y-3 px-3 py-3">
                   {displayGroups.map((group, groupIndex) => (
-                    <div key={group.label ?? `all-${groupIndex}`} className="space-y-2">
-                      {group.label ? (
-                        <div className="flex items-center gap-3 px-1 pt-1">
-                          <div className="text-xs font-medium tracking-[0.18em] text-slate-400">{group.label}</div>
-                          <div className="h-px flex-1 bg-slate-200" />
-                        </div>
-                      ) : null}
+                    <div key={group.separator ?? `all-${groupIndex}`} className="space-y-2">
                       {group.rows.length ? (
-                        group.rows.map((row) => {
+                        <>
+                          {group.rows.map((row) => {
                           const index = rows.findIndex((item) => item.code === row.code) + 1
-                          const metric = row[tab]
-                          const width = `${(Math.abs(metric) / maxMetric) * 100}%`
                           return (
-                            <div key={`${adjustment}-${group.label ?? 'all'}-${row.code}`} className="grid grid-cols-[64px_1.25fr_0.82fr_0.82fr_0.86fr_1.08fr] gap-2.5 rounded-[1.3rem] border border-transparent bg-[linear-gradient(180deg,#fcfbf8_0%,#fbfaf7_100%)] px-4 py-4 transition hover:-translate-y-0.5 hover:border-slate-200 hover:bg-white hover:shadow-[0_14px_30px_rgba(15,23,42,0.05)]">
-                              <div>
-                                <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Rank</p>
-                                <p className="mt-1 text-2xl font-semibold text-slate-950">{index}</p>
+                            <div key={`${adjustment}-${group.separator ?? 'all'}-${row.code}`} className={`${tableGridClass} items-center rounded-[1.2rem] border border-slate-200/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-slate-300/75 hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.05)]`}>
+                              <div className="sticky left-0 z-10 flex justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))]">
+                                <p className="text-[11px] font-medium tabular-nums text-slate-300">{index}</p>
                               </div>
-                              <div className="flex items-center gap-2.5">
-                                <div className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">{row.code}</div>
-                                <div className="min-w-0">
-                                  <p className="truncate font-medium text-slate-900">{row.name}</p>
+
+                              <div className="sticky left-[5%] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
+                                <div className="min-w-0 rounded-[0.95rem] px-3 py-2">
+                                  <p className="truncate text-[15px] font-medium tracking-[-0.01em] text-slate-900">{row.name}</p>
+                                  <p className="mt-0.5 text-[12px] font-medium tracking-[0.08em] text-slate-400">{row.code}</p>
                                 </div>
                               </div>
-                              <div className="self-center text-right text-base font-medium text-slate-900">{row.close.toFixed(1)}</div>
-                              <div className={`self-center text-right text-sm font-medium ${row.today_return_pct >= 0 ? 'text-emerald-700' : 'text-rose-600'}`}>{formatPct(row.today_return_pct)}</div>
-                              <div className={`self-center text-right text-sm font-medium ${row.ytd_return_pct >= 0 ? 'text-emerald-700' : 'text-rose-600'}`}>{formatPct(row.ytd_return_pct)}</div>
-                              <div className="self-center">
-                                <div className="flex items-center justify-end gap-3 text-sm">
-                                  <span className={`font-medium ${metric >= 0 ? 'text-emerald-700' : 'text-amber-700'}`}>{formatPct(metric)}</span>
+
+                              <div className="px-2 text-right text-[15px] font-medium tabular-nums text-slate-900">{row.close.toFixed(1)}</div>
+                              <div className={`px-2 text-right text-[13px] font-medium tabular-nums ${getMetricTextClass(row.today_return_pct)}`}>{formatPct(row.today_return_pct)}</div>
+
+                              <div className={`${tab === 'distance_ma250_pct' ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
+                                <div className="flex items-center justify-end gap-3">
+                                  <span className={`font-medium ${getMetricTextClass(row.distance_ma250_pct)}`}>{formatPct(row.distance_ma250_pct)}</span>
                                 </div>
-                                <div className="mt-2 ml-auto h-2.5 w-full max-w-[200px] overflow-hidden rounded-full bg-slate-100">
-                                  <div className={`h-full rounded-full ${metric >= 0 ? 'bg-emerald-500/85' : 'bg-amber-500/85'}`} style={{ width }} />
+                              </div>
+
+                              <div className={`${tab === 'ytd_return_pct' ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
+                                <div className="flex items-center justify-end gap-3">
+                                  <span className={`font-medium ${getMetricTextClass(row.ytd_return_pct)}`}>{formatPct(row.ytd_return_pct)}</span>
+                                </div>
+                              </div>
+
+                              <div className={`${tab === 'distance_52w_high_pct' ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
+                                <div className="flex items-center justify-end gap-3">
+                                  <span className={`font-medium ${getMetricTextClass(row.distance_52w_high_pct)}`}>{formatPct(row.distance_52w_high_pct)}</span>
+                                </div>
+                              </div>
+
+                              <div className="px-2">
+                                <div className={`text-center text-[13px] tabular-nums ${getActiveMetricCellClass(tab, tab)}`}>
+                                  <div className="flex items-center justify-center gap-3">
+                                    <span className={`font-medium ${getMetricTextClass(row[tab])}`}>{formatPct(row[tab])}</span>
+                                  </div>
+                                  <div className="mt-2 h-[6px] w-full overflow-hidden rounded-full bg-slate-200/70">
+                                    <div
+                                      className={`h-full rounded-full ${row[tab] >= 0 ? 'bg-[linear-gradient(90deg,rgba(16,185,129,0.72),rgba(52,211,153,0.92))]' : 'bg-[linear-gradient(90deg,rgba(245,158,11,0.72),rgba(251,191,36,0.92))]'}`}
+                                      style={{ width: `${(Math.abs(row[tab]) / maxMetric) * 100}%` }}
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           )
-                        })
+                        })}
+                          {group.separator ? (
+                            <div className="flex items-center gap-2 px-1 pt-1.5">
+                              <div className="flex items-center gap-2 text-[11px] font-medium tabular-nums tracking-[0.14em] text-slate-300">
+                                <span className="h-px w-3 bg-slate-300" />
+                                <span>{group.separator}</span>
+                              </div>
+                              <div className="h-px flex-1 bg-slate-200/90" />
+                            </div>
+                          ) : null}
+                        </>
                       ) : (
                         <div className="px-1 py-2 text-sm text-slate-400">这个区间暂无股票</div>
                       )}
