@@ -1,0 +1,107 @@
+{
+  "updated_at": "2026-06-28 16:30",
+  "summary": {
+    "total": 120,
+    "near_ma250_count": 18,
+    "positive_ytd_count": 42
+  },
+  "tabs": [
+    {
+      "id": "ma250",
+      "title": "Near MA250",
+      "metric": "distance_ma250_pct",
+      "rows": [
+        {
+          "code": "600519",
+          "name": "Kweichow Moutai",
+          "distance_ma250_pct": 2.3,
+          "ytd_return_pct": -8.7
+        },
+        {
+          "code": "300750",
+          "name": "CATL",
+          "distance_ma250_pct": -3.5,
+          "ytd_return_pct": 12.4
+        },
+        {
+          "code": "000858",
+          "name": "Wuliangye",
+          "distance_ma250_pct": 5.1,
+          "ytd_return_pct": -3.2
+        },
+        {
+          "code": "600036",
+          "name": "China Merchants Bank",
+          "distance_ma250_pct": 1.2,
+          "ytd_return_pct": 7.9
+        }
+      ]
+    },
+    {
+      "id": "ytd",
+      "title": "Positive YTD",
+      "metric": "ytd_return_pct",
+      "rows": [
+        {
+          "code": "002594",
+          "name": "BYD",
+          "distance_ma250_pct": 8.8,
+          "ytd_return_pct": 24.6
+        },
+        {
+          "code": "601899",
+          "name": "Zijin Mining",
+          "distance_ma250_pct": 6.4,
+          "ytd_return_pct": 18.1
+        },
+        {
+          "code": "688111",
+          "name": "Kingsoft Office",
+          "distance_ma250_pct": 4.2,
+          "ytd_return_pct": 14.9
+        },
+        {
+          "code": "601012",
+          "name": "LONGi Green Energy",
+          "distance_ma250_pct": 2.1,
+          "ytd_return_pct": 10.7
+        }
+      ]
+    },
+    {
+      "id": "volume",
+      "title": "Volume Leaders",
+      "metric": "volume_ratio",
+      "rows": [
+        {
+          "code": "000333",
+          "name": "Midea Group",
+          "distance_ma250_pct": 3.1,
+          "ytd_return_pct": 9.4,
+          "volume_ratio": 2.6
+        },
+        {
+          "code": "600276",
+          "name": "Jiangsu Hengrui",
+          "distance_ma250_pct": -1.7,
+          "ytd_return_pct": 6.2,
+          "volume_ratio": 2.2
+        },
+        {
+          "code": "601318",
+          "name": "Ping An",
+          "distance_ma250_pct": 0.9,
+          "ytd_return_pct": 4.3,
+          "volume_ratio": 1.9
+        },
+        {
+          "code": "002475",
+          "name": "Luxshare Precision",
+          "distance_ma250_pct": 5.4,
+          "ytd_return_pct": 11.8,
+          "volume_ratio": 1.7
+        }
+      ]
+    }
+  ]
+}
