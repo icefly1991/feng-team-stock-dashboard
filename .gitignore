@@ -30,3 +30,4 @@ __pycache__/
 # Local env files
 .env
 .env.*
+.venv/

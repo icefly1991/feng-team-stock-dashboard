@@ -13,9 +13,13 @@ def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, float]:
 
     close = float(latest["close"])
     today_return_pct = compute_today_return_pct(latest, close, previous)
+    # See docs/metric-definitions.md: MA250 uses the latest 250 trading rows for the
+    # current adjustment series, and qfq/none are calculated independently upstream.
     ma250 = ordered["close"].tail(250).mean()
     year_start_close = float(current_year.iloc[0]["close"])
-    high_52w = float(ordered["close"].tail(252).max())
+    # See docs/metric-definitions.md: 52-week high is the max intraday high over the
+    # latest 252 trading rows for the same adjustment series, not the full history.
+    high_52w = float(ordered["high"].tail(252).max())
 
     return {
         "close": round(close, 2),
@@ -33,10 +37,11 @@ def normalize_history(frame: pd.DataFrame) -> pd.DataFrame:
     ordered = frame.copy()
     ordered["trade_date"] = ordered["trade_date"].astype(str)
     ordered["close"] = ordered["close"].astype(float)
+    ordered["high"] = ordered["high"].astype(float)
     ordered = ordered.sort_values("trade_date").reset_index(drop=True)
 
     if len(ordered) < 252:
-        raise ValueError("Not enough history to calculate MA250.")
+        raise ValueError("Not enough history to calculate MA250 and 52-week high metrics.")
 
     return ordered
 
@@ -47,6 +52,8 @@ def compute_today_return_pct(latest: pd.Series, close: float, previous: pd.Serie
         return float(pct_chg)
     if previous is None:
         raise ValueError("Missing previous close and pct_chg for latest row.")
+    # See docs/metric-definitions.md: fall back to previous trading day's close when
+    # pct_chg is unavailable for the current adjustment series.
     previous_close = float(previous["close"])
     return percent_change(close, previous_close)
 

@@ -68,7 +68,7 @@ class TusharePipelineClient:
             adj=None if adjustment == "none" else adjustment,
             start_date=self.config.start_date,
             end_date=self.config.end_date,
-            fields="ts_code,trade_date,close,pct_chg",
+            fields="ts_code,trade_date,close,high,pct_chg",
         )
         if frame is None or frame.empty:
             raise ValueError("No daily bars returned from Tushare pro_bar.")

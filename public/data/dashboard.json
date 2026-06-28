@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-28 18:01",
+  "updated_at": "2026-06-29 01:04",
   "adjustments": {
     "qfq": {
       "summary": {
@@ -24,7 +24,7 @@
           "today_return_pct": -6.9,
           "distance_ma250_pct": -9.13,
           "ytd_return_pct": -11.77,
-          "distance_52w_high_pct": -32.94
+          "distance_52w_high_pct": -38.32
         },
         {
           "code": "301195",
@@ -33,7 +33,7 @@
           "today_return_pct": -6.67,
           "distance_ma250_pct": -21.25,
           "ytd_return_pct": -23.77,
-          "distance_52w_high_pct": -34.8
+          "distance_52w_high_pct": -35.45
         },
         {
           "code": "688589",
@@ -42,7 +42,7 @@
           "today_return_pct": -4.56,
           "distance_ma250_pct": -15.62,
           "ytd_return_pct": -15.58,
-          "distance_52w_high_pct": -28.75
+          "distance_52w_high_pct": -30.11
         },
         {
           "code": "603617",
@@ -51,7 +51,7 @@
           "today_return_pct": -3.12,
           "distance_ma250_pct": -7.18,
           "ytd_return_pct": -3.25,
-          "distance_52w_high_pct": -28.0
+          "distance_52w_high_pct": -30.72
         },
         {
           "code": "688391",
@@ -60,7 +60,7 @@
           "today_return_pct": -2.26,
           "distance_ma250_pct": 9.93,
           "ytd_return_pct": 16.43,
-          "distance_52w_high_pct": -3.02
+          "distance_52w_high_pct": -4.88
         },
         {
           "code": "301418",
@@ -69,7 +69,7 @@
           "today_return_pct": -0.73,
           "distance_ma250_pct": 39.16,
           "ytd_return_pct": 47.48,
-          "distance_52w_high_pct": -0.73
+          "distance_52w_high_pct": -4.66
         },
         {
           "code": "300234",
@@ -78,7 +78,7 @@
           "today_return_pct": -2.46,
           "distance_ma250_pct": 80.82,
           "ytd_return_pct": 105.56,
-          "distance_52w_high_pct": -2.63
+          "distance_52w_high_pct": -4.8
         },
         {
           "code": "300039",
@@ -87,7 +87,7 @@
           "today_return_pct": -0.48,
           "distance_ma250_pct": -30.13,
           "ytd_return_pct": -30.22,
-          "distance_52w_high_pct": -38.53
+          "distance_52w_high_pct": -39.16
         },
         {
           "code": "300174",
@@ -96,7 +96,7 @@
           "today_return_pct": -7.72,
           "distance_ma250_pct": 76.11,
           "ytd_return_pct": 95.61,
-          "distance_52w_high_pct": -7.72
+          "distance_52w_high_pct": -14.03
         },
         {
           "code": "603231",
@@ -105,7 +105,7 @@
           "today_return_pct": 0.0,
           "distance_ma250_pct": -15.94,
           "ytd_return_pct": -17.41,
-          "distance_52w_high_pct": -30.83
+          "distance_52w_high_pct": -31.81
         },
         {
           "code": "603527",
@@ -114,7 +114,7 @@
           "today_return_pct": -9.02,
           "distance_ma250_pct": 11.08,
           "ytd_return_pct": 16.45,
-          "distance_52w_high_pct": -13.45
+          "distance_52w_high_pct": -16.55
         },
         {
           "code": "301355",
@@ -123,7 +123,7 @@
           "today_return_pct": -2.8,
           "distance_ma250_pct": -25.07,
           "ytd_return_pct": -30.02,
-          "distance_52w_high_pct": -41.98
+          "distance_52w_high_pct": -44.88
         },
         {
           "code": "300588",
@@ -132,7 +132,7 @@
           "today_return_pct": 1.09,
           "distance_ma250_pct": 0.56,
           "ytd_return_pct": -15.04,
-          "distance_52w_high_pct": -28.7
+          "distance_52w_high_pct": -30.76
         },
         {
           "code": "301298",
@@ -141,7 +141,7 @@
           "today_return_pct": -2.17,
           "distance_ma250_pct": -27.12,
           "ytd_return_pct": -26.09,
-          "distance_52w_high_pct": -33.97
+          "distance_52w_high_pct": -34.34
         },
         {
           "code": "603797",
@@ -150,7 +150,7 @@
           "today_return_pct": -1.81,
           "distance_ma250_pct": -19.06,
           "ytd_return_pct": -21.65,
-          "distance_52w_high_pct": -26.92
+          "distance_52w_high_pct": -27.48
         },
         {
           "code": "301578",
@@ -159,7 +159,7 @@
           "today_return_pct": -2.84,
           "distance_ma250_pct": -23.68,
           "ytd_return_pct": -22.6,
-          "distance_52w_high_pct": -32.73
+          "distance_52w_high_pct": -33.65
         },
         {
           "code": "001382",
@@ -168,7 +168,7 @@
           "today_return_pct": -3.8,
           "distance_ma250_pct": -25.24,
           "ytd_return_pct": -23.71,
-          "distance_52w_high_pct": -37.28
+          "distance_52w_high_pct": -40.01
         },
         {
           "code": "688420",
@@ -177,7 +177,7 @@
           "today_return_pct": -1.04,
           "distance_ma250_pct": -17.88,
           "ytd_return_pct": -13.94,
-          "distance_52w_high_pct": -27.71
+          "distance_52w_high_pct": -30.13
         },
         {
           "code": "301028",
@@ -186,7 +186,7 @@
           "today_return_pct": -0.69,
           "distance_ma250_pct": 9.67,
           "ytd_return_pct": 8.34,
-          "distance_52w_high_pct": -22.38
+          "distance_52w_high_pct": -26.79
         },
         {
           "code": "301175",
@@ -195,7 +195,7 @@
           "today_return_pct": -2.77,
           "distance_ma250_pct": -13.64,
           "ytd_return_pct": -17.06,
-          "distance_52w_high_pct": -35.9
+          "distance_52w_high_pct": -37.93
         },
         {
           "code": "600526",
@@ -204,7 +204,7 @@
           "today_return_pct": -2.36,
           "distance_ma250_pct": -20.56,
           "ytd_return_pct": -21.63,
-          "distance_52w_high_pct": -31.96
+          "distance_52w_high_pct": -32.41
         },
         {
           "code": "600496",
@@ -213,7 +213,7 @@
           "today_return_pct": -0.31,
           "distance_ma250_pct": -14.55,
           "ytd_return_pct": -18.67,
-          "distance_52w_high_pct": -29.02
+          "distance_52w_high_pct": -29.65
         },
         {
           "code": "300664",
@@ -222,7 +222,7 @@
           "today_return_pct": -1.84,
           "distance_ma250_pct": -22.56,
           "ytd_return_pct": -20.96,
-          "distance_52w_high_pct": -32.27
+          "distance_52w_high_pct": -34.36
         },
         {
           "code": "301320",
@@ -231,7 +231,7 @@
           "today_return_pct": -4.36,
           "distance_ma250_pct": -27.87,
           "ytd_return_pct": -26.89,
-          "distance_52w_high_pct": -43.49
+          "distance_52w_high_pct": -45.45
         },
         {
           "code": "600339",
@@ -240,7 +240,7 @@
           "today_return_pct": -2.21,
           "distance_ma250_pct": -15.28,
           "ytd_return_pct": -6.91,
-          "distance_52w_high_pct": -40.61
+          "distance_52w_high_pct": -43.84
         },
         {
           "code": "688351",
@@ -249,7 +249,7 @@
           "today_return_pct": -3.9,
           "distance_ma250_pct": -7.49,
           "ytd_return_pct": -14.83,
-          "distance_52w_high_pct": -22.07
+          "distance_52w_high_pct": -24.11
         },
         {
           "code": "601866",
@@ -267,7 +267,7 @@
           "today_return_pct": -2.0,
           "distance_ma250_pct": -21.7,
           "ytd_return_pct": -19.88,
-          "distance_52w_high_pct": -30.68
+          "distance_52w_high_pct": -33.66
         },
         {
           "code": "000790",
@@ -276,7 +276,7 @@
           "today_return_pct": -2.5,
           "distance_ma250_pct": -13.18,
           "ytd_return_pct": -10.23,
-          "distance_52w_high_pct": -23.7
+          "distance_52w_high_pct": -26.72
         },
         {
           "code": "301102",
@@ -285,7 +285,7 @@
           "today_return_pct": -2.15,
           "distance_ma250_pct": -23.07,
           "ytd_return_pct": -19.22,
-          "distance_52w_high_pct": -37.7
+          "distance_52w_high_pct": -40.56
         },
         {
           "code": "300590",
@@ -303,7 +303,7 @@
           "today_return_pct": -5.26,
           "distance_ma250_pct": -21.1,
           "ytd_return_pct": -17.32,
-          "distance_52w_high_pct": -31.89
+          "distance_52w_high_pct": -33.12
         },
         {
           "code": "002661",
@@ -312,7 +312,7 @@
           "today_return_pct": -1.56,
           "distance_ma250_pct": -23.99,
           "ytd_return_pct": -21.62,
-          "distance_52w_high_pct": -33.97
+          "distance_52w_high_pct": -35.07
         },
         {
           "code": "603075",
@@ -321,7 +321,7 @@
           "today_return_pct": -1.58,
           "distance_ma250_pct": -1.9,
           "ytd_return_pct": -0.55,
-          "distance_52w_high_pct": -22.54
+          "distance_52w_high_pct": -24.6
         },
         {
           "code": "600278",
@@ -330,7 +330,7 @@
           "today_return_pct": -4.78,
           "distance_ma250_pct": -21.16,
           "ytd_return_pct": -21.52,
-          "distance_52w_high_pct": -34.43
+          "distance_52w_high_pct": -35.21
         },
         {
           "code": "600718",
@@ -339,7 +339,7 @@
           "today_return_pct": -3.73,
           "distance_ma250_pct": -26.54,
           "ytd_return_pct": -29.15,
-          "distance_52w_high_pct": -40.58
+          "distance_52w_high_pct": -43.01
         },
         {
           "code": "600512",
@@ -348,7 +348,7 @@
           "today_return_pct": -1.03,
           "distance_ma250_pct": -20.19,
           "ytd_return_pct": -20.58,
-          "distance_52w_high_pct": -28.25
+          "distance_52w_high_pct": -28.78
         },
         {
           "code": "300021",
@@ -357,7 +357,7 @@
           "today_return_pct": 3.1,
           "distance_ma250_pct": -15.76,
           "ytd_return_pct": -13.64,
-          "distance_52w_high_pct": -42.67
+          "distance_52w_high_pct": -43.16
         },
         {
           "code": "603329",
@@ -366,7 +366,7 @@
           "today_return_pct": -2.47,
           "distance_ma250_pct": -19.66,
           "ytd_return_pct": -17.84,
-          "distance_52w_high_pct": -28.07
+          "distance_52w_high_pct": -28.47
         },
         {
           "code": "301507",
@@ -375,7 +375,7 @@
           "today_return_pct": -4.06,
           "distance_ma250_pct": -17.28,
           "ytd_return_pct": -23.88,
-          "distance_52w_high_pct": -31.42
+          "distance_52w_high_pct": -36.65
         },
         {
           "code": "001378",
@@ -384,7 +384,7 @@
           "today_return_pct": -2.55,
           "distance_ma250_pct": 1.25,
           "ytd_return_pct": 3.27,
-          "distance_52w_high_pct": -15.39
+          "distance_52w_high_pct": -17.07
         },
         {
           "code": "688571",
@@ -393,7 +393,7 @@
           "today_return_pct": -3.59,
           "distance_ma250_pct": 1.01,
           "ytd_return_pct": 9.08,
-          "distance_52w_high_pct": -18.6
+          "distance_52w_high_pct": -19.9
         },
         {
           "code": "301469",
@@ -402,7 +402,7 @@
           "today_return_pct": -2.47,
           "distance_ma250_pct": -8.15,
           "ytd_return_pct": -8.8,
-          "distance_52w_high_pct": -32.03
+          "distance_52w_high_pct": -34.56
         },
         {
           "code": "688718",
@@ -411,7 +411,7 @@
           "today_return_pct": -5.21,
           "distance_ma250_pct": 3.55,
           "ytd_return_pct": 15.13,
-          "distance_52w_high_pct": -21.49
+          "distance_52w_high_pct": -23.33
         },
         {
           "code": "002035",
@@ -420,7 +420,7 @@
           "today_return_pct": -1.98,
           "distance_ma250_pct": -25.34,
           "ytd_return_pct": -25.91,
-          "distance_52w_high_pct": -33.63
+          "distance_52w_high_pct": -34.41
         },
         {
           "code": "603153",
@@ -429,7 +429,7 @@
           "today_return_pct": -2.55,
           "distance_ma250_pct": -26.75,
           "ytd_return_pct": -27.79,
-          "distance_52w_high_pct": -38.15
+          "distance_52w_high_pct": -39.86
         },
         {
           "code": "301520",
@@ -438,7 +438,7 @@
           "today_return_pct": -2.77,
           "distance_ma250_pct": -21.94,
           "ytd_return_pct": -18.74,
-          "distance_52w_high_pct": -32.21
+          "distance_52w_high_pct": -34.69
         },
         {
           "code": "600713",
@@ -447,7 +447,7 @@
           "today_return_pct": -2.12,
           "distance_ma250_pct": -3.43,
           "ytd_return_pct": -8.15,
-          "distance_52w_high_pct": -20.78
+          "distance_52w_high_pct": -23.76
         },
         {
           "code": "301508",
@@ -456,7 +456,7 @@
           "today_return_pct": -3.59,
           "distance_ma250_pct": -26.83,
           "ytd_return_pct": -27.48,
-          "distance_52w_high_pct": -35.83
+          "distance_52w_high_pct": -36.58
         },
         {
           "code": "301552",
@@ -465,7 +465,7 @@
           "today_return_pct": -3.93,
           "distance_ma250_pct": -23.34,
           "ytd_return_pct": -21.01,
-          "distance_52w_high_pct": -32.71
+          "distance_52w_high_pct": -33.15
         },
         {
           "code": "001324",
@@ -474,7 +474,7 @@
           "today_return_pct": 3.35,
           "distance_ma250_pct": -4.59,
           "ytd_return_pct": 3.64,
-          "distance_52w_high_pct": -17.61
+          "distance_52w_high_pct": -21.98
         },
         {
           "code": "603718",
@@ -483,7 +483,7 @@
           "today_return_pct": -2.45,
           "distance_ma250_pct": -53.1,
           "ytd_return_pct": -57.6,
-          "distance_52w_high_pct": -63.62
+          "distance_52w_high_pct": -64.5
         },
         {
           "code": "000919",
@@ -492,7 +492,7 @@
           "today_return_pct": -3.18,
           "distance_ma250_pct": -18.12,
           "ytd_return_pct": -24.74,
-          "distance_52w_high_pct": -34.09
+          "distance_52w_high_pct": -40.04
         },
         {
           "code": "301395",
@@ -501,7 +501,7 @@
           "today_return_pct": 0.88,
           "distance_ma250_pct": 0.89,
           "ytd_return_pct": -4.89,
-          "distance_52w_high_pct": -23.13
+          "distance_52w_high_pct": -25.79
         },
         {
           "code": "301133",
@@ -510,7 +510,7 @@
           "today_return_pct": -3.65,
           "distance_ma250_pct": 14.1,
           "ytd_return_pct": -3.68,
-          "distance_52w_high_pct": -21.73
+          "distance_52w_high_pct": -24.2
         },
         {
           "code": "300829",
@@ -519,7 +519,7 @@
           "today_return_pct": -1.86,
           "distance_ma250_pct": -24.18,
           "ytd_return_pct": -18.19,
-          "distance_52w_high_pct": -38.03
+          "distance_52w_high_pct": -39.98
         },
         {
           "code": "002863",
@@ -528,7 +528,7 @@
           "today_return_pct": -2.49,
           "distance_ma250_pct": -21.44,
           "ytd_return_pct": -25.04,
-          "distance_52w_high_pct": -30.93
+          "distance_52w_high_pct": -35.67
         },
         {
           "code": "603321",
@@ -537,7 +537,7 @@
           "today_return_pct": -2.16,
           "distance_ma250_pct": -23.98,
           "ytd_return_pct": -25.6,
-          "distance_52w_high_pct": -34.3
+          "distance_52w_high_pct": -35.94
         },
         {
           "code": "000793",
@@ -546,7 +546,7 @@
           "today_return_pct": -1.2,
           "distance_ma250_pct": -9.94,
           "ytd_return_pct": -10.18,
-          "distance_52w_high_pct": -24.92
+          "distance_52w_high_pct": -28.41
         },
         {
           "code": "601528",
@@ -555,7 +555,7 @@
           "today_return_pct": -0.88,
           "distance_ma250_pct": -14.33,
           "ytd_return_pct": -16.82,
-          "distance_52w_high_pct": -23.34
+          "distance_52w_high_pct": -23.99
         },
         {
           "code": "300225",
@@ -564,7 +564,7 @@
           "today_return_pct": 0.25,
           "distance_ma250_pct": 39.87,
           "ytd_return_pct": 38.89,
-          "distance_52w_high_pct": -18.45
+          "distance_52w_high_pct": -21.34
         },
         {
           "code": "688367",
@@ -573,7 +573,7 @@
           "today_return_pct": -7.82,
           "distance_ma250_pct": 14.51,
           "ytd_return_pct": 9.71,
-          "distance_52w_high_pct": -30.76
+          "distance_52w_high_pct": -38.18
         },
         {
           "code": "605162",
@@ -591,7 +591,7 @@
           "today_return_pct": 9.26,
           "distance_ma250_pct": 56.56,
           "ytd_return_pct": 59.31,
-          "distance_52w_high_pct": 0.0
+          "distance_52w_high_pct": -0.89
         },
         {
           "code": "301083",
@@ -600,7 +600,7 @@
           "today_return_pct": -1.49,
           "distance_ma250_pct": -26.16,
           "ytd_return_pct": -30.67,
-          "distance_52w_high_pct": -48.44
+          "distance_52w_high_pct": -50.52
         },
         {
           "code": "600222",
@@ -609,7 +609,7 @@
           "today_return_pct": -5.18,
           "distance_ma250_pct": -4.31,
           "ytd_return_pct": -1.64,
-          "distance_52w_high_pct": -24.25
+          "distance_52w_high_pct": -30.12
         },
         {
           "code": "301113",
@@ -618,7 +618,7 @@
           "today_return_pct": -2.08,
           "distance_ma250_pct": -17.91,
           "ytd_return_pct": -23.82,
-          "distance_52w_high_pct": -30.45
+          "distance_52w_high_pct": -31.28
         },
         {
           "code": "300837",
@@ -627,7 +627,7 @@
           "today_return_pct": -3.37,
           "distance_ma250_pct": -22.07,
           "ytd_return_pct": -28.98,
-          "distance_52w_high_pct": -63.09
+          "distance_52w_high_pct": -64.4
         },
         {
           "code": "001360",
@@ -636,7 +636,7 @@
           "today_return_pct": -4.48,
           "distance_ma250_pct": -4.24,
           "ytd_return_pct": -15.42,
-          "distance_52w_high_pct": -37.5
+          "distance_52w_high_pct": -40.31
         },
         {
           "code": "300610",
@@ -645,7 +645,7 @@
           "today_return_pct": -1.59,
           "distance_ma250_pct": -16.5,
           "ytd_return_pct": -15.43,
-          "distance_52w_high_pct": -25.47
+          "distance_52w_high_pct": -27.96
         },
         {
           "code": "301222",
@@ -654,7 +654,7 @@
           "today_return_pct": -5.43,
           "distance_ma250_pct": 25.31,
           "ytd_return_pct": 45.01,
-          "distance_52w_high_pct": -18.28
+          "distance_52w_high_pct": -20.42
         },
         {
           "code": "301515",
@@ -663,7 +663,7 @@
           "today_return_pct": -2.96,
           "distance_ma250_pct": -22.22,
           "ytd_return_pct": -24.15,
-          "distance_52w_high_pct": -34.82
+          "distance_52w_high_pct": -36.61
         },
         {
           "code": "603012",
@@ -672,7 +672,7 @@
           "today_return_pct": 1.16,
           "distance_ma250_pct": 13.64,
           "ytd_return_pct": 31.88,
-          "distance_52w_high_pct": -23.02
+          "distance_52w_high_pct": -23.54
         },
         {
           "code": "688121",
@@ -681,7 +681,7 @@
           "today_return_pct": -16.06,
           "distance_ma250_pct": -46.84,
           "ytd_return_pct": -41.67,
-          "distance_52w_high_pct": -58.46
+          "distance_52w_high_pct": -59.7
         },
         {
           "code": "301170",
@@ -699,7 +699,7 @@
           "today_return_pct": -1.79,
           "distance_ma250_pct": -19.27,
           "ytd_return_pct": -19.48,
-          "distance_52w_high_pct": -27.7
+          "distance_52w_high_pct": -30.31
         },
         {
           "code": "688523",
@@ -708,7 +708,7 @@
           "today_return_pct": 3.19,
           "distance_ma250_pct": 16.7,
           "ytd_return_pct": -17.19,
-          "distance_52w_high_pct": -43.26
+          "distance_52w_high_pct": -45.62
         },
         {
           "code": "603041",
@@ -717,7 +717,7 @@
           "today_return_pct": -0.76,
           "distance_ma250_pct": -16.02,
           "ytd_return_pct": -12.79,
-          "distance_52w_high_pct": -28.13
+          "distance_52w_high_pct": -34.66
         },
         {
           "code": "301019",
@@ -726,7 +726,7 @@
           "today_return_pct": -1.41,
           "distance_ma250_pct": -12.55,
           "ytd_return_pct": -22.39,
-          "distance_52w_high_pct": -38.66
+          "distance_52w_high_pct": -39.11
         },
         {
           "code": "301386",
@@ -735,7 +735,7 @@
           "today_return_pct": -2.62,
           "distance_ma250_pct": -14.87,
           "ytd_return_pct": -12.58,
-          "distance_52w_high_pct": -28.47
+          "distance_52w_high_pct": -29.41
         },
         {
           "code": "300958",
@@ -744,7 +744,7 @@
           "today_return_pct": -1.19,
           "distance_ma250_pct": -19.44,
           "ytd_return_pct": -14.44,
-          "distance_52w_high_pct": -27.16
+          "distance_52w_high_pct": -28.28
         },
         {
           "code": "002753",
@@ -753,7 +753,7 @@
           "today_return_pct": -2.56,
           "distance_ma250_pct": -20.8,
           "ytd_return_pct": -19.72,
-          "distance_52w_high_pct": -30.23
+          "distance_52w_high_pct": -35.3
         },
         {
           "code": "301098",
@@ -762,7 +762,7 @@
           "today_return_pct": -4.39,
           "distance_ma250_pct": -9.96,
           "ytd_return_pct": -4.83,
-          "distance_52w_high_pct": -24.13
+          "distance_52w_high_pct": -26.23
         },
         {
           "code": "600168",
@@ -771,7 +771,7 @@
           "today_return_pct": -1.93,
           "distance_ma250_pct": -18.55,
           "ytd_return_pct": -20.08,
-          "distance_52w_high_pct": -33.88
+          "distance_52w_high_pct": -39.76
         },
         {
           "code": "300800",
@@ -780,7 +780,7 @@
           "today_return_pct": -1.38,
           "distance_ma250_pct": -20.74,
           "ytd_return_pct": -20.83,
-          "distance_52w_high_pct": -28.88
+          "distance_52w_high_pct": -29.31
         },
         {
           "code": "300259",
@@ -789,7 +789,7 @@
           "today_return_pct": 5.87,
           "distance_ma250_pct": 26.5,
           "ytd_return_pct": 25.34,
-          "distance_52w_high_pct": -25.17
+          "distance_52w_high_pct": -25.47
         },
         {
           "code": "301223",
@@ -798,7 +798,7 @@
           "today_return_pct": -1.74,
           "distance_ma250_pct": -11.87,
           "ytd_return_pct": -13.45,
-          "distance_52w_high_pct": -24.58
+          "distance_52w_high_pct": -24.69
         },
         {
           "code": "600834",
@@ -807,7 +807,7 @@
           "today_return_pct": -1.03,
           "distance_ma250_pct": -21.2,
           "ytd_return_pct": -20.05,
-          "distance_52w_high_pct": -28.95
+          "distance_52w_high_pct": -29.1
         },
         {
           "code": "300933",
@@ -816,7 +816,7 @@
           "today_return_pct": -4.13,
           "distance_ma250_pct": -27.89,
           "ytd_return_pct": -27.14,
-          "distance_52w_high_pct": -39.66
+          "distance_52w_high_pct": -41.47
         },
         {
           "code": "601996",
@@ -825,7 +825,7 @@
           "today_return_pct": -3.62,
           "distance_ma250_pct": -12.86,
           "ytd_return_pct": -7.39,
-          "distance_52w_high_pct": -31.95
+          "distance_52w_high_pct": -33.44
         },
         {
           "code": "002412",
@@ -834,7 +834,7 @@
           "today_return_pct": -3.51,
           "distance_ma250_pct": -14.21,
           "ytd_return_pct": -12.7,
-          "distance_52w_high_pct": -28.1
+          "distance_52w_high_pct": -33.01
         },
         {
           "code": "301106",
@@ -843,7 +843,7 @@
           "today_return_pct": -2.96,
           "distance_ma250_pct": -0.99,
           "ytd_return_pct": 3.1,
-          "distance_52w_high_pct": -17.39
+          "distance_52w_high_pct": -20.97
         },
         {
           "code": "300514",
@@ -852,7 +852,7 @@
           "today_return_pct": -2.53,
           "distance_ma250_pct": -31.45,
           "ytd_return_pct": -31.71,
-          "distance_52w_high_pct": -39.05
+          "distance_52w_high_pct": -42.75
         },
         {
           "code": "603066",
@@ -861,7 +861,7 @@
           "today_return_pct": -1.8,
           "distance_ma250_pct": -12.09,
           "ytd_return_pct": -8.92,
-          "distance_52w_high_pct": -21.1
+          "distance_52w_high_pct": -21.73
         },
         {
           "code": "002788",
@@ -870,7 +870,7 @@
           "today_return_pct": -4.29,
           "distance_ma250_pct": -17.29,
           "ytd_return_pct": -51.33,
-          "distance_52w_high_pct": -63.44
+          "distance_52w_high_pct": -64.48
         },
         {
           "code": "300978",
@@ -879,7 +879,7 @@
           "today_return_pct": -8.17,
           "distance_ma250_pct": -26.17,
           "ytd_return_pct": -32.79,
-          "distance_52w_high_pct": -42.94
+          "distance_52w_high_pct": -43.84
         },
         {
           "code": "301587",
@@ -888,7 +888,7 @@
           "today_return_pct": -4.8,
           "distance_ma250_pct": -11.65,
           "ytd_return_pct": -7.69,
-          "distance_52w_high_pct": -29.32
+          "distance_52w_high_pct": -29.39
         },
         {
           "code": "603190",
@@ -897,7 +897,7 @@
           "today_return_pct": -2.62,
           "distance_ma250_pct": -8.96,
           "ytd_return_pct": -12.95,
-          "distance_52w_high_pct": -21.24
+          "distance_52w_high_pct": -21.83
         },
         {
           "code": "301539",
@@ -906,7 +906,7 @@
           "today_return_pct": -1.71,
           "distance_ma250_pct": -31.81,
           "ytd_return_pct": -36.27,
-          "distance_52w_high_pct": -42.34
+          "distance_52w_high_pct": -43.38
         },
         {
           "code": "600017",
@@ -915,7 +915,7 @@
           "today_return_pct": -1.17,
           "distance_ma250_pct": -16.14,
           "ytd_return_pct": -13.9,
-          "distance_52w_high_pct": -23.03
+          "distance_52w_high_pct": -23.49
         },
         {
           "code": "301588",
@@ -924,7 +924,7 @@
           "today_return_pct": 8.96,
           "distance_ma250_pct": 77.89,
           "ytd_return_pct": 127.95,
-          "distance_52w_high_pct": 0.0
+          "distance_52w_high_pct": -5.45
         },
         {
           "code": "301332",
@@ -933,7 +933,7 @@
           "today_return_pct": -2.33,
           "distance_ma250_pct": -22.09,
           "ytd_return_pct": -18.95,
-          "distance_52w_high_pct": -33.42
+          "distance_52w_high_pct": -35.48
         },
         {
           "code": "603558",
@@ -942,7 +942,7 @@
           "today_return_pct": -1.16,
           "distance_ma250_pct": 0.79,
           "ytd_return_pct": 1.37,
-          "distance_52w_high_pct": -26.05
+          "distance_52w_high_pct": -27.17
         },
         {
           "code": "601065",
@@ -951,7 +951,7 @@
           "today_return_pct": -1.33,
           "distance_ma250_pct": -20.06,
           "ytd_return_pct": -19.88,
-          "distance_52w_high_pct": -27.52
+          "distance_52w_high_pct": -27.91
         },
         {
           "code": "301499",
@@ -960,7 +960,7 @@
           "today_return_pct": -12.32,
           "distance_ma250_pct": -1.39,
           "ytd_return_pct": -0.2,
-          "distance_52w_high_pct": -23.12
+          "distance_52w_high_pct": -25.31
         },
         {
           "code": "300441",
@@ -969,7 +969,7 @@
           "today_return_pct": -4.1,
           "distance_ma250_pct": -17.43,
           "ytd_return_pct": -16.73,
-          "distance_52w_high_pct": -32.12
+          "distance_52w_high_pct": -34.1
         },
         {
           "code": "301329",
@@ -978,7 +978,7 @@
           "today_return_pct": -3.5,
           "distance_ma250_pct": 6.67,
           "ytd_return_pct": 2.93,
-          "distance_52w_high_pct": -26.62
+          "distance_52w_high_pct": -26.64
         },
         {
           "code": "603107",
@@ -987,7 +987,7 @@
           "today_return_pct": -2.5,
           "distance_ma250_pct": -23.18,
           "ytd_return_pct": -22.98,
-          "distance_52w_high_pct": -30.36
+          "distance_52w_high_pct": -31.66
         },
         {
           "code": "600628",
@@ -996,7 +996,7 @@
           "today_return_pct": -1.39,
           "distance_ma250_pct": -24.14,
           "ytd_return_pct": -28.37,
-          "distance_52w_high_pct": -37.79
+          "distance_52w_high_pct": -41.86
         },
         {
           "code": "603055",
@@ -1005,7 +1005,7 @@
           "today_return_pct": -4.46,
           "distance_ma250_pct": -12.11,
           "ytd_return_pct": -12.38,
-          "distance_52w_high_pct": -23.08
+          "distance_52w_high_pct": -28.24
         }
       ]
     },
@@ -1032,7 +1032,7 @@
           "today_return_pct": -6.9,
           "distance_ma250_pct": -11.26,
           "ytd_return_pct": -13.87,
-          "distance_52w_high_pct": -34.54
+          "distance_52w_high_pct": -39.8
         },
         {
           "code": "301195",
@@ -1041,7 +1041,7 @@
           "today_return_pct": -6.67,
           "distance_ma250_pct": -22.87,
           "ytd_return_pct": -25.42,
-          "distance_52w_high_pct": -36.21
+          "distance_52w_high_pct": -36.85
         },
         {
           "code": "688589",
@@ -1050,7 +1050,7 @@
           "today_return_pct": -4.56,
           "distance_ma250_pct": -16.02,
           "ytd_return_pct": -15.98,
-          "distance_52w_high_pct": -29.09
+          "distance_52w_high_pct": -30.46
         },
         {
           "code": "603617",
@@ -1059,7 +1059,7 @@
           "today_return_pct": -3.12,
           "distance_ma250_pct": -7.77,
           "ytd_return_pct": -3.9,
-          "distance_52w_high_pct": -28.5
+          "distance_52w_high_pct": -31.18
         },
         {
           "code": "688391",
@@ -1068,7 +1068,7 @@
           "today_return_pct": -2.26,
           "distance_ma250_pct": 8.6,
           "ytd_return_pct": 15.39,
-          "distance_52w_high_pct": -3.87
+          "distance_52w_high_pct": -5.73
         },
         {
           "code": "301418",
@@ -1077,7 +1077,7 @@
           "today_return_pct": -0.73,
           "distance_ma250_pct": 38.88,
           "ytd_return_pct": 47.16,
-          "distance_52w_high_pct": -0.73
+          "distance_52w_high_pct": -4.66
         },
         {
           "code": "300234",
@@ -1086,7 +1086,7 @@
           "today_return_pct": -2.46,
           "distance_ma250_pct": 80.82,
           "ytd_return_pct": 105.56,
-          "distance_52w_high_pct": -2.63
+          "distance_52w_high_pct": -4.8
         },
         {
           "code": "300039",
@@ -1095,7 +1095,7 @@
           "today_return_pct": -0.48,
           "distance_ma250_pct": -31.5,
           "ytd_return_pct": -31.48,
-          "distance_52w_high_pct": -39.94
+          "distance_52w_high_pct": -40.54
         },
         {
           "code": "300174",
@@ -1104,7 +1104,7 @@
           "today_return_pct": -7.72,
           "distance_ma250_pct": 75.39,
           "ytd_return_pct": 94.49,
-          "distance_52w_high_pct": -7.72
+          "distance_52w_high_pct": -14.03
         },
         {
           "code": "603231",
@@ -1113,7 +1113,7 @@
           "today_return_pct": -1.97,
           "distance_ma250_pct": -17.84,
           "ytd_return_pct": -19.33,
-          "distance_52w_high_pct": -32.43
+          "distance_52w_high_pct": -33.39
         },
         {
           "code": "603527",
@@ -1122,7 +1122,7 @@
           "today_return_pct": -9.02,
           "distance_ma250_pct": 10.35,
           "ytd_return_pct": 15.61,
-          "distance_52w_high_pct": -14.03
+          "distance_52w_high_pct": -17.09
         },
         {
           "code": "301355",
@@ -1131,7 +1131,7 @@
           "today_return_pct": -2.8,
           "distance_ma250_pct": -25.09,
           "ytd_return_pct": -30.02,
-          "distance_52w_high_pct": -41.98
+          "distance_52w_high_pct": -44.88
         },
         {
           "code": "300588",
@@ -1140,7 +1140,7 @@
           "today_return_pct": 1.09,
           "distance_ma250_pct": 0.56,
           "ytd_return_pct": -15.04,
-          "distance_52w_high_pct": -28.7
+          "distance_52w_high_pct": -30.76
         },
         {
           "code": "301298",
@@ -1149,7 +1149,7 @@
           "today_return_pct": -2.17,
           "distance_ma250_pct": -28.34,
           "ytd_return_pct": -27.46,
-          "distance_52w_high_pct": -35.22
+          "distance_52w_high_pct": -35.57
         },
         {
           "code": "603797",
@@ -1158,7 +1158,7 @@
           "today_return_pct": -1.81,
           "distance_ma250_pct": -19.34,
           "ytd_return_pct": -21.65,
-          "distance_52w_high_pct": -26.92
+          "distance_52w_high_pct": -28.84
         },
         {
           "code": "301578",
@@ -1167,7 +1167,7 @@
           "today_return_pct": -2.84,
           "distance_ma250_pct": -41.02,
           "ytd_return_pct": -40.94,
-          "distance_52w_high_pct": -53.57
+          "distance_52w_high_pct": -54.19
         },
         {
           "code": "001382",
@@ -1176,7 +1176,7 @@
           "today_return_pct": -3.8,
           "distance_ma250_pct": -25.48,
           "ytd_return_pct": -23.97,
-          "distance_52w_high_pct": -37.5
+          "distance_52w_high_pct": -40.21
         },
         {
           "code": "688420",
@@ -1185,7 +1185,7 @@
           "today_return_pct": -1.04,
           "distance_ma250_pct": -17.89,
           "ytd_return_pct": -13.94,
-          "distance_52w_high_pct": -27.71
+          "distance_52w_high_pct": -30.13
         },
         {
           "code": "301028",
@@ -1194,7 +1194,7 @@
           "today_return_pct": -0.69,
           "distance_ma250_pct": 8.87,
           "ytd_return_pct": 7.75,
-          "distance_52w_high_pct": -22.8
+          "distance_52w_high_pct": -27.19
         },
         {
           "code": "301175",
@@ -1203,7 +1203,7 @@
           "today_return_pct": -2.77,
           "distance_ma250_pct": -15.16,
           "ytd_return_pct": -18.3,
-          "distance_52w_high_pct": -36.89
+          "distance_52w_high_pct": -38.93
         },
         {
           "code": "600526",
@@ -1212,7 +1212,7 @@
           "today_return_pct": -2.36,
           "distance_ma250_pct": -21.38,
           "ytd_return_pct": -22.51,
-          "distance_52w_high_pct": -32.74
+          "distance_52w_high_pct": -33.17
         },
         {
           "code": "600496",
@@ -1221,7 +1221,7 @@
           "today_return_pct": -0.31,
           "distance_ma250_pct": -19.32,
           "ytd_return_pct": -23.37,
-          "distance_52w_high_pct": -33.05
+          "distance_52w_high_pct": -33.61
         },
         {
           "code": "300664",
@@ -1230,7 +1230,7 @@
           "today_return_pct": -1.84,
           "distance_ma250_pct": -23.48,
           "ytd_return_pct": -21.69,
-          "distance_52w_high_pct": -32.91
+          "distance_52w_high_pct": -35.06
         },
         {
           "code": "301320",
@@ -1239,7 +1239,7 @@
           "today_return_pct": -4.36,
           "distance_ma250_pct": -28.11,
           "ytd_return_pct": -27.14,
-          "distance_52w_high_pct": -43.69
+          "distance_52w_high_pct": -45.63
         },
         {
           "code": "600339",
@@ -1248,7 +1248,7 @@
           "today_return_pct": -2.21,
           "distance_ma250_pct": -15.7,
           "ytd_return_pct": -7.19,
-          "distance_52w_high_pct": -40.84
+          "distance_52w_high_pct": -44.04
         },
         {
           "code": "688351",
@@ -1257,7 +1257,7 @@
           "today_return_pct": -3.9,
           "distance_ma250_pct": -7.57,
           "ytd_return_pct": -14.89,
-          "distance_52w_high_pct": -22.13
+          "distance_52w_high_pct": -24.17
         },
         {
           "code": "601866",
@@ -1275,7 +1275,7 @@
           "today_return_pct": -2.0,
           "distance_ma250_pct": -22.53,
           "ytd_return_pct": -20.7,
-          "distance_52w_high_pct": -31.47
+          "distance_52w_high_pct": -34.39
         },
         {
           "code": "000790",
@@ -1284,7 +1284,7 @@
           "today_return_pct": -2.5,
           "distance_ma250_pct": -13.18,
           "ytd_return_pct": -10.23,
-          "distance_52w_high_pct": -23.7
+          "distance_52w_high_pct": -26.72
         },
         {
           "code": "301102",
@@ -1293,7 +1293,7 @@
           "today_return_pct": -2.15,
           "distance_ma250_pct": -23.07,
           "ytd_return_pct": -19.22,
-          "distance_52w_high_pct": -37.7
+          "distance_52w_high_pct": -40.56
         },
         {
           "code": "300590",
@@ -1311,7 +1311,7 @@
           "today_return_pct": -5.26,
           "distance_ma250_pct": -21.56,
           "ytd_return_pct": -17.75,
-          "distance_52w_high_pct": -32.26
+          "distance_52w_high_pct": -33.54
         },
         {
           "code": "002661",
@@ -1320,7 +1320,7 @@
           "today_return_pct": -1.56,
           "distance_ma250_pct": -25.95,
           "ytd_return_pct": -24.18,
-          "distance_52w_high_pct": -36.15
+          "distance_52w_high_pct": -37.18
         },
         {
           "code": "603075",
@@ -1329,7 +1329,7 @@
           "today_return_pct": -1.58,
           "distance_ma250_pct": -4.43,
           "ytd_return_pct": -3.45,
-          "distance_52w_high_pct": -22.54
+          "distance_52w_high_pct": -24.6
         },
         {
           "code": "600278",
@@ -1338,7 +1338,7 @@
           "today_return_pct": -4.78,
           "distance_ma250_pct": -21.36,
           "ytd_return_pct": -21.52,
-          "distance_52w_high_pct": -34.43
+          "distance_52w_high_pct": -35.21
         },
         {
           "code": "600718",
@@ -1347,7 +1347,7 @@
           "today_return_pct": -3.73,
           "distance_ma250_pct": -26.59,
           "ytd_return_pct": -29.15,
-          "distance_52w_high_pct": -40.58
+          "distance_52w_high_pct": -43.01
         },
         {
           "code": "600512",
@@ -1356,7 +1356,7 @@
           "today_return_pct": -1.03,
           "distance_ma250_pct": -20.21,
           "ytd_return_pct": -20.58,
-          "distance_52w_high_pct": -28.25
+          "distance_52w_high_pct": -28.78
         },
         {
           "code": "300021",
@@ -1365,7 +1365,7 @@
           "today_return_pct": 3.1,
           "distance_ma250_pct": -15.78,
           "ytd_return_pct": -13.64,
-          "distance_52w_high_pct": -42.67
+          "distance_52w_high_pct": -43.16
         },
         {
           "code": "603329",
@@ -1374,7 +1374,7 @@
           "today_return_pct": -2.47,
           "distance_ma250_pct": -19.66,
           "ytd_return_pct": -17.84,
-          "distance_52w_high_pct": -28.07
+          "distance_52w_high_pct": -28.47
         },
         {
           "code": "301507",
@@ -1383,7 +1383,7 @@
           "today_return_pct": -4.06,
           "distance_ma250_pct": -18.25,
           "ytd_return_pct": -24.78,
-          "distance_52w_high_pct": -32.27
+          "distance_52w_high_pct": -37.4
         },
         {
           "code": "001378",
@@ -1392,7 +1392,7 @@
           "today_return_pct": -2.55,
           "distance_ma250_pct": -21.64,
           "ytd_return_pct": -21.89,
-          "distance_52w_high_pct": -35.98
+          "distance_52w_high_pct": -37.21
         },
         {
           "code": "688571",
@@ -1401,7 +1401,7 @@
           "today_return_pct": -3.59,
           "distance_ma250_pct": -0.67,
           "ytd_return_pct": 7.19,
-          "distance_52w_high_pct": -20.06
+          "distance_52w_high_pct": -21.31
         },
         {
           "code": "301469",
@@ -1410,7 +1410,7 @@
           "today_return_pct": -2.47,
           "distance_ma250_pct": -9.26,
           "ytd_return_pct": -9.91,
-          "distance_52w_high_pct": -32.88
+          "distance_52w_high_pct": -35.37
         },
         {
           "code": "688718",
@@ -1419,7 +1419,7 @@
           "today_return_pct": -5.21,
           "distance_ma250_pct": 3.26,
           "ytd_return_pct": 15.13,
-          "distance_52w_high_pct": -21.49
+          "distance_52w_high_pct": -23.33
         },
         {
           "code": "002035",
@@ -1428,7 +1428,7 @@
           "today_return_pct": -1.98,
           "distance_ma250_pct": -27.71,
           "ytd_return_pct": -28.64,
-          "distance_52w_high_pct": -34.99
+          "distance_52w_high_pct": -35.73
         },
         {
           "code": "603153",
@@ -1437,7 +1437,7 @@
           "today_return_pct": -2.55,
           "distance_ma250_pct": -26.85,
           "ytd_return_pct": -27.79,
-          "distance_52w_high_pct": -38.15
+          "distance_52w_high_pct": -39.86
         },
         {
           "code": "301520",
@@ -1446,7 +1446,7 @@
           "today_return_pct": -2.77,
           "distance_ma250_pct": -44.09,
           "ytd_return_pct": -42.35,
-          "distance_52w_high_pct": -51.91
+          "distance_52w_high_pct": -53.67
         },
         {
           "code": "600713",
@@ -1455,7 +1455,7 @@
           "today_return_pct": -2.12,
           "distance_ma250_pct": -3.54,
           "ytd_return_pct": -8.15,
-          "distance_52w_high_pct": -20.78
+          "distance_52w_high_pct": -23.76
         },
         {
           "code": "301508",
@@ -1464,7 +1464,7 @@
           "today_return_pct": -3.59,
           "distance_ma250_pct": -27.44,
           "ytd_return_pct": -28.12,
-          "distance_52w_high_pct": -36.4
+          "distance_52w_high_pct": -37.16
         },
         {
           "code": "301552",
@@ -1473,7 +1473,7 @@
           "today_return_pct": -3.93,
           "distance_ma250_pct": -40.76,
           "ytd_return_pct": -40.69,
-          "distance_52w_high_pct": -49.47
+          "distance_52w_high_pct": -50.12
         },
         {
           "code": "001324",
@@ -1482,7 +1482,7 @@
           "today_return_pct": 3.35,
           "distance_ma250_pct": -5.01,
           "ytd_return_pct": 3.24,
-          "distance_52w_high_pct": -18.15
+          "distance_52w_high_pct": -22.5
         },
         {
           "code": "603718",
@@ -1491,7 +1491,7 @@
           "today_return_pct": -2.45,
           "distance_ma250_pct": -53.15,
           "ytd_return_pct": -57.6,
-          "distance_52w_high_pct": -63.91
+          "distance_52w_high_pct": -64.86
         },
         {
           "code": "000919",
@@ -1500,7 +1500,7 @@
           "today_return_pct": -3.18,
           "distance_ma250_pct": -19.48,
           "ytd_return_pct": -25.99,
-          "distance_52w_high_pct": -35.13
+          "distance_52w_high_pct": -41.02
         },
         {
           "code": "301395",
@@ -1509,7 +1509,7 @@
           "today_return_pct": 0.88,
           "distance_ma250_pct": -0.04,
           "ytd_return_pct": -4.89,
-          "distance_52w_high_pct": -23.13
+          "distance_52w_high_pct": -25.79
         },
         {
           "code": "301133",
@@ -1518,7 +1518,7 @@
           "today_return_pct": -3.65,
           "distance_ma250_pct": 14.08,
           "ytd_return_pct": -3.68,
-          "distance_52w_high_pct": -21.73
+          "distance_52w_high_pct": -24.2
         },
         {
           "code": "300829",
@@ -1527,7 +1527,7 @@
           "today_return_pct": -1.86,
           "distance_ma250_pct": -24.6,
           "ytd_return_pct": -18.67,
-          "distance_52w_high_pct": -38.39
+          "distance_52w_high_pct": -40.32
         },
         {
           "code": "002863",
@@ -1536,7 +1536,7 @@
           "today_return_pct": -2.49,
           "distance_ma250_pct": -21.45,
           "ytd_return_pct": -25.04,
-          "distance_52w_high_pct": -30.93
+          "distance_52w_high_pct": -35.67
         },
         {
           "code": "603321",
@@ -1545,7 +1545,7 @@
           "today_return_pct": -2.16,
           "distance_ma250_pct": -24.62,
           "ytd_return_pct": -26.16,
-          "distance_52w_high_pct": -34.81
+          "distance_52w_high_pct": -36.49
         },
         {
           "code": "000793",
@@ -1554,7 +1554,7 @@
           "today_return_pct": -1.2,
           "distance_ma250_pct": -9.94,
           "ytd_return_pct": -10.18,
-          "distance_52w_high_pct": -24.92
+          "distance_52w_high_pct": -28.41
         },
         {
           "code": "601528",
@@ -1563,7 +1563,7 @@
           "today_return_pct": -0.88,
           "distance_ma250_pct": -17.36,
           "ytd_return_pct": -20.21,
-          "distance_52w_high_pct": -26.35
+          "distance_52w_high_pct": -27.07
         },
         {
           "code": "300225",
@@ -1572,7 +1572,7 @@
           "today_return_pct": 0.25,
           "distance_ma250_pct": 39.77,
           "ytd_return_pct": 38.89,
-          "distance_52w_high_pct": -18.45
+          "distance_52w_high_pct": -21.34
         },
         {
           "code": "688367",
@@ -1581,7 +1581,7 @@
           "today_return_pct": -7.82,
           "distance_ma250_pct": 14.48,
           "ytd_return_pct": 9.71,
-          "distance_52w_high_pct": -30.76
+          "distance_52w_high_pct": -38.18
         },
         {
           "code": "605162",
@@ -1599,7 +1599,7 @@
           "today_return_pct": 9.26,
           "distance_ma250_pct": 56.53,
           "ytd_return_pct": 59.31,
-          "distance_52w_high_pct": 0.0
+          "distance_52w_high_pct": -0.89
         },
         {
           "code": "301083",
@@ -1608,7 +1608,7 @@
           "today_return_pct": -1.49,
           "distance_ma250_pct": -26.16,
           "ytd_return_pct": -30.67,
-          "distance_52w_high_pct": -48.44
+          "distance_52w_high_pct": -50.52
         },
         {
           "code": "600222",
@@ -1617,7 +1617,7 @@
           "today_return_pct": -5.18,
           "distance_ma250_pct": -4.39,
           "ytd_return_pct": -1.79,
-          "distance_52w_high_pct": -24.25
+          "distance_52w_high_pct": -30.19
         },
         {
           "code": "301113",
@@ -1626,7 +1626,7 @@
           "today_return_pct": -2.08,
           "distance_ma250_pct": -35.99,
           "ytd_return_pct": -41.86,
-          "distance_52w_high_pct": -46.74
+          "distance_52w_high_pct": -47.39
         },
         {
           "code": "300837",
@@ -1635,7 +1635,7 @@
           "today_return_pct": -3.37,
           "distance_ma250_pct": -22.82,
           "ytd_return_pct": -29.71,
-          "distance_52w_high_pct": -63.47
+          "distance_52w_high_pct": -64.76
         },
         {
           "code": "001360",
@@ -1644,7 +1644,7 @@
           "today_return_pct": -4.48,
           "distance_ma250_pct": -5.11,
           "ytd_return_pct": -16.19,
-          "distance_52w_high_pct": -38.07
+          "distance_52w_high_pct": -40.87
         },
         {
           "code": "300610",
@@ -1653,7 +1653,7 @@
           "today_return_pct": -1.59,
           "distance_ma250_pct": -16.54,
           "ytd_return_pct": -15.43,
-          "distance_52w_high_pct": -25.47
+          "distance_52w_high_pct": -27.96
         },
         {
           "code": "301222",
@@ -1662,7 +1662,7 @@
           "today_return_pct": -5.43,
           "distance_ma250_pct": -8.25,
           "ytd_return_pct": 2.37,
-          "distance_52w_high_pct": -42.14
+          "distance_52w_high_pct": -43.81
         },
         {
           "code": "301515",
@@ -1671,7 +1671,7 @@
           "today_return_pct": -2.96,
           "distance_ma250_pct": -22.26,
           "ytd_return_pct": -24.15,
-          "distance_52w_high_pct": -34.82
+          "distance_52w_high_pct": -36.61
         },
         {
           "code": "603012",
@@ -1680,7 +1680,7 @@
           "today_return_pct": 1.16,
           "distance_ma250_pct": 12.47,
           "ytd_return_pct": 30.35,
-          "distance_52w_high_pct": -23.84
+          "distance_52w_high_pct": -24.35
         },
         {
           "code": "688121",
@@ -1689,7 +1689,7 @@
           "today_return_pct": -16.06,
           "distance_ma250_pct": -46.84,
           "ytd_return_pct": -41.67,
-          "distance_52w_high_pct": -58.46
+          "distance_52w_high_pct": -59.7
         },
         {
           "code": "301170",
@@ -1707,7 +1707,7 @@
           "today_return_pct": -1.79,
           "distance_ma250_pct": -19.29,
           "ytd_return_pct": -19.48,
-          "distance_52w_high_pct": -27.7
+          "distance_52w_high_pct": -30.31
         },
         {
           "code": "688523",
@@ -1716,7 +1716,7 @@
           "today_return_pct": 3.19,
           "distance_ma250_pct": 16.7,
           "ytd_return_pct": -17.19,
-          "distance_52w_high_pct": -43.26
+          "distance_52w_high_pct": -45.62
         },
         {
           "code": "603041",
@@ -1725,7 +1725,7 @@
           "today_return_pct": -0.76,
           "distance_ma250_pct": -16.91,
           "ytd_return_pct": -13.72,
-          "distance_52w_high_pct": -28.91
+          "distance_52w_high_pct": -35.34
         },
         {
           "code": "301019",
@@ -1734,7 +1734,7 @@
           "today_return_pct": -1.41,
           "distance_ma250_pct": -12.69,
           "ytd_return_pct": -22.39,
-          "distance_52w_high_pct": -38.66
+          "distance_52w_high_pct": -39.11
         },
         {
           "code": "301386",
@@ -1743,7 +1743,7 @@
           "today_return_pct": -2.62,
           "distance_ma250_pct": -16.66,
           "ytd_return_pct": -14.52,
-          "distance_52w_high_pct": -30.06
+          "distance_52w_high_pct": -30.98
         },
         {
           "code": "300958",
@@ -1752,7 +1752,7 @@
           "today_return_pct": -1.19,
           "distance_ma250_pct": -19.44,
           "ytd_return_pct": -14.44,
-          "distance_52w_high_pct": -27.16
+          "distance_52w_high_pct": -28.28
         },
         {
           "code": "002753",
@@ -1761,7 +1761,7 @@
           "today_return_pct": -2.56,
           "distance_ma250_pct": -21.38,
           "ytd_return_pct": -20.28,
-          "distance_52w_high_pct": -30.74
+          "distance_52w_high_pct": -35.81
         },
         {
           "code": "301098",
@@ -1770,7 +1770,7 @@
           "today_return_pct": -4.39,
           "distance_ma250_pct": -9.99,
           "ytd_return_pct": -4.83,
-          "distance_52w_high_pct": -24.13
+          "distance_52w_high_pct": -26.23
         },
         {
           "code": "600168",
@@ -1779,7 +1779,7 @@
           "today_return_pct": -2.64,
           "distance_ma250_pct": -19.15,
           "ytd_return_pct": -20.7,
-          "distance_52w_high_pct": -34.3
+          "distance_52w_high_pct": -40.21
         },
         {
           "code": "300800",
@@ -1788,7 +1788,7 @@
           "today_return_pct": -1.38,
           "distance_ma250_pct": -21.35,
           "ytd_return_pct": -21.5,
-          "distance_52w_high_pct": -29.47
+          "distance_52w_high_pct": -29.89
         },
         {
           "code": "300259",
@@ -1797,7 +1797,7 @@
           "today_return_pct": 5.87,
           "distance_ma250_pct": 24.49,
           "ytd_return_pct": 22.59,
-          "distance_52w_high_pct": -25.17
+          "distance_52w_high_pct": -25.47
         },
         {
           "code": "301223",
@@ -1806,7 +1806,7 @@
           "today_return_pct": -1.74,
           "distance_ma250_pct": -13.6,
           "ytd_return_pct": -15.21,
-          "distance_52w_high_pct": -26.13
+          "distance_52w_high_pct": -26.23
         },
         {
           "code": "600834",
@@ -1815,7 +1815,7 @@
           "today_return_pct": -1.03,
           "distance_ma250_pct": -21.3,
           "ytd_return_pct": -20.24,
-          "distance_52w_high_pct": -29.1
+          "distance_52w_high_pct": -29.25
         },
         {
           "code": "300933",
@@ -1824,7 +1824,7 @@
           "today_return_pct": -4.13,
           "distance_ma250_pct": -27.92,
           "ytd_return_pct": -27.14,
-          "distance_52w_high_pct": -39.66
+          "distance_52w_high_pct": -41.47
         },
         {
           "code": "601996",
@@ -1833,7 +1833,7 @@
           "today_return_pct": -3.62,
           "distance_ma250_pct": -12.86,
           "ytd_return_pct": -7.39,
-          "distance_52w_high_pct": -31.95
+          "distance_52w_high_pct": -33.44
         },
         {
           "code": "002412",
@@ -1842,7 +1842,7 @@
           "today_return_pct": -3.51,
           "distance_ma250_pct": -18.01,
           "ytd_return_pct": -16.67,
-          "distance_52w_high_pct": -31.42
+          "distance_52w_high_pct": -36.05
         },
         {
           "code": "301106",
@@ -1851,7 +1851,7 @@
           "today_return_pct": -2.96,
           "distance_ma250_pct": -28.34,
           "ytd_return_pct": -27.06,
-          "distance_52w_high_pct": -39.94
+          "distance_52w_high_pct": -42.89
         },
         {
           "code": "300514",
@@ -1860,7 +1860,7 @@
           "today_return_pct": -2.53,
           "distance_ma250_pct": -31.6,
           "ytd_return_pct": -31.71,
-          "distance_52w_high_pct": -39.05
+          "distance_52w_high_pct": -42.75
         },
         {
           "code": "603066",
@@ -1869,7 +1869,7 @@
           "today_return_pct": -1.8,
           "distance_ma250_pct": -12.33,
           "ytd_return_pct": -9.18,
-          "distance_52w_high_pct": -21.35
+          "distance_52w_high_pct": -21.97
         },
         {
           "code": "002788",
@@ -1878,7 +1878,7 @@
           "today_return_pct": -4.29,
           "distance_ma250_pct": -17.44,
           "ytd_return_pct": -51.33,
-          "distance_52w_high_pct": -63.44
+          "distance_52w_high_pct": -64.48
         },
         {
           "code": "300978",
@@ -1887,7 +1887,7 @@
           "today_return_pct": -8.17,
           "distance_ma250_pct": -28.74,
           "ytd_return_pct": -35.18,
-          "distance_52w_high_pct": -44.97
+          "distance_52w_high_pct": -45.84
         },
         {
           "code": "301587",
@@ -1896,7 +1896,7 @@
           "today_return_pct": -4.8,
           "distance_ma250_pct": -11.83,
           "ytd_return_pct": -7.69,
-          "distance_52w_high_pct": -29.32
+          "distance_52w_high_pct": -29.39
         },
         {
           "code": "603190",
@@ -1905,7 +1905,7 @@
           "today_return_pct": -2.62,
           "distance_ma250_pct": -9.09,
           "ytd_return_pct": -12.95,
-          "distance_52w_high_pct": -21.24
+          "distance_52w_high_pct": -21.83
         },
         {
           "code": "301539",
@@ -1914,7 +1914,7 @@
           "today_return_pct": -1.71,
           "distance_ma250_pct": -31.81,
           "ytd_return_pct": -36.27,
-          "distance_52w_high_pct": -42.34
+          "distance_52w_high_pct": -43.38
         },
         {
           "code": "600017",
@@ -1923,7 +1923,7 @@
           "today_return_pct": -1.17,
           "distance_ma250_pct": -17.69,
           "ytd_return_pct": -15.33,
-          "distance_52w_high_pct": -24.85
+          "distance_52w_high_pct": -25.29
         },
         {
           "code": "301588",
@@ -1932,7 +1932,7 @@
           "today_return_pct": 8.96,
           "distance_ma250_pct": 77.86,
           "ytd_return_pct": 127.95,
-          "distance_52w_high_pct": 0.0
+          "distance_52w_high_pct": -5.45
         },
         {
           "code": "301332",
@@ -1941,7 +1941,7 @@
           "today_return_pct": -2.33,
           "distance_ma250_pct": -23.42,
           "ytd_return_pct": -20.4,
-          "distance_52w_high_pct": -34.64
+          "distance_52w_high_pct": -36.62
         },
         {
           "code": "603558",
@@ -1950,7 +1950,7 @@
           "today_return_pct": -1.16,
           "distance_ma250_pct": -1.81,
           "ytd_return_pct": -1.25,
-          "distance_52w_high_pct": -27.92
+          "distance_52w_high_pct": -29.03
         },
         {
           "code": "601065",
@@ -1959,7 +1959,7 @@
           "today_return_pct": -1.33,
           "distance_ma250_pct": -20.1,
           "ytd_return_pct": -19.88,
-          "distance_52w_high_pct": -27.52
+          "distance_52w_high_pct": -27.91
         },
         {
           "code": "301499",
@@ -1968,7 +1968,7 @@
           "today_return_pct": -12.32,
           "distance_ma250_pct": -1.64,
           "ytd_return_pct": -0.43,
-          "distance_52w_high_pct": -23.27
+          "distance_52w_high_pct": -25.47
         },
         {
           "code": "300441",
@@ -1977,7 +1977,7 @@
           "today_return_pct": -4.1,
           "distance_ma250_pct": -18.17,
           "ytd_return_pct": -17.49,
-          "distance_52w_high_pct": -32.77
+          "distance_52w_high_pct": -34.71
         },
         {
           "code": "301329",
@@ -1986,7 +1986,7 @@
           "today_return_pct": -3.5,
           "distance_ma250_pct": 5.88,
           "ytd_return_pct": 2.28,
-          "distance_52w_high_pct": -27.08
+          "distance_52w_high_pct": -27.1
         },
         {
           "code": "603107",
@@ -1995,7 +1995,7 @@
           "today_return_pct": -2.5,
           "distance_ma250_pct": -24.84,
           "ytd_return_pct": -24.72,
-          "distance_52w_high_pct": -31.95
+          "distance_52w_high_pct": -33.2
         },
         {
           "code": "600628",
@@ -2004,7 +2004,7 @@
           "today_return_pct": -1.39,
           "distance_ma250_pct": -24.21,
           "ytd_return_pct": -28.37,
-          "distance_52w_high_pct": -37.79
+          "distance_52w_high_pct": -41.86
         },
         {
           "code": "603055",
@@ -2013,7 +2013,7 @@
           "today_return_pct": -4.46,
           "distance_ma250_pct": -13.86,
           "ytd_return_pct": -14.27,
-          "distance_52w_high_pct": -24.69
+          "distance_52w_high_pct": -29.76
         }
       ]
     }
