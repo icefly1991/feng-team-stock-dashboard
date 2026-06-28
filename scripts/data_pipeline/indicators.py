@@ -18,7 +18,7 @@ def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, float]:
     high_52w = float(ordered["close"].tail(252).max())
 
     return {
-        "close": round(close, 1),
+        "close": round(close, 2),
         "today_return_pct": round(today_return_pct, 2),
         "distance_ma250_pct": round(percent_change(close, ma250), 2),
         "ytd_return_pct": round(percent_change(close, year_start_close), 2),
@@ -35,7 +35,7 @@ def normalize_history(frame: pd.DataFrame) -> pd.DataFrame:
     ordered["close"] = ordered["close"].astype(float)
     ordered = ordered.sort_values("trade_date").reset_index(drop=True)
 
-    if len(ordered) < 250:
+    if len(ordered) < 252:
         raise ValueError("Not enough history to calculate MA250.")
 
     return ordered

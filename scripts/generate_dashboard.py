@@ -10,14 +10,14 @@ def main() -> None:
     config = build_runtime_config()
     client = TusharePipelineClient(config)
     rows_by_adjustment, errors = client.build_adjustment_rows()
-    payload = build_dashboard_payload(rows_by_adjustment, errors, updated_at=config.updated_at)
-    export_dashboard(config.output_path, payload)
-
-    print(f"Wrote {config.output_path}")
-    if errors:
-        print("Failed symbols:")
-        for item in errors:
-            print(f"- {item['code']}: {item['error']}")
+    payload = build_dashboard_payload(
+        rows_by_adjustment,
+        errors,
+        watchlist_total=len(config.watchlist),
+        updated_at=config.updated_at,
+    )
+    export_dashboard(config.output_json_file, payload)
+    print(f"Wrote {config.output_json_file}")
 
 
 if __name__ == "__main__":

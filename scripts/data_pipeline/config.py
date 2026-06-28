@@ -7,8 +7,11 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS_DIR = ROOT / "scripts"
+ROOT_DIR = Path(__file__).resolve().parents[2]
+SCRIPTS_DIR = ROOT_DIR / "scripts"
+STOCK_LIST_FILE = SCRIPTS_DIR / "stock_list.csv"
+OUTPUT_JSON_FILE = ROOT_DIR / "public" / "data" / "dashboard.json"
+SUPPORTED_ADJUSTMENTS = ("qfq", "none")
 
 
 @dataclass(frozen=True)
@@ -19,10 +22,12 @@ class WatchlistItem:
 
 @dataclass(frozen=True)
 class RuntimeConfig:
-    token: str
-    output_path: Path
-    watchlist_path: Path
+    tushare_token: str
+    root_dir: Path
+    stock_list_file: Path
+    output_json_file: Path
     watchlist: list[WatchlistItem]
+    adjustments: tuple[str, ...]
     updated_at: str
     start_date: str
     end_date: str
@@ -30,20 +35,23 @@ class RuntimeConfig:
 
 
 def build_runtime_config() -> RuntimeConfig:
-    token = os.environ.get("TUSHARE_TOKEN", "").strip()
-    if not token:
-        raise RuntimeError("Missing TUSHARE_TOKEN environment variable.")
+    tushare_token = os.environ.get("TUSHARE_TOKEN", "").strip()
+    if not tushare_token:
+        raise RuntimeError(
+            "Missing TUSHARE_TOKEN environment variable. Set TUSHARE_TOKEN before running scripts/generate_dashboard.py."
+        )
 
     today = date.today()
     year_start = date(today.year, 1, 1)
     history_start = min(year_start, today - timedelta(days=500))
-    watchlist_path = SCRIPTS_DIR / "stock_list.csv"
 
     return RuntimeConfig(
-        token=token,
-        output_path=ROOT / "public" / "data" / "dashboard.json",
-        watchlist_path=watchlist_path,
-        watchlist=load_watchlist(watchlist_path),
+        tushare_token=tushare_token,
+        root_dir=ROOT_DIR,
+        stock_list_file=STOCK_LIST_FILE,
+        output_json_file=OUTPUT_JSON_FILE,
+        watchlist=load_watchlist(STOCK_LIST_FILE),
+        adjustments=SUPPORTED_ADJUSTMENTS,
         updated_at=datetime.now().strftime("%Y-%m-%d %H:%M"),
         start_date=history_start.strftime("%Y%m%d"),
         end_date=today.strftime("%Y%m%d"),

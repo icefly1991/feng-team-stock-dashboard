@@ -11,33 +11,38 @@ from .indicators import build_metrics, merge_name_and_metrics
 class TusharePipelineClient:
     def __init__(self, config: RuntimeConfig) -> None:
         self.config = config
-        ts.set_token(config.token)
+        ts.set_token(config.tushare_token)
 
     def build_adjustment_rows(self) -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, str]]]:
-        rows_by_adjustment = {"qfq": [], "none": []}
+        rows_by_adjustment = {adjustment: [] for adjustment in self.config.adjustments}
         errors: list[dict[str, str]] = []
 
         for item in self.config.watchlist:
-            for adjustment in ("qfq", "none"):
+            for adjustment in self.config.adjustments:
                 try:
                     rows_by_adjustment[adjustment].append(self.fetch_row(item, adjustment))
                 except Exception as exc:  # noqa: BLE001
                     message = f"{adjustment}: {exc}"
-                    errors.append({"code": item.code, "name": item.name, "error": message})
-                    print(f"[WARN] {item.code} {item.name} {message}")
+                    errors.append(
+                        {
+                            "code": item.code,
+                            "name": item.name,
+                            "error": message,
+                        }
+                    )
 
         return rows_by_adjustment, errors
 
     def fetch_row(self, item: WatchlistItem, adjustment: str) -> dict[str, Any]:
         frame = ts.pro_bar(
             ts_code=normalize_ts_code(item.code),
-            adj="qfq" if adjustment == "qfq" else None,
+            adj=None if adjustment == "none" else adjustment,
             start_date=self.config.start_date,
             end_date=self.config.end_date,
             fields="ts_code,trade_date,close,pct_chg",
         )
         if frame is None or frame.empty:
-            raise ValueError("No daily bars returned.")
+            raise ValueError("No daily bars returned from Tushare pro_bar.")
 
         metrics = build_metrics(frame, self.config.year_start)
         return merge_name_and_metrics(item.code, item.name, metrics)

@@ -1,381 +1,2019 @@
 {
-  "updated_at": "2026-06-28 17:36",
+  "updated_at": "2026-06-28 18:01",
   "adjustments": {
     "qfq": {
       "summary": {
-        "watchlist_total": 20,
-        "today_up": 12,
-        "today_down": 8
+        "watchlist_total": 111,
+        "today_up": 10,
+        "today_down": 100
       },
       "rows": [
         {
-          "code": "600519",
-          "name": "贵州茅台",
-          "close": 1520.5,
-          "today_return_pct": 1.2,
-          "distance_ma250_pct": 2.3,
-          "ytd_return_pct": -8.7,
-          "distance_52w_high_pct": -15.2
+          "code": "002478",
+          "name": "常宝股份",
+          "close": 6.23,
+          "today_return_pct": -2.5,
+          "distance_ma250_pct": -18.08,
+          "ytd_return_pct": -23.46,
+          "distance_52w_high_pct": -53.68
         },
         {
-          "code": "300750",
-          "name": "宁德时代",
-          "close": 231.8,
-          "today_return_pct": -0.6,
-          "distance_ma250_pct": -3.5,
-          "ytd_return_pct": 12.4,
-          "distance_52w_high_pct": -9.6
+          "code": "001216",
+          "name": "华瓷股份",
+          "close": 14.84,
+          "today_return_pct": -6.9,
+          "distance_ma250_pct": -9.13,
+          "ytd_return_pct": -11.77,
+          "distance_52w_high_pct": -32.94
         },
         {
-          "code": "000858",
-          "name": "五粮液",
-          "close": 129.3,
-          "today_return_pct": 0.8,
-          "distance_ma250_pct": 5.1,
-          "ytd_return_pct": -3.2,
-          "distance_52w_high_pct": -18.9
+          "code": "301195",
+          "name": "北路智控",
+          "close": 26.46,
+          "today_return_pct": -6.67,
+          "distance_ma250_pct": -21.25,
+          "ytd_return_pct": -23.77,
+          "distance_52w_high_pct": -34.8
         },
         {
-          "code": "600036",
-          "name": "招商银行",
-          "close": 44.7,
-          "today_return_pct": 1.5,
-          "distance_ma250_pct": 1.2,
-          "ytd_return_pct": 7.9,
-          "distance_52w_high_pct": -6.1
+          "code": "688589",
+          "name": "力合微",
+          "close": 19.45,
+          "today_return_pct": -4.56,
+          "distance_ma250_pct": -15.62,
+          "ytd_return_pct": -15.58,
+          "distance_52w_high_pct": -28.75
         },
         {
-          "code": "002594",
-          "name": "比亚迪",
-          "close": 278.6,
-          "today_return_pct": 2.4,
-          "distance_ma250_pct": 8.8,
-          "ytd_return_pct": 24.6,
-          "distance_52w_high_pct": -4.4
+          "code": "603617",
+          "name": "君禾股份",
+          "close": 7.15,
+          "today_return_pct": -3.12,
+          "distance_ma250_pct": -7.18,
+          "ytd_return_pct": -3.25,
+          "distance_52w_high_pct": -28.0
         },
         {
-          "code": "601318",
-          "name": "中国平安",
-          "close": 52.4,
-          "today_return_pct": -1.1,
-          "distance_ma250_pct": -6.8,
-          "ytd_return_pct": 5.3,
-          "distance_52w_high_pct": -12.2
+          "code": "688391",
+          "name": "钜泉科技",
+          "close": 33.74,
+          "today_return_pct": -2.26,
+          "distance_ma250_pct": 9.93,
+          "ytd_return_pct": 16.43,
+          "distance_52w_high_pct": -3.02
         },
         {
-          "code": "600276",
-          "name": "恒瑞医药",
-          "close": 49.6,
-          "today_return_pct": 0.7,
-          "distance_ma250_pct": 3.6,
-          "ytd_return_pct": 14.8,
-          "distance_52w_high_pct": -7.5
+          "code": "301418",
+          "name": "协昌科技",
+          "close": 54.23,
+          "today_return_pct": -0.73,
+          "distance_ma250_pct": 39.16,
+          "ytd_return_pct": 47.48,
+          "distance_52w_high_pct": -0.73
         },
         {
-          "code": "000333",
-          "name": "美的集团",
-          "close": 71.2,
-          "today_return_pct": 1.9,
-          "distance_ma250_pct": 6.4,
-          "ytd_return_pct": 18.3,
-          "distance_52w_high_pct": -5.8
+          "code": "300234",
+          "name": "开尔新材",
+          "close": 11.1,
+          "today_return_pct": -2.46,
+          "distance_ma250_pct": 80.82,
+          "ytd_return_pct": 105.56,
+          "distance_52w_high_pct": -2.63
         },
         {
-          "code": "601899",
-          "name": "紫金矿业",
-          "close": 19.8,
-          "today_return_pct": -0.4,
-          "distance_ma250_pct": 9.1,
-          "ytd_return_pct": 21.7,
-          "distance_52w_high_pct": -3.9
+          "code": "300039",
+          "name": "上海凯宝",
+          "close": 4.18,
+          "today_return_pct": -0.48,
+          "distance_ma250_pct": -30.13,
+          "ytd_return_pct": -30.22,
+          "distance_52w_high_pct": -38.53
         },
         {
-          "code": "688111",
-          "name": "金山办公",
-          "close": 286.4,
-          "today_return_pct": 1.1,
-          "distance_ma250_pct": 4.5,
-          "ytd_return_pct": 16.2,
-          "distance_52w_high_pct": -8.6
+          "code": "300174",
+          "name": "元力股份",
+          "close": 30.71,
+          "today_return_pct": -7.72,
+          "distance_ma250_pct": 76.11,
+          "ytd_return_pct": 95.61,
+          "distance_52w_high_pct": -7.72
         },
         {
-          "code": "601012",
-          "name": "隆基绿能",
-          "close": 21.5,
-          "today_return_pct": -2.2,
-          "distance_ma250_pct": -11.4,
-          "ytd_return_pct": -13.6,
+          "code": "603231",
+          "name": "索宝蛋白",
+          "close": 14.9,
+          "today_return_pct": 0.0,
+          "distance_ma250_pct": -15.94,
+          "ytd_return_pct": -17.41,
+          "distance_52w_high_pct": -30.83
+        },
+        {
+          "code": "603527",
+          "name": "众源新材",
+          "close": 12.81,
+          "today_return_pct": -9.02,
+          "distance_ma250_pct": 11.08,
+          "ytd_return_pct": 16.45,
+          "distance_52w_high_pct": -13.45
+        },
+        {
+          "code": "301355",
+          "name": "南王科技",
+          "close": 9.37,
+          "today_return_pct": -2.8,
+          "distance_ma250_pct": -25.07,
+          "ytd_return_pct": -30.02,
+          "distance_52w_high_pct": -41.98
+        },
+        {
+          "code": "300588",
+          "name": "熙菱信息",
+          "close": 23.1,
+          "today_return_pct": 1.09,
+          "distance_ma250_pct": 0.56,
+          "ytd_return_pct": -15.04,
+          "distance_52w_high_pct": -28.7
+        },
+        {
+          "code": "301298",
+          "name": "东利机械",
+          "close": 11.7,
+          "today_return_pct": -2.17,
+          "distance_ma250_pct": -27.12,
+          "ytd_return_pct": -26.09,
+          "distance_52w_high_pct": -33.97
+        },
+        {
+          "code": "603797",
+          "name": "联泰环保",
+          "close": 3.8,
+          "today_return_pct": -1.81,
+          "distance_ma250_pct": -19.06,
+          "ytd_return_pct": -21.65,
+          "distance_52w_high_pct": -26.92
+        },
+        {
+          "code": "301578",
+          "name": "辰奕智能",
+          "close": 20.51,
+          "today_return_pct": -2.84,
+          "distance_ma250_pct": -23.68,
+          "ytd_return_pct": -22.6,
+          "distance_52w_high_pct": -32.73
+        },
+        {
+          "code": "001382",
+          "name": "新亚电缆",
+          "close": 15.7,
+          "today_return_pct": -3.8,
+          "distance_ma250_pct": -25.24,
+          "ytd_return_pct": -23.71,
+          "distance_52w_high_pct": -37.28
+        },
+        {
+          "code": "688420",
+          "name": "美腾科技",
+          "close": 20.87,
+          "today_return_pct": -1.04,
+          "distance_ma250_pct": -17.88,
+          "ytd_return_pct": -13.94,
+          "distance_52w_high_pct": -27.71
+        },
+        {
+          "code": "301028",
+          "name": "东亚机械",
+          "close": 15.85,
+          "today_return_pct": -0.69,
+          "distance_ma250_pct": 9.67,
+          "ytd_return_pct": 8.34,
+          "distance_52w_high_pct": -22.38
+        },
+        {
+          "code": "301175",
+          "name": "中科环保",
+          "close": 4.91,
+          "today_return_pct": -2.77,
+          "distance_ma250_pct": -13.64,
+          "ytd_return_pct": -17.06,
+          "distance_52w_high_pct": -35.9
+        },
+        {
+          "code": "600526",
+          "name": "菲达环保",
+          "close": 4.13,
+          "today_return_pct": -2.36,
+          "distance_ma250_pct": -20.56,
+          "ytd_return_pct": -21.63,
+          "distance_52w_high_pct": -31.96
+        },
+        {
+          "code": "600496",
+          "name": "精工钢构",
+          "close": 3.18,
+          "today_return_pct": -0.31,
+          "distance_ma250_pct": -14.55,
+          "ytd_return_pct": -18.67,
+          "distance_52w_high_pct": -29.02
+        },
+        {
+          "code": "300664",
+          "name": "鹏鹞环保",
+          "close": 4.26,
+          "today_return_pct": -1.84,
+          "distance_ma250_pct": -22.56,
+          "ytd_return_pct": -20.96,
+          "distance_52w_high_pct": -32.27
+        },
+        {
+          "code": "301320",
+          "name": "豪江智能",
+          "close": 12.94,
+          "today_return_pct": -4.36,
+          "distance_ma250_pct": -27.87,
+          "ytd_return_pct": -26.89,
+          "distance_52w_high_pct": -43.49
+        },
+        {
+          "code": "600339",
+          "name": "中油工程",
+          "close": 3.1,
+          "today_return_pct": -2.21,
+          "distance_ma250_pct": -15.28,
+          "ytd_return_pct": -6.91,
+          "distance_52w_high_pct": -40.61
+        },
+        {
+          "code": "688351",
+          "name": "微电生理",
+          "close": 21.43,
+          "today_return_pct": -3.9,
+          "distance_ma250_pct": -7.49,
+          "ytd_return_pct": -14.83,
+          "distance_52w_high_pct": -22.07
+        },
+        {
+          "code": "601866",
+          "name": "中远海发",
+          "close": 2.27,
+          "today_return_pct": -2.16,
+          "distance_ma250_pct": -12.55,
+          "ytd_return_pct": -9.56,
+          "distance_52w_high_pct": -30.15
+        },
+        {
+          "code": "002999",
+          "name": "天禾股份",
+          "close": 5.4,
+          "today_return_pct": -2.0,
+          "distance_ma250_pct": -21.7,
+          "ytd_return_pct": -19.88,
+          "distance_52w_high_pct": -30.68
+        },
+        {
+          "code": "000790",
+          "name": "华神科技",
+          "close": 3.51,
+          "today_return_pct": -2.5,
+          "distance_ma250_pct": -13.18,
+          "ytd_return_pct": -10.23,
+          "distance_52w_high_pct": -23.7
+        },
+        {
+          "code": "301102",
+          "name": "兆讯传媒",
+          "close": 8.66,
+          "today_return_pct": -2.15,
+          "distance_ma250_pct": -23.07,
+          "ytd_return_pct": -19.22,
+          "distance_52w_high_pct": -37.7
+        },
+        {
+          "code": "300590",
+          "name": "移为通信",
+          "close": 14.09,
+          "today_return_pct": -3.56,
+          "distance_ma250_pct": 9.73,
+          "ytd_return_pct": 10.16,
+          "distance_52w_high_pct": -13.98
+        },
+        {
+          "code": "300636",
+          "name": "同和药业",
+          "close": 6.3,
+          "today_return_pct": -5.26,
+          "distance_ma250_pct": -21.1,
+          "ytd_return_pct": -17.32,
+          "distance_52w_high_pct": -31.89
+        },
+        {
+          "code": "002661",
+          "name": "克明食品",
+          "close": 6.96,
+          "today_return_pct": -1.56,
+          "distance_ma250_pct": -23.99,
+          "ytd_return_pct": -21.62,
+          "distance_52w_high_pct": -33.97
+        },
+        {
+          "code": "603075",
+          "name": "热威股份",
+          "close": 21.82,
+          "today_return_pct": -1.58,
+          "distance_ma250_pct": -1.9,
+          "ytd_return_pct": -0.55,
+          "distance_52w_high_pct": -22.54
+        },
+        {
+          "code": "600278",
+          "name": "东方创业",
+          "close": 5.98,
+          "today_return_pct": -4.78,
+          "distance_ma250_pct": -21.16,
+          "ytd_return_pct": -21.52,
+          "distance_52w_high_pct": -34.43
+        },
+        {
+          "code": "600718",
+          "name": "东软集团",
+          "close": 7.22,
+          "today_return_pct": -3.73,
+          "distance_ma250_pct": -26.54,
+          "ytd_return_pct": -29.15,
+          "distance_52w_high_pct": -40.58
+        },
+        {
+          "code": "600512",
+          "name": "腾达建设",
+          "close": 1.93,
+          "today_return_pct": -1.03,
+          "distance_ma250_pct": -20.19,
+          "ytd_return_pct": -20.58,
+          "distance_52w_high_pct": -28.25
+        },
+        {
+          "code": "300021",
+          "name": "大禹节水",
+          "close": 3.99,
+          "today_return_pct": 3.1,
+          "distance_ma250_pct": -15.76,
+          "ytd_return_pct": -13.64,
+          "distance_52w_high_pct": -42.67
+        },
+        {
+          "code": "603329",
+          "name": "上海雅仕",
+          "close": 9.07,
+          "today_return_pct": -2.47,
+          "distance_ma250_pct": -19.66,
+          "ytd_return_pct": -17.84,
+          "distance_52w_high_pct": -28.07
+        },
+        {
+          "code": "301507",
+          "name": "民生健康",
+          "close": 12.05,
+          "today_return_pct": -4.06,
+          "distance_ma250_pct": -17.28,
+          "ytd_return_pct": -23.88,
+          "distance_52w_high_pct": -31.42
+        },
+        {
+          "code": "001378",
+          "name": "德冠新材",
+          "close": 18.31,
+          "today_return_pct": -2.55,
+          "distance_ma250_pct": 1.25,
+          "ytd_return_pct": 3.27,
+          "distance_52w_high_pct": -15.39
+        },
+        {
+          "code": "688571",
+          "name": "杭华股份",
+          "close": 8.05,
+          "today_return_pct": -3.59,
+          "distance_ma250_pct": 1.01,
+          "ytd_return_pct": 9.08,
+          "distance_52w_high_pct": -18.6
+        },
+        {
+          "code": "301469",
+          "name": "恒达新材",
+          "close": 27.99,
+          "today_return_pct": -2.47,
+          "distance_ma250_pct": -8.15,
+          "ytd_return_pct": -8.8,
+          "distance_52w_high_pct": -32.03
+        },
+        {
+          "code": "688718",
+          "name": "唯赛勃",
+          "close": 15.45,
+          "today_return_pct": -5.21,
+          "distance_ma250_pct": 3.55,
+          "ytd_return_pct": 15.13,
+          "distance_52w_high_pct": -21.49
+        },
+        {
+          "code": "002035",
+          "name": "华帝股份",
+          "close": 4.46,
+          "today_return_pct": -1.98,
+          "distance_ma250_pct": -25.34,
+          "ytd_return_pct": -25.91,
+          "distance_52w_high_pct": -33.63
+        },
+        {
+          "code": "603153",
+          "name": "上海建科",
+          "close": 12.63,
+          "today_return_pct": -2.55,
+          "distance_ma250_pct": -26.75,
+          "ytd_return_pct": -27.79,
+          "distance_52w_high_pct": -38.15
+        },
+        {
+          "code": "301520",
+          "name": "万邦医药",
+          "close": 23.55,
+          "today_return_pct": -2.77,
+          "distance_ma250_pct": -21.94,
+          "ytd_return_pct": -18.74,
+          "distance_52w_high_pct": -32.21
+        },
+        {
+          "code": "600713",
+          "name": "南京医药",
+          "close": 5.07,
+          "today_return_pct": -2.12,
+          "distance_ma250_pct": -3.43,
+          "ytd_return_pct": -8.15,
+          "distance_52w_high_pct": -20.78
+        },
+        {
+          "code": "301508",
+          "name": "中机认检",
+          "close": 22.85,
+          "today_return_pct": -3.59,
+          "distance_ma250_pct": -26.83,
+          "ytd_return_pct": -27.48,
+          "distance_52w_high_pct": -35.83
+        },
+        {
+          "code": "301552",
+          "name": "科力装备",
+          "close": 22.48,
+          "today_return_pct": -3.93,
+          "distance_ma250_pct": -23.34,
+          "ytd_return_pct": -21.01,
+          "distance_52w_high_pct": -32.71
+        },
+        {
+          "code": "001324",
+          "name": "长青科技",
+          "close": 18.81,
+          "today_return_pct": 3.35,
+          "distance_ma250_pct": -4.59,
+          "ytd_return_pct": 3.64,
+          "distance_52w_high_pct": -17.61
+        },
+        {
+          "code": "603718",
+          "name": "*ST海利",
+          "close": 2.79,
+          "today_return_pct": -2.45,
+          "distance_ma250_pct": -53.1,
+          "ytd_return_pct": -57.6,
+          "distance_52w_high_pct": -63.62
+        },
+        {
+          "code": "000919",
+          "name": "金陵药业",
+          "close": 5.78,
+          "today_return_pct": -3.18,
+          "distance_ma250_pct": -18.12,
+          "ytd_return_pct": -24.74,
+          "distance_52w_high_pct": -34.09
+        },
+        {
+          "code": "301395",
+          "name": "仁信新材",
+          "close": 12.63,
+          "today_return_pct": 0.88,
+          "distance_ma250_pct": 0.89,
+          "ytd_return_pct": -4.89,
+          "distance_52w_high_pct": -23.13
+        },
+        {
+          "code": "301133",
+          "name": "金钟股份",
+          "close": 38.5,
+          "today_return_pct": -3.65,
+          "distance_ma250_pct": 14.1,
+          "ytd_return_pct": -3.68,
+          "distance_52w_high_pct": -21.73
+        },
+        {
+          "code": "300829",
+          "name": "金丹科技",
+          "close": 13.72,
+          "today_return_pct": -1.86,
+          "distance_ma250_pct": -24.18,
+          "ytd_return_pct": -18.19,
+          "distance_52w_high_pct": -38.03
+        },
+        {
+          "code": "002863",
+          "name": "今飞凯达",
+          "close": 4.31,
+          "today_return_pct": -2.49,
+          "distance_ma250_pct": -21.44,
+          "ytd_return_pct": -25.04,
+          "distance_52w_high_pct": -30.93
+        },
+        {
+          "code": "603321",
+          "name": "梅轮电梯",
+          "close": 5.9,
+          "today_return_pct": -2.16,
+          "distance_ma250_pct": -23.98,
+          "ytd_return_pct": -25.6,
+          "distance_52w_high_pct": -34.3
+        },
+        {
+          "code": "000793",
+          "name": "*ST华闻",
+          "close": 2.47,
+          "today_return_pct": -1.2,
+          "distance_ma250_pct": -9.94,
+          "ytd_return_pct": -10.18,
+          "distance_52w_high_pct": -24.92
+        },
+        {
+          "code": "601528",
+          "name": "瑞丰银行",
+          "close": 4.5,
+          "today_return_pct": -0.88,
+          "distance_ma250_pct": -14.33,
+          "ytd_return_pct": -16.82,
+          "distance_52w_high_pct": -23.34
+        },
+        {
+          "code": "300225",
+          "name": "金力泰",
+          "close": 8.0,
+          "today_return_pct": 0.25,
+          "distance_ma250_pct": 39.87,
+          "ytd_return_pct": 38.89,
+          "distance_52w_high_pct": -18.45
+        },
+        {
+          "code": "688367",
+          "name": "工大高科",
+          "close": 33.0,
+          "today_return_pct": -7.82,
+          "distance_ma250_pct": 14.51,
+          "ytd_return_pct": 9.71,
+          "distance_52w_high_pct": -30.76
+        },
+        {
+          "code": "605162",
+          "name": "新中港",
+          "close": 7.72,
+          "today_return_pct": -3.26,
+          "distance_ma250_pct": -18.65,
+          "ytd_return_pct": -9.39,
+          "distance_52w_high_pct": -49.14
+        },
+        {
+          "code": "688689",
+          "name": "银河微电",
+          "close": 46.82,
+          "today_return_pct": 9.26,
+          "distance_ma250_pct": 56.56,
+          "ytd_return_pct": 59.31,
+          "distance_52w_high_pct": 0.0
+        },
+        {
+          "code": "301083",
+          "name": "百胜智能",
+          "close": 13.2,
+          "today_return_pct": -1.49,
+          "distance_ma250_pct": -26.16,
+          "ytd_return_pct": -30.67,
+          "distance_52w_high_pct": -48.44
+        },
+        {
+          "code": "600222",
+          "name": "太龙药业",
+          "close": 6.59,
+          "today_return_pct": -5.18,
+          "distance_ma250_pct": -4.31,
+          "ytd_return_pct": -1.64,
+          "distance_52w_high_pct": -24.25
+        },
+        {
+          "code": "301113",
+          "name": "雅艺科技",
+          "close": 15.03,
+          "today_return_pct": -2.08,
+          "distance_ma250_pct": -17.91,
+          "ytd_return_pct": -23.82,
+          "distance_52w_high_pct": -30.45
+        },
+        {
+          "code": "300837",
+          "name": "浙矿股份",
+          "close": 24.11,
+          "today_return_pct": -3.37,
+          "distance_ma250_pct": -22.07,
+          "ytd_return_pct": -28.98,
+          "distance_52w_high_pct": -63.09
+        },
+        {
+          "code": "001360",
+          "name": "南矿集团",
+          "close": 18.32,
+          "today_return_pct": -4.48,
+          "distance_ma250_pct": -4.24,
+          "ytd_return_pct": -15.42,
+          "distance_52w_high_pct": -37.5
+        },
+        {
+          "code": "300610",
+          "name": "晨化股份",
+          "close": 9.92,
+          "today_return_pct": -1.59,
+          "distance_ma250_pct": -16.5,
+          "ytd_return_pct": -15.43,
+          "distance_52w_high_pct": -25.47
+        },
+        {
+          "code": "301222",
+          "name": "浙江恒威",
+          "close": 29.77,
+          "today_return_pct": -5.43,
+          "distance_ma250_pct": 25.31,
+          "ytd_return_pct": 45.01,
+          "distance_52w_high_pct": -18.28
+        },
+        {
+          "code": "301515",
+          "name": "港通医疗",
+          "close": 17.37,
+          "today_return_pct": -2.96,
+          "distance_ma250_pct": -22.22,
+          "ytd_return_pct": -24.15,
+          "distance_52w_high_pct": -34.82
+        },
+        {
+          "code": "603012",
+          "name": "创力集团",
+          "close": 7.86,
+          "today_return_pct": 1.16,
+          "distance_ma250_pct": 13.64,
+          "ytd_return_pct": 31.88,
+          "distance_52w_high_pct": -23.02
+        },
+        {
+          "code": "688121",
+          "name": "卓然股份",
+          "close": 6.48,
+          "today_return_pct": -16.06,
+          "distance_ma250_pct": -46.84,
+          "ytd_return_pct": -41.67,
+          "distance_52w_high_pct": -58.46
+        },
+        {
+          "code": "301170",
+          "name": "锡南科技",
+          "close": 21.65,
+          "today_return_pct": -2.78,
+          "distance_ma250_pct": -22.38,
+          "ytd_return_pct": -22.93,
+          "distance_52w_high_pct": -31.14
+        },
+        {
+          "code": "688285",
+          "name": "高铁电气",
+          "close": 7.15,
+          "today_return_pct": -1.79,
+          "distance_ma250_pct": -19.27,
+          "ytd_return_pct": -19.48,
+          "distance_52w_high_pct": -27.7
+        },
+        {
+          "code": "688523",
+          "name": "航天环宇",
+          "close": 51.5,
+          "today_return_pct": 3.19,
+          "distance_ma250_pct": 16.7,
+          "ytd_return_pct": -17.19,
+          "distance_52w_high_pct": -43.26
+        },
+        {
+          "code": "603041",
+          "name": "美思德",
+          "close": 10.5,
+          "today_return_pct": -0.76,
+          "distance_ma250_pct": -16.02,
+          "ytd_return_pct": -12.79,
+          "distance_52w_high_pct": -28.13
+        },
+        {
+          "code": "301019",
+          "name": "宁波色母",
+          "close": 18.2,
+          "today_return_pct": -1.41,
+          "distance_ma250_pct": -12.55,
+          "ytd_return_pct": -22.39,
+          "distance_52w_high_pct": -38.66
+        },
+        {
+          "code": "301386",
+          "name": "未来电器",
+          "close": 20.43,
+          "today_return_pct": -2.62,
+          "distance_ma250_pct": -14.87,
+          "ytd_return_pct": -12.58,
+          "distance_52w_high_pct": -28.47
+        },
+        {
+          "code": "300958",
+          "name": "建工修复",
+          "close": 10.78,
+          "today_return_pct": -1.19,
+          "distance_ma250_pct": -19.44,
+          "ytd_return_pct": -14.44,
+          "distance_52w_high_pct": -27.16
+        },
+        {
+          "code": "002753",
+          "name": "永东股份",
+          "close": 5.7,
+          "today_return_pct": -2.56,
+          "distance_ma250_pct": -20.8,
+          "ytd_return_pct": -19.72,
+          "distance_52w_high_pct": -30.23
+        },
+        {
+          "code": "301098",
+          "name": "金埔园林",
+          "close": 8.27,
+          "today_return_pct": -4.39,
+          "distance_ma250_pct": -9.96,
+          "ytd_return_pct": -4.83,
+          "distance_52w_high_pct": -24.13
+        },
+        {
+          "code": "600168",
+          "name": "武汉控股",
+          "close": 4.06,
+          "today_return_pct": -1.93,
+          "distance_ma250_pct": -18.55,
+          "ytd_return_pct": -20.08,
+          "distance_52w_high_pct": -33.88
+        },
+        {
+          "code": "300800",
+          "name": "力合科技",
+          "close": 9.31,
+          "today_return_pct": -1.38,
+          "distance_ma250_pct": -20.74,
+          "ytd_return_pct": -20.83,
+          "distance_52w_high_pct": -28.88
+        },
+        {
+          "code": "300259",
+          "name": "新天科技",
+          "close": 5.59,
+          "today_return_pct": 5.87,
+          "distance_ma250_pct": 26.5,
+          "ytd_return_pct": 25.34,
+          "distance_52w_high_pct": -25.17
+        },
+        {
+          "code": "301223",
+          "name": "中荣股份",
+          "close": 15.83,
+          "today_return_pct": -1.74,
+          "distance_ma250_pct": -11.87,
+          "ytd_return_pct": -13.45,
+          "distance_52w_high_pct": -24.58
+        },
+        {
+          "code": "600834",
+          "name": "申通地铁",
+          "close": 6.7,
+          "today_return_pct": -1.03,
+          "distance_ma250_pct": -21.2,
+          "ytd_return_pct": -20.05,
+          "distance_52w_high_pct": -28.95
+        },
+        {
+          "code": "300933",
+          "name": "中辰股份",
+          "close": 6.04,
+          "today_return_pct": -4.13,
+          "distance_ma250_pct": -27.89,
+          "ytd_return_pct": -27.14,
+          "distance_52w_high_pct": -39.66
+        },
+        {
+          "code": "601996",
+          "name": "丰林集团",
+          "close": 2.13,
+          "today_return_pct": -3.62,
+          "distance_ma250_pct": -12.86,
+          "ytd_return_pct": -7.39,
+          "distance_52w_high_pct": -31.95
+        },
+        {
+          "code": "002412",
+          "name": "汉森制药",
+          "close": 5.5,
+          "today_return_pct": -3.51,
+          "distance_ma250_pct": -14.21,
+          "ytd_return_pct": -12.7,
           "distance_52w_high_pct": -28.1
         },
         {
-          "code": "002475",
-          "name": "立讯精密",
-          "close": 35.2,
-          "today_return_pct": 0.4,
-          "distance_ma250_pct": 2.7,
-          "ytd_return_pct": 9.8,
-          "distance_52w_high_pct": -10.5
+          "code": "301106",
+          "name": "骏成科技",
+          "close": 21.94,
+          "today_return_pct": -2.96,
+          "distance_ma250_pct": -0.99,
+          "ytd_return_pct": 3.1,
+          "distance_52w_high_pct": -17.39
         },
         {
-          "code": "600887",
-          "name": "伊利股份",
-          "close": 29.4,
-          "today_return_pct": -0.8,
-          "distance_ma250_pct": -2.1,
-          "ytd_return_pct": -4.7,
-          "distance_52w_high_pct": -17.4
+          "code": "300514",
+          "name": "友讯达",
+          "close": 9.24,
+          "today_return_pct": -2.53,
+          "distance_ma250_pct": -31.45,
+          "ytd_return_pct": -31.71,
+          "distance_52w_high_pct": -39.05
         },
         {
-          "code": "000651",
-          "name": "格力电器",
-          "close": 40.6,
-          "today_return_pct": 0.9,
-          "distance_ma250_pct": 7.3,
-          "ytd_return_pct": 11.5,
-          "distance_52w_high_pct": -6.9
+          "code": "603066",
+          "name": "音飞储存",
+          "close": 9.8,
+          "today_return_pct": -1.8,
+          "distance_ma250_pct": -12.09,
+          "ytd_return_pct": -8.92,
+          "distance_52w_high_pct": -21.1
         },
         {
-          "code": "300760",
-          "name": "迈瑞医疗",
-          "close": 312.7,
-          "today_return_pct": -1.7,
-          "distance_ma250_pct": -4.9,
-          "ytd_return_pct": -2.8,
-          "distance_52w_high_pct": -14.8
+          "code": "002788",
+          "name": "鹭燕医药",
+          "close": 10.05,
+          "today_return_pct": -4.29,
+          "distance_ma250_pct": -17.29,
+          "ytd_return_pct": -51.33,
+          "distance_52w_high_pct": -63.44
         },
         {
-          "code": "002371",
-          "name": "北方华创",
-          "close": 358.9,
-          "today_return_pct": 2.6,
-          "distance_ma250_pct": 12.8,
-          "ytd_return_pct": 27.4,
-          "distance_52w_high_pct": -2.6
+          "code": "300978",
+          "name": "东箭科技",
+          "close": 8.2,
+          "today_return_pct": -8.17,
+          "distance_ma250_pct": -26.17,
+          "ytd_return_pct": -32.79,
+          "distance_52w_high_pct": -42.94
         },
         {
-          "code": "601166",
-          "name": "兴业银行",
-          "close": 18.3,
-          "today_return_pct": 0.3,
-          "distance_ma250_pct": 1.8,
-          "ytd_return_pct": 6.1,
-          "distance_52w_high_pct": -9.9
+          "code": "301587",
+          "name": "中瑞股份",
+          "close": 21.6,
+          "today_return_pct": -4.8,
+          "distance_ma250_pct": -11.65,
+          "ytd_return_pct": -7.69,
+          "distance_52w_high_pct": -29.32
         },
         {
-          "code": "002415",
-          "name": "海康威视",
-          "close": 31.8,
-          "today_return_pct": -1.4,
-          "distance_ma250_pct": -7.6,
-          "ytd_return_pct": -6.2,
-          "distance_52w_high_pct": -19.1
+          "code": "603190",
+          "name": "亚通精工",
+          "close": 23.06,
+          "today_return_pct": -2.62,
+          "distance_ma250_pct": -8.96,
+          "ytd_return_pct": -12.95,
+          "distance_52w_high_pct": -21.24
         },
         {
-          "code": "600309",
-          "name": "万华化学",
-          "close": 84.1,
-          "today_return_pct": 1.6,
-          "distance_ma250_pct": 5.9,
-          "ytd_return_pct": 13.2,
-          "distance_52w_high_pct": -8.1
+          "code": "301539",
+          "name": "宏鑫科技",
+          "close": 13.25,
+          "today_return_pct": -1.71,
+          "distance_ma250_pct": -31.81,
+          "ytd_return_pct": -36.27,
+          "distance_52w_high_pct": -42.34
         },
         {
-          "code": "002714",
-          "name": "牧原股份",
-          "close": 43.5,
-          "today_return_pct": -0.5,
-          "distance_ma250_pct": -3.2,
-          "ytd_return_pct": -9.9,
-          "distance_52w_high_pct": -21.6
+          "code": "600017",
+          "name": "日照港",
+          "close": 2.54,
+          "today_return_pct": -1.17,
+          "distance_ma250_pct": -16.14,
+          "ytd_return_pct": -13.9,
+          "distance_52w_high_pct": -23.03
+        },
+        {
+          "code": "301588",
+          "name": "美新科技",
+          "close": 41.6,
+          "today_return_pct": 8.96,
+          "distance_ma250_pct": 77.89,
+          "ytd_return_pct": 127.95,
+          "distance_52w_high_pct": 0.0
+        },
+        {
+          "code": "301332",
+          "name": "德尔玛",
+          "close": 7.53,
+          "today_return_pct": -2.33,
+          "distance_ma250_pct": -22.09,
+          "ytd_return_pct": -18.95,
+          "distance_52w_high_pct": -33.42
+        },
+        {
+          "code": "603558",
+          "name": "健盛集团",
+          "close": 11.1,
+          "today_return_pct": -1.16,
+          "distance_ma250_pct": 0.79,
+          "ytd_return_pct": 1.37,
+          "distance_52w_high_pct": -26.05
+        },
+        {
+          "code": "601065",
+          "name": "江盐集团",
+          "close": 6.69,
+          "today_return_pct": -1.33,
+          "distance_ma250_pct": -20.06,
+          "ytd_return_pct": -19.88,
+          "distance_52w_high_pct": -27.52
+        },
+        {
+          "code": "301499",
+          "name": "维科精密",
+          "close": 29.9,
+          "today_return_pct": -12.32,
+          "distance_ma250_pct": -1.39,
+          "ytd_return_pct": -0.2,
+          "distance_52w_high_pct": -23.12
+        },
+        {
+          "code": "300441",
+          "name": "鲍斯股份",
+          "close": 6.32,
+          "today_return_pct": -4.1,
+          "distance_ma250_pct": -17.43,
+          "ytd_return_pct": -16.73,
+          "distance_52w_high_pct": -32.12
+        },
+        {
+          "code": "301329",
+          "name": "信音电子",
+          "close": 24.26,
+          "today_return_pct": -3.5,
+          "distance_ma250_pct": 6.67,
+          "ytd_return_pct": 2.93,
+          "distance_52w_high_pct": -26.62
+        },
+        {
+          "code": "603107",
+          "name": "上海汽配",
+          "close": 11.33,
+          "today_return_pct": -2.5,
+          "distance_ma250_pct": -23.18,
+          "ytd_return_pct": -22.98,
+          "distance_52w_high_pct": -30.36
+        },
+        {
+          "code": "600628",
+          "name": "新世界",
+          "close": 5.68,
+          "today_return_pct": -1.39,
+          "distance_ma250_pct": -24.14,
+          "ytd_return_pct": -28.37,
+          "distance_52w_high_pct": -37.79
+        },
+        {
+          "code": "603055",
+          "name": "台华新材",
+          "close": 7.93,
+          "today_return_pct": -4.46,
+          "distance_ma250_pct": -12.11,
+          "ytd_return_pct": -12.38,
+          "distance_52w_high_pct": -23.08
         }
       ]
     },
     "none": {
       "summary": {
-        "watchlist_total": 20,
+        "watchlist_total": 111,
         "today_up": 10,
-        "today_down": 9
+        "today_down": 101
       },
       "rows": [
         {
-          "code": "600519",
-          "name": "贵州茅台",
-          "close": 1496.2,
-          "today_return_pct": 0.7,
-          "distance_ma250_pct": 1.3,
-          "ytd_return_pct": -10.7,
-          "distance_52w_high_pct": -15.5
+          "code": "002478",
+          "name": "常宝股份",
+          "close": 6.23,
+          "today_return_pct": -5.46,
+          "distance_ma250_pct": -20.56,
+          "ytd_return_pct": -25.74,
+          "distance_52w_high_pct": -55.08
         },
         {
-          "code": "300750",
-          "name": "宁德时代",
-          "close": 228.3,
-          "today_return_pct": -1.0,
-          "distance_ma250_pct": -4.3,
-          "ytd_return_pct": 10.7,
-          "distance_52w_high_pct": -10.3
+          "code": "001216",
+          "name": "华瓷股份",
+          "close": 14.84,
+          "today_return_pct": -6.9,
+          "distance_ma250_pct": -11.26,
+          "ytd_return_pct": -13.87,
+          "distance_52w_high_pct": -34.54
         },
         {
-          "code": "000858",
-          "name": "五粮液",
-          "close": 127.4,
-          "today_return_pct": 0.5,
-          "distance_ma250_pct": 4.5,
-          "ytd_return_pct": -4.6,
-          "distance_52w_high_pct": -20.0
+          "code": "301195",
+          "name": "北路智控",
+          "close": 26.46,
+          "today_return_pct": -6.67,
+          "distance_ma250_pct": -22.87,
+          "ytd_return_pct": -25.42,
+          "distance_52w_high_pct": -36.21
         },
         {
-          "code": "600036",
-          "name": "招商银行",
-          "close": 44.1,
-          "today_return_pct": 1.3,
-          "distance_ma250_pct": 0.8,
-          "ytd_return_pct": 6.8,
-          "distance_52w_high_pct": -7.6
+          "code": "688589",
+          "name": "力合微",
+          "close": 19.45,
+          "today_return_pct": -4.56,
+          "distance_ma250_pct": -16.02,
+          "ytd_return_pct": -15.98,
+          "distance_52w_high_pct": -29.09
         },
         {
-          "code": "002594",
-          "name": "比亚迪",
-          "close": 275.0,
-          "today_return_pct": 2.3,
+          "code": "603617",
+          "name": "君禾股份",
+          "close": 7.15,
+          "today_return_pct": -3.12,
+          "distance_ma250_pct": -7.77,
+          "ytd_return_pct": -3.9,
+          "distance_52w_high_pct": -28.5
+        },
+        {
+          "code": "688391",
+          "name": "钜泉科技",
+          "close": 33.74,
+          "today_return_pct": -2.26,
           "distance_ma250_pct": 8.6,
-          "ytd_return_pct": 23.8,
-          "distance_52w_high_pct": -6.3
+          "ytd_return_pct": 15.39,
+          "distance_52w_high_pct": -3.87
         },
         {
-          "code": "601318",
-          "name": "中国平安",
-          "close": 51.8,
-          "today_return_pct": -1.6,
-          "distance_ma250_pct": -7.8,
-          "ytd_return_pct": 3.3,
-          "distance_52w_high_pct": -12.5
+          "code": "301418",
+          "name": "协昌科技",
+          "close": 54.23,
+          "today_return_pct": -0.73,
+          "distance_ma250_pct": 38.88,
+          "ytd_return_pct": 47.16,
+          "distance_52w_high_pct": -0.73
         },
         {
-          "code": "600276",
-          "name": "恒瑞医药",
-          "close": 49.0,
-          "today_return_pct": 0.3,
-          "distance_ma250_pct": 2.8,
-          "ytd_return_pct": 13.1,
-          "distance_52w_high_pct": -8.2
+          "code": "300234",
+          "name": "开尔新材",
+          "close": 11.1,
+          "today_return_pct": -2.46,
+          "distance_ma250_pct": 80.82,
+          "ytd_return_pct": 105.56,
+          "distance_52w_high_pct": -2.63
         },
         {
-          "code": "000333",
-          "name": "美的集团",
-          "close": 70.5,
-          "today_return_pct": 1.6,
-          "distance_ma250_pct": 5.8,
-          "ytd_return_pct": 16.9,
-          "distance_52w_high_pct": -6.9
+          "code": "300039",
+          "name": "上海凯宝",
+          "close": 4.18,
+          "today_return_pct": -0.48,
+          "distance_ma250_pct": -31.5,
+          "ytd_return_pct": -31.48,
+          "distance_52w_high_pct": -39.94
         },
         {
-          "code": "601899",
-          "name": "紫金矿业",
-          "close": 19.6,
-          "today_return_pct": -0.6,
-          "distance_ma250_pct": 8.7,
-          "ytd_return_pct": 20.6,
-          "distance_52w_high_pct": -5.4
+          "code": "300174",
+          "name": "元力股份",
+          "close": 30.71,
+          "today_return_pct": -7.72,
+          "distance_ma250_pct": 75.39,
+          "ytd_return_pct": 94.49,
+          "distance_52w_high_pct": -7.72
         },
         {
-          "code": "688111",
-          "name": "金山办公",
-          "close": 283.9,
-          "today_return_pct": 1.0,
-          "distance_ma250_pct": 4.3,
-          "ytd_return_pct": 15.4,
-          "distance_52w_high_pct": -10.5
+          "code": "603231",
+          "name": "索宝蛋白",
+          "close": 14.9,
+          "today_return_pct": -1.97,
+          "distance_ma250_pct": -17.84,
+          "ytd_return_pct": -19.33,
+          "distance_52w_high_pct": -32.43
         },
         {
-          "code": "601012",
-          "name": "隆基绿能",
-          "close": 21.3,
-          "today_return_pct": -2.7,
-          "distance_ma250_pct": -12.4,
-          "ytd_return_pct": -15.6,
-          "distance_52w_high_pct": -28.4
+          "code": "603527",
+          "name": "众源新材",
+          "close": 12.81,
+          "today_return_pct": -9.02,
+          "distance_ma250_pct": 10.35,
+          "ytd_return_pct": 15.61,
+          "distance_52w_high_pct": -14.03
         },
         {
-          "code": "002475",
-          "name": "立讯精密",
-          "close": 34.9,
-          "today_return_pct": 0.0,
-          "distance_ma250_pct": 1.9,
-          "ytd_return_pct": 8.1,
-          "distance_52w_high_pct": -11.2
+          "code": "301355",
+          "name": "南王科技",
+          "close": 9.37,
+          "today_return_pct": -2.8,
+          "distance_ma250_pct": -25.09,
+          "ytd_return_pct": -30.02,
+          "distance_52w_high_pct": -41.98
         },
         {
-          "code": "600887",
-          "name": "伊利股份",
-          "close": 29.2,
-          "today_return_pct": -1.1,
-          "distance_ma250_pct": -2.7,
-          "ytd_return_pct": -6.1,
-          "distance_52w_high_pct": -18.5
+          "code": "300588",
+          "name": "熙菱信息",
+          "close": 23.1,
+          "today_return_pct": 1.09,
+          "distance_ma250_pct": 0.56,
+          "ytd_return_pct": -15.04,
+          "distance_52w_high_pct": -28.7
         },
         {
-          "code": "000651",
-          "name": "格力电器",
-          "close": 40.4,
-          "today_return_pct": 0.7,
-          "distance_ma250_pct": 6.9,
-          "ytd_return_pct": 10.4,
-          "distance_52w_high_pct": -8.4
+          "code": "301298",
+          "name": "东利机械",
+          "close": 11.7,
+          "today_return_pct": -2.17,
+          "distance_ma250_pct": -28.34,
+          "ytd_return_pct": -27.46,
+          "distance_52w_high_pct": -35.22
         },
         {
-          "code": "300760",
-          "name": "迈瑞医疗",
-          "close": 311.2,
-          "today_return_pct": -1.8,
-          "distance_ma250_pct": -5.1,
-          "ytd_return_pct": -3.6,
-          "distance_52w_high_pct": -16.7
+          "code": "603797",
+          "name": "联泰环保",
+          "close": 3.8,
+          "today_return_pct": -1.81,
+          "distance_ma250_pct": -19.34,
+          "ytd_return_pct": -21.65,
+          "distance_52w_high_pct": -26.92
         },
         {
-          "code": "002371",
-          "name": "北方华创",
-          "close": 357.5,
-          "today_return_pct": 2.1,
-          "distance_ma250_pct": 11.8,
-          "ytd_return_pct": 25.4,
-          "distance_52w_high_pct": -2.9
+          "code": "301578",
+          "name": "辰奕智能",
+          "close": 20.51,
+          "today_return_pct": -2.84,
+          "distance_ma250_pct": -41.02,
+          "ytd_return_pct": -40.94,
+          "distance_52w_high_pct": -53.57
         },
         {
-          "code": "601166",
-          "name": "兴业银行",
+          "code": "001382",
+          "name": "新亚电缆",
+          "close": 15.7,
+          "today_return_pct": -3.8,
+          "distance_ma250_pct": -25.48,
+          "ytd_return_pct": -23.97,
+          "distance_52w_high_pct": -37.5
+        },
+        {
+          "code": "688420",
+          "name": "美腾科技",
+          "close": 20.87,
+          "today_return_pct": -1.04,
+          "distance_ma250_pct": -17.89,
+          "ytd_return_pct": -13.94,
+          "distance_52w_high_pct": -27.71
+        },
+        {
+          "code": "301028",
+          "name": "东亚机械",
+          "close": 15.85,
+          "today_return_pct": -0.69,
+          "distance_ma250_pct": 8.87,
+          "ytd_return_pct": 7.75,
+          "distance_52w_high_pct": -22.8
+        },
+        {
+          "code": "301175",
+          "name": "中科环保",
+          "close": 4.91,
+          "today_return_pct": -2.77,
+          "distance_ma250_pct": -15.16,
+          "ytd_return_pct": -18.3,
+          "distance_52w_high_pct": -36.89
+        },
+        {
+          "code": "600526",
+          "name": "菲达环保",
+          "close": 4.13,
+          "today_return_pct": -2.36,
+          "distance_ma250_pct": -21.38,
+          "ytd_return_pct": -22.51,
+          "distance_52w_high_pct": -32.74
+        },
+        {
+          "code": "600496",
+          "name": "精工钢构",
+          "close": 3.18,
+          "today_return_pct": -0.31,
+          "distance_ma250_pct": -19.32,
+          "ytd_return_pct": -23.37,
+          "distance_52w_high_pct": -33.05
+        },
+        {
+          "code": "300664",
+          "name": "鹏鹞环保",
+          "close": 4.26,
+          "today_return_pct": -1.84,
+          "distance_ma250_pct": -23.48,
+          "ytd_return_pct": -21.69,
+          "distance_52w_high_pct": -32.91
+        },
+        {
+          "code": "301320",
+          "name": "豪江智能",
+          "close": 12.94,
+          "today_return_pct": -4.36,
+          "distance_ma250_pct": -28.11,
+          "ytd_return_pct": -27.14,
+          "distance_52w_high_pct": -43.69
+        },
+        {
+          "code": "600339",
+          "name": "中油工程",
+          "close": 3.1,
+          "today_return_pct": -2.21,
+          "distance_ma250_pct": -15.7,
+          "ytd_return_pct": -7.19,
+          "distance_52w_high_pct": -40.84
+        },
+        {
+          "code": "688351",
+          "name": "微电生理",
+          "close": 21.43,
+          "today_return_pct": -3.9,
+          "distance_ma250_pct": -7.57,
+          "ytd_return_pct": -14.89,
+          "distance_52w_high_pct": -22.13
+        },
+        {
+          "code": "601866",
+          "name": "中远海发",
+          "close": 2.27,
+          "today_return_pct": -2.16,
+          "distance_ma250_pct": -12.83,
+          "ytd_return_pct": -9.56,
+          "distance_52w_high_pct": -30.15
+        },
+        {
+          "code": "002999",
+          "name": "天禾股份",
+          "close": 5.4,
+          "today_return_pct": -2.0,
+          "distance_ma250_pct": -22.53,
+          "ytd_return_pct": -20.7,
+          "distance_52w_high_pct": -31.47
+        },
+        {
+          "code": "000790",
+          "name": "华神科技",
+          "close": 3.51,
+          "today_return_pct": -2.5,
+          "distance_ma250_pct": -13.18,
+          "ytd_return_pct": -10.23,
+          "distance_52w_high_pct": -23.7
+        },
+        {
+          "code": "301102",
+          "name": "兆讯传媒",
+          "close": 8.66,
+          "today_return_pct": -2.15,
+          "distance_ma250_pct": -23.07,
+          "ytd_return_pct": -19.22,
+          "distance_52w_high_pct": -37.7
+        },
+        {
+          "code": "300590",
+          "name": "移为通信",
+          "close": 14.09,
+          "today_return_pct": -3.56,
+          "distance_ma250_pct": 8.96,
+          "ytd_return_pct": 9.31,
+          "distance_52w_high_pct": -13.98
+        },
+        {
+          "code": "300636",
+          "name": "同和药业",
+          "close": 6.3,
+          "today_return_pct": -5.26,
+          "distance_ma250_pct": -21.56,
+          "ytd_return_pct": -17.75,
+          "distance_52w_high_pct": -32.26
+        },
+        {
+          "code": "002661",
+          "name": "克明食品",
+          "close": 6.96,
+          "today_return_pct": -1.56,
+          "distance_ma250_pct": -25.95,
+          "ytd_return_pct": -24.18,
+          "distance_52w_high_pct": -36.15
+        },
+        {
+          "code": "603075",
+          "name": "热威股份",
+          "close": 21.82,
+          "today_return_pct": -1.58,
+          "distance_ma250_pct": -4.43,
+          "ytd_return_pct": -3.45,
+          "distance_52w_high_pct": -22.54
+        },
+        {
+          "code": "600278",
+          "name": "东方创业",
+          "close": 5.98,
+          "today_return_pct": -4.78,
+          "distance_ma250_pct": -21.36,
+          "ytd_return_pct": -21.52,
+          "distance_52w_high_pct": -34.43
+        },
+        {
+          "code": "600718",
+          "name": "东软集团",
+          "close": 7.22,
+          "today_return_pct": -3.73,
+          "distance_ma250_pct": -26.59,
+          "ytd_return_pct": -29.15,
+          "distance_52w_high_pct": -40.58
+        },
+        {
+          "code": "600512",
+          "name": "腾达建设",
+          "close": 1.93,
+          "today_return_pct": -1.03,
+          "distance_ma250_pct": -20.21,
+          "ytd_return_pct": -20.58,
+          "distance_52w_high_pct": -28.25
+        },
+        {
+          "code": "300021",
+          "name": "大禹节水",
+          "close": 3.99,
+          "today_return_pct": 3.1,
+          "distance_ma250_pct": -15.78,
+          "ytd_return_pct": -13.64,
+          "distance_52w_high_pct": -42.67
+        },
+        {
+          "code": "603329",
+          "name": "上海雅仕",
+          "close": 9.07,
+          "today_return_pct": -2.47,
+          "distance_ma250_pct": -19.66,
+          "ytd_return_pct": -17.84,
+          "distance_52w_high_pct": -28.07
+        },
+        {
+          "code": "301507",
+          "name": "民生健康",
+          "close": 12.05,
+          "today_return_pct": -4.06,
+          "distance_ma250_pct": -18.25,
+          "ytd_return_pct": -24.78,
+          "distance_52w_high_pct": -32.27
+        },
+        {
+          "code": "001378",
+          "name": "德冠新材",
+          "close": 18.31,
+          "today_return_pct": -2.55,
+          "distance_ma250_pct": -21.64,
+          "ytd_return_pct": -21.89,
+          "distance_52w_high_pct": -35.98
+        },
+        {
+          "code": "688571",
+          "name": "杭华股份",
+          "close": 8.05,
+          "today_return_pct": -3.59,
+          "distance_ma250_pct": -0.67,
+          "ytd_return_pct": 7.19,
+          "distance_52w_high_pct": -20.06
+        },
+        {
+          "code": "301469",
+          "name": "恒达新材",
+          "close": 27.99,
+          "today_return_pct": -2.47,
+          "distance_ma250_pct": -9.26,
+          "ytd_return_pct": -9.91,
+          "distance_52w_high_pct": -32.88
+        },
+        {
+          "code": "688718",
+          "name": "唯赛勃",
+          "close": 15.45,
+          "today_return_pct": -5.21,
+          "distance_ma250_pct": 3.26,
+          "ytd_return_pct": 15.13,
+          "distance_52w_high_pct": -21.49
+        },
+        {
+          "code": "002035",
+          "name": "华帝股份",
+          "close": 4.46,
+          "today_return_pct": -1.98,
+          "distance_ma250_pct": -27.71,
+          "ytd_return_pct": -28.64,
+          "distance_52w_high_pct": -34.99
+        },
+        {
+          "code": "603153",
+          "name": "上海建科",
+          "close": 12.63,
+          "today_return_pct": -2.55,
+          "distance_ma250_pct": -26.85,
+          "ytd_return_pct": -27.79,
+          "distance_52w_high_pct": -38.15
+        },
+        {
+          "code": "301520",
+          "name": "万邦医药",
+          "close": 23.55,
+          "today_return_pct": -2.77,
+          "distance_ma250_pct": -44.09,
+          "ytd_return_pct": -42.35,
+          "distance_52w_high_pct": -51.91
+        },
+        {
+          "code": "600713",
+          "name": "南京医药",
+          "close": 5.07,
+          "today_return_pct": -2.12,
+          "distance_ma250_pct": -3.54,
+          "ytd_return_pct": -8.15,
+          "distance_52w_high_pct": -20.78
+        },
+        {
+          "code": "301508",
+          "name": "中机认检",
+          "close": 22.85,
+          "today_return_pct": -3.59,
+          "distance_ma250_pct": -27.44,
+          "ytd_return_pct": -28.12,
+          "distance_52w_high_pct": -36.4
+        },
+        {
+          "code": "301552",
+          "name": "科力装备",
+          "close": 22.48,
+          "today_return_pct": -3.93,
+          "distance_ma250_pct": -40.76,
+          "ytd_return_pct": -40.69,
+          "distance_52w_high_pct": -49.47
+        },
+        {
+          "code": "001324",
+          "name": "长青科技",
+          "close": 18.81,
+          "today_return_pct": 3.35,
+          "distance_ma250_pct": -5.01,
+          "ytd_return_pct": 3.24,
+          "distance_52w_high_pct": -18.15
+        },
+        {
+          "code": "603718",
+          "name": "*ST海利",
+          "close": 2.79,
+          "today_return_pct": -2.45,
+          "distance_ma250_pct": -53.15,
+          "ytd_return_pct": -57.6,
+          "distance_52w_high_pct": -63.91
+        },
+        {
+          "code": "000919",
+          "name": "金陵药业",
+          "close": 5.78,
+          "today_return_pct": -3.18,
+          "distance_ma250_pct": -19.48,
+          "ytd_return_pct": -25.99,
+          "distance_52w_high_pct": -35.13
+        },
+        {
+          "code": "301395",
+          "name": "仁信新材",
+          "close": 12.63,
+          "today_return_pct": 0.88,
+          "distance_ma250_pct": -0.04,
+          "ytd_return_pct": -4.89,
+          "distance_52w_high_pct": -23.13
+        },
+        {
+          "code": "301133",
+          "name": "金钟股份",
+          "close": 38.5,
+          "today_return_pct": -3.65,
+          "distance_ma250_pct": 14.08,
+          "ytd_return_pct": -3.68,
+          "distance_52w_high_pct": -21.73
+        },
+        {
+          "code": "300829",
+          "name": "金丹科技",
+          "close": 13.72,
+          "today_return_pct": -1.86,
+          "distance_ma250_pct": -24.6,
+          "ytd_return_pct": -18.67,
+          "distance_52w_high_pct": -38.39
+        },
+        {
+          "code": "002863",
+          "name": "今飞凯达",
+          "close": 4.31,
+          "today_return_pct": -2.49,
+          "distance_ma250_pct": -21.45,
+          "ytd_return_pct": -25.04,
+          "distance_52w_high_pct": -30.93
+        },
+        {
+          "code": "603321",
+          "name": "梅轮电梯",
+          "close": 5.9,
+          "today_return_pct": -2.16,
+          "distance_ma250_pct": -24.62,
+          "ytd_return_pct": -26.16,
+          "distance_52w_high_pct": -34.81
+        },
+        {
+          "code": "000793",
+          "name": "*ST华闻",
+          "close": 2.47,
+          "today_return_pct": -1.2,
+          "distance_ma250_pct": -9.94,
+          "ytd_return_pct": -10.18,
+          "distance_52w_high_pct": -24.92
+        },
+        {
+          "code": "601528",
+          "name": "瑞丰银行",
+          "close": 4.5,
+          "today_return_pct": -0.88,
+          "distance_ma250_pct": -17.36,
+          "ytd_return_pct": -20.21,
+          "distance_52w_high_pct": -26.35
+        },
+        {
+          "code": "300225",
+          "name": "金力泰",
+          "close": 8.0,
+          "today_return_pct": 0.25,
+          "distance_ma250_pct": 39.77,
+          "ytd_return_pct": 38.89,
+          "distance_52w_high_pct": -18.45
+        },
+        {
+          "code": "688367",
+          "name": "工大高科",
+          "close": 33.0,
+          "today_return_pct": -7.82,
+          "distance_ma250_pct": 14.48,
+          "ytd_return_pct": 9.71,
+          "distance_52w_high_pct": -30.76
+        },
+        {
+          "code": "605162",
+          "name": "新中港",
+          "close": 7.72,
+          "today_return_pct": -3.26,
+          "distance_ma250_pct": -20.21,
+          "ytd_return_pct": -11.16,
+          "distance_52w_high_pct": -50.13
+        },
+        {
+          "code": "688689",
+          "name": "银河微电",
+          "close": 46.82,
+          "today_return_pct": 9.26,
+          "distance_ma250_pct": 56.53,
+          "ytd_return_pct": 59.31,
+          "distance_52w_high_pct": 0.0
+        },
+        {
+          "code": "301083",
+          "name": "百胜智能",
+          "close": 13.2,
+          "today_return_pct": -1.49,
+          "distance_ma250_pct": -26.16,
+          "ytd_return_pct": -30.67,
+          "distance_52w_high_pct": -48.44
+        },
+        {
+          "code": "600222",
+          "name": "太龙药业",
+          "close": 6.59,
+          "today_return_pct": -5.18,
+          "distance_ma250_pct": -4.39,
+          "ytd_return_pct": -1.79,
+          "distance_52w_high_pct": -24.25
+        },
+        {
+          "code": "301113",
+          "name": "雅艺科技",
+          "close": 15.03,
+          "today_return_pct": -2.08,
+          "distance_ma250_pct": -35.99,
+          "ytd_return_pct": -41.86,
+          "distance_52w_high_pct": -46.74
+        },
+        {
+          "code": "300837",
+          "name": "浙矿股份",
+          "close": 24.11,
+          "today_return_pct": -3.37,
+          "distance_ma250_pct": -22.82,
+          "ytd_return_pct": -29.71,
+          "distance_52w_high_pct": -63.47
+        },
+        {
+          "code": "001360",
+          "name": "南矿集团",
+          "close": 18.32,
+          "today_return_pct": -4.48,
+          "distance_ma250_pct": -5.11,
+          "ytd_return_pct": -16.19,
+          "distance_52w_high_pct": -38.07
+        },
+        {
+          "code": "300610",
+          "name": "晨化股份",
+          "close": 9.92,
+          "today_return_pct": -1.59,
+          "distance_ma250_pct": -16.54,
+          "ytd_return_pct": -15.43,
+          "distance_52w_high_pct": -25.47
+        },
+        {
+          "code": "301222",
+          "name": "浙江恒威",
+          "close": 29.77,
+          "today_return_pct": -5.43,
+          "distance_ma250_pct": -8.25,
+          "ytd_return_pct": 2.37,
+          "distance_52w_high_pct": -42.14
+        },
+        {
+          "code": "301515",
+          "name": "港通医疗",
+          "close": 17.37,
+          "today_return_pct": -2.96,
+          "distance_ma250_pct": -22.26,
+          "ytd_return_pct": -24.15,
+          "distance_52w_high_pct": -34.82
+        },
+        {
+          "code": "603012",
+          "name": "创力集团",
+          "close": 7.86,
+          "today_return_pct": 1.16,
+          "distance_ma250_pct": 12.47,
+          "ytd_return_pct": 30.35,
+          "distance_52w_high_pct": -23.84
+        },
+        {
+          "code": "688121",
+          "name": "卓然股份",
+          "close": 6.48,
+          "today_return_pct": -16.06,
+          "distance_ma250_pct": -46.84,
+          "ytd_return_pct": -41.67,
+          "distance_52w_high_pct": -58.46
+        },
+        {
+          "code": "301170",
+          "name": "锡南科技",
+          "close": 21.65,
+          "today_return_pct": -2.78,
+          "distance_ma250_pct": -23.16,
+          "ytd_return_pct": -23.71,
+          "distance_52w_high_pct": -31.85
+        },
+        {
+          "code": "688285",
+          "name": "高铁电气",
+          "close": 7.15,
+          "today_return_pct": -1.79,
+          "distance_ma250_pct": -19.29,
+          "ytd_return_pct": -19.48,
+          "distance_52w_high_pct": -27.7
+        },
+        {
+          "code": "688523",
+          "name": "航天环宇",
+          "close": 51.5,
+          "today_return_pct": 3.19,
+          "distance_ma250_pct": 16.7,
+          "ytd_return_pct": -17.19,
+          "distance_52w_high_pct": -43.26
+        },
+        {
+          "code": "603041",
+          "name": "美思德",
+          "close": 10.5,
+          "today_return_pct": -0.76,
+          "distance_ma250_pct": -16.91,
+          "ytd_return_pct": -13.72,
+          "distance_52w_high_pct": -28.91
+        },
+        {
+          "code": "301019",
+          "name": "宁波色母",
           "close": 18.2,
-          "today_return_pct": -0.1,
-          "distance_ma250_pct": 1.0,
-          "ytd_return_pct": 4.4,
-          "distance_52w_high_pct": -10.6
+          "today_return_pct": -1.41,
+          "distance_ma250_pct": -12.69,
+          "ytd_return_pct": -22.39,
+          "distance_52w_high_pct": -38.66
         },
         {
-          "code": "002415",
-          "name": "海康威视",
-          "close": 31.7,
-          "today_return_pct": -1.7,
-          "distance_ma250_pct": -8.2,
-          "ytd_return_pct": -7.6,
-          "distance_52w_high_pct": -20.2
+          "code": "301386",
+          "name": "未来电器",
+          "close": 20.43,
+          "today_return_pct": -2.62,
+          "distance_ma250_pct": -16.66,
+          "ytd_return_pct": -14.52,
+          "distance_52w_high_pct": -30.06
         },
         {
-          "code": "600309",
-          "name": "万华化学",
-          "close": 84.0,
-          "today_return_pct": 1.4,
-          "distance_ma250_pct": 5.5,
-          "ytd_return_pct": 12.1,
-          "distance_52w_high_pct": -9.6
+          "code": "300958",
+          "name": "建工修复",
+          "close": 10.78,
+          "today_return_pct": -1.19,
+          "distance_ma250_pct": -19.44,
+          "ytd_return_pct": -14.44,
+          "distance_52w_high_pct": -27.16
         },
         {
-          "code": "002714",
-          "name": "牧原股份",
-          "close": 43.5,
-          "today_return_pct": -0.6,
-          "distance_ma250_pct": -3.4,
-          "ytd_return_pct": -10.7,
-          "distance_52w_high_pct": -23.5
+          "code": "002753",
+          "name": "永东股份",
+          "close": 5.7,
+          "today_return_pct": -2.56,
+          "distance_ma250_pct": -21.38,
+          "ytd_return_pct": -20.28,
+          "distance_52w_high_pct": -30.74
+        },
+        {
+          "code": "301098",
+          "name": "金埔园林",
+          "close": 8.27,
+          "today_return_pct": -4.39,
+          "distance_ma250_pct": -9.99,
+          "ytd_return_pct": -4.83,
+          "distance_52w_high_pct": -24.13
+        },
+        {
+          "code": "600168",
+          "name": "武汉控股",
+          "close": 4.06,
+          "today_return_pct": -2.64,
+          "distance_ma250_pct": -19.15,
+          "ytd_return_pct": -20.7,
+          "distance_52w_high_pct": -34.3
+        },
+        {
+          "code": "300800",
+          "name": "力合科技",
+          "close": 9.31,
+          "today_return_pct": -1.38,
+          "distance_ma250_pct": -21.35,
+          "ytd_return_pct": -21.5,
+          "distance_52w_high_pct": -29.47
+        },
+        {
+          "code": "300259",
+          "name": "新天科技",
+          "close": 5.59,
+          "today_return_pct": 5.87,
+          "distance_ma250_pct": 24.49,
+          "ytd_return_pct": 22.59,
+          "distance_52w_high_pct": -25.17
+        },
+        {
+          "code": "301223",
+          "name": "中荣股份",
+          "close": 15.83,
+          "today_return_pct": -1.74,
+          "distance_ma250_pct": -13.6,
+          "ytd_return_pct": -15.21,
+          "distance_52w_high_pct": -26.13
+        },
+        {
+          "code": "600834",
+          "name": "申通地铁",
+          "close": 6.7,
+          "today_return_pct": -1.03,
+          "distance_ma250_pct": -21.3,
+          "ytd_return_pct": -20.24,
+          "distance_52w_high_pct": -29.1
+        },
+        {
+          "code": "300933",
+          "name": "中辰股份",
+          "close": 6.04,
+          "today_return_pct": -4.13,
+          "distance_ma250_pct": -27.92,
+          "ytd_return_pct": -27.14,
+          "distance_52w_high_pct": -39.66
+        },
+        {
+          "code": "601996",
+          "name": "丰林集团",
+          "close": 2.13,
+          "today_return_pct": -3.62,
+          "distance_ma250_pct": -12.86,
+          "ytd_return_pct": -7.39,
+          "distance_52w_high_pct": -31.95
+        },
+        {
+          "code": "002412",
+          "name": "汉森制药",
+          "close": 5.5,
+          "today_return_pct": -3.51,
+          "distance_ma250_pct": -18.01,
+          "ytd_return_pct": -16.67,
+          "distance_52w_high_pct": -31.42
+        },
+        {
+          "code": "301106",
+          "name": "骏成科技",
+          "close": 21.94,
+          "today_return_pct": -2.96,
+          "distance_ma250_pct": -28.34,
+          "ytd_return_pct": -27.06,
+          "distance_52w_high_pct": -39.94
+        },
+        {
+          "code": "300514",
+          "name": "友讯达",
+          "close": 9.24,
+          "today_return_pct": -2.53,
+          "distance_ma250_pct": -31.6,
+          "ytd_return_pct": -31.71,
+          "distance_52w_high_pct": -39.05
+        },
+        {
+          "code": "603066",
+          "name": "音飞储存",
+          "close": 9.8,
+          "today_return_pct": -1.8,
+          "distance_ma250_pct": -12.33,
+          "ytd_return_pct": -9.18,
+          "distance_52w_high_pct": -21.35
+        },
+        {
+          "code": "002788",
+          "name": "鹭燕医药",
+          "close": 10.05,
+          "today_return_pct": -4.29,
+          "distance_ma250_pct": -17.44,
+          "ytd_return_pct": -51.33,
+          "distance_52w_high_pct": -63.44
+        },
+        {
+          "code": "300978",
+          "name": "东箭科技",
+          "close": 8.2,
+          "today_return_pct": -8.17,
+          "distance_ma250_pct": -28.74,
+          "ytd_return_pct": -35.18,
+          "distance_52w_high_pct": -44.97
+        },
+        {
+          "code": "301587",
+          "name": "中瑞股份",
+          "close": 21.6,
+          "today_return_pct": -4.8,
+          "distance_ma250_pct": -11.83,
+          "ytd_return_pct": -7.69,
+          "distance_52w_high_pct": -29.32
+        },
+        {
+          "code": "603190",
+          "name": "亚通精工",
+          "close": 23.06,
+          "today_return_pct": -2.62,
+          "distance_ma250_pct": -9.09,
+          "ytd_return_pct": -12.95,
+          "distance_52w_high_pct": -21.24
+        },
+        {
+          "code": "301539",
+          "name": "宏鑫科技",
+          "close": 13.25,
+          "today_return_pct": -1.71,
+          "distance_ma250_pct": -31.81,
+          "ytd_return_pct": -36.27,
+          "distance_52w_high_pct": -42.34
+        },
+        {
+          "code": "600017",
+          "name": "日照港",
+          "close": 2.54,
+          "today_return_pct": -1.17,
+          "distance_ma250_pct": -17.69,
+          "ytd_return_pct": -15.33,
+          "distance_52w_high_pct": -24.85
+        },
+        {
+          "code": "301588",
+          "name": "美新科技",
+          "close": 41.6,
+          "today_return_pct": 8.96,
+          "distance_ma250_pct": 77.86,
+          "ytd_return_pct": 127.95,
+          "distance_52w_high_pct": 0.0
+        },
+        {
+          "code": "301332",
+          "name": "德尔玛",
+          "close": 7.53,
+          "today_return_pct": -2.33,
+          "distance_ma250_pct": -23.42,
+          "ytd_return_pct": -20.4,
+          "distance_52w_high_pct": -34.64
+        },
+        {
+          "code": "603558",
+          "name": "健盛集团",
+          "close": 11.1,
+          "today_return_pct": -1.16,
+          "distance_ma250_pct": -1.81,
+          "ytd_return_pct": -1.25,
+          "distance_52w_high_pct": -27.92
+        },
+        {
+          "code": "601065",
+          "name": "江盐集团",
+          "close": 6.69,
+          "today_return_pct": -1.33,
+          "distance_ma250_pct": -20.1,
+          "ytd_return_pct": -19.88,
+          "distance_52w_high_pct": -27.52
+        },
+        {
+          "code": "301499",
+          "name": "维科精密",
+          "close": 29.9,
+          "today_return_pct": -12.32,
+          "distance_ma250_pct": -1.64,
+          "ytd_return_pct": -0.43,
+          "distance_52w_high_pct": -23.27
+        },
+        {
+          "code": "300441",
+          "name": "鲍斯股份",
+          "close": 6.32,
+          "today_return_pct": -4.1,
+          "distance_ma250_pct": -18.17,
+          "ytd_return_pct": -17.49,
+          "distance_52w_high_pct": -32.77
+        },
+        {
+          "code": "301329",
+          "name": "信音电子",
+          "close": 24.26,
+          "today_return_pct": -3.5,
+          "distance_ma250_pct": 5.88,
+          "ytd_return_pct": 2.28,
+          "distance_52w_high_pct": -27.08
+        },
+        {
+          "code": "603107",
+          "name": "上海汽配",
+          "close": 11.33,
+          "today_return_pct": -2.5,
+          "distance_ma250_pct": -24.84,
+          "ytd_return_pct": -24.72,
+          "distance_52w_high_pct": -31.95
+        },
+        {
+          "code": "600628",
+          "name": "新世界",
+          "close": 5.68,
+          "today_return_pct": -1.39,
+          "distance_ma250_pct": -24.21,
+          "ytd_return_pct": -28.37,
+          "distance_52w_high_pct": -37.79
+        },
+        {
+          "code": "603055",
+          "name": "台华新材",
+          "close": 7.93,
+          "today_return_pct": -4.46,
+          "distance_ma250_pct": -13.86,
+          "ytd_return_pct": -14.27,
+          "distance_52w_high_pct": -24.69
         }
       ]
     }
