@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from datetime import datetime
 from typing import Any
+from zoneinfo import ZoneInfo
+
+
+BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
 
 def summarize_rows(rows: list[dict[str, Any]], watchlist_total: int) -> dict[str, int]:
@@ -19,7 +23,8 @@ def build_dashboard_payload(
     updated_at: str | None = None,
 ) -> dict[str, Any]:
     payload = {
-        "updated_at": updated_at or datetime.now().strftime("%Y-%m-%d %H:%M"),
+        # Keep the fallback aligned with the main pipeline timestamp format and timezone.
+        "updated_at": updated_at or datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M"),
         "adjustments": {
             key: {"summary": summarize_rows(rows, watchlist_total), "rows": rows}
             for key, rows in rows_by_adjustment.items()

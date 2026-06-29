@@ -5,6 +5,7 @@ import os
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -12,6 +13,7 @@ SCRIPTS_DIR = ROOT_DIR / "scripts"
 STOCK_LIST_FILE = SCRIPTS_DIR / "stock_list.csv"
 OUTPUT_JSON_FILE = ROOT_DIR / "public" / "data" / "dashboard.json"
 SUPPORTED_ADJUSTMENTS = ("qfq", "none")
+BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 
 
 @dataclass(frozen=True)
@@ -34,6 +36,11 @@ class RuntimeConfig:
     year_start: str
 
 
+def get_beijing_now() -> datetime:
+    # Keep dashboard timestamps stable across local runs and GitHub Actions runners.
+    return datetime.now(BEIJING_TZ)
+
+
 def build_runtime_config() -> RuntimeConfig:
     tushare_token = os.environ.get("TUSHARE_TOKEN", "").strip()
     if not tushare_token:
@@ -52,7 +59,7 @@ def build_runtime_config() -> RuntimeConfig:
         output_json_file=OUTPUT_JSON_FILE,
         watchlist=load_watchlist(STOCK_LIST_FILE),
         adjustments=SUPPORTED_ADJUSTMENTS,
-        updated_at=datetime.now().strftime("%Y-%m-%d %H:%M"),
+        updated_at=get_beijing_now().strftime("%Y-%m-%d %H:%M"),
         start_date=history_start.strftime("%Y%m%d"),
         end_date=today.strftime("%Y%m%d"),
         year_start=year_start.strftime("%Y%m%d"),
