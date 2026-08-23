@@ -1,0 +1,2393 @@
+{
+  "updated_at": "2026-08-23 18:39",
+  "trade_date": "20260821",
+  "filters": {
+    "code_prefixes": [
+      "30",
+      "688"
+    ],
+    "circulating_market_cap_lt_yi": 20.0,
+    "annual_periods": [
+      "20241231",
+      "20251231"
+    ],
+    "annual_net_profit_rule": "n_income_attr_p > 0 for both periods",
+    "adjustment": "qfq",
+    "minimum_listed_trading_days": 5
+  },
+  "summary": {
+    "growth_market_total": 2013,
+    "market_cap_candidates": 288,
+    "profitable_candidates": 167,
+    "displayed_total": 153
+  },
+  "rows": [
+    {
+      "code": "301287",
+      "name": "康力源",
+      "close": 40.62,
+      "today_return_pct": 1.47,
+      "circulating_market_cap_yi": 6.92,
+      "distance_52w_high_pct": -14.9,
+      "distance_52w_low_pct": 36.31,
+      "position_52w_pct": 60.35,
+      "annual_net_profit": {
+        "20241231": 81225070.95,
+        "20251231": 69443286.99
+      },
+      "main_business": "公司是一家专注于多系列、差异化、定制化健身器材研发、制造与销售的高新技术企业。公司已形成以综合训练器和自由力量训练器为主导、无氧与有氧结合、室内与室外结合、家用与商用结合的综合性健身器材业务体系。"
+    },
+    {
+      "code": "300923",
+      "name": "研奥股份",
+      "close": 24.7,
+      "today_return_pct": 0.08,
+      "circulating_market_cap_yi": 18.85,
+      "distance_52w_high_pct": -17.39,
+      "distance_52w_low_pct": 41.06,
+      "position_52w_pct": 58.03,
+      "annual_net_profit": {
+        "20241231": 42346763.65,
+        "20251231": 34616014.97
+      },
+      "main_business": "轨道车辆电气设备的研发、生产和销售业务"
+    },
+    {
+      "code": "300804",
+      "name": "广康生化",
+      "close": 43.15,
+      "today_return_pct": -0.02,
+      "circulating_market_cap_yi": 11.87,
+      "distance_52w_high_pct": -23.15,
+      "distance_52w_low_pct": 61.49,
+      "position_52w_pct": 55.83,
+      "annual_net_profit": {
+        "20241231": 34681288.66,
+        "20251231": 40713344.1
+      },
+      "main_business": "从事农药原药、中间体、制剂的研发、生产和销售。"
+    },
+    {
+      "code": "301130",
+      "name": "西点药业",
+      "close": 31.38,
+      "today_return_pct": -6.19,
+      "circulating_market_cap_yi": 18.52,
+      "distance_52w_high_pct": -21.51,
+      "distance_52w_low_pct": 43.42,
+      "position_52w_pct": 52.49,
+      "annual_net_profit": {
+        "20241231": 40268798.73,
+        "20251231": 21900019.04
+      },
+      "main_business": "化学药品原料药及制剂的研发、生产、销售。"
+    },
+    {
+      "code": "300314",
+      "name": "戴维医疗",
+      "close": 13.11,
+      "today_return_pct": -5.14,
+      "circulating_market_cap_yi": 18.84,
+      "distance_52w_high_pct": -24.13,
+      "distance_52w_low_pct": 47.47,
+      "position_52w_pct": 50.3,
+      "annual_net_profit": {
+        "20241231": 57263314.13,
+        "20251231": 87053319.69
+      },
+      "main_business": "婴儿保育设备研发、生产、销售。"
+    },
+    {
+      "code": "301336",
+      "name": "趣睡科技",
+      "close": 42.19,
+      "today_return_pct": -0.21,
+      "circulating_market_cap_yi": 16.95,
+      "distance_52w_high_pct": -16.82,
+      "distance_52w_low_pct": 23.69,
+      "position_52w_pct": 48.65,
+      "annual_net_profit": {
+        "20241231": 28966560.89,
+        "20251231": 30546948.51
+      },
+      "main_business": "高品质易安装家具、家纺等家居产品的研发、设计、生产（以外包生产方式实现）与销售。"
+    },
+    {
+      "code": "301395",
+      "name": "仁信新材",
+      "close": 12.26,
+      "today_return_pct": 0.82,
+      "circulating_market_cap_yi": 15.61,
+      "distance_52w_high_pct": -27.97,
+      "distance_52w_low_pct": 55.19,
+      "position_52w_pct": 47.81,
+      "annual_net_profit": {
+        "20241231": 53243841.43,
+        "20251231": 33506703.52
+      },
+      "main_business": "主要从事聚苯乙烯高分子材料的研发、生产和销售。"
+    },
+    {
+      "code": "301129",
+      "name": "瑞纳智能",
+      "close": 25.55,
+      "today_return_pct": 6.55,
+      "circulating_market_cap_yi": 17.24,
+      "distance_52w_high_pct": -26.2,
+      "distance_52w_low_pct": 47.6,
+      "position_52w_pct": 47.6,
+      "annual_net_profit": {
+        "20241231": 76733231.95,
+        "20251231": 108749679.71
+      },
+      "main_business": "供热节能产品研发与生产、供热节能方案设计与实施。"
+    },
+    {
+      "code": "301353",
+      "name": "普莱得",
+      "close": 19.03,
+      "today_return_pct": -0.31,
+      "circulating_market_cap_yi": 7.77,
+      "distance_52w_high_pct": -19.87,
+      "distance_52w_low_pct": 28.67,
+      "position_52w_pct": 47.32,
+      "annual_net_profit": {
+        "20241231": 62999663.25,
+        "20251231": 72760441.89
+      },
+      "main_business": "电动工具研发、设计、生产和销售。"
+    },
+    {
+      "code": "688681",
+      "name": "科汇股份",
+      "close": 17.01,
+      "today_return_pct": 0.89,
+      "circulating_market_cap_yi": 17.8,
+      "distance_52w_high_pct": -21.65,
+      "distance_52w_low_pct": 32.68,
+      "position_52w_pct": 47.13,
+      "annual_net_profit": {
+        "20241231": 30497298.08,
+        "20251231": 46877978.55
+      },
+      "main_business": "电气自动化新技术、工业物联网技术的研发与产业化。"
+    },
+    {
+      "code": "301295",
+      "name": "美硕科技",
+      "close": 38.47,
+      "today_return_pct": 0.55,
+      "circulating_market_cap_yi": 11.31,
+      "distance_52w_high_pct": -30.85,
+      "distance_52w_low_pct": 56.38,
+      "position_52w_pct": 44.7,
+      "annual_net_profit": {
+        "20241231": 27297868.94,
+        "20251231": 22552520.59
+      },
+      "main_business": "继电器类控制件及其衍生执行件流体电磁阀类产品的研发、生产及销售，产品主要包括通用继电器、汽车继电器、磁保持继电器、通讯继电器及流体电磁阀等，应用于家用电器、智能家居、汽车制造、智能电表、工业控制和通讯设施等领域。"
+    },
+    {
+      "code": "688565",
+      "name": "力源科技",
+      "close": 11.16,
+      "today_return_pct": 0.9,
+      "circulating_market_cap_yi": 16.71,
+      "distance_52w_high_pct": -28.05,
+      "distance_52w_low_pct": 44.56,
+      "position_52w_pct": 44.16,
+      "annual_net_profit": {
+        "20241231": 2538931.1,
+        "20251231": 8938602.46
+      },
+      "main_business": "核能发电厂、火力发电厂、冶金、化工等工业企业及市政行业的水处理系统设备的研发、设计和集成业务，以及氢燃料电池发动机系统的研发、设计和集成业务，同时为电力企业提供智能电站设备的研发、设计和系统集成服务。"
+    },
+    {
+      "code": "301314",
+      "name": "科瑞思",
+      "close": 43.44,
+      "today_return_pct": 1.71,
+      "circulating_market_cap_yi": 7.93,
+      "distance_52w_high_pct": -26.4,
+      "distance_52w_low_pct": 38.74,
+      "position_52w_pct": 43.77,
+      "annual_net_profit": {
+        "20241231": 17898018.26,
+        "20251231": 19016387.29
+      },
+      "main_business": "小型磁环线圈绕线服务"
+    },
+    {
+      "code": "688067",
+      "name": "爱威科技",
+      "close": 22.88,
+      "today_return_pct": -1.12,
+      "circulating_market_cap_yi": 15.56,
+      "distance_52w_high_pct": -22.78,
+      "distance_52w_low_pct": 29.78,
+      "position_52w_pct": 43.75,
+      "annual_net_profit": {
+        "20241231": 22841204.65,
+        "20251231": 28866943.56
+      },
+      "main_business": "医疗临床检验分析仪器及配套体外诊断试剂、医用耗材的研发、生产、销售和服务。"
+    },
+    {
+      "code": "301107",
+      "name": "瑜欣电子",
+      "close": 20.11,
+      "today_return_pct": 0.5,
+      "circulating_market_cap_yi": 16.32,
+      "distance_52w_high_pct": -26.53,
+      "distance_52w_low_pct": 38.4,
+      "position_52w_pct": 43.46,
+      "annual_net_profit": {
+        "20241231": 52922670.43,
+        "20251231": 75207233.58
+      },
+      "main_business": "通用汽油机及终端产品核心电子控制部件的研发、生产及销售。"
+    },
+    {
+      "code": "301113",
+      "name": "雅艺科技",
+      "close": 16.66,
+      "today_return_pct": -0.48,
+      "circulating_market_cap_yi": 11.94,
+      "distance_52w_high_pct": -23.82,
+      "distance_52w_low_pct": 31.6,
+      "position_52w_pct": 43.43,
+      "annual_net_profit": {
+        "20241231": 11169734.96,
+        "20251231": 7579323.58
+      },
+      "main_business": "户外火盆、气炉等户外休闲家具产品的研发、设计、生产和销售。"
+    },
+    {
+      "code": "300845",
+      "name": "捷安高科",
+      "close": 12.32,
+      "today_return_pct": 0.41,
+      "circulating_market_cap_yi": 17.71,
+      "distance_52w_high_pct": -26.01,
+      "distance_52w_low_pct": 36.89,
+      "position_52w_pct": 43.4,
+      "annual_net_profit": {
+        "20241231": 54932477.38,
+        "20251231": 40267138.73
+      },
+      "main_business": "公司主要从事于多媒体技术开发和三维数字虚拟仿真技术在各行业的应用,提供系统的专业虚拟现实仿真设计与培训的解决方案、软件开发、系统整合、微机测控等多方位服务"
+    },
+    {
+      "code": "301167",
+      "name": "建研设计",
+      "close": 14.37,
+      "today_return_pct": 2.13,
+      "circulating_market_cap_yi": 15.19,
+      "distance_52w_high_pct": -23.56,
+      "distance_52w_low_pct": 28.07,
+      "position_52w_pct": 41.56,
+      "annual_net_profit": {
+        "20241231": 15566925.87,
+        "20251231": 21694100.64
+      },
+      "main_business": "建筑设计、咨询、研发及其延伸业务，包含常规建筑设计业务、新兴业务设计与咨询、EPC 总承包业务、施工图审查业务等。"
+    },
+    {
+      "code": "300519",
+      "name": "新光药业",
+      "close": 14.29,
+      "today_return_pct": -4.16,
+      "circulating_market_cap_yi": 16.3,
+      "distance_52w_high_pct": -21.74,
+      "distance_52w_low_pct": 23.94,
+      "position_52w_pct": 41.01,
+      "annual_net_profit": {
+        "20241231": 50389992.99,
+        "20251231": 54211458.52
+      },
+      "main_business": "主要从事中成药的研发、生产和销售,是一家集研究、生产和经营于一体的现代化制药企业。"
+    },
+    {
+      "code": "301591",
+      "name": "肯特股份",
+      "close": 37.78,
+      "today_return_pct": 20.01,
+      "circulating_market_cap_yi": 16.89,
+      "distance_52w_high_pct": -36.79,
+      "distance_52w_low_pct": 64.12,
+      "position_52w_pct": 40.16,
+      "annual_net_profit": {
+        "20241231": 72039183.91,
+        "20251231": 65983899.66
+      },
+      "main_business": "高性能工程塑料制品及组配件的研发、生产与销售。"
+    },
+    {
+      "code": "300610",
+      "name": "晨化股份",
+      "close": 10.42,
+      "today_return_pct": 0.1,
+      "circulating_market_cap_yi": 17.25,
+      "distance_52w_high_pct": -23.21,
+      "distance_52w_low_pct": 24.94,
+      "position_52w_pct": 39.77,
+      "annual_net_profit": {
+        "20241231": 83890898.01,
+        "20251231": 65983318.51
+      },
+      "main_business": "主要从事以氧化烯烃、脂肪醇、硅氧烷等为主要原料的精细化工新材料系列产品的研发、生产和销售。"
+    },
+    {
+      "code": "300823",
+      "name": "建科智能",
+      "close": 15.05,
+      "today_return_pct": -0.13,
+      "circulating_market_cap_yi": 12.76,
+      "distance_52w_high_pct": -23.49,
+      "distance_52w_low_pct": 24.9,
+      "position_52w_pct": 39.37,
+      "annual_net_profit": {
+        "20241231": 44807886.67,
+        "20251231": 33826576.95
+      },
+      "main_business": "中高端数控钢筋工程成套装备的研发、设计、生产和销售,并提供数控钢筋工程全套生产解决方案。"
+    },
+    {
+      "code": "301512",
+      "name": "智信精密",
+      "close": 31.16,
+      "today_return_pct": 0.45,
+      "circulating_market_cap_yi": 15.18,
+      "distance_52w_high_pct": -28.84,
+      "distance_52w_low_pct": 35.01,
+      "position_52w_pct": 39.01,
+      "annual_net_profit": {
+        "20241231": 45504419.53,
+        "20251231": 34857863.35
+      },
+      "main_business": "智信精密以机器视觉及工业软件开发为核心，主要从事自动化设备、自动化线体及夹治具产品的研发、设计、生产、销售和相关技术服务，并为客户实现生产智能化提供软硬件一体化系统解决方案"
+    },
+    {
+      "code": "688657",
+      "name": "浩辰软件",
+      "close": 32.78,
+      "today_return_pct": -0.61,
+      "circulating_market_cap_yi": 19.57,
+      "distance_52w_high_pct": -26.88,
+      "distance_52w_low_pct": 30.55,
+      "position_52w_pct": 38.89,
+      "annual_net_profit": {
+        "20241231": 62999129.19,
+        "20251231": 50801584.73
+      },
+      "main_business": "公司是国内领先的研发设计类工业软件提供商，主要从事CAD相关软件的研发及推广销售业务"
+    },
+    {
+      "code": "301360",
+      "name": "荣旗科技",
+      "close": 57.14,
+      "today_return_pct": 2.42,
+      "circulating_market_cap_yi": 19.46,
+      "distance_52w_high_pct": -34.85,
+      "distance_52w_low_pct": 50.92,
+      "position_52w_pct": 38.68,
+      "annual_net_profit": {
+        "20241231": 44898321.28,
+        "20251231": 42516676.54
+      },
+      "main_business": "从事智能装备的研发、设计、生产、销售及技术服务。"
+    },
+    {
+      "code": "301446",
+      "name": "福事特",
+      "close": 36.16,
+      "today_return_pct": 1.74,
+      "circulating_market_cap_yi": 11.49,
+      "distance_52w_high_pct": -30.94,
+      "distance_52w_low_pct": 39.13,
+      "position_52w_pct": 38.57,
+      "annual_net_profit": {
+        "20241231": 72396691.13,
+        "20251231": 76350880.3
+      },
+      "main_business": "液压管路系统研发、生产及销售。"
+    },
+    {
+      "code": "301390",
+      "name": "经纬股份",
+      "close": 31.3,
+      "today_return_pct": 0.45,
+      "circulating_market_cap_yi": 15.35,
+      "distance_52w_high_pct": -27.68,
+      "distance_52w_low_pct": 30.09,
+      "position_52w_pct": 37.67,
+      "annual_net_profit": {
+        "20241231": 35537729.79,
+        "20251231": 5270301.66
+      },
+      "main_business": "公司主要从事电力工程技术服务及地理信息技术服务业务：电力工程技术服务主要系为国家电网下属企业、内蒙古电力集团及其子公司、中国电力建设集团附属电力设计院、政府机构、各类工商业企业、新能源发电企业等客户提供“发电、输电、变电、配电”等各个电力环节的电力咨询设计及电力工程建设服务；地理信息技术服务主要系为中国联合网络通信集团有限公司、中国移动通信集团有限公司、中国电信集团有限公司等大型电信运营商及其附属设计院、政府机构、国家电网下属企业、内蒙古电力集团及其子公司等客户提供地理信息数据服务和地理信息智慧应用服务。"
+    },
+    {
+      "code": "300517",
+      "name": "海波重科",
+      "close": 10.09,
+      "today_return_pct": 0.0,
+      "circulating_market_cap_yi": 12.74,
+      "distance_52w_high_pct": -27.88,
+      "distance_52w_low_pct": 29.36,
+      "position_52w_pct": 37.0,
+      "annual_net_profit": {
+        "20241231": 23003575.38,
+        "20251231": 1780803.81
+      },
+      "main_business": "桥梁钢结构工程业务,业务范围主要包括桥梁钢结构的制作和安装,以及相应的技术研发、工艺设计及技术服务。"
+    },
+    {
+      "code": "300886",
+      "name": "华业香料",
+      "close": 24.54,
+      "today_return_pct": -1.05,
+      "circulating_market_cap_yi": 11.58,
+      "distance_52w_high_pct": -29.36,
+      "distance_52w_low_pct": 31.94,
+      "position_52w_pct": 36.8,
+      "annual_net_profit": {
+        "20241231": 22089850.23,
+        "20251231": 30217289.2
+      },
+      "main_business": "公司主要从事内酯系列合成香料的研发、生产和销售"
+    },
+    {
+      "code": "301578",
+      "name": "辰奕智能",
+      "close": 22.75,
+      "today_return_pct": -0.74,
+      "circulating_market_cap_yi": 6.85,
+      "distance_52w_high_pct": -26.4,
+      "distance_52w_low_pct": 26.25,
+      "position_52w_pct": 36.7,
+      "annual_net_profit": {
+        "20241231": 47213660.04,
+        "20251231": 25482420.1
+      },
+      "main_business": "智能遥控器和智能产品的设计、研发、生产及销售。"
+    },
+    {
+      "code": "301157",
+      "name": "华塑科技",
+      "close": 62.95,
+      "today_return_pct": 2.04,
+      "circulating_market_cap_yi": 13.0,
+      "distance_52w_high_pct": -33.23,
+      "distance_52w_low_pct": 39.8,
+      "position_52w_pct": 36.39,
+      "annual_net_profit": {
+        "20241231": 37827354.15,
+        "20251231": 28976631.18
+      },
+      "main_business": "电池安全管理产品的研发、生产、销售及售后技术服务。"
+    },
+    {
+      "code": "301298",
+      "name": "东利机械",
+      "close": 12.92,
+      "today_return_pct": 1.25,
+      "circulating_market_cap_yi": 13.98,
+      "distance_52w_high_pct": -27.5,
+      "distance_52w_low_pct": 26.17,
+      "position_52w_pct": 35.36,
+      "annual_net_profit": {
+        "20241231": 62548942.11,
+        "20251231": 67562318.73
+      },
+      "main_business": "汽车零部件、石油阀门零部件及其他产品的研发、生产和销售。"
+    },
+    {
+      "code": "301399",
+      "name": "英特科技",
+      "close": 17.34,
+      "today_return_pct": 1.64,
+      "circulating_market_cap_yi": 9.48,
+      "distance_52w_high_pct": -32.08,
+      "distance_52w_low_pct": 33.18,
+      "position_52w_pct": 34.53,
+      "annual_net_profit": {
+        "20241231": 59432585.7,
+        "20251231": 32404436.95
+      },
+      "main_business": "专业从事高效换热器的研发、生产及销售"
+    },
+    {
+      "code": "301006",
+      "name": "迈拓股份",
+      "close": 13.75,
+      "today_return_pct": -0.36,
+      "circulating_market_cap_yi": 11.53,
+      "distance_52w_high_pct": -27.86,
+      "distance_52w_low_pct": 25.0,
+      "position_52w_pct": 34.12,
+      "annual_net_profit": {
+        "20241231": 79202518.55,
+        "20251231": 92265886.59
+      },
+      "main_business": "智能超声水表和热量表系列产品的研发、生产和销售。"
+    },
+    {
+      "code": "301552",
+      "name": "科力装备",
+      "close": 24.39,
+      "today_return_pct": -2.63,
+      "circulating_market_cap_yi": 7.55,
+      "distance_52w_high_pct": -27.48,
+      "distance_52w_low_pct": 23.62,
+      "position_52w_pct": 33.53,
+      "annual_net_profit": {
+        "20241231": 150229747.3,
+        "20251231": 155231496.08
+      },
+      "main_business": "主要从事汽车玻璃总成组件产品的研发、生产和销售，主要产品包括风挡玻璃安装组件、侧窗玻璃升降组件、角窗玻璃总成组件和其他汽车零部件，广泛应用于汽车玻璃领域，是汽车玻璃总成的重要组成部分"
+    },
+    {
+      "code": "301429",
+      "name": "森泰股份",
+      "close": 17.29,
+      "today_return_pct": -0.29,
+      "circulating_market_cap_yi": 7.61,
+      "distance_52w_high_pct": -26.49,
+      "distance_52w_low_pct": 22.19,
+      "position_52w_pct": 33.51,
+      "annual_net_profit": {
+        "20241231": 63283721.9,
+        "20251231": 51187041.55
+      },
+      "main_business": "高性能木塑复合材料、新型石木塑复合材料及其制品和应用的研发、设计、生产、销售。"
+    },
+    {
+      "code": "301276",
+      "name": "嘉曼服饰",
+      "close": 20.21,
+      "today_return_pct": -3.3,
+      "circulating_market_cap_yi": 14.61,
+      "distance_52w_high_pct": -35.53,
+      "distance_52w_low_pct": 38.05,
+      "position_52w_pct": 33.33,
+      "annual_net_profit": {
+        "20241231": 171210765.36,
+        "20251231": 105536231.03
+      },
+      "main_business": "中高端童装运营"
+    },
+    {
+      "code": "301359",
+      "name": "东南电子",
+      "close": 16.76,
+      "today_return_pct": -0.24,
+      "circulating_market_cap_yi": 11.92,
+      "distance_52w_high_pct": -30.92,
+      "distance_52w_low_pct": 27.94,
+      "position_52w_pct": 32.8,
+      "annual_net_profit": {
+        "20241231": 45849228.98,
+        "20251231": 40442806.97
+      },
+      "main_business": "微动开关产品的设计、研发、生产及销售"
+    },
+    {
+      "code": "300787",
+      "name": "海能实业",
+      "close": 10.04,
+      "today_return_pct": -0.99,
+      "circulating_market_cap_yi": 19.73,
+      "distance_52w_high_pct": -36.58,
+      "distance_52w_low_pct": 38.29,
+      "position_52w_pct": 32.44,
+      "annual_net_profit": {
+        "20241231": 76690736.59,
+        "20251231": 94691004.96
+      },
+      "main_business": "电子信号传输适配产品及其他消费电子产品的定制化设计生产。"
+    },
+    {
+      "code": "300640",
+      "name": "德艺文创",
+      "close": 6.83,
+      "today_return_pct": 1.79,
+      "circulating_market_cap_yi": 15.08,
+      "distance_52w_high_pct": -35.93,
+      "distance_52w_low_pct": 36.33,
+      "position_52w_pct": 32.21,
+      "annual_net_profit": {
+        "20241231": 9106880.73,
+        "20251231": 12917626.28
+      },
+      "main_business": "公司主营业务为创意家居用品的研发设计、外包生产及销售。公司立足于中华五千年璀璨的传统文化,以研发设计为驱动,积极推进文化创意产业与传统产业的深度融合发展,以差异化的产品和快速的研发设计满足广大客户的多元化、个性化需求。"
+    },
+    {
+      "code": "301163",
+      "name": "宏德股份",
+      "close": 23.64,
+      "today_return_pct": 0.42,
+      "circulating_market_cap_yi": 12.94,
+      "distance_52w_high_pct": -31.54,
+      "distance_52w_low_pct": 27.78,
+      "position_52w_pct": 32.06,
+      "annual_net_profit": {
+        "20241231": 21345725.07,
+        "20251231": 40770741.29
+      },
+      "main_business": "高端装备关键铸件的研发、生产及销售。"
+    },
+    {
+      "code": "300897",
+      "name": "山科智能",
+      "close": 15.81,
+      "today_return_pct": 1.02,
+      "circulating_market_cap_yi": 19.33,
+      "distance_52w_high_pct": -36.81,
+      "distance_52w_low_pct": 36.41,
+      "position_52w_pct": 31.42,
+      "annual_net_profit": {
+        "20241231": 81452899.28,
+        "20251231": 17716662.49
+      },
+      "main_business": "为水务企业提供稳定可靠的智能水务技术、产品和服务"
+    },
+    {
+      "code": "688395",
+      "name": "正弦电气",
+      "close": 22.65,
+      "today_return_pct": 0.31,
+      "circulating_market_cap_yi": 19.61,
+      "distance_52w_high_pct": -31.65,
+      "distance_52w_low_pct": 25.69,
+      "position_52w_pct": 30.62,
+      "annual_net_profit": {
+        "20241231": 37832410.1,
+        "20251231": 40070632.29
+      },
+      "main_business": "工业自动化领域电机驱动和控制系统产品研发、生产和销售"
+    },
+    {
+      "code": "301203",
+      "name": "国泰环保",
+      "close": 34.12,
+      "today_return_pct": 0.12,
+      "circulating_market_cap_yi": 14.96,
+      "distance_52w_high_pct": -35.59,
+      "distance_52w_low_pct": 31.43,
+      "position_52w_pct": 30.21,
+      "annual_net_profit": {
+        "20241231": 131923474.97,
+        "20251231": 113879915.71
+      },
+      "main_business": "公司主营业务为污泥处理服务，并向成套设备销售和水环境生态修复领域延伸。公司专注于污水处理厂污泥处理、处置与资源化，致力于打通全过程技术链条，为解决我国污泥处理处置难题提供了一条经济效率高、关键装备国产化、资源利用率高、能源节约且碳减排效果显著的新路线、新途径。"
+    },
+    {
+      "code": "301633",
+      "name": "港迪技术",
+      "close": 55.09,
+      "today_return_pct": 0.24,
+      "circulating_market_cap_yi": 14.05,
+      "distance_52w_high_pct": -34.03,
+      "distance_52w_low_pct": 28.62,
+      "position_52w_pct": 30.14,
+      "annual_net_profit": {
+        "20241231": 94375075.76,
+        "20251231": 72174093.37
+      },
+      "main_business": "公司主要从事工业自动化领域产品的研发、生产与销售"
+    },
+    {
+      "code": "301156",
+      "name": "美农生物",
+      "close": 11.74,
+      "today_return_pct": -1.43,
+      "circulating_market_cap_yi": 13.89,
+      "distance_52w_high_pct": -28.41,
+      "distance_52w_low_pct": 20.41,
+      "position_52w_pct": 29.92,
+      "annual_net_profit": {
+        "20241231": 49582532.45,
+        "20251231": 54810535.8
+      },
+      "main_business": "饲料添加剂及蛋白饲料的研发、生产、销售"
+    },
+    {
+      "code": "301309",
+      "name": "万得凯",
+      "close": 29.66,
+      "today_return_pct": -0.74,
+      "circulating_market_cap_yi": 17.97,
+      "distance_52w_high_pct": -31.77,
+      "distance_52w_low_pct": 24.52,
+      "position_52w_pct": 29.72,
+      "annual_net_profit": {
+        "20241231": 150148167.53,
+        "20251231": 113729733.86
+      },
+      "main_business": "水暖器材的设计、开发、生产、销售，产品主要包括各类铜制水暖阀门、管件等"
+    },
+    {
+      "code": "301303",
+      "name": "真兰仪表",
+      "close": 14.01,
+      "today_return_pct": -0.5,
+      "circulating_market_cap_yi": 14.32,
+      "distance_52w_high_pct": -26.11,
+      "distance_52w_low_pct": 17.53,
+      "position_52w_pct": 29.69,
+      "annual_net_profit": {
+        "20241231": 320677816.72,
+        "20251231": 343058480.59
+      },
+      "main_business": "燃气计量仪表及配套产品的研发、制造和销售。"
+    },
+    {
+      "code": "301170",
+      "name": "锡南科技",
+      "close": 22.93,
+      "today_return_pct": -0.95,
+      "circulating_market_cap_yi": 8.71,
+      "distance_52w_high_pct": -27.07,
+      "distance_52w_low_pct": 18.38,
+      "position_52w_pct": 29.49,
+      "annual_net_profit": {
+        "20241231": 109715400.24,
+        "20251231": 101400248.09
+      },
+      "main_business": "汽车轻量化领域铝合金零部件的研发、生产和销售。"
+    },
+    {
+      "code": "301469",
+      "name": "恒达新材",
+      "close": 28.42,
+      "today_return_pct": -0.53,
+      "circulating_market_cap_yi": 13.09,
+      "distance_52w_high_pct": -33.55,
+      "distance_52w_low_pct": 26.71,
+      "position_52w_pct": 29.45,
+      "annual_net_profit": {
+        "20241231": 68460185.24,
+        "20251231": 80314701.0
+      },
+      "main_business": "公司专业从事特种纸原纸的研发、生产和销售，产品包括医疗包装原纸、食品包装原纸、工业特种纸原纸和卷烟配套原纸，其中以医疗和食品包装原纸为主。"
+    },
+    {
+      "code": "301587",
+      "name": "中瑞股份",
+      "close": 21.17,
+      "today_return_pct": 1.2,
+      "circulating_market_cap_yi": 15.55,
+      "distance_52w_high_pct": -30.79,
+      "distance_52w_low_pct": 22.8,
+      "position_52w_pct": 29.44,
+      "annual_net_profit": {
+        "20241231": 75077967.58,
+        "20251231": 51207082.91
+      },
+      "main_business": "圆柱锂电池精密安全结构件的研发、制造及销售。"
+    },
+    {
+      "code": "301418",
+      "name": "协昌科技",
+      "close": 37.61,
+      "today_return_pct": 0.37,
+      "circulating_market_cap_yi": 11.07,
+      "distance_52w_high_pct": -36.61,
+      "distance_52w_low_pct": 30.82,
+      "position_52w_pct": 28.97,
+      "annual_net_profit": {
+        "20241231": 37047666.67,
+        "20251231": 4942460.33
+      },
+      "main_business": "运动控制产品、功率芯片的研发、生产和销售"
+    },
+    {
+      "code": "688616",
+      "name": "西力科技",
+      "close": 10.88,
+      "today_return_pct": -1.0,
+      "circulating_market_cap_yi": 19.52,
+      "distance_52w_high_pct": -28.66,
+      "distance_52w_low_pct": 19.56,
+      "position_52w_pct": 28.94,
+      "annual_net_profit": {
+        "20241231": 103728045.88,
+        "20251231": 103954463.17
+      },
+      "main_business": "智能电表、用电信息采集终端、电能计量箱等电能计量产品的研发、生产和销售"
+    },
+    {
+      "code": "300549",
+      "name": "优德精密",
+      "close": 14.32,
+      "today_return_pct": 0.21,
+      "circulating_market_cap_yi": 14.47,
+      "distance_52w_high_pct": -35.23,
+      "distance_52w_low_pct": 28.32,
+      "position_52w_pct": 28.86,
+      "annual_net_profit": {
+        "20241231": 13698660.43,
+        "20251231": 7917705.21
+      },
+      "main_business": "汽车模具零部件、半导体计算机模具零部件、家电模具零部件等精密模具零部件的研发、生产及销售,同时也从事自动化设备零部件、制药模具及医疗器材零部件的研发、生产及销售。"
+    },
+    {
+      "code": "300371",
+      "name": "汇中股份",
+      "close": 10.52,
+      "today_return_pct": 1.06,
+      "circulating_market_cap_yi": 14.73,
+      "distance_52w_high_pct": -30.38,
+      "distance_52w_low_pct": 20.78,
+      "position_52w_pct": 28.28,
+      "annual_net_profit": {
+        "20241231": 57724747.8,
+        "20251231": 66209906.32
+      },
+      "main_business": "超声热量表、超声水表、超声流量计及相关产品的开发、制造和销售。"
+    },
+    {
+      "code": "301065",
+      "name": "本立科技",
+      "close": 19.18,
+      "today_return_pct": -1.29,
+      "circulating_market_cap_yi": 16.55,
+      "distance_52w_high_pct": -26.17,
+      "distance_52w_low_pct": 15.54,
+      "position_52w_pct": 27.51,
+      "annual_net_profit": {
+        "20241231": 64571985.96,
+        "20251231": 78832065.57
+      },
+      "main_business": "医药中间体、农药中间体、新材料中间体的研发、生产和销售。"
+    },
+    {
+      "code": "301233",
+      "name": "盛帮股份",
+      "close": 33.07,
+      "today_return_pct": 0.73,
+      "circulating_market_cap_yi": 13.02,
+      "distance_52w_high_pct": -33.15,
+      "distance_52w_low_pct": 22.94,
+      "position_52w_pct": 27.34,
+      "annual_net_profit": {
+        "20241231": 87003152.82,
+        "20251231": 87135503.62
+      },
+      "main_business": "橡胶高分子材料制品研发、生产和销售。"
+    },
+    {
+      "code": "301135",
+      "name": "瑞德智能",
+      "close": 16.88,
+      "today_return_pct": 0.3,
+      "circulating_market_cap_yi": 17.05,
+      "distance_52w_high_pct": -35.5,
+      "distance_52w_low_pct": 25.97,
+      "position_52w_pct": 27.25,
+      "annual_net_profit": {
+        "20241231": 38227734.13,
+        "20251231": 27247800.11
+      },
+      "main_business": "智能控制器的研发、生产与销售。"
+    },
+    {
+      "code": "300930",
+      "name": "屹通新材",
+      "close": 25.33,
+      "today_return_pct": 0.6,
+      "circulating_market_cap_yi": 11.94,
+      "distance_52w_high_pct": -36.48,
+      "distance_52w_low_pct": 26.46,
+      "position_52w_pct": 26.7,
+      "annual_net_profit": {
+        "20241231": 50946286.9,
+        "20251231": 56317779.2
+      },
+      "main_business": "高性能纯铁粉、合金钢粉及添加剂用铁粉等的金属粉体制造。"
+    },
+    {
+      "code": "688576",
+      "name": "西山科技",
+      "close": 41.14,
+      "today_return_pct": -2.93,
+      "circulating_market_cap_yi": 13.3,
+      "distance_52w_high_pct": -29.75,
+      "distance_52w_low_pct": 18.12,
+      "position_52w_pct": 26.59,
+      "annual_net_profit": {
+        "20241231": 98666904.12,
+        "20251231": 51908053.43
+      },
+      "main_business": "手术动力装置的研发、生产、销售。"
+    },
+    {
+      "code": "688092",
+      "name": "爱科科技",
+      "close": 22.6,
+      "today_return_pct": -0.57,
+      "circulating_market_cap_yi": 18.68,
+      "distance_52w_high_pct": -29.49,
+      "distance_52w_low_pct": 17.71,
+      "position_52w_pct": 26.46,
+      "annual_net_profit": {
+        "20241231": 67011114.3,
+        "20251231": 50694811.67
+      },
+      "main_business": "智能切割设备"
+    },
+    {
+      "code": "300306",
+      "name": "远方信息",
+      "close": 10.18,
+      "today_return_pct": 0.69,
+      "circulating_market_cap_yi": 16.04,
+      "distance_52w_high_pct": -33.72,
+      "distance_52w_low_pct": 21.92,
+      "position_52w_pct": 26.11,
+      "annual_net_profit": {
+        "20241231": 92357062.45,
+        "20251231": 71490913.01
+      },
+      "main_business": "智能检测识别信息系统及服务"
+    },
+    {
+      "code": "301056",
+      "name": "森赫股份",
+      "close": 10.98,
+      "today_return_pct": 0.92,
+      "circulating_market_cap_yi": 19.32,
+      "distance_52w_high_pct": -40.23,
+      "distance_52w_low_pct": 30.87,
+      "position_52w_pct": 25.95,
+      "annual_net_profit": {
+        "20241231": 96846564.06,
+        "20251231": 74944907.02
+      },
+      "main_business": "电梯、自动扶梯和自动人行道的研发、制造和销售，并提供相关安装和调试服务，以及电梯维修保养、配件销售、更新改造等后市场服务。"
+    },
+    {
+      "code": "301272",
+      "name": "英华特",
+      "close": 34.35,
+      "today_return_pct": 0.2,
+      "circulating_market_cap_yi": 12.71,
+      "distance_52w_high_pct": -34.66,
+      "distance_52w_low_pct": 21.55,
+      "position_52w_pct": 25.05,
+      "annual_net_profit": {
+        "20241231": 74165383.19,
+        "20251231": 36283055.78
+      },
+      "main_business": "专注于提供节能高效、可靠性高、噪音低的涡旋式压缩机及其应用技术的研制开发、生产销售及售前售后服务"
+    },
+    {
+      "code": "301548",
+      "name": "崇德科技",
+      "close": 61.91,
+      "today_return_pct": 1.66,
+      "circulating_market_cap_yi": 16.24,
+      "distance_52w_high_pct": -40.69,
+      "distance_52w_low_pct": 29.55,
+      "position_52w_pct": 24.95,
+      "annual_net_profit": {
+        "20241231": 115437477.77,
+        "20251231": 134542341.22
+      },
+      "main_business": "动压油膜滑动轴承的研发、设计、生产及销售，滚动轴承及相关产品等的销售。"
+    },
+    {
+      "code": "300564",
+      "name": "筑博设计",
+      "close": 12.42,
+      "today_return_pct": -0.08,
+      "circulating_market_cap_yi": 14.06,
+      "distance_52w_high_pct": -32.06,
+      "distance_52w_low_pct": 18.29,
+      "position_52w_pct": 24.68,
+      "annual_net_profit": {
+        "20241231": 30984752.82,
+        "20251231": 24327168.09
+      },
+      "main_business": "建筑设计及相关业务的设计与咨询，业务涵盖建筑设计、城市规划、风景园林设计、室内设计等"
+    },
+    {
+      "code": "300851",
+      "name": "交大思诺",
+      "close": 24.4,
+      "today_return_pct": 0.58,
+      "circulating_market_cap_yi": 12.04,
+      "distance_52w_high_pct": -35.77,
+      "distance_52w_low_pct": 22.12,
+      "position_52w_pct": 24.54,
+      "annual_net_profit": {
+        "20241231": 48583247.87,
+        "20251231": 74548054.97
+      },
+      "main_business": "轨道交通列车运行控制系统关键设备的研发设计、组织生产、销售及技术支持"
+    },
+    {
+      "code": "301503",
+      "name": "智迪科技",
+      "close": 22.07,
+      "today_return_pct": -1.16,
+      "circulating_market_cap_yi": 12.73,
+      "distance_52w_high_pct": -34.26,
+      "distance_52w_low_pct": 20.4,
+      "position_52w_pct": 24.54,
+      "annual_net_profit": {
+        "20241231": 115449701.25,
+        "20251231": 106362136.71
+      },
+      "main_business": "公司专注于计算机外设领域，主要从事键盘、鼠标等计算机外设产品的研发、生产及销售。"
+    },
+    {
+      "code": "301210",
+      "name": "金杨精密",
+      "close": 24.06,
+      "today_return_pct": -0.95,
+      "circulating_market_cap_yi": 14.64,
+      "distance_52w_high_pct": -39.67,
+      "distance_52w_low_pct": 26.43,
+      "position_52w_pct": 24.12,
+      "annual_net_profit": {
+        "20241231": 56259618.49,
+        "20251231": 51007868.26
+      },
+      "main_business": "电池精密结构件及材料的研发、生产与销售。"
+    },
+    {
+      "code": "301555",
+      "name": "惠柏新材",
+      "close": 31.0,
+      "today_return_pct": 1.24,
+      "circulating_market_cap_yi": 14.99,
+      "distance_52w_high_pct": -35.55,
+      "distance_52w_low_pct": 21.24,
+      "position_52w_pct": 24.1,
+      "annual_net_profit": {
+        "20241231": 8024012.31,
+        "20251231": 72870029.61
+      },
+      "main_business": "公司主营业务为特种配方改性环氧树脂系列产品的研发、生产和销售，主要包括风电叶片用环氧树脂、新型复合材料用环氧树脂、电子电气绝缘封装用环氧树脂等多个应用系列产品。"
+    },
+    {
+      "code": "301509",
+      "name": "金凯生科",
+      "close": 30.82,
+      "today_return_pct": -5.72,
+      "circulating_market_cap_yi": 17.49,
+      "distance_52w_high_pct": -34.62,
+      "distance_52w_low_pct": 20.16,
+      "position_52w_pct": 24.06,
+      "annual_net_profit": {
+        "20241231": 38609322.43,
+        "20251231": 104807333.96
+      },
+      "main_business": "面向全球生命科技领域客户的小分子CDMO服务商，为全球原研药厂的新药研发项目提供小分子药物中间体以及少量原料药的定制研发生产服务"
+    },
+    {
+      "code": "300992",
+      "name": "泰福泵业",
+      "close": 24.17,
+      "today_return_pct": 0.54,
+      "circulating_market_cap_yi": 18.85,
+      "distance_52w_high_pct": -42.12,
+      "distance_52w_low_pct": 29.46,
+      "position_52w_pct": 23.82,
+      "annual_net_profit": {
+        "20241231": 12654948.57,
+        "20251231": 18586833.98
+      },
+      "main_business": "民用水泵的研发、生产和销售。"
+    },
+    {
+      "code": "301502",
+      "name": "华阳智能",
+      "close": 51.71,
+      "today_return_pct": 0.8,
+      "circulating_market_cap_yi": 12.2,
+      "distance_52w_high_pct": -43.74,
+      "distance_52w_low_pct": 31.61,
+      "position_52w_pct": 23.6,
+      "annual_net_profit": {
+        "20241231": 33648492.26,
+        "20251231": 21312417.34
+      },
+      "main_business": "微特电机及应用产品的研发、生产和销售"
+    },
+    {
+      "code": "301010",
+      "name": "晶雪节能",
+      "close": 17.47,
+      "today_return_pct": -0.06,
+      "circulating_market_cap_yi": 18.87,
+      "distance_52w_high_pct": -44.22,
+      "distance_52w_low_pct": 32.35,
+      "position_52w_pct": 23.57,
+      "annual_net_profit": {
+        "20241231": 29949125.11,
+        "20251231": 8336607.96
+      },
+      "main_business": "金属面节能隔热保温夹芯板及配套产品研发、设计、生产和销售"
+    },
+    {
+      "code": "300784",
+      "name": "利安科技",
+      "close": 40.95,
+      "today_return_pct": -0.53,
+      "circulating_market_cap_yi": 6.89,
+      "distance_52w_high_pct": -35.75,
+      "distance_52w_low_pct": 19.77,
+      "position_52w_pct": 22.88,
+      "annual_net_profit": {
+        "20241231": 65811468.54,
+        "20251231": 53686027.55
+      },
+      "main_business": "公司主要从事注塑产品以及精密注塑模具的研发、生产和销售。"
+    },
+    {
+      "code": "301585",
+      "name": "蓝宇股份",
+      "close": 26.9,
+      "today_return_pct": 1.32,
+      "circulating_market_cap_yi": 18.32,
+      "distance_52w_high_pct": -27.45,
+      "distance_52w_low_pct": 12.55,
+      "position_52w_pct": 22.76,
+      "annual_net_profit": {
+        "20241231": 100508544.16,
+        "20251231": 70776508.31
+      },
+      "main_business": "数码喷印墨水研发、生产和销售"
+    },
+    {
+      "code": "301386",
+      "name": "未来电器",
+      "close": 20.23,
+      "today_return_pct": -0.88,
+      "circulating_market_cap_yi": 9.1,
+      "distance_52w_high_pct": -30.1,
+      "distance_52w_low_pct": 14.42,
+      "position_52w_pct": 22.65,
+      "annual_net_profit": {
+        "20241231": 90102367.8,
+        "20251231": 96525163.34
+      },
+      "main_business": "低压断路器附件的研发、生产与销售。"
+    },
+    {
+      "code": "300717",
+      "name": "华信新材",
+      "close": 18.23,
+      "today_return_pct": 0.05,
+      "circulating_market_cap_yi": 18.57,
+      "distance_52w_high_pct": -33.9,
+      "distance_52w_low_pct": 17.61,
+      "position_52w_pct": 22.6,
+      "annual_net_profit": {
+        "20241231": 50597407.05,
+        "20251231": 55040473.45
+      },
+      "main_business": "从事功能性塑料膜片材料的研发、生产和销售,目前主要为国内外智能卡生产企业及单位提供定制化的智能卡基材"
+    },
+    {
+      "code": "300971",
+      "name": "博亚精工",
+      "close": 18.8,
+      "today_return_pct": -0.74,
+      "circulating_market_cap_yi": 17.34,
+      "distance_52w_high_pct": -32.2,
+      "distance_52w_low_pct": 15.91,
+      "position_52w_pct": 22.42,
+      "annual_net_profit": {
+        "20241231": 43791315.74,
+        "20251231": 83409029.77
+      },
+      "main_business": "板带成形加工精密装备及关键零部件和特种装备配套零部件的研发、生产和销售。"
+    },
+    {
+      "code": "301300",
+      "name": "远翔新材",
+      "close": 32.23,
+      "today_return_pct": 0.0,
+      "circulating_market_cap_yi": 12.59,
+      "distance_52w_high_pct": -40.41,
+      "distance_52w_low_pct": 23.87,
+      "position_52w_pct": 22.12,
+      "annual_net_profit": {
+        "20241231": 48222435.01,
+        "20251231": 89908808.16
+      },
+      "main_business": "沉淀法二氧化硅的研发、生产和销售。"
+    },
+    {
+      "code": "300220",
+      "name": "金运激光",
+      "close": 10.88,
+      "today_return_pct": 0.28,
+      "circulating_market_cap_yi": 16.43,
+      "distance_52w_high_pct": -42.53,
+      "distance_52w_low_pct": 26.51,
+      "position_52w_pct": 22.07,
+      "annual_net_profit": {
+        "20241231": 2112960.86,
+        "20251231": 1506051.58
+      },
+      "main_business": "中小功率激光切割行业应用解决方案的研发、服务以及设备的生产和销售。"
+    },
+    {
+      "code": "301032",
+      "name": "新柴股份",
+      "close": 10.04,
+      "today_return_pct": -0.2,
+      "circulating_market_cap_yi": 16.05,
+      "distance_52w_high_pct": -36.46,
+      "distance_52w_low_pct": 19.38,
+      "position_52w_pct": 22.06,
+      "annual_net_profit": {
+        "20241231": 79106015.73,
+        "20251231": 107288912.84
+      },
+      "main_business": "非道路用柴油发动机及相关零部件的研发、生产与销售。"
+    },
+    {
+      "code": "300514",
+      "name": "友讯达",
+      "close": 9.81,
+      "today_return_pct": -0.2,
+      "circulating_market_cap_yi": 15.72,
+      "distance_52w_high_pct": -38.57,
+      "distance_52w_low_pct": 21.11,
+      "position_52w_pct": 21.73,
+      "annual_net_profit": {
+        "20241231": 198168297.95,
+        "20251231": 69952218.09
+      },
+      "main_business": "生产销售具有无线传感网络技术(CFDA)的电表通信模块、采集器和集中器等信息采集设备,同时包括少量水、气、热等智能仪表的信息采集应用的嵌入式通信模块。"
+    },
+    {
+      "code": "301131",
+      "name": "聚赛龙",
+      "close": 34.2,
+      "today_return_pct": 0.21,
+      "circulating_market_cap_yi": 13.39,
+      "distance_52w_high_pct": -40.58,
+      "distance_52w_low_pct": 23.24,
+      "position_52w_pct": 21.64,
+      "annual_net_profit": {
+        "20241231": 38477743.86,
+        "20251231": 32727929.77
+      },
+      "main_business": "改性塑料的研发、生产和销售。"
+    },
+    {
+      "code": "300195",
+      "name": "长荣股份",
+      "close": 5.54,
+      "today_return_pct": 1.09,
+      "circulating_market_cap_yi": 17.39,
+      "distance_52w_high_pct": -42.65,
+      "distance_52w_low_pct": 24.77,
+      "position_52w_pct": 21.07,
+      "annual_net_profit": {
+        "20241231": 12607581.04,
+        "20251231": 24062893.5
+      },
+      "main_business": "研制、生产及销售印刷设备、包装设备、检测设备、精密模具,模切机、模烫机及糊盒机等设备的生产、加工和销售。"
+    },
+    {
+      "code": "300150",
+      "name": "世纪瑞尔",
+      "close": 4.27,
+      "today_return_pct": 0.47,
+      "circulating_market_cap_yi": 19.8,
+      "distance_52w_high_pct": -37.76,
+      "distance_52w_low_pct": 18.94,
+      "position_52w_pct": 20.8,
+      "annual_net_profit": {
+        "20241231": 34172821.81,
+        "20251231": 51506490.03
+      },
+      "main_business": "向铁路用户提供行车安全监控系统软件产品及相关服务。"
+    },
+    {
+      "code": "301539",
+      "name": "宏鑫科技",
+      "close": 14.6,
+      "today_return_pct": -0.88,
+      "circulating_market_cap_yi": 10.96,
+      "distance_52w_high_pct": -37.15,
+      "distance_52w_low_pct": 18.22,
+      "position_52w_pct": 20.68,
+      "annual_net_profit": {
+        "20241231": 50129941.15,
+        "20251231": 27606932.69
+      },
+      "main_business": "汽车锻造铝合金车轮的研发、设计、制造和销售，主要产品包括商用车车轮和乘用车车轮。"
+    },
+    {
+      "code": "301036",
+      "name": "双乐股份",
+      "close": 22.33,
+      "today_return_pct": 0.18,
+      "circulating_market_cap_yi": 15.73,
+      "distance_52w_high_pct": -42.33,
+      "distance_52w_low_pct": 23.57,
+      "position_52w_pct": 20.63,
+      "annual_net_profit": {
+        "20241231": 120697619.07,
+        "20251231": 49579853.3
+      },
+      "main_business": "酞菁系列及铬系颜料的研发、生产、销售"
+    },
+    {
+      "code": "300892",
+      "name": "品渥食品",
+      "close": 22.64,
+      "today_return_pct": -1.57,
+      "circulating_market_cap_yi": 14.62,
+      "distance_52w_high_pct": -45.71,
+      "distance_52w_low_pct": 27.41,
+      "position_52w_pct": 20.35,
+      "annual_net_profit": {
+        "20241231": 6988414.22,
+        "20251231": 5021528.04
+      },
+      "main_business": "自有品牌食品的开发、进口、销售及国外食品的合作代理销售业务"
+    },
+    {
+      "code": "301533",
+      "name": "威马农机",
+      "close": 26.94,
+      "today_return_pct": -0.15,
+      "circulating_market_cap_yi": 7.66,
+      "distance_52w_high_pct": -42.03,
+      "distance_52w_low_pct": 22.45,
+      "position_52w_pct": 20.19,
+      "annual_net_profit": {
+        "20241231": 79531833.04,
+        "20251231": 30031799.56
+      },
+      "main_business": "公司主要从事山地丘陵农业机械及其他动力机械产品的研发设计、生产制造和销售"
+    },
+    {
+      "code": "301141",
+      "name": "中科磁业",
+      "close": 41.16,
+      "today_return_pct": 1.06,
+      "circulating_market_cap_yi": 18.32,
+      "distance_52w_high_pct": -49.55,
+      "distance_52w_low_pct": 31.84,
+      "position_52w_pct": 19.73,
+      "annual_net_profit": {
+        "20241231": 16560773.82,
+        "20251231": 33182717.0
+      },
+      "main_business": "永磁材料的研发、生产和销售"
+    },
+    {
+      "code": "301507",
+      "name": "民生健康",
+      "close": 12.88,
+      "today_return_pct": -2.65,
+      "circulating_market_cap_yi": 14.18,
+      "distance_52w_high_pct": -32.28,
+      "distance_52w_low_pct": 12.98,
+      "position_52w_pct": 19.42,
+      "annual_net_profit": {
+        "20241231": 91834052.1,
+        "20251231": 118791692.72
+      },
+      "main_business": "维生素与矿物质类非处方药品和保健食品研发、生产、销售。"
+    },
+    {
+      "code": "301329",
+      "name": "信音电子",
+      "close": 19.32,
+      "today_return_pct": -0.67,
+      "circulating_market_cap_yi": 12.76,
+      "distance_52w_high_pct": -41.58,
+      "distance_52w_low_pct": 20.67,
+      "position_52w_pct": 19.4,
+      "annual_net_profit": {
+        "20241231": 69760403.14,
+        "20251231": 61641207.14
+      },
+      "main_business": "连接器的研发、生产和销售。"
+    },
+    {
+      "code": "301083",
+      "name": "百胜智能",
+      "close": 14.03,
+      "today_return_pct": -0.36,
+      "circulating_market_cap_yi": 12.01,
+      "distance_52w_high_pct": -47.22,
+      "distance_52w_low_pct": 26.74,
+      "position_52w_pct": 19.08,
+      "annual_net_profit": {
+        "20241231": 33023551.03,
+        "20251231": 30499780.08
+      },
+      "main_business": "各种出入口控制与管理设备的研发、生产和销售。"
+    },
+    {
+      "code": "301595",
+      "name": "太力科技",
+      "close": 38.6,
+      "today_return_pct": -0.26,
+      "circulating_market_cap_yi": 15.76,
+      "distance_52w_high_pct": -43.92,
+      "distance_52w_low_pct": 22.54,
+      "position_52w_pct": 19.02,
+      "annual_net_profit": {
+        "20241231": 87638919.91,
+        "20251231": 61448053.9
+      },
+      "main_business": "真空收纳、壁挂置物、气调保鲜、户外装备、安全防护等多品类家居收纳用品及相关功能材料的研发、生产和销售。"
+    },
+    {
+      "code": "300817",
+      "name": "双飞集团",
+      "close": 15.23,
+      "today_return_pct": -0.46,
+      "circulating_market_cap_yi": 19.08,
+      "distance_52w_high_pct": -38.56,
+      "distance_52w_low_pct": 17.15,
+      "position_52w_pct": 18.91,
+      "annual_net_profit": {
+        "20241231": 67370060.6,
+        "20251231": 65055433.48
+      },
+      "main_business": "自润滑轴承及自润滑轴承复合材料的研发、生产及销售"
+    },
+    {
+      "code": "301456",
+      "name": "盘古智能",
+      "close": 23.02,
+      "today_return_pct": 0.26,
+      "circulating_market_cap_yi": 15.78,
+      "distance_52w_high_pct": -38.94,
+      "distance_52w_low_pct": 17.45,
+      "position_52w_pct": 18.9,
+      "annual_net_profit": {
+        "20241231": 62567007.14,
+        "20251231": 83362568.73
+      },
+      "main_business": "主要从事集中润滑系统及其核心部件研发、生产与销售"
+    },
+    {
+      "code": "301063",
+      "name": "海锅股份",
+      "close": 18.03,
+      "today_return_pct": 0.0,
+      "circulating_market_cap_yi": 17.43,
+      "distance_52w_high_pct": -44.66,
+      "distance_52w_low_pct": 22.82,
+      "position_52w_pct": 18.72,
+      "annual_net_profit": {
+        "20241231": 33352041.87,
+        "20251231": 51201674.5
+      },
+      "main_business": "大中型装备专用锻件的研发、生产和销售。"
+    },
+    {
+      "code": "301388",
+      "name": "欣灵电气",
+      "close": 23.81,
+      "today_return_pct": -0.96,
+      "circulating_market_cap_yi": 17.31,
+      "distance_52w_high_pct": -45.23,
+      "distance_52w_low_pct": 22.04,
+      "position_52w_pct": 17.95,
+      "annual_net_profit": {
+        "20241231": 15314881.31,
+        "20251231": 21156594.69
+      },
+      "main_business": "低压电器产品的研发、生产和销售"
+    },
+    {
+      "code": "301320",
+      "name": "豪江智能",
+      "close": 13.19,
+      "today_return_pct": 0.92,
+      "circulating_market_cap_yi": 15.06,
+      "distance_52w_high_pct": -44.39,
+      "distance_52w_low_pct": 21.12,
+      "position_52w_pct": 17.93,
+      "annual_net_profit": {
+        "20241231": 46880568.07,
+        "20251231": 10290036.3
+      },
+      "main_business": "智能线性驱动系统产品的研发、生产和销售"
+    },
+    {
+      "code": "300743",
+      "name": "天地数码",
+      "close": 14.73,
+      "today_return_pct": -0.94,
+      "circulating_market_cap_yi": 18.77,
+      "distance_52w_high_pct": -36.37,
+      "distance_52w_low_pct": 14.19,
+      "position_52w_pct": 17.85,
+      "annual_net_profit": {
+        "20241231": 92364405.75,
+        "20251231": 108226499.64
+      },
+      "main_business": "热转印碳带的研发、生产和销售"
+    },
+    {
+      "code": "688466",
+      "name": "金科环境",
+      "close": 13.91,
+      "today_return_pct": -1.21,
+      "circulating_market_cap_yi": 16.99,
+      "distance_52w_high_pct": -47.29,
+      "distance_52w_low_pct": 24.09,
+      "position_52w_pct": 17.79,
+      "annual_net_profit": {
+        "20241231": 66792883.25,
+        "20251231": 37786246.63
+      },
+      "main_business": "公司是专业从事水深度处理及污废水资源化的国家高新技术企业，主营业务是依托公司自主研发的膜通用平台装备技术、膜系统应用技术、膜系统运营技术等三大核心技术，为客户提供水处理技术解决方案、运营服务以及资源化产品。公司业务的市场领域主要包括市政饮用水深度处理、市政污水和工业废水的深度处理及资源化利用等。"
+    },
+    {
+      "code": "301057",
+      "name": "汇隆新材",
+      "close": 21.55,
+      "today_return_pct": 0.51,
+      "circulating_market_cap_yi": 17.46,
+      "distance_52w_high_pct": -54.27,
+      "distance_52w_low_pct": 34.18,
+      "position_52w_pct": 17.68,
+      "annual_net_profit": {
+        "20241231": 30925191.39,
+        "20251231": 35113567.22
+      },
+      "main_business": "符合国家节能环保战略方向的原液着色纤维的研发、生产及销售。"
+    },
+    {
+      "code": "300789",
+      "name": "唐源电气",
+      "close": 17.39,
+      "today_return_pct": -1.75,
+      "circulating_market_cap_yi": 14.84,
+      "distance_52w_high_pct": -48.38,
+      "distance_52w_low_pct": 24.84,
+      "position_52w_pct": 17.51,
+      "annual_net_profit": {
+        "20241231": 72875895.94,
+        "20251231": 26253085.41
+      },
+      "main_business": "轨道交通行业牵引供电和工务工程检测监测及信息化管理系统的研发、制造和销售。"
+    },
+    {
+      "code": "301299",
+      "name": "卓创资讯",
+      "close": 43.41,
+      "today_return_pct": -1.27,
+      "circulating_market_cap_yi": 19.91,
+      "distance_52w_high_pct": -40.49,
+      "distance_52w_low_pct": 16.38,
+      "position_52w_pct": 17.14,
+      "annual_net_profit": {
+        "20241231": 70509540.76,
+        "20251231": 65642273.0
+      },
+      "main_business": "大宗商品市场数据监测、交易价格评估及行业数据分析。"
+    },
+    {
+      "code": "301581",
+      "name": "黄山谷捷",
+      "close": 37.2,
+      "today_return_pct": 1.69,
+      "circulating_market_cap_yi": 18.18,
+      "distance_52w_high_pct": -45.29,
+      "distance_52w_low_pct": 20.51,
+      "position_52w_pct": 17.05,
+      "annual_net_profit": {
+        "20241231": 111918264.26,
+        "20251231": 55029622.0
+      },
+      "main_business": "从事功率半导体模块散热基板研发、生产和销售"
+    },
+    {
+      "code": "300813",
+      "name": "泰林生物",
+      "close": 21.13,
+      "today_return_pct": -2.67,
+      "circulating_market_cap_yi": 16.07,
+      "distance_52w_high_pct": -49.79,
+      "distance_52w_low_pct": 25.18,
+      "position_52w_pct": 16.87,
+      "annual_net_profit": {
+        "20241231": 13050671.23,
+        "20251231": 16485445.79
+      },
+      "main_business": "微生物检测与控制技术系统产品、有机物分析仪器等制药装备的研发、制造和销售。"
+    },
+    {
+      "code": "301618",
+      "name": "长联科技",
+      "close": 33.2,
+      "today_return_pct": -3.46,
+      "circulating_market_cap_yi": 15.99,
+      "distance_52w_high_pct": -34.9,
+      "distance_52w_low_pct": 12.16,
+      "position_52w_pct": 16.82,
+      "annual_net_profit": {
+        "20241231": 70031646.8,
+        "20251231": 40645234.37
+      },
+      "main_business": "印花材料的研发、生产、销售"
+    },
+    {
+      "code": "301138",
+      "name": "华研精机",
+      "close": 26.73,
+      "today_return_pct": -0.67,
+      "circulating_market_cap_yi": 18.33,
+      "distance_52w_high_pct": -45.29,
+      "distance_52w_low_pct": 20.08,
+      "position_52w_pct": 16.8,
+      "annual_net_profit": {
+        "20241231": 101257689.19,
+        "20251231": 98056162.63
+      },
+      "main_business": "瓶坯智能成型系统和瓶坯模具的设计、研发、生产和销售。"
+    },
+    {
+      "code": "301505",
+      "name": "苏州规划",
+      "close": 16.47,
+      "today_return_pct": -0.24,
+      "circulating_market_cap_yi": 15.02,
+      "distance_52w_high_pct": -44.93,
+      "distance_52w_low_pct": 19.35,
+      "position_52w_pct": 16.57,
+      "annual_net_profit": {
+        "20241231": 29058782.56,
+        "20251231": 22132768.25
+      },
+      "main_business": "从事规划设计、工程设计、工程总承包及管理、智慧城市业务"
+    },
+    {
+      "code": "301278",
+      "name": "快可电子",
+      "close": 27.83,
+      "today_return_pct": 1.46,
+      "circulating_market_cap_yi": 14.31,
+      "distance_52w_high_pct": -45.78,
+      "distance_52w_low_pct": 20.11,
+      "position_52w_pct": 16.55,
+      "annual_net_profit": {
+        "20241231": 99014452.41,
+        "20251231": 20443762.42
+      },
+      "main_business": "光伏接线盒和光伏连接器的研发、生产和销售。"
+    },
+    {
+      "code": "301023",
+      "name": "奕帆传动",
+      "close": 29.31,
+      "today_return_pct": 0.24,
+      "circulating_market_cap_yi": 15.17,
+      "distance_52w_high_pct": -45.74,
+      "distance_52w_low_pct": 19.58,
+      "position_52w_pct": 16.27,
+      "annual_net_profit": {
+        "20241231": 94508928.65,
+        "20251231": 71341116.84
+      },
+      "main_business": "专业定制化微特减速电机的研发、制造和销售。"
+    },
+    {
+      "code": "301192",
+      "name": "泰祥股份",
+      "close": 19.94,
+      "today_return_pct": -0.65,
+      "circulating_market_cap_yi": 9.81,
+      "distance_52w_high_pct": -52.75,
+      "distance_52w_low_pct": 26.2,
+      "position_52w_pct": 15.68,
+      "annual_net_profit": {
+        "20241231": 41846726.79,
+        "20251231": 53670180.34
+      },
+      "main_business": "汽车发动机零部件的研发、制造与销售。"
+    },
+    {
+      "code": "301559",
+      "name": "中集环科",
+      "close": 13.05,
+      "today_return_pct": -0.31,
+      "circulating_market_cap_yi": 11.74,
+      "distance_52w_high_pct": -32.9,
+      "distance_52w_low_pct": 9.85,
+      "position_52w_pct": 15.46,
+      "annual_net_profit": {
+        "20241231": 303870229.83,
+        "20251231": 112720347.17
+      },
+      "main_business": "公司主要从事罐式集装箱的研发、设计、生产及销售"
+    },
+    {
+      "code": "300707",
+      "name": "威唐工业",
+      "close": 12.1,
+      "today_return_pct": 1.0,
+      "circulating_market_cap_yi": 17.37,
+      "distance_52w_high_pct": -49.31,
+      "distance_52w_low_pct": 21.0,
+      "position_52w_pct": 15.14,
+      "annual_net_profit": {
+        "20241231": 20863736.06,
+        "20251231": 29252680.24
+      },
+      "main_business": "从事汽车冲压模具的设计、研发、制造及销售并以自身设计开发的冲压模具为基础,向客户提供汽车冲压件产品。"
+    },
+    {
+      "code": "301173",
+      "name": "毓恬冠佳",
+      "close": 32.04,
+      "today_return_pct": 0.31,
+      "circulating_market_cap_yi": 9.88,
+      "distance_52w_high_pct": -46.02,
+      "distance_52w_low_pct": 17.49,
+      "position_52w_pct": 14.87,
+      "annual_net_profit": {
+        "20241231": 170799174.51,
+        "20251231": 173039639.18
+      },
+      "main_business": "以汽车天窗为主要产品的汽车运动部件。"
+    },
+    {
+      "code": "300543",
+      "name": "朗科智能",
+      "close": 7.69,
+      "today_return_pct": -0.39,
+      "circulating_market_cap_yi": 19.24,
+      "distance_52w_high_pct": -48.39,
+      "distance_52w_low_pct": 19.41,
+      "position_52w_pct": 14.78,
+      "annual_net_profit": {
+        "20241231": 51706423.16,
+        "20251231": 9208143.43
+      },
+      "main_business": "从事电子智能控制器产品的研发、生产和销售"
+    },
+    {
+      "code": "688118",
+      "name": "普元信息",
+      "close": 20.15,
+      "today_return_pct": -0.2,
+      "circulating_market_cap_yi": 18.8,
+      "distance_52w_high_pct": -49.7,
+      "distance_52w_low_pct": 20.66,
+      "position_52w_pct": 14.77,
+      "annual_net_profit": {
+        "20241231": 6546613.94,
+        "20251231": 7099674.33
+      },
+      "main_business": "公司是国内专业的软件基础平台提供商，面向金融、政务、能源、电信、制造业等行业大中型用户，提供自主可控、安全可靠的软件基础平台及应用软件开发服务。"
+    },
+    {
+      "code": "300645",
+      "name": "正元智慧",
+      "close": 12.97,
+      "today_return_pct": 0.23,
+      "circulating_market_cap_yi": 18.07,
+      "distance_52w_high_pct": -47.91,
+      "distance_52w_low_pct": 18.45,
+      "position_52w_pct": 14.48,
+      "annual_net_profit": {
+        "20241231": 11991871.21,
+        "20251231": 13094152.39
+      },
+      "main_business": "智慧一卡通系统的设计、开发、生产、销售、服务及运营"
+    },
+    {
+      "code": "300881",
+      "name": "盛德鑫泰",
+      "close": 33.04,
+      "today_return_pct": -0.18,
+      "circulating_market_cap_yi": 18.97,
+      "distance_52w_high_pct": -42.54,
+      "distance_52w_low_pct": 14.25,
+      "position_52w_pct": 14.42,
+      "annual_net_profit": {
+        "20241231": 225800982.09,
+        "20251231": 248039373.87
+      },
+      "main_business": "各类工业用能源设备类无缝钢管的生产、研发和销售"
+    },
+    {
+      "code": "300994",
+      "name": "久祺股份",
+      "close": 11.17,
+      "today_return_pct": -0.71,
+      "circulating_market_cap_yi": 13.03,
+      "distance_52w_high_pct": -45.08,
+      "distance_52w_low_pct": 15.99,
+      "position_52w_pct": 14.38,
+      "annual_net_profit": {
+        "20241231": 122765208.31,
+        "20251231": 148025699.79
+      },
+      "main_business": "自行车整车及其零部件和相关衍生产品的设计、研发、生产和销售。"
+    },
+    {
+      "code": "301518",
+      "name": "长华化学",
+      "close": 25.44,
+      "today_return_pct": -1.05,
+      "circulating_market_cap_yi": 14.94,
+      "distance_52w_high_pct": -51.25,
+      "distance_52w_low_pct": 21.43,
+      "position_52w_pct": 14.38,
+      "annual_net_profit": {
+        "20241231": 58155149.65,
+        "20251231": 97218075.98
+      },
+      "main_business": "聚醚产品的研发、生产与销售。"
+    },
+    {
+      "code": "301558",
+      "name": "三态股份",
+      "close": 6.57,
+      "today_return_pct": -0.61,
+      "circulating_market_cap_yi": 14.42,
+      "distance_52w_high_pct": -36.34,
+      "distance_52w_low_pct": 10.61,
+      "position_52w_pct": 14.38,
+      "annual_net_profit": {
+        "20241231": 14368810.17,
+        "20251231": 48640825.81
+      },
+      "main_business": "出口跨境电商零售和第三方出口跨境电商物流的综合性企业"
+    },
+    {
+      "code": "301598",
+      "name": "博科测试",
+      "close": 47.37,
+      "today_return_pct": -1.09,
+      "circulating_market_cap_yi": 8.31,
+      "distance_52w_high_pct": -34.82,
+      "distance_52w_low_pct": 9.58,
+      "position_52w_pct": 14.06,
+      "annual_net_profit": {
+        "20241231": 101963704.1,
+        "20251231": 120620148.76
+      },
+      "main_business": "伺服液压测试设备和汽车测试试验设备的研发、设计、制造、销售、系统集成等综合服务"
+    },
+    {
+      "code": "301022",
+      "name": "海泰科",
+      "close": 23.12,
+      "today_return_pct": 0.74,
+      "circulating_market_cap_yi": 15.44,
+      "distance_52w_high_pct": -53.11,
+      "distance_52w_low_pct": 22.13,
+      "position_52w_pct": 13.79,
+      "annual_net_profit": {
+        "20241231": 15756018.03,
+        "20251231": 52736742.65
+      },
+      "main_business": "注塑模具及塑料零部件的研发、设计、制造和销售。"
+    },
+    {
+      "code": "300651",
+      "name": "金陵体育",
+      "close": 17.11,
+      "today_return_pct": 0.12,
+      "circulating_market_cap_yi": 17.69,
+      "distance_52w_high_pct": -55.0,
+      "distance_52w_low_pct": 22.3,
+      "position_52w_pct": 12.98,
+      "annual_net_profit": {
+        "20241231": 26761144.42,
+        "20251231": 60850966.2
+      },
+      "main_business": "体育器材和场馆设施的研发、生产、销售以及体育赛事服务"
+    },
+    {
+      "code": "301508",
+      "name": "中机认检",
+      "close": 23.69,
+      "today_return_pct": -0.63,
+      "circulating_market_cap_yi": 13.94,
+      "distance_52w_high_pct": -34.25,
+      "distance_52w_low_pct": 8.27,
+      "position_52w_pct": 12.79,
+      "annual_net_profit": {
+        "20241231": 132430404.03,
+        "20251231": 151614019.59
+      },
+      "main_business": "汽车整车、军用装备、工程机械、特种设备、民航地面设备、零部件等产品检验检测服务，以及产品认证、体系认证和服务认证等认证服务"
+    },
+    {
+      "code": "301318",
+      "name": "维海德",
+      "close": 20.65,
+      "today_return_pct": -0.05,
+      "circulating_market_cap_yi": 19.24,
+      "distance_52w_high_pct": -43.49,
+      "distance_52w_low_pct": 12.53,
+      "position_52w_pct": 12.64,
+      "annual_net_profit": {
+        "20241231": 124306473.14,
+        "20251231": 85402429.5
+      },
+      "main_business": "高清及超高清视频会议摄像机、视频会议终端、会议麦克风等音视频通讯设备的研发、生产、销售和相关技术服务"
+    },
+    {
+      "code": "300941",
+      "name": "创识科技",
+      "close": 15.04,
+      "today_return_pct": 4.44,
+      "circulating_market_cap_yi": 18.62,
+      "distance_52w_high_pct": -51.72,
+      "distance_52w_low_pct": 18.05,
+      "position_52w_pct": 12.49,
+      "annual_net_profit": {
+        "20241231": 55606943.48,
+        "20251231": 32763128.5
+      },
+      "main_business": "提供电子支付IT解决方案。"
+    },
+    {
+      "code": "300642",
+      "name": "透景生命",
+      "close": 13.71,
+      "today_return_pct": -1.65,
+      "circulating_market_cap_yi": 18.88,
+      "distance_52w_high_pct": -57.92,
+      "distance_52w_low_pct": 24.18,
+      "position_52w_pct": 12.4,
+      "annual_net_profit": {
+        "20241231": 34534995.78,
+        "20251231": 3587909.07
+      },
+      "main_business": "自主品牌的体外诊断产品的研发、生产和销售"
+    },
+    {
+      "code": "300644",
+      "name": "南京聚隆",
+      "close": 21.28,
+      "today_return_pct": 1.19,
+      "circulating_market_cap_yi": 18.77,
+      "distance_52w_high_pct": -48.1,
+      "distance_52w_low_pct": 14.66,
+      "position_52w_pct": 12.12,
+      "annual_net_profit": {
+        "20241231": 84339708.46,
+        "20251231": 132456807.09
+      },
+      "main_business": "公司主要从事改性塑料产品及塑木型材的研发、生产和销售"
+    },
+    {
+      "code": "301371",
+      "name": "敷尔佳",
+      "close": 22.29,
+      "today_return_pct": -5.15,
+      "circulating_market_cap_yi": 17.38,
+      "distance_52w_high_pct": -31.39,
+      "distance_52w_low_pct": 6.5,
+      "position_52w_pct": 11.76,
+      "annual_net_profit": {
+        "20241231": 661129436.27,
+        "20251231": 432672747.01
+      },
+      "main_business": "专业皮肤护理产品的研发、生产和销售"
+    },
+    {
+      "code": "300995",
+      "name": "奇德新材",
+      "close": 26.12,
+      "today_return_pct": 0.5,
+      "circulating_market_cap_yi": 15.86,
+      "distance_52w_high_pct": -60.73,
+      "distance_52w_low_pct": 24.62,
+      "position_52w_pct": 11.33,
+      "annual_net_profit": {
+        "20241231": 8686959.74,
+        "20251231": 19631442.21
+      },
+      "main_business": "改性尼龙（PA）、改性聚丙烯（PP）为主的高性能高分子复合材料及其制品、精密注塑模具的研发设计、生产和销售及相关服务。"
+    },
+    {
+      "code": "301009",
+      "name": "可靠股份",
+      "close": 9.03,
+      "today_return_pct": -1.31,
+      "circulating_market_cap_yi": 13.64,
+      "distance_52w_high_pct": -50.63,
+      "distance_52w_low_pct": 14.89,
+      "position_52w_pct": 11.22,
+      "annual_net_profit": {
+        "20241231": 31172830.98,
+        "20251231": 36118668.31
+      },
+      "main_business": "一次性卫生用品的设计、研发、生产和销售。"
+    },
+    {
+      "code": "300950",
+      "name": "德固特",
+      "close": 16.71,
+      "today_return_pct": 0.24,
+      "circulating_market_cap_yi": 16.38,
+      "distance_52w_high_pct": -59.22,
+      "distance_52w_low_pct": 21.09,
+      "position_52w_pct": 10.71,
+      "annual_net_profit": {
+        "20241231": 96715099.59,
+        "20251231": 92053611.78
+      },
+      "main_business": "高科技节能环保装备制造商。公司集设计、研发、制造、检验、销售、服务于一体，面向化工、能源、冶金、固废处理等领域，为全球客户提供清洁燃烧与传热节能解决方案，同时接受专用装备定制。"
+    },
+    {
+      "code": "301586",
+      "name": "佳力奇",
+      "close": 31.23,
+      "today_return_pct": -0.06,
+      "circulating_market_cap_yi": 16.52,
+      "distance_52w_high_pct": -49.67,
+      "distance_52w_low_pct": 12.7,
+      "position_52w_pct": 10.25,
+      "annual_net_profit": {
+        "20241231": 100405133.52,
+        "20251231": 57321735.73
+      },
+      "main_business": "航空复材零部件的研发、生产、销售及相关服务。"
+    },
+    {
+      "code": "301229",
+      "name": "纽泰格",
+      "close": 12.11,
+      "today_return_pct": 0.41,
+      "circulating_market_cap_yi": 15.66,
+      "distance_52w_high_pct": -54.3,
+      "distance_52w_low_pct": 15.33,
+      "position_52w_pct": 10.06,
+      "annual_net_profit": {
+        "20241231": 53611851.13,
+        "20251231": 37940763.1
+      },
+      "main_business": "汽车悬架系统、汽车内外饰等领域的铝铸零部件和塑料件的研发、生产和销售。"
+    },
+    {
+      "code": "301560",
+      "name": "众捷汽车",
+      "close": 22.64,
+      "today_return_pct": 0.13,
+      "circulating_market_cap_yi": 13.82,
+      "distance_52w_high_pct": -54.6,
+      "distance_52w_low_pct": 15.51,
+      "position_52w_pct": 10.04,
+      "annual_net_profit": {
+        "20241231": 95386616.31,
+        "20251231": 62989203.11
+      },
+      "main_business": "汽车热管理系统精密加工零部件的研发、生产和销售"
+    },
+    {
+      "code": "301538",
+      "name": "骏鼎达",
+      "close": 38.0,
+      "today_return_pct": -0.78,
+      "circulating_market_cap_yi": 16.61,
+      "distance_52w_high_pct": -55.8,
+      "distance_52w_low_pct": 16.35,
+      "position_52w_pct": 10.02,
+      "annual_net_profit": {
+        "20241231": 175975748.59,
+        "20251231": 195097507.81
+      },
+      "main_business": "高分子改性保护材料的设计、研发、生产与销售"
+    },
+    {
+      "code": "688716",
+      "name": "中研股份",
+      "close": 27.69,
+      "today_return_pct": 1.02,
+      "circulating_market_cap_yi": 19.36,
+      "distance_52w_high_pct": -53.53,
+      "distance_52w_low_pct": 14.52,
+      "position_52w_pct": 9.91,
+      "annual_net_profit": {
+        "20241231": 39283401.38,
+        "20251231": 11866743.84
+      },
+      "main_business": "聚醚醚酮（PEEK）研发、生产及销售。"
+    },
+    {
+      "code": "301601",
+      "name": "惠通科技",
+      "close": 16.16,
+      "today_return_pct": -0.62,
+      "circulating_market_cap_yi": 13.65,
+      "distance_52w_high_pct": -55.02,
+      "distance_52w_low_pct": 15.02,
+      "position_52w_pct": 9.64,
+      "annual_net_profit": {
+        "20241231": 107889419.4,
+        "20251231": 75066014.63
+      },
+      "main_business": "公司是一家专业的化学工程高端装备及产品整体技术方案提供商，主要从事高分子材料及双氧水生产领域的设备制造、设计咨询和工程总承包业务，服务于高性能尼龙（PA66）、生物基尼龙（PA56）、生物降解材料（PBAT/PBS）、聚酯（PET）和双氧水（H2O2）等产品生产企业，拥有化工石化医药行业（化工工程）专业工程设计甲级资质，具备从设计、主设备制造到装置开车的全流程综合技术服务能力。"
+    },
+    {
+      "code": "301616",
+      "name": "浙江华业",
+      "close": 34.48,
+      "today_return_pct": -0.14,
+      "circulating_market_cap_yi": 9.79,
+      "distance_52w_high_pct": -47.28,
+      "distance_52w_low_pct": 10.16,
+      "position_52w_pct": 9.33,
+      "annual_net_profit": {
+        "20241231": 92938338.18,
+        "20251231": 196826677.69
+      },
+      "main_business": "从事塑料成型设备核心零部件研发、生产和销售。"
+    },
+    {
+      "code": "300837",
+      "name": "浙矿股份",
+      "close": 23.12,
+      "today_return_pct": -0.56,
+      "circulating_market_cap_yi": 17.48,
+      "distance_52w_high_pct": -65.86,
+      "distance_52w_low_pct": 23.24,
+      "position_52w_pct": 8.91,
+      "annual_net_profit": {
+        "20241231": 79866269.24,
+        "20251231": 76293929.23
+      },
+      "main_business": "破碎、筛选成套设备的研发、设计、生产和销售"
+    },
+    {
+      "code": "301459",
+      "name": "丰茂股份",
+      "close": 31.35,
+      "today_return_pct": 0.38,
+      "circulating_market_cap_yi": 8.18,
+      "distance_52w_high_pct": -42.63,
+      "distance_52w_low_pct": 7.73,
+      "position_52w_pct": 8.81,
+      "annual_net_profit": {
+        "20241231": 161720715.7,
+        "20251231": 91537111.02
+      },
+      "main_business": "主要从事精密橡胶零部件研发及产业化"
+    },
+    {
+      "code": "301636",
+      "name": "泽润新能",
+      "close": 40.02,
+      "today_return_pct": 2.25,
+      "circulating_market_cap_yi": 15.11,
+      "distance_52w_high_pct": -64.83,
+      "distance_52w_low_pct": 21.24,
+      "position_52w_pct": 8.68,
+      "annual_net_profit": {
+        "20241231": 131318190.08,
+        "20251231": 33209669.32
+      },
+      "main_business": "主要从事光伏组件接线盒等新能源电气连接、保护产品的研发、生产和销售"
+    },
+    {
+      "code": "301501",
+      "name": "恒鑫生活",
+      "close": 28.1,
+      "today_return_pct": -3.0,
+      "circulating_market_cap_yi": 12.22,
+      "distance_52w_high_pct": -55.49,
+      "distance_52w_low_pct": 13.35,
+      "position_52w_pct": 8.63,
+      "annual_net_profit": {
+        "20241231": 219888876.99,
+        "20251231": 223841648.6
+      },
+      "main_business": "主要从事纸制与塑料餐饮具的研发、生产和销售"
+    },
+    {
+      "code": "301590",
+      "name": "优优绿能",
+      "close": 74.48,
+      "today_return_pct": 0.72,
+      "circulating_market_cap_yi": 18.15,
+      "distance_52w_high_pct": -56.58,
+      "distance_52w_low_pct": 13.9,
+      "position_52w_pct": 8.56,
+      "annual_net_profit": {
+        "20241231": 256034602.93,
+        "20251231": 107221894.09
+      },
+      "main_business": "新能源汽车直流充电设备核心部件的研发、生产和销售，主要产品为各功率等级充电模块"
+    },
+    {
+      "code": "301491",
+      "name": "汉桑科技",
+      "close": 39.21,
+      "today_return_pct": -1.58,
+      "circulating_market_cap_yi": 15.0,
+      "distance_52w_high_pct": -49.35,
+      "distance_52w_low_pct": 8.46,
+      "position_52w_pct": 7.41,
+      "annual_net_profit": {
+        "20241231": 253654388.94,
+        "20251231": 223525711.24
+      },
+      "main_business": "为全球知名音频品牌客户提供高性能音频、创新音频等产品的研发、设计、制造一体化服务。"
+    },
+    {
+      "code": "301361",
+      "name": "众智科技",
+      "close": 26.51,
+      "today_return_pct": -0.41,
+      "circulating_market_cap_yi": 14.93,
+      "distance_52w_high_pct": -49.13,
+      "distance_52w_low_pct": 8.07,
+      "position_52w_pct": 7.18,
+      "annual_net_profit": {
+        "20241231": 79719320.89,
+        "20251231": 96474808.62
+      },
+      "main_business": "从事内燃发电机组自动控制系统、低压配电自动控制系统等相关自动化产品的研发、生产、销售和服务。"
+    },
+    {
+      "code": "301556",
+      "name": "托普云农",
+      "close": 58.0,
+      "today_return_pct": -3.01,
+      "circulating_market_cap_yi": 17.1,
+      "distance_52w_high_pct": -65.35,
+      "distance_52w_low_pct": 12.64,
+      "position_52w_pct": 5.62,
+      "annual_net_profit": {
+        "20241231": 123463009.2,
+        "20251231": 106405875.94
+      },
+      "main_business": "运用新一代信息技术与农业深度融合，主要采用布局智能硬件设备、搭建农业物联网项目、建设信息化软件平台项目的综合服务形式，为农业领域相关的政府部门、企事业单位、科研院校等提供数据采集、分析决策、精准执行、科学管理服务"
+    },
+    {
+      "code": "301139",
+      "name": "*ST元道",
+      "close": 3.4,
+      "today_return_pct": -6.34,
+      "circulating_market_cap_yi": 2.59,
+      "distance_52w_high_pct": -86.43,
+      "distance_52w_low_pct": 45.3,
+      "position_52w_pct": 4.67,
+      "annual_net_profit": {
+        "20241231": 42355749.51,
+        "20251231": 8837057.57
+      },
+      "main_business": "面向中国移动、中国电信、中国联通等通信运营商和通信基础设施运营商中国铁塔，以及华为、爱立信等通信设备制造商，提供包括通信网络维护与优化、通信网络建设在内的通信技术服务。"
+    },
+    {
+      "code": "688089",
+      "name": "ST嘉必优",
+      "close": 7.51,
+      "today_return_pct": 0.67,
+      "circulating_market_cap_yi": 12.49,
+      "distance_52w_high_pct": -75.88,
+      "distance_52w_low_pct": 8.68,
+      "position_52w_pct": 2.48,
+      "annual_net_profit": {
+        "20241231": 124212718.7,
+        "20251231": 143724509.28
+      },
+      "main_business": "多不饱和脂肪酸 ARA、藻油DHA及SA、天然β-胡萝卜素等多个系列产品的研发、生产与销售。"
+    },
+    {
+      "code": "300176",
+      "name": "鸿特科技",
+      "close": 4.68,
+      "today_return_pct": -0.85,
+      "circulating_market_cap_yi": 18.12,
+      "distance_52w_high_pct": -43.75,
+      "distance_52w_low_pct": 1.74,
+      "position_52w_pct": 2.15,
+      "annual_net_profit": {
+        "20241231": 27823724.2,
+        "20251231": 49233614.99
+      },
+      "main_business": "铝合金压铸业务及金融科技信息服务业务"
+    }
+  ],
+  "errors": [
+    {
+      "code": "301449",
+      "name": "天溯计量",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301575",
+      "name": "艾芬达",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301584",
+      "name": "建发致新",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301667",
+      "name": "纳百川",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301668",
+      "name": "昊创瑞通",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301687",
+      "name": "新广益",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "688805",
+      "name": "健信超导",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301513",
+      "name": "尚水智能",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301599",
+      "name": "理奇智能",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301680",
+      "name": "固德电材",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301683",
+      "name": "慧谷新材",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "688811",
+      "name": "有研复材",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "688816",
+      "name": "易思维",
+      "error": "history: Not enough history for a 252-trading-day range."
+    },
+    {
+      "code": "301677",
+      "name": "欣兴工具",
+      "error": "history: Not enough history for a 252-trading-day range."
+    }
+  ]
+}

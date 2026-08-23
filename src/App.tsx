@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import GrowthMarketPage from './GrowthMarketPage'
 
 type AdjustmentKey = 'qfq' | 'none'
 type MetricKey =
@@ -114,10 +115,17 @@ const getActiveMetricCellClass = (metric: MetricKey, activeMetric: MetricKey) =>
     : 'w-full px-2 py-2'
 
 function App() {
+  const [page, setPage] = useState(window.location.hash)
   const [data, setData] = useState<DashboardData | null>(null)
   const [adjustment, setAdjustment] = useState<AdjustmentKey>('qfq')
   const [tab, setTab] = useState<MetricKey>('distance_ma250_pct')
   const [error, setError] = useState(false)
+
+  useEffect(() => {
+    const handleHashChange = () => setPage(window.location.hash)
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
 
   useEffect(() => {
     document.title = '每日数据更新'
@@ -160,6 +168,7 @@ function App() {
     [groupedRows, rows, tab],
   )
 
+  if (page === '#growth-market') return <GrowthMarketPage />
   if (error || (data && !current)) return <StateView text="无法加载 /data/dashboard.json" error />
   if (!data || !current) return <StateView text="加载中..." />
 
@@ -179,6 +188,7 @@ function App() {
                   <span className="rounded-full border border-slate-200 bg-white/85 px-3 py-1">实时生成静态看板</span>
                   <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1">按指标排序浏览</span>
                   <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1">支持前复权 / 除权</span>
+                  <a href="#growth-market" className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-medium text-sky-700 transition hover:bg-sky-100">查看20%涨跌幅小市值股票池</a>
                 </div>
               </div>
               <div className="rounded-[1.4rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.72))] px-4 py-3 text-sm text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur">
