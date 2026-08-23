@@ -2,7 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 
 type AdjustmentKey = 'qfq' | 'none'
-type MetricKey = 'distance_ma250_pct' | 'ytd_return_pct' | 'distance_52w_high_pct'
+type MetricKey =
+  | 'distance_ma250_pct'
+  | 'ytd_return_pct'
+  | 'distance_52w_high_pct'
+  | 'distance_52w_low_pct'
+  | 'position_52w_pct'
 type SummaryKey = 'watchlist_total' | 'today_up' | 'today_down'
 
 type Row = {
@@ -13,6 +18,8 @@ type Row = {
   distance_ma250_pct: number
   ytd_return_pct: number
   distance_52w_high_pct: number
+  distance_52w_low_pct?: number
+  position_52w_pct?: number
 }
 
 type DashboardData = {
@@ -24,9 +31,21 @@ const tabs: { id: MetricKey; label: string }[] = [
   { id: 'distance_ma250_pct', label: '距年线' },
   { id: 'ytd_return_pct', label: '今年涨跌幅' },
   { id: 'distance_52w_high_pct', label: '距52周高点' },
+  { id: 'distance_52w_low_pct', label: '距52周低点' },
+  { id: 'position_52w_pct', label: '52周内位置' },
 ]
 
-const descendingMetrics: MetricKey[] = ['distance_ma250_pct']
+const descendingMetrics: MetricKey[] = [
+  'distance_ma250_pct',
+  'distance_52w_low_pct',
+  'position_52w_pct',
+]
+
+const continuousMetrics: MetricKey[] = [
+  'distance_52w_high_pct',
+  'distance_52w_low_pct',
+  'position_52w_pct',
+]
 
 const cards: { key: SummaryKey; label: string; note: string }[] = [
   { key: 'watchlist_total', label: '自选总数', note: '今日跟踪池' },
@@ -38,6 +57,8 @@ const metricText: Record<MetricKey, string> = {
   distance_ma250_pct: '距年线',
   ytd_return_pct: '今年涨跌幅',
   distance_52w_high_pct: '距52周高点',
+  distance_52w_low_pct: '距52周低点',
+  position_52w_pct: '52周内位置',
 }
 
 const adjustmentText = { qfq: '前复权', none: '除权' }
@@ -59,10 +80,33 @@ const ascendingBands = [
   { separator: null, test: (v: number) => v >= 20 },
 ] as const
 
-const formatPct = (value: number) => `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
+const formatPct = (value: number | undefined) =>
+  value === undefined ? '—' : `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
 
-const getMetricTextClass = (value: number) =>
-  value > 0 ? 'text-emerald-700' : value < 0 ? 'text-rose-600' : 'text-slate-500'
+const formatMetric = (metric: MetricKey, value: number | undefined) =>
+  metric === 'position_52w_pct'
+    ? value === undefined
+      ? '—'
+      : `${value.toFixed(1)}%`
+    : formatPct(value)
+
+const getMetricTextClass = (value: number | undefined) =>
+  value === undefined ? 'text-slate-400' : value > 0 ? 'text-emerald-700' : value < 0 ? 'text-rose-600' : 'text-slate-500'
+
+const getActiveMetricTextClass = (metric: MetricKey, value: number | undefined) =>
+  metric === 'position_52w_pct'
+    ? value === undefined
+      ? 'text-slate-400'
+      : 'text-sky-700'
+    : getMetricTextClass(value)
+
+const getMetricBarWidth = (metric: MetricKey, value: number | undefined, maxMetric: number) => {
+  if (value === undefined) return 0
+  if (metric === 'position_52w_pct') return Math.min(Math.max(value, 0), 100)
+  return (Math.abs(value) / maxMetric) * 100
+}
+
+const metricValue = (row: Row, metric: MetricKey) => row[metric] ?? Number.NEGATIVE_INFINITY
 
 const getActiveMetricCellClass = (metric: MetricKey, activeMetric: MetricKey) =>
   metric === activeMetric
@@ -92,19 +136,27 @@ function App() {
     () =>
       current
         ? [...current.rows].sort((a, b) =>
-            descendingMetrics.includes(tab) ? b[tab] - a[tab] : a[tab] - b[tab],
+            descendingMetrics.includes(tab)
+              ? metricValue(b, tab) - metricValue(a, tab)
+              : metricValue(a, tab) - metricValue(b, tab),
           )
         : [],
     [current, tab],
   )
-  const maxMetric = useMemo(() => Math.max(...rows.map((row) => Math.abs(row[tab])), 1), [rows, tab])
+  const maxMetric = useMemo(
+    () => Math.max(...rows.map((row) => Math.abs(row[tab] ?? 0)), 1),
+    [rows, tab],
+  )
   const groupedRows = useMemo(() => {
     const activeBands = descendingMetrics.includes(tab) ? descendingBands : ascendingBands
-    return activeBands.map((band) => ({ ...band, rows: rows.filter((row) => band.test(row[tab])) }))
+    return activeBands.map((band) => ({
+      ...band,
+      rows: rows.filter((row) => row[tab] !== undefined && band.test(row[tab])),
+    }))
   }, [rows, tab])
   const tableGridClass = 'grid grid-cols-[4%_16%_11%_11%_12%_12%_28%] gap-[1%]'
   const displayGroups = useMemo(
-    () => (tab === 'distance_52w_high_pct' ? [{ separator: null, rows }] : groupedRows),
+    () => (continuousMetrics.includes(tab) ? [{ separator: null, rows }] : groupedRows),
     [groupedRows, rows, tab],
   )
 
@@ -192,7 +244,7 @@ function App() {
                 <h2 className="text-xl font-semibold tracking-tight text-slate-950">{metricText[tab]}榜单</h2>
                 <p className="mt-1 text-sm text-slate-600">当前展示基于 {adjustmentText[adjustment]} 口径排序</p>
               </div>
-              <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">{tab === 'distance_52w_high_pct' ? '连续排序视图' : '可视化榜单'}</div>
+              <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">{continuousMetrics.includes(tab) ? '连续排序视图' : '可视化榜单'}</div>
               </div>
             </div>
 
@@ -217,7 +269,7 @@ function App() {
                   <div className={`${tab === 'ytd_return_pct' ? 'hidden' : 'flex'} translate-x-1 items-center justify-self-center px-2 text-center`}>
                     <span>YTD</span>
                   </div>
-                  <div className={`${tab === 'distance_52w_high_pct' ? 'hidden' : 'flex'} items-center justify-end px-2`}>
+                  <div className={`${continuousMetrics.includes(tab) ? 'hidden' : 'flex'} items-center justify-end px-2`}>
                     <span>52周高点</span>
                   </div>
                   <div className="flex items-center justify-center px-2 text-slate-700">
@@ -260,7 +312,7 @@ function App() {
                                 </div>
                               </div>
 
-                              <div className={`${tab === 'distance_52w_high_pct' ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
+                              <div className={`${continuousMetrics.includes(tab) ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
                                 <div className="flex items-center justify-end gap-3">
                                   <span className={`font-medium ${getMetricTextClass(row.distance_52w_high_pct)}`}>{formatPct(row.distance_52w_high_pct)}</span>
                                 </div>
@@ -269,12 +321,12 @@ function App() {
                               <div className="px-2">
                                 <div className={`text-center text-[13px] tabular-nums ${getActiveMetricCellClass(tab, tab)}`}>
                                   <div className="flex items-center justify-center gap-3">
-                                    <span className={`font-medium ${getMetricTextClass(row[tab])}`}>{formatPct(row[tab])}</span>
+                                    <span className={`font-medium ${getActiveMetricTextClass(tab, row[tab])}`}>{formatMetric(tab, row[tab])}</span>
                                   </div>
                                   <div className="mt-2 h-[6px] w-full overflow-hidden rounded-full bg-slate-200/70">
                                     <div
-                                      className={`h-full rounded-full ${row[tab] >= 0 ? 'bg-[linear-gradient(90deg,rgba(16,185,129,0.72),rgba(52,211,153,0.92))]' : 'bg-[linear-gradient(90deg,rgba(245,158,11,0.72),rgba(251,191,36,0.92))]'}`}
-                                      style={{ width: `${(Math.abs(row[tab]) / maxMetric) * 100}%` }}
+                                      className={`h-full rounded-full ${tab === 'position_52w_pct' ? 'bg-[linear-gradient(90deg,rgba(14,165,233,0.72),rgba(56,189,248,0.92))]' : (row[tab] ?? 0) >= 0 ? 'bg-[linear-gradient(90deg,rgba(16,185,129,0.72),rgba(52,211,153,0.92))]' : 'bg-[linear-gradient(90deg,rgba(245,158,11,0.72),rgba(251,191,36,0.92))]'}`}
+                                      style={{ width: `${getMetricBarWidth(tab, row[tab], maxMetric)}%` }}
                                     />
                                   </div>
                                 </div>

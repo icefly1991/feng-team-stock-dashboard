@@ -17,9 +17,11 @@ def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, float]:
     # current adjustment series, and qfq/none are calculated independently upstream.
     ma250 = ordered["close"].tail(250).mean()
     year_start_close = float(current_year.iloc[0]["close"])
-    # See docs/metric-definitions.md: 52-week high is the max intraday high over the
-    # latest 252 trading rows for the same adjustment series, not the full history.
-    high_52w = float(ordered["high"].tail(252).max())
+    # See docs/metric-definitions.md: the 52-week range uses intraday high/low over
+    # the latest 252 trading rows for the same adjustment series.
+    range_52w = ordered.tail(252)
+    high_52w = float(range_52w["high"].max())
+    low_52w = float(range_52w["low"].min())
 
     return {
         "close": round(close, 2),
@@ -27,6 +29,8 @@ def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, float]:
         "distance_ma250_pct": round(percent_change(close, ma250), 2),
         "ytd_return_pct": round(percent_change(close, year_start_close), 2),
         "distance_52w_high_pct": round(percent_change(close, high_52w), 2),
+        "distance_52w_low_pct": round(percent_change(close, low_52w), 2),
+        "position_52w_pct": round(range_position(close, low_52w, high_52w), 2),
     }
 
 
@@ -38,10 +42,11 @@ def normalize_history(frame: pd.DataFrame) -> pd.DataFrame:
     ordered["trade_date"] = ordered["trade_date"].astype(str)
     ordered["close"] = ordered["close"].astype(float)
     ordered["high"] = ordered["high"].astype(float)
+    ordered["low"] = ordered["low"].astype(float)
     ordered = ordered.sort_values("trade_date").reset_index(drop=True)
 
     if len(ordered) < 252:
-        raise ValueError("Not enough history to calculate MA250 and 52-week high metrics.")
+        raise ValueError("Not enough history to calculate MA250 and 52-week range metrics.")
 
     return ordered
 
@@ -62,6 +67,12 @@ def percent_change(current: float, base: float) -> float:
     if base == 0:
         raise ValueError("Cannot compute percent change with zero base.")
     return (current / base - 1) * 100
+
+
+def range_position(current: float, low: float, high: float) -> float:
+    if high == low:
+        raise ValueError("Cannot compute 52-week position with a zero-width range.")
+    return (current - low) / (high - low) * 100
 
 
 def first_rows_of_year(frame: pd.DataFrame, year_start: str) -> pd.DataFrame:
