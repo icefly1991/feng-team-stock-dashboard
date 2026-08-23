@@ -188,7 +188,7 @@ function App() {
                   <span className="rounded-full border border-slate-200 bg-white/85 px-3 py-1">实时生成静态看板</span>
                   <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1">按指标排序浏览</span>
                   <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1">支持前复权 / 除权</span>
-                  <a href="#growth-market" className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-medium text-sky-700 transition hover:bg-sky-100">查看20%涨跌幅小市值股票池</a>
+                  <a href="#growth-market" className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-medium text-sky-700 transition hover:bg-sky-100">查看创业板/科创板小市值股票池</a>
                 </div>
               </div>
               <div className="rounded-[1.4rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.72))] px-4 py-3 text-sm text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur">

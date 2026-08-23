@@ -46,7 +46,7 @@ function GrowthMarketPage() {
   const headerScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    document.title = '20%涨跌幅小市值股票池'
+    document.title = '创业板/科创板小市值股票池'
     let mounted = true
     fetch(dataUrl)
       .then((response) => (response.ok ? response.json() : Promise.reject()))
@@ -85,7 +85,7 @@ function GrowthMarketPage() {
             <div>
               <a href="#" className="text-sm font-medium text-sky-700 hover:text-sky-800">← 返回自选股看板</a>
               <p className="mt-5 text-[11px] font-medium tracking-[0.2em] text-slate-400">GROWTH MARKET SCREENER</p>
-              <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">20%涨跌幅小市值股票池</h1>
+              <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">创业板/科创板小市值股票池</h1>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">创业板与科创板普通股票，流通市值低于 {data.filters.circulating_market_cap_lt_yi} 亿元，最近两个完整年度归母净利润均为正。页面展示最新年度归母净利润与公司主营业务，52 周位置采用前复权价格计算。</p>
             </div>
             <div className="rounded-[1.4rem] border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600">
