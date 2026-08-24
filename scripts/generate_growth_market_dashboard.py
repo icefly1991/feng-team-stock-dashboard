@@ -76,6 +76,7 @@ def main() -> None:
                     "close": metrics["close"],
                     "today_return_pct": metrics["today_return_pct"],
                     "circulating_market_cap_yi": candidate["circulating_market_cap_yi"],
+                    "distance_ma250_pct": metrics["distance_ma250_pct"],
                     "distance_52w_high_pct": metrics["distance_52w_high_pct"],
                     "distance_52w_low_pct": metrics["distance_52w_low_pct"],
                     "position_52w_pct": metrics["position_52w_pct"],
@@ -88,9 +89,13 @@ def main() -> None:
 
     if not rows:
         status = "Kept existing growth-market-dashboard.json." if dashboard_exists(OUTPUT_FILE) else "No output written."
-        raise RuntimeError(f"No growth-market rows generated. {status}")
+        error_samples = (financial_errors + history_errors)[:5]
+        raise RuntimeError(
+            f"No growth-market rows generated. Candidates: {len(candidates)}; "
+            f"profitable: {len(profitable)}; error samples: {error_samples}. {status}"
+        )
 
-    rows.sort(key=lambda row: row["position_52w_pct"], reverse=True)
+    rows.sort(key=lambda row: row["position_52w_pct"])
     payload: dict[str, Any] = {
         "updated_at": datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M"),
         "trade_date": latest_trade_date,
@@ -134,7 +139,12 @@ def get_latest_trade_date(pro: Any, today: date) -> str:
     )
     if calendar is None or calendar.empty:
         raise RuntimeError("No open trading date returned.")
-    return str(calendar["cal_date"].astype(str).max())
+    open_dates = sorted(calendar["cal_date"].astype(str).tolist(), reverse=True)
+    for trade_date in open_dates:
+        daily = pro.daily_basic(trade_date=trade_date, fields="ts_code")
+        if daily is not None and not daily.empty:
+            return trade_date
+    raise RuntimeError("No recent trade date with daily_basic data returned.")
 
 
 def load_candidates(pro: Any, trade_date: str) -> tuple[list[dict[str, Any]], int]:
@@ -150,7 +160,8 @@ def load_candidates(pro: Any, trade_date: str) -> tuple[list[dict[str, Any]], in
     merged = basic.merge(daily, on="ts_code", how="inner")
     prefix_mask = merged["symbol"].astype(str).str.startswith(SUPPORTED_PREFIXES)
     market_mask = merged["market"].isin(["创业板", "科创板"])
-    universe = merged[prefix_mask & market_mask & merged["circ_mv"].notna()].copy()
+    st_mask = merged["name"].fillna("").astype(str).str.contains("ST", case=False)
+    universe = merged[prefix_mask & market_mask & ~st_mask & merged["circ_mv"].notna()].copy()
 
     eligible_list_dates = listed_more_than_five_trading_days(pro, universe, trade_date)
     universe = universe[universe["ts_code"].isin(eligible_list_dates)].copy()
@@ -197,23 +208,23 @@ def normalize_tushare_text(value: str) -> str:
 
 
 def listed_more_than_five_trading_days(pro: Any, universe: pd.DataFrame, trade_date: str) -> set[str]:
-    earliest = str(universe["list_date"].astype(str).min())
+    trade_day = datetime.strptime(trade_date, "%Y%m%d").date()
     calendar = pro.trade_cal(
         exchange="SSE",
-        start_date=earliest,
+        start_date=(trade_day - timedelta(days=30)).strftime("%Y%m%d"),
         end_date=trade_date,
         is_open="1",
         fields="cal_date",
     )
     open_dates = sorted(calendar["cal_date"].astype(str).tolist())
-    date_rank = {value: index for index, value in enumerate(open_dates)}
-    latest_rank = date_rank[trade_date]
-    eligible: set[str] = set()
-    for row in universe.itertuples(index=False):
-        first_rank = next((date_rank[value] for value in open_dates if value >= str(row.list_date)), None)
-        if first_rank is not None and latest_rank - first_rank + 1 > 5:
-            eligible.add(str(row.ts_code))
-    return eligible
+    if trade_date not in open_dates or len(open_dates) < 6:
+        raise RuntimeError("Not enough recent trading dates to validate listing age.")
+    latest_index = open_dates.index(trade_date)
+    if latest_index < 5:
+        raise RuntimeError("Not enough trading dates before the latest trade date.")
+    oldest_eligible_list_date = open_dates[latest_index - 5]
+    eligible = universe[universe["list_date"].astype(str) <= oldest_eligible_list_date]
+    return set(eligible["ts_code"].astype(str))
 
 
 def load_annual_profits(
@@ -262,13 +273,15 @@ def build_52w_metrics(frame: pd.DataFrame | None) -> dict[str, float]:
     close = float(latest["close"])
     high = float(window["high"].max())
     low = float(window["low"].min())
-    if low == 0 or high == low:
+    ma250 = float(ordered["close"].tail(250).mean())
+    if low == 0 or high == low or ma250 == 0:
         raise ValueError("Invalid 52-week price range.")
     pct_chg = latest.get("pct_chg")
     today_return = float(pct_chg) if pd.notna(pct_chg) else 0.0
     return {
         "close": round(close, 2),
         "today_return_pct": round(today_return, 2),
+        "distance_ma250_pct": round((close / ma250 - 1) * 100, 2),
         "distance_52w_high_pct": round((close / high - 1) * 100, 2),
         "distance_52w_low_pct": round((close / low - 1) * 100, 2),
         "position_52w_pct": round((close - low) / (high - low) * 100, 2),
