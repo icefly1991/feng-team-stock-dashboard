@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Copy } from 'lucide-react'
+import { CopyStockButton, StockCopyProvider } from './StockCopy'
 
 type GrowthRow = {
   code: string
@@ -90,6 +92,7 @@ function GrowthMarketPage() {
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(186,230,253,0.22),transparent_32%),linear-gradient(180deg,#fcfbf8_0%,#f2eee7_100%)] px-4 py-6 text-slate-900 sm:px-6 sm:py-8">
+      <StockCopyProvider>
       <div className="mx-auto max-w-7xl space-y-6">
         <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="rounded-[2rem] border border-white/80 bg-white/85 p-5 shadow-[0_24px_60px_rgba(15,23,42,0.06)] sm:p-7">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
@@ -118,6 +121,7 @@ function GrowthMarketPage() {
             <div>
               <h2 className="text-xl font-semibold text-slate-950">52周内位置榜单</h2>
               <p className="mt-1 text-sm text-slate-500">按位置从低到高排列；越接近 100%，当前价格越靠近 52 周高点</p>
+              <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500"><Copy size={12} aria-hidden="true" />点击股票名称或代码即可复制</p>
             </div>
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索名称、代码或主营业务" className="w-full rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-sky-300 focus:ring-4 focus:ring-sky-100 sm:w-72" />
           </div>
@@ -138,7 +142,10 @@ function GrowthMarketPage() {
                 {rows.map((row, index) => (
                   <div key={row.code} className={`group ${tableGridClass} items-center px-4 py-3.5 text-sm hover:bg-slate-50/80`}>
                     <div className="sticky left-0 z-10 self-stretch bg-white py-0.5 text-xs tabular-nums text-slate-300 group-hover:bg-slate-50">{index + 1}</div>
-                    <div className="sticky left-[52px] z-10 self-stretch bg-white py-0.5 shadow-[14px_0_18px_rgba(255,255,255,0.98)] group-hover:bg-slate-50"><div className="truncate font-medium text-slate-900">{row.name}</div><div className="mt-0.5 text-xs tracking-[0.08em] text-slate-400">{row.code}</div></div>
+                    <div className="sticky left-[52px] z-10 self-stretch bg-white py-0.5 shadow-[14px_0_18px_rgba(255,255,255,0.98)] group-hover:bg-slate-50">
+                      <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} />
+                      <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} secondary />
+                    </div>
                     <div className="text-right font-medium tabular-nums">{row.close.toFixed(2)}</div>
                     <div className={`text-right font-medium tabular-nums ${row.today_return_pct > 0 ? 'text-emerald-700' : row.today_return_pct < 0 ? 'text-rose-600' : 'text-slate-500'}`}>{formatPct(row.today_return_pct)}</div>
                     <div className="text-right tabular-nums text-slate-700">{row.circulating_market_cap_yi.toFixed(2)}亿</div>
@@ -157,6 +164,7 @@ function GrowthMarketPage() {
           </div>
         </section>
       </div>
+      </StockCopyProvider>
     </main>
   )
 }
