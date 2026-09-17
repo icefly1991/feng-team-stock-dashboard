@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Copy } from 'lucide-react'
 import GrowthMarketPage from './GrowthMarketPage'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
+import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
 
 type AdjustmentKey = 'qfq' | 'none'
 type MetricKey =
@@ -27,6 +28,7 @@ type Row = {
 
 type DashboardData = {
   updated_at: string
+  trade_date?: string
   adjustments: Record<AdjustmentKey, { summary: Record<SummaryKey, number>; rows: Row[] }>
 }
 
@@ -122,6 +124,7 @@ function App() {
   const [adjustment, setAdjustment] = useState<AdjustmentKey>('qfq')
   const [tab, setTab] = useState<MetricKey>('distance_ma250_pct')
   const [error, setError] = useState(false)
+  const headerScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleHashChange = () => setPage(window.location.hash)
@@ -177,6 +180,7 @@ function App() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(186,230,253,0.2),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f5f1ea_58%,#f1ece5_100%)] px-4 py-6 text-slate-900 sm:px-6 sm:py-8">
       <StockCopyProvider>
+      <StockHistoryProvider key={`${adjustment}:${tab}`}>
       <div className="mx-auto max-w-6xl space-y-6">
         <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(135deg,rgba(255,255,255,0.97),rgba(247,242,234,0.94))] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.06)] sm:p-7">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(191,219,254,0.32),transparent_72%)]" />
@@ -197,6 +201,7 @@ function App() {
               <div className="rounded-[1.4rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.72))] px-4 py-3 text-sm text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur">
                 <div className="text-[11px] font-medium tracking-[0.16em] text-slate-400">LAST REFRESH</div>
                 <div className="mt-1 text-sm font-medium text-slate-900">更新时间：{data.updated_at}</div>
+                {data.trade_date && <div className="mt-1 text-xs text-slate-500">交易日：{data.trade_date}</div>}
               </div>
             </div>
 
@@ -256,19 +261,19 @@ function App() {
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-950">{metricText[tab]}榜单</h2>
                 <p className="mt-1 text-sm text-slate-600">当前展示基于 {adjustmentText[adjustment]} 口径排序</p>
-                <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500"><Copy size={12} aria-hidden="true" />点击股票名称或代码即可复制</p>
+                <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500"><Copy size={12} aria-hidden="true" />点击名称或代码复制；悬停代码或点击图表图标查看 K 线</p>
               </div>
               <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">{continuousMetrics.includes(tab) ? '连续排序视图' : '可视化榜单'}</div>
               </div>
             </div>
 
             <div className="mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
-              <div className="min-w-[960px]">
-                <div className={`sticky top-[72px] z-40 ${tableGridClass} min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-4 py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400 shadow-[0_10px_24px_rgba(15,23,42,0.06)]`}>
-                  <div className="flex items-center justify-center">
+              <div ref={headerScrollRef} className="sticky top-[72px] z-40 overflow-hidden rounded-t-[1.5rem] bg-[#fcfcfb] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
+                <div className={`${tableGridClass} min-w-[960px] min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-[29px] py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400`}>
+                  <div className="sticky left-0 z-10 flex items-center justify-center bg-[#fcfcfb]">
                     <span className="text-[10px] text-slate-300">#</span>
                   </div>
-                  <div className="flex -translate-x-1 items-center justify-center px-2 text-center">
+                  <div className="sticky left-[5%] z-10 flex -translate-x-1 items-center justify-center bg-[#fcfcfb] px-2 text-center">
                     <span>股票</span>
                   </div>
                   <div className="flex items-center justify-end px-2">
@@ -291,6 +296,11 @@ function App() {
                   </div>
                 </div>
 
+              </div>
+              <div className="overflow-x-auto rounded-b-[1.5rem]" onScroll={(event) => {
+                if (headerScrollRef.current) headerScrollRef.current.scrollLeft = event.currentTarget.scrollLeft
+              }}>
+                <div className="min-w-[960px]">
                 <div className="space-y-3 px-3 py-3">
                   {displayGroups.map((group, groupIndex) => (
                     <div key={group.separator ?? `all-${groupIndex}`} className="space-y-2">
@@ -307,7 +317,9 @@ function App() {
                               <div className="sticky left-[5%] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
                                 <div className="min-w-0 rounded-[0.95rem] px-3 py-2">
                                   <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} textClassName="text-[15px] font-medium tracking-[-0.01em] text-slate-900" />
-                                  <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} textClassName="text-[12px] font-medium tracking-[0.08em] text-slate-400" secondary />
+                                  <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date ?? ''} adjustment={adjustment} source="watchlist">
+                                    <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} textClassName="text-[12px] font-medium tracking-[0.08em] text-slate-400" secondary />
+                                  </StockHistoryCode>
                                 </div>
                               </div>
 
@@ -367,8 +379,10 @@ function App() {
                 </div>
               </div>
             </div>
+            </div>
         </motion.section>
       </div>
+      </StockHistoryProvider>
       </StockCopyProvider>
     </main>
   )

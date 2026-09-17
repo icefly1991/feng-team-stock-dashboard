@@ -21,6 +21,7 @@ def build_dashboard_payload(
     errors: list[dict[str, str]],
     watchlist_total: int,
     updated_at: str | None = None,
+    trade_date: str | None = None,
 ) -> dict[str, Any]:
     payload = {
         # Keep the fallback aligned with the main pipeline timestamp format and timezone.
@@ -30,6 +31,8 @@ def build_dashboard_payload(
             for key, rows in rows_by_adjustment.items()
         },
     }
+    if trade_date:
+        payload["trade_date"] = trade_date
     if errors:
         payload["errors"] = errors
     return payload

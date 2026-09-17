@@ -45,7 +45,9 @@ jobs:
       - name: Generate dashboard data
         run: |
           python scripts/generate_dashboard.py
+          python scripts/generate_growth_history.py --source watchlist
           python scripts/generate_growth_market_dashboard.py
+          python scripts/generate_growth_history.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 

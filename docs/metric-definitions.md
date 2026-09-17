@@ -1,5 +1,17 @@
 # Metric Definitions
 
+## Five-year History Preview (DATA-014)
+
+DATA-015 extends the same calculations to the homepage watchlist in both `qfq` and `none` modes. Each asset stores its adjustment mode and dashboard trade date; the preview follows the active homepage adjustment. The homepage `trade_date` is the latest actual bar date returned by the data pipeline, distinct from its Beijing generation timestamp. Historical latest close must agree with the matching dashboard row to within 0.011 yuan before export.
+
+- Source: Tushare `pro_bar`, daily `qfq`, ending at the Growth dashboard trade date; start is five calendar years earlier.
+- OHLC prices share the same adjustment anchor. Volume is unadjusted reported `vol`, in lots (手).
+- Weekly bars group Monday-Friday sessions: first open, maximum high, minimum low, last close, summed volume; the timestamp is the first actual trading day of each week. The last week may be incomplete.
+- History range position: `(latest close - minimum low) / (maximum high - minimum low) * 100`; null for a flat range.
+- Distance from history high: `(latest close / maximum high - 1) * 100`.
+- Short histories display their actual start; do not fabricate missing bars. These metrics use the available five-year window and do not replace the dashboard's 252-trading-day metrics.
+- The daily chart shows the preceding calendar year; the headline range metrics remain based on the available five-year history.
+
 This document defines the stock metrics written into `dashboard.json` by `scripts/generate_dashboard.py`.
 
 All price metrics in `dashboard.json` must be calculated independently for each adjustment mode:

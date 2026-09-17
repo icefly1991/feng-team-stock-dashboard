@@ -28,6 +28,7 @@ def main() -> None:
         result.errors,
         watchlist_total=len(config.watchlist),
         updated_at=config.updated_at,
+        trade_date=result.latest_trade_date,
     )
     export_dashboard(config.output_json_file, payload)
     print(f"Output file path: {config.output_json_file}")

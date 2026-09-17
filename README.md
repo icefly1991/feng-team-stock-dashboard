@@ -90,7 +90,9 @@ Python 数据生成：
 ```bash
 python -m pip install -r requirements.txt
 python scripts/generate_dashboard.py
+python scripts/generate_growth_history.py --source watchlist
 python scripts/generate_growth_market_dashboard.py
+python scripts/generate_growth_history.py
 ```
 
 必需环境变量：
@@ -115,6 +117,8 @@ python -m unittest discover -s tests -v
 - 数据生成入口：[`scripts/generate_dashboard.py`](./scripts/generate_dashboard.py)
 - 当前输出文件：[`public/data/dashboard.json`](./public/data/dashboard.json)
 - 总市值股票池生成入口：[`scripts/generate_growth_market_dashboard.py`](./scripts/generate_growth_market_dashboard.py)，输出 [`public/data/growth-market-dashboard.json`](./public/data/growth-market-dashboard.json)
+- 股票池历史 K 线：`scripts/generate_growth_history.py`，读取当前榜单后生成 `public/data/growth-history/<code>.json`；鼠标悬停代码预览五年周 K，点击图表按钮固定打开，支持近一年日 K。历史数据按需加载，日期需与榜单一致。
+- 主页历史 K 线：同一脚本加 `--source watchlist`，生成 `public/data/watchlist-history/<qfq|none>/<code>.json`。先生成主页榜单，再生成历史；图表随主页复权口径切换。两页均使用同一套预览组件，历史日期、口径及最新收盘必须与对应榜单一致。
 
 当前确认存在的顶层 JSON 字段：
 

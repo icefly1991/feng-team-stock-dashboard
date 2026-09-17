@@ -21,8 +21,7 @@ class PipelineRunResult:
 class TusharePipelineClient:
     def __init__(self, config: RuntimeConfig) -> None:
         self.config = config
-        ts.set_token(config.tushare_token)
-        self.pro = ts.pro_api()
+        self.pro = ts.pro_api(config.tushare_token)
 
     def build_adjustment_rows(self) -> PipelineRunResult:
         rows_by_adjustment = {adjustment: [] for adjustment in self.config.adjustments}
@@ -64,6 +63,7 @@ class TusharePipelineClient:
 
     def fetch_row(self, item: WatchlistItem, adjustment: str) -> tuple[dict[str, Any], str]:
         frame = ts.pro_bar(
+            api=self.pro,
             ts_code=normalize_ts_code(item.code),
             adj=None if adjustment == "none" else adjustment,
             start_date=self.config.start_date,
