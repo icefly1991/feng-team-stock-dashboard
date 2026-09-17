@@ -1,0 +1,31 @@
+{
+  "version": "2026-09-18",
+  "reviewed_at": "2026-09-18",
+  "selection": "媒体公开报道中的代表性自然人投资者观察名单，非官方评级、收益排名或完整名单。仅匹配披露姓名，不能排除同名；不合并亲属、机构或产品账户。",
+  "sources": {
+    "eastmoney20260825": {"title": "东方财富研究中心：十大牛散最新调仓动向梳理", "date": "2026-08-25", "url": "https://finance.eastmoney.com/a/202608253853037657.html"},
+    "stcn20260901": {"title": "证券时报：牛散大举建仓股曝光", "date": "2026-09-01", "url": "https://www.stcn.com/article/detail/4168099.html"},
+    "fund20260826": {"title": "中国基金报：陈发树加仓（新浪转载）", "date": "2026-08-26", "url": "https://finance.sina.com.cn/jjxw/2026-08-26/doc-inipsmim9101079.shtml"},
+    "stcn20260829": {"title": "证券时报：牛散也会踩雷", "date": "2026-08-29", "url": "https://epaper.stcn.com/con/202608/29/content_2969757.html"},
+    "stcn20260602": {"title": "证券时报：知名牛散扎堆掘金北交所新三板", "date": "2026-06-02", "url": "https://www.stcn.com/article/detail/3937968.html"},
+    "stcn20240824": {"title": "证券时报：牛散最新持仓曝光（历史入选依据）", "date": "2024-08-24", "url": "https://epaper.stcn.com/att/202408/24/2144782e-fe3d-4af2-bc10-3c2b0754aac9.pdf"}
+  },
+  "investors": [
+    {"name": "章建平", "sources": ["eastmoney20260825", "stcn20260901"]},
+    {"name": "葛卫东", "sources": ["eastmoney20260825"]},
+    {"name": "陈发树", "sources": ["fund20260826", "stcn20260602"]},
+    {"name": "赵建平", "sources": ["eastmoney20260825"]},
+    {"name": "付小铜", "sources": ["eastmoney20260825"]},
+    {"name": "钟格", "sources": ["eastmoney20260825"]},
+    {"name": "张素芬", "sources": ["eastmoney20260825"]},
+    {"name": "夏重阳", "sources": ["eastmoney20260825"]},
+    {"name": "刘鑫", "sources": ["eastmoney20260825"]},
+    {"name": "魏巍", "sources": ["stcn20260901"]},
+    {"name": "王孝安", "sources": ["stcn20260901"]},
+    {"name": "徐开东", "sources": ["stcn20260829"]},
+    {"name": "吕强", "sources": ["stcn20240824"]},
+    {"name": "周信钢", "sources": ["stcn20260602"]},
+    {"name": "李欣", "sources": ["stcn20260602"]},
+    {"name": "王萍", "sources": ["eastmoney20260825"]}
+  ]
+}

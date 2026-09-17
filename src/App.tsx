@@ -4,6 +4,7 @@ import { Copy } from 'lucide-react'
 import GrowthMarketPage from './GrowthMarketPage'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
+import { ShareholderBadge, ShareholderProvider, ShareholderRoster } from './ShareholderWatch'
 
 type AdjustmentKey = 'qfq' | 'none'
 type MetricKey =
@@ -180,8 +181,10 @@ function App() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(186,230,253,0.2),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f5f1ea_58%,#f1ece5_100%)] px-4 py-6 text-slate-900 sm:px-6 sm:py-8">
       <StockCopyProvider>
+      <ShareholderProvider>
       <StockHistoryProvider key={`${adjustment}:${tab}`}>
       <div className="mx-auto max-w-6xl space-y-6">
+        <ShareholderRoster />
         <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(135deg,rgba(255,255,255,0.97),rgba(247,242,234,0.94))] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.06)] sm:p-7">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(191,219,254,0.32),transparent_72%)]" />
           <div className="absolute right-[-5rem] top-[-5rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.95),rgba(255,255,255,0))]" />
@@ -320,6 +323,7 @@ function App() {
                                   <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date ?? ''} adjustment={adjustment} source="watchlist">
                                     <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} textClassName="text-[12px] font-medium tracking-[0.08em] text-slate-400" secondary />
                                   </StockHistoryCode>
+                                  <ShareholderBadge code={row.code} />
                                 </div>
                               </div>
 
@@ -383,6 +387,7 @@ function App() {
         </motion.section>
       </div>
       </StockHistoryProvider>
+      </ShareholderProvider>
       </StockCopyProvider>
     </main>
   )

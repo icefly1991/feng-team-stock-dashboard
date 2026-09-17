@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Copy } from 'lucide-react'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
+import { ShareholderBadge, ShareholderProvider, ShareholderRoster } from './ShareholderWatch'
 
 type GrowthRow = {
   code: string
@@ -158,8 +159,10 @@ function GrowthMarketPage() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(186,230,253,0.22),transparent_32%),linear-gradient(180deg,#fcfbf8_0%,#f2eee7_100%)] px-4 py-6 text-slate-900 sm:px-6 sm:py-8">
       <StockCopyProvider>
+      <ShareholderProvider>
       <StockHistoryProvider>
       <div className="mx-auto max-w-7xl space-y-6">
+        <ShareholderRoster />
         <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="rounded-[2rem] border border-white/80 bg-white/85 p-5 shadow-[0_24px_60px_rgba(15,23,42,0.06)] sm:p-7">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
@@ -219,6 +222,7 @@ function GrowthMarketPage() {
                       <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date}>
                         <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} secondary />
                       </StockHistoryCode>
+                      <ShareholderBadge code={row.code} />
                       <details className="mt-2 text-xs sm:hidden">
                         <summary className="cursor-pointer py-1 text-sky-700">最新财报</summary>
                         <div className="mt-1 space-y-1 pb-1 text-slate-600">
@@ -252,6 +256,7 @@ function GrowthMarketPage() {
         </section>
       </div>
       </StockHistoryProvider>
+      </ShareholderProvider>
       </StockCopyProvider>
     </main>
   )

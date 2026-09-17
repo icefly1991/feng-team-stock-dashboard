@@ -48,6 +48,7 @@ jobs:
           python scripts/generate_growth_history.py --source watchlist
           python scripts/generate_growth_market_dashboard.py
           python scripts/generate_growth_history.py
+          python scripts/generate_shareholder_watch.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
