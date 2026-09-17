@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import math
 import os
+import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -18,7 +20,7 @@ except ModuleNotFoundError:  # Direct execution adds scripts/ rather than the re
 ROOT_DIR = Path(__file__).resolve().parents[1]
 OUTPUT_FILE = ROOT_DIR / "public" / "data" / "growth-market-dashboard.json"
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
-CIRCULATING_MARKET_CAP_LIMIT_YI = 20.0
+TOTAL_MARKET_CAP_LIMIT_YI = 25.0
 SUPPORTED_PREFIXES = ("30", "688")
 
 
@@ -27,11 +29,10 @@ def main() -> None:
     if not token:
         raise RuntimeError("Missing TUSHARE_TOKEN environment variable.")
 
-    ts.set_token(token)
-    pro = ts.pro_api()
-    today = date.today()
+    pro = ts.pro_api(token)
+    today = datetime.now(BEIJING_TZ).date()
     latest_trade_date = get_latest_trade_date(pro, today)
-    annual_periods = (f"{today.year - 2}1231", f"{today.year - 1}1231")
+    annual_periods = tuple(f"{year}1231" for year in range(today.year - 3, today.year))
 
     candidates, universe_count = load_candidates(pro, latest_trade_date)
     company_business = load_company_business(pro)
@@ -40,18 +41,24 @@ def main() -> None:
         for candidate in candidates
     ]
     profitable: list[dict[str, Any]] = []
+    annual_profitable_count = 0
     financial_errors: list[dict[str, str]] = []
 
     for candidate in candidates:
         try:
-            profits = load_annual_profits(
+            # Expanded pools can exceed the income API's 200 requests/minute quota.
+            time.sleep(0.35)
+            financials = load_financials(
                 pro,
                 candidate["ts_code"],
                 annual_periods,
                 today.strftime("%Y%m%d"),
             )
-            if profits is not None and all(value > 0 for value in profits.values()):
-                profitable.append({**candidate, "annual_profits": profits})
+            if financials is not None and all(value > 0 for value in financials["annual_net_profit"].values()):
+                annual_profitable_count += 1
+                latest_profit = financials["latest_report"]["net_profit"]
+                if latest_profit is not None and latest_profit >= 0:
+                    profitable.append({**candidate, **financials})
         except Exception as exc:  # noqa: BLE001
             financial_errors.append(error_row(candidate, f"financial: {exc}"))
 
@@ -63,6 +70,7 @@ def main() -> None:
         try:
             frame = ts.pro_bar(
                 ts_code=candidate["ts_code"],
+                api=pro,
                 adj="qfq",
                 start_date=history_start,
                 end_date=latest_trade_date,
@@ -75,12 +83,13 @@ def main() -> None:
                     "name": candidate["name"],
                     "close": metrics["close"],
                     "today_return_pct": metrics["today_return_pct"],
-                    "circulating_market_cap_yi": candidate["circulating_market_cap_yi"],
+                    "total_market_cap_yi": candidate["total_market_cap_yi"],
                     "distance_ma250_pct": metrics["distance_ma250_pct"],
                     "distance_52w_high_pct": metrics["distance_52w_high_pct"],
                     "distance_52w_low_pct": metrics["distance_52w_low_pct"],
                     "position_52w_pct": metrics["position_52w_pct"],
-                    "annual_net_profit": candidate["annual_profits"],
+                    "annual_net_profit": candidate["annual_net_profit"],
+                    "latest_report": candidate["latest_report"],
                     "main_business": candidate["main_business"],
                 }
             )
@@ -95,22 +104,25 @@ def main() -> None:
             f"profitable: {len(profitable)}; error samples: {error_samples}. {status}"
         )
 
-    rows.sort(key=lambda row: row["position_52w_pct"])
+    rows.sort(key=lambda row: (row["total_market_cap_yi"], row["code"]))
     payload: dict[str, Any] = {
         "updated_at": datetime.now(BEIJING_TZ).strftime("%Y-%m-%d %H:%M"),
         "trade_date": latest_trade_date,
         "filters": {
             "code_prefixes": list(SUPPORTED_PREFIXES),
-            "circulating_market_cap_lt_yi": CIRCULATING_MARKET_CAP_LIMIT_YI,
+            "total_market_cap_lt_yi": TOTAL_MARKET_CAP_LIMIT_YI,
             "annual_periods": list(annual_periods),
-            "annual_net_profit_rule": "n_income_attr_p > 0 for both periods",
+            "annual_net_profit_rule": "n_income_attr_p > 0 for all three periods",
+            "latest_report_net_profit_rule": "n_income_attr_p >= 0 (consolidated year-to-date)",
+            "financial_as_of": today.strftime("%Y%m%d"),
             "adjustment": "qfq",
             "minimum_listed_trading_days": 5,
         },
         "summary": {
             "growth_market_total": universe_count,
             "market_cap_candidates": len(candidates),
-            "profitable_candidates": len(profitable),
+            "profitable_candidates": annual_profitable_count,
+            "latest_report_candidates": len(profitable),
             "displayed_total": len(rows),
         },
         "rows": rows,
@@ -122,8 +134,9 @@ def main() -> None:
     export_dashboard(OUTPUT_FILE, payload)
     print(f"Latest trade date: {latest_trade_date}")
     print(f"30/688 universe: {universe_count}")
-    print(f"Under {CIRCULATING_MARKET_CAP_LIMIT_YI:.0f} yi: {len(candidates)}")
-    print(f"Profitable in both years: {len(profitable)}")
+    print(f"Total market cap under {TOTAL_MARKET_CAP_LIMIT_YI:.0f} yi: {len(candidates)}")
+    print(f"Profitable in all three years: {annual_profitable_count}")
+    print(f"Latest report nonnegative: {len(profitable)}")
     print(f"Displayed rows: {len(rows)}")
     print(f"Errors: {len(errors)}")
     print(f"Output file path: {OUTPUT_FILE}")
@@ -155,19 +168,21 @@ def load_candidates(pro: Any, trade_date: str) -> tuple[list[dict[str, Any]], in
     )
     daily = pro.daily_basic(
         trade_date=trade_date,
-        fields="ts_code,trade_date,close,circ_mv",
+        fields="ts_code,trade_date,close,total_mv",
     )
     merged = basic.merge(daily, on="ts_code", how="inner")
+    merged["total_mv"] = pd.to_numeric(merged["total_mv"], errors="coerce")
+    valid_market_cap = (merged["total_mv"] > 0) & (merged["total_mv"] < float("inf"))
     prefix_mask = merged["symbol"].astype(str).str.startswith(SUPPORTED_PREFIXES)
     market_mask = merged["market"].isin(["创业板", "科创板"])
     st_mask = merged["name"].fillna("").astype(str).str.contains("ST", case=False)
-    universe = merged[prefix_mask & market_mask & ~st_mask & merged["circ_mv"].notna()].copy()
+    universe = merged[prefix_mask & market_mask & ~st_mask & valid_market_cap].copy()
 
     eligible_list_dates = listed_more_than_five_trading_days(pro, universe, trade_date)
     universe = universe[universe["ts_code"].isin(eligible_list_dates)].copy()
-    universe["circulating_market_cap_yi"] = universe["circ_mv"].astype(float) / 10000
+    universe["total_market_cap_yi"] = universe["total_mv"].astype(float) / 10000
     selected = universe[
-        universe["circulating_market_cap_yi"] < CIRCULATING_MARKET_CAP_LIMIT_YI
+        universe["total_market_cap_yi"] < TOTAL_MARKET_CAP_LIMIT_YI
     ].copy()
 
     candidates = [
@@ -175,7 +190,7 @@ def load_candidates(pro: Any, trade_date: str) -> tuple[list[dict[str, Any]], in
             "ts_code": str(row.ts_code),
             "symbol": str(row.symbol),
             "name": str(row.name),
-            "circulating_market_cap_yi": round(float(row.circulating_market_cap_yi), 2),
+            "total_market_cap_yi": float(row.total_market_cap_yi),
         }
         for row in selected.itertuples(index=False)
     ]
@@ -227,33 +242,59 @@ def listed_more_than_five_trading_days(pro: Any, universe: pd.DataFrame, trade_d
     return set(eligible["ts_code"].astype(str))
 
 
-def load_annual_profits(
+def load_financials(
     pro: Any,
     ts_code: str,
-    periods: tuple[str, str],
+    periods: tuple[str, ...],
     announcement_end_date: str,
-) -> dict[str, float] | None:
+) -> dict[str, Any] | None:
     frame = pro.income(
         ts_code=ts_code,
         start_date=f"{periods[0][:4]}0101",
         end_date=announcement_end_date,
-        fields="ts_code,ann_date,end_date,report_type,n_income_attr_p,update_flag",
+        fields="ts_code,ann_date,f_ann_date,end_date,report_type,n_income_attr_p,update_flag",
     )
     if frame is None or frame.empty:
         return None
 
-    annual = frame[frame["end_date"].astype(str).isin(periods)].copy()
-    annual = annual[annual["n_income_attr_p"].notna()]
-    if annual.empty:
+    reports = frame.copy()
+    # 1/4 are consolidated cumulative statements; exclude single-quarter,
+    # parent-only and superseded pre-adjustment statements.
+    reports = reports[pd.to_numeric(reports["report_type"], errors="coerce").isin([1, 4])].copy()
+    actual = pd.to_datetime(reports["f_ann_date"], format="%Y%m%d", errors="coerce")
+    announced = pd.to_datetime(reports["ann_date"], format="%Y%m%d", errors="coerce")
+    reports["disclosed_at"] = actual.fillna(announced).dt.strftime("%Y%m%d")
+    reports["end_date"] = pd.to_datetime(reports["end_date"], format="%Y%m%d", errors="coerce").dt.strftime("%Y%m%d")
+    reports = reports[
+        reports["disclosed_at"].notna()
+        & (reports["disclosed_at"] <= announcement_end_date)
+        & reports["end_date"].notna()
+        & (reports["end_date"] <= reports["disclosed_at"])
+        & reports["end_date"].str.endswith(("0331", "0630", "0930", "1231"), na=False)
+    ].copy()
+    if reports.empty:
         return None
-    annual["update_priority"] = pd.to_numeric(annual["update_flag"], errors="coerce").fillna(0)
-    annual["ann_date"] = annual["ann_date"].fillna("").astype(str)
-    annual = annual.sort_values(["end_date", "update_priority", "ann_date"])
-    latest = annual.groupby("end_date", as_index=False).tail(1)
-    profits = {str(row.end_date): float(row.n_income_attr_p) for row in latest.itertuples(index=False)}
-    if any(period not in profits for period in periods):
+    reports["update_priority"] = pd.to_numeric(reports["update_flag"], errors="coerce").fillna(0)
+    reports["type_priority"] = pd.to_numeric(reports["report_type"], errors="coerce")
+    reports["n_income_attr_p"] = pd.to_numeric(reports["n_income_attr_p"], errors="coerce")
+    reports = reports.sort_values(["end_date", "disclosed_at", "update_priority", "type_priority"])
+    latest_versions = reports.groupby("end_date", as_index=False).tail(1)
+    annual = latest_versions[latest_versions["end_date"].isin(periods)]
+    profits = {str(row.end_date): float(row.n_income_attr_p) for row in annual.itertuples(index=False)}
+    if any(period not in profits or not math.isfinite(profits[period]) for period in periods):
         return None
-    return {period: round(profits[period], 2) for period in periods}
+    # Select the newest period before checking its value; never fall back to
+    # an older profitable report when the latest report is missing or negative.
+    latest = latest_versions.iloc[-1]
+    latest_profit = float(latest["n_income_attr_p"])
+    return {
+        "annual_net_profit": {period: profits[period] for period in periods},
+        "latest_report": {
+            "period": str(latest["end_date"]),
+            "ann_date": str(latest["disclosed_at"]),
+            "net_profit": latest_profit if math.isfinite(latest_profit) else None,
+        },
+    }
 
 
 def build_52w_metrics(frame: pd.DataFrame | None) -> dict[str, float]:

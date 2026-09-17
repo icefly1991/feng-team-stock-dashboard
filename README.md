@@ -18,7 +18,7 @@
 - 快速查看股票距离 52 周高点的位置
 - 快速查看股票距离 52 周低点的位置
 - 快速查看股票在 52 周高低区间内的位置
-- 独立查看创业板和科创板中流通市值低于 20 亿元、最近两年盈利股票的 52 周位置
+- 独立查看创业板和科创板中总市值低于 25 亿元、连续三个完整年度盈利且最新财报累计归母净利润不亏损的股票；默认按 52 周位置升序，支持总市值、52 周位置和距年线升降序，并提供最新财报报告期、披露日期、归母净利润与 52 周位置
 - 支持前复权与不复权两种数据口径切换
 - 兼顾桌面端与移动端可读性
 
@@ -90,11 +90,18 @@ Python 数据生成：
 ```bash
 python -m pip install -r requirements.txt
 python scripts/generate_dashboard.py
+python scripts/generate_growth_market_dashboard.py
 ```
 
 必需环境变量：
 
 - `TUSHARE_TOKEN`
+
+股票池数据测试（使用模拟接口，无需 Token）：
+
+```bash
+python -m unittest discover -s tests -v
+```
 
 当前仓库说明：
 
@@ -107,6 +114,7 @@ python scripts/generate_dashboard.py
 
 - 数据生成入口：[`scripts/generate_dashboard.py`](./scripts/generate_dashboard.py)
 - 当前输出文件：[`public/data/dashboard.json`](./public/data/dashboard.json)
+- 总市值股票池生成入口：[`scripts/generate_growth_market_dashboard.py`](./scripts/generate_growth_market_dashboard.py)，输出 [`public/data/growth-market-dashboard.json`](./public/data/growth-market-dashboard.json)
 
 当前确认存在的顶层 JSON 字段：
 
