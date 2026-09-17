@@ -6,7 +6,7 @@ type Match = { name: string; state: 'new' | 'exit' | 'continuing' | 'unknown'; c
 type Stock = { name: string; status: 'ok' | 'partial' | 'unavailable'; reason?: string; current?: Snapshot; previous?: Snapshot; matches: Match[] }
 type Data = {
   schema_version: number; as_of: string; updated_at: string; source_url: string
-  roster: { reviewed_at: string; selection: string; investors: { name: string; sources: string[] }[]; sources: Record<string, { title: string; date: string; url: string }> }
+  roster: { reviewed_at: string; selection: string; investors: { name: string; basis?: string; sources: string[] }[]; sources: Record<string, { title: string; date: string; url: string }> }
   stocks: Record<string, Stock>
 }
 const Context = createContext<{ data: Data | null; error: boolean; open: (code: string | null) => void }>({ data: null, error: false, open: () => {} })
@@ -19,6 +19,7 @@ export function ShareholderProvider({ children }: { children: ReactNode }) {
   const [error, setError] = useState(false)
   const [selection, setSelection] = useState<string | null>(null)
   const [retry, setRetry] = useState(0)
+  const [rosterQuery, setRosterQuery] = useState('')
   const dialog = useRef<HTMLDialogElement>(null)
   useEffect(() => {
     const controller = new AbortController()
@@ -31,8 +32,9 @@ export function ShareholderProvider({ children }: { children: ReactNode }) {
       }).catch(() => { if (!controller.signal.aborted) setError(true) })
     return () => controller.abort()
   }, [retry])
-  const open = (code: string | null) => { setSelection(code); dialog.current?.showModal() }
+  const open = (code: string | null) => { setSelection(code); setRosterQuery(''); dialog.current?.showModal() }
   const stock = selection ? data?.stocks[selection] : null
+  const investors = data?.roster.investors.filter(investor => investor.name.includes(rosterQuery.trim())) ?? []
   return <Context.Provider value={{ data, error, open }}>
     {children}
     <dialog ref={dialog} aria-labelledby="shareholder-title" className="fixed inset-0 m-auto max-h-[85dvh] w-[calc(100%-24px)] max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white p-0 text-slate-800 shadow-xl backdrop:bg-slate-900/30" onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close() }}>
@@ -60,7 +62,9 @@ export function ShareholderProvider({ children }: { children: ReactNode }) {
             <button className="block min-h-11 text-sky-700" onClick={() => setSelection(null)}>查看观察名单与入选依据 →</button>
           </> : <>
             <p>{data.roster.selection}</p>
-            <div className="grid gap-3 sm:grid-cols-2">{data.roster.investors.map((investor) => <article key={investor.name} className="rounded-xl border border-slate-200 p-3"><h3 className="font-semibold">{investor.name}</h3>{investor.sources.map((id) => { const source = data.roster.sources[id]; return <a key={id} href={source.url} target="_blank" rel="noreferrer" className="mt-2 block text-xs leading-5 text-sky-700 hover:underline">{source.title}<span className="block text-slate-400">{source.date}</span></a> })}</article>)}</div>
+            <input aria-label="搜索观察名单姓名" placeholder="搜索姓名，如陈峰" value={rosterQuery} onChange={event => setRosterQuery(event.target.value)} className="min-h-11 w-full rounded-lg border border-slate-200 px-3 outline-sky-500" />
+            <p className="text-xs text-slate-500" role="status">显示 {investors.length} / {data.roster.investors.length} 位{!investors.length && '，未找到该姓名'}</p>
+            <div className="grid gap-3 sm:grid-cols-2">{investors.map((investor) => <article key={investor.name} className="rounded-xl border border-slate-200 p-3"><h3 className="font-semibold">{investor.name}</h3><p className="mt-1 text-xs leading-5 text-slate-500">{investor.basis ?? (investor.sources.every(id => id.startsWith('tetegu')) ? '持仓名录收录，作为扩展观察对象，非媒体独立评级。' : '公开媒体报道纳入观察；报道日期及依据见下方。')}</p>{investor.sources.map((id) => { const source = data.roster.sources[id]; return <a key={id} href={source.url} target="_blank" rel="noreferrer" className="mt-2 block text-xs leading-5 text-sky-700 hover:underline">{source.title}<span className="block text-slate-400">{source.date}</span></a> })}</article>)}</div>
           </>}
         </>}
       </div>
