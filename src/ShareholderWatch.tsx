@@ -62,7 +62,7 @@ export function ShareholderProvider({ children }: { children: ReactNode }) {
             <button className="block min-h-11 text-sky-700" onClick={() => setSelection(null)}>查看观察名单与入选依据 →</button>
           </> : <>
             <p>{data.roster.selection}</p>
-            <input aria-label="搜索观察名单姓名" placeholder="搜索姓名，如陈峰" value={rosterQuery} onChange={event => setRosterQuery(event.target.value)} className="min-h-11 w-full rounded-lg border border-slate-200 px-3 outline-sky-500" />
+            <input aria-label="搜索观察名单姓名" placeholder="输入姓名搜索" value={rosterQuery} onChange={event => setRosterQuery(event.target.value)} className="min-h-11 w-full rounded-lg border border-slate-200 px-3 outline-sky-500" />
             <p className="text-xs text-slate-500" role="status">显示 {investors.length} / {data.roster.investors.length} 位{!investors.length && '，未找到该姓名'}</p>
             <div className="grid gap-3 sm:grid-cols-2">{investors.map((investor) => <article key={investor.name} className="rounded-xl border border-slate-200 p-3"><h3 className="font-semibold">{investor.name}</h3><p className="mt-1 text-xs leading-5 text-slate-500">{investor.basis ?? (investor.sources.every(id => id.startsWith('tetegu')) ? '持仓名录收录，作为扩展观察对象，非媒体独立评级。' : '公开媒体报道纳入观察；报道日期及依据见下方。')}</p>{investor.sources.map((id) => { const source = data.roster.sources[id]; return <a key={id} href={source.url} target="_blank" rel="noreferrer" className="mt-2 block text-xs leading-5 text-sky-700 hover:underline">{source.title}<span className="block text-slate-400">{source.date}</span></a> })}</article>)}</div>
           </>}

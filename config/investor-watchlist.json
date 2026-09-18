@@ -1,22 +1,22 @@
 {
-  "version": "2026-09-18.2",
+  "version": "2026-09-18.3",
   "reviewed_at": "2026-09-18",
-  "selection": "覆盖媒体报道及专业持仓名录中的自然人投资者，包含陈峰等小盘股观察对象。名录收录不等于投资能力认证，也不表示所有人资金规模或收益处于同一级别。非官方评级、收益排名或完整名单。仅匹配披露姓名，不能排除同名；不合并亲属、机构或产品账户。",
+  "links_checked_at": "2026-09-18",
+  "selection": "汇集媒体报道及公开持仓名录中的自然人投资者，供股东变化观察使用。展示顺序不代表排名；名单不构成投资能力评级，也不涵盖全部投资者。不合并亲属、机构或产品账户。",
   "sources": {
-    "tetegu2026": {"title": "特特股：2026 牛散名录及热门观察名单（非能力评级）", "date": "动态页面；2026-09-18 检索核对", "url": "https://www.tetegu.com/niusan/"},
-    "teteguMobile2026": {"title": "特特股：2026 自然人持仓名录（非能力评级）", "date": "动态页面；2026-09-18 检索核对", "url": "https://m.tetegu.com/niusan/"},
-    "chenfengReport20260826": {"title": "辰奕智能：2026 年半年报（陈峰同名股东持仓依据）", "date": "2026-08-26", "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-08-26/3fedbfe6-d8fb-4cc4-9236-3b4aeb7d72d1.PDF"},
-    "jiemian20171021": {"title": "界面新闻：牛散投资专题（陈峰历史跟踪依据）", "date": "2017-10-21", "url": "https://www.jiemian.com/article/1668700.html"},
+    "tetegu2026": {"title": "特特股：2026 牛散名录及热门观察名单（非能力评级）", "date": "动态页面；2026-09-18 访问核对", "url": "http://www.tetegu.com/niusan/"},
+    "teteguMobile2026": {"title": "特特股：2026 自然人持仓名录（非能力评级）", "date": "动态页面；2026-09-18 访问核对", "url": "http://m.tetegu.com/niusan/"},
+    "chenfengReport20260826": {"title": "辰奕智能：2026 年半年报（新浪公告网页版）", "date": "2026-08-26", "url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12538904&stockid=301578"},
+    "jiemian20171021": {"title": "界面新闻：牛散投资专题（历史报道）", "date": "2017-10-21", "url": "https://www.jiemian.com/article/1668700.html"},
     "cs20260416": {"title": "中国证券报：牛散最新持仓（东方财富转载）", "date": "2026-04-16", "url": "https://finance.eastmoney.com/a/202604163707364273.html"},
     "eastmoney20260825": {"title": "东方财富研究中心：十大牛散最新调仓动向梳理", "date": "2026-08-25", "url": "https://finance.eastmoney.com/a/202608253853037657.html"},
     "stcn20260901": {"title": "证券时报：牛散大举建仓股曝光", "date": "2026-09-01", "url": "https://www.stcn.com/article/detail/4168099.html"},
     "fund20260826": {"title": "中国基金报：陈发树加仓（新浪转载）", "date": "2026-08-26", "url": "https://finance.sina.com.cn/jjxw/2026-08-26/doc-inipsmim9101079.shtml"},
     "stcn20260829": {"title": "证券时报：牛散也会踩雷", "date": "2026-08-29", "url": "https://epaper.stcn.com/con/202608/29/content_2969757.html"},
     "stcn20260602": {"title": "证券时报：知名牛散扎堆掘金北交所新三板", "date": "2026-06-02", "url": "https://www.stcn.com/article/detail/3937968.html"},
-    "stcn20240824": {"title": "证券时报：牛散最新持仓曝光（历史入选依据）", "date": "2024-08-24", "url": "https://epaper.stcn.com/att/202408/24/2144782e-fe3d-4af2-bc10-3c2b0754aac9.pdf"}
+    "stcn20240824": {"title": "证券时报：牛散最新持仓曝光（历史入选依据）", "date": "2024-08-24", "url": "https://epaper.stcn.com/con/202408/24/content_2676422.html"}
   },
   "investors": [
-    {"name": "陈峰", "basis": "用户指定；历史媒体跟踪与近期同名股东公告交叉参考，不关联其他同名人士身份。", "sources": ["chenfengReport20260826", "jiemian20171021", "tetegu2026"]},
     {"name": "章建平", "sources": ["eastmoney20260825", "stcn20260901"]},
     {"name": "葛卫东", "sources": ["eastmoney20260825"]},
     {"name": "陈发树", "sources": ["fund20260826", "stcn20260602"]},
@@ -33,6 +33,7 @@
     {"name": "周信钢", "sources": ["stcn20260602"]},
     {"name": "李欣", "sources": ["stcn20260602"]},
     {"name": "王萍", "sources": ["eastmoney20260825"]},
+    {"name": "陈峰", "sources": ["chenfengReport20260826", "jiemian20171021", "tetegu2026"]},
     {"name": "徐国新", "sources": ["tetegu2026"]},
     {"name": "张秀", "sources": ["tetegu2026"]},
     {"name": "林新", "sources": ["tetegu2026"]},
