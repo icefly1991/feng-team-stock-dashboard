@@ -16,6 +16,8 @@ type GrowthRow = {
   distance_52w_low_pct: number
   position_52w_pct: number
   annual_net_profit: Record<string, number>
+  annual_periods: string[]
+  annual_ann_dates: Record<string, string>
   latest_report: { period: string; ann_date: string; net_profit: number }
   main_business: string
 }
@@ -25,7 +27,7 @@ type GrowthMarketData = {
   trade_date: string
   filters: {
     total_market_cap_lt_yi: number
-    annual_periods: string[]
+    annual_period_rule: string
     latest_report_net_profit_rule: string
     financial_as_of: string
     adjustment: string
@@ -88,17 +90,23 @@ function GrowthMarketPage() {
           setError('股票池总市值数据尚未就绪，请更新数据后重试')
           return
         }
-        const periods = json.filters.annual_periods
         const asOf = json.filters.financial_as_of
         const year = Number(asOf?.slice(0, 4))
         if (
-          !/^\d{8}$/.test(asOf ?? '') || !Array.isArray(periods) || periods.length !== 3 ||
-          periods.some((period, index) => period !== `${year - 3 + index}1231`) ||
+          !/^\d{8}$/.test(asOf ?? '') ||
+          json.filters.annual_period_rule !== 'latest disclosed annual report and two preceding consecutive years per stock' ||
           json.filters.latest_report_net_profit_rule !== 'n_income_attr_p >= 0 (consolidated year-to-date)' ||
           !Number.isInteger(json.summary?.latest_report_candidates) ||
           json.rows.some((row) => {
             const report = row.latest_report
-            return periods.some((period) => !Number.isFinite(row.annual_net_profit?.[period]) || row.annual_net_profit[period] <= 0) ||
+            const periods = row.annual_periods
+            if (!Array.isArray(periods) || periods.length !== 3) return true
+            const lastYear = Number(periods[2]?.slice(0, 4))
+            return !Number.isInteger(lastYear) || lastYear >= year ||
+              periods.some((period, index) => period !== `${lastYear - 2 + index}1231` ||
+                !Number.isFinite(row.annual_net_profit?.[period]) || row.annual_net_profit[period] <= 0 ||
+                !/^\d{8}$/.test(row.annual_ann_dates?.[period] ?? '') ||
+                row.annual_ann_dates[period] > asOf || row.annual_ann_dates[period] < period) ||
               !report || !Number.isFinite(report.net_profit) || report.net_profit < 0 ||
               !/^\d{4}(0331|0630|0930|1231)$/.test(report.period) ||
               !/^\d{8}$/.test(report.ann_date) || report.ann_date > asOf ||
@@ -153,7 +161,6 @@ function GrowthMarketPage() {
   if (error) return <PageState text={error} error />
   if (!data) return <PageState text="加载中..." />
 
-  const newerPeriod = data.filters.annual_periods.at(-1) ?? ''
   const formatPeriod = (period: string) => `${period.slice(0, 4)}年`
 
   return (
@@ -169,7 +176,7 @@ function GrowthMarketPage() {
               <a href="#" className="text-sm font-medium text-sky-700 hover:text-sky-800">← 返回自选股看板</a>
               <p className="mt-5 text-[11px] font-medium tracking-[0.2em] text-slate-400">GROWTH MARKET SCREENER</p>
               <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">创业板/科创板小市值股票池</h1>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">创业板与科创板普通股票，总市值低于 {data.filters.total_market_cap_lt_yi} 亿元，最近三个完整年度（{data.filters.annual_periods.map((period) => period.slice(0, 4)).join('、')}）归母净利润均为正，且最新已披露财报累计归母净利润不亏损（≥ 0）。最新财报按年初至报告期末累计口径，52 周位置采用前复权价格计算。</p>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">创业板与科创板普通股票，总市值低于 {data.filters.total_market_cap_lt_yi} 亿元。按每只股票最新已披露的年报及此前连续两个完整年度，归母净利润均为正，且最新已披露财报累计归母净利润不亏损（≥ 0）。各股随年报披露独立滚动，具体年份见表格；最新财报按年初至报告期末累计口径，52 周位置采用前复权价格计算。</p>
             </div>
             <div className="rounded-[1.4rem] border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600">
               <div>交易日：<span className="font-medium text-slate-900">{data.trade_date}</span></div>
@@ -203,7 +210,7 @@ function GrowthMarketPage() {
                 <div className="sticky left-0 z-20 self-stretch bg-slate-50/95 py-0.5">#</div><div className="sticky left-[40px] z-20 self-stretch bg-slate-50/95 py-0.5 shadow-[14px_0_18px_rgba(248,250,252,0.98)]">股票</div><div className="text-right">收盘价</div><div className="text-right">今日</div>
                 <div className="text-right">{sortButton('total_market_cap_yi')}</div>
                 <div className="text-right">{sortButton('distance_ma250_pct')}</div>
-                <div className="text-right"><span className="block">{formatPeriod(newerPeriod)}</span>归母净利</div><div className="text-right"><span className="block">最新财报</span>归母净利（累计）</div><div className="text-center">主营业务</div>
+                <div className="text-right"><span className="block">最新已披露年报</span>归母净利</div><div className="text-right"><span className="block">最新财报</span>归母净利（累计）</div><div className="text-center">主营业务</div>
                 <div className="pr-2 text-center">{sortButton('position_52w_pct')}</div>
               </div>
             </div>
@@ -229,6 +236,8 @@ function GrowthMarketPage() {
                           <p>{formatReport(row.latest_report.period)}</p>
                           <p>累计归母 {formatProfit(row.latest_report.net_profit)}</p>
                           <p className="text-[11px]">披露 {formatDate(row.latest_report.ann_date)}</p>
+                          <p>三年盈利依据：</p>
+                          {row.annual_periods.map(period => <p key={period}>{formatPeriod(period)} {formatProfit(row.annual_net_profit[period])} · 披露 {formatDate(row.annual_ann_dates[period])}</p>)}
                         </div>
                       </details>
                     </div>
@@ -236,7 +245,14 @@ function GrowthMarketPage() {
                     <div className={`text-right font-medium tabular-nums ${row.today_return_pct > 0 ? 'text-emerald-700' : row.today_return_pct < 0 ? 'text-rose-600' : 'text-slate-500'}`}>{formatPct(row.today_return_pct)}</div>
                     <div className="text-right tabular-nums text-slate-700">{row.total_market_cap_yi.toFixed(2)}亿</div>
                     <div className={`text-right font-medium tabular-nums ${metricColorClass(row.distance_ma250_pct)}`}>{formatPct(row.distance_ma250_pct)}</div>
-                    <div className="text-right tabular-nums text-slate-600">{formatProfit(row.annual_net_profit[newerPeriod])}</div>
+                    <div className="text-right tabular-nums text-slate-600">
+                      <div>{formatProfit(row.annual_net_profit[row.annual_periods[2]])}</div>
+                      <div className="mt-1 text-xs">{formatPeriod(row.annual_periods[2])}</div>
+                      <details className="mt-1 text-[11px]">
+                        <summary className="cursor-pointer py-1 text-sky-700">{row.annual_periods[0].slice(0, 4)}—{row.annual_periods[2].slice(0, 4)} 依据</summary>
+                        {row.annual_periods.map(period => <div key={period} className="mt-2">{formatPeriod(period)} {formatProfit(row.annual_net_profit[period])}<div>披露 {formatDate(row.annual_ann_dates[period])}</div></div>)}
+                      </details>
+                    </div>
                     <div className="text-right tabular-nums text-slate-600">
                       <div className="font-medium text-slate-800">{formatProfit(row.latest_report.net_profit)}</div>
                       <div className="mt-1 text-xs">{formatReport(row.latest_report.period)}</div>

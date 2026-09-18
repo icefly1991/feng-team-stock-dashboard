@@ -1,5 +1,11 @@
 # Metric Definitions
 
+## Three Profitable Disclosed Annual Reports (DATA-018)
+
+For each stock independently, select the latest disclosed full-year consolidated cumulative report as of the Beijing generation date. Use that year and the two preceding consecutive calendar years. All three `n_income_attr_p` values must be finite and strictly positive. Select each period's latest disclosed revision before checking its value; never skip a loss, zero, missing value or missing intermediate year to find an older profitable window. The current calendar year is not a complete year. Keep the separate latest cumulative report requirement (`net_profit >= 0`).
+
+Per-row JSON fields: `annual_periods` (three ascending December 31 dates), `annual_ann_dates`, and `annual_net_profit`. `filters.annual_period_rule` identifies the per-stock selection rule; there is no shared `filters.annual_periods`. Example: in March 2027, one stock may still use 2023–2025 while a stock with its 2026 annual report disclosed uses 2024–2026.
+
 ## Five-year History Preview (DATA-014)
 
 DATA-015 extends the same calculations to the homepage watchlist in both `qfq` and `none` modes. Each asset stores its adjustment mode and dashboard trade date; the preview follows the active homepage adjustment. The homepage `trade_date` is the latest actual bar date returned by the data pipeline, distinct from its Beijing generation timestamp. Historical latest close must agree with the matching dashboard row to within 0.011 yuan before export.

@@ -32,7 +32,6 @@ def main() -> None:
     pro = ts.pro_api(token)
     today = datetime.now(BEIJING_TZ).date()
     latest_trade_date = get_latest_trade_date(pro, today)
-    annual_periods = tuple(f"{year}1231" for year in range(today.year - 3, today.year))
 
     candidates, universe_count = load_candidates(pro, latest_trade_date)
     company_business = load_company_business(pro)
@@ -51,7 +50,6 @@ def main() -> None:
             financials = load_financials(
                 pro,
                 candidate["ts_code"],
-                annual_periods,
                 today.strftime("%Y%m%d"),
             )
             if financials is not None and all(value > 0 for value in financials["annual_net_profit"].values()):
@@ -89,6 +87,8 @@ def main() -> None:
                     "distance_52w_low_pct": metrics["distance_52w_low_pct"],
                     "position_52w_pct": metrics["position_52w_pct"],
                     "annual_net_profit": candidate["annual_net_profit"],
+                    "annual_periods": candidate["annual_periods"],
+                    "annual_ann_dates": candidate["annual_ann_dates"],
                     "latest_report": candidate["latest_report"],
                     "main_business": candidate["main_business"],
                 }
@@ -111,7 +111,7 @@ def main() -> None:
         "filters": {
             "code_prefixes": list(SUPPORTED_PREFIXES),
             "total_market_cap_lt_yi": TOTAL_MARKET_CAP_LIMIT_YI,
-            "annual_periods": list(annual_periods),
+            "annual_period_rule": "latest disclosed annual report and two preceding consecutive years per stock",
             "annual_net_profit_rule": "n_income_attr_p > 0 for all three periods",
             "latest_report_net_profit_rule": "n_income_attr_p >= 0 (consolidated year-to-date)",
             "financial_as_of": today.strftime("%Y%m%d"),
@@ -245,12 +245,13 @@ def listed_more_than_five_trading_days(pro: Any, universe: pd.DataFrame, trade_d
 def load_financials(
     pro: Any,
     ts_code: str,
-    periods: tuple[str, ...],
     announcement_end_date: str,
 ) -> dict[str, Any] | None:
     frame = pro.income(
         ts_code=ts_code,
-        start_date=f"{periods[0][:4]}0101",
+        # Do not anchor the window to today's calendar year: annual reports
+        # are disclosed at different times. Retrieve available report history.
+        start_date="19900101",
         end_date=announcement_end_date,
         fields="ts_code,ann_date,f_ann_date,end_date,report_type,n_income_attr_p,update_flag",
     )
@@ -279,7 +280,16 @@ def load_financials(
     reports["n_income_attr_p"] = pd.to_numeric(reports["n_income_attr_p"], errors="coerce")
     reports = reports.sort_values(["end_date", "disclosed_at", "update_priority", "type_priority"])
     latest_versions = reports.groupby("end_date", as_index=False).tail(1)
-    annual = latest_versions[latest_versions["end_date"].isin(periods)]
+    annual_reports = latest_versions[
+        latest_versions["end_date"].str.endswith("1231")
+        & (latest_versions["end_date"] < f"{announcement_end_date[:4]}0101")
+    ]
+    if annual_reports.empty:
+        return None
+    latest_year = int(annual_reports.iloc[-1]["end_date"][:4])
+    periods = tuple(f"{year}1231" for year in range(latest_year - 2, latest_year + 1))
+    # Pick the anchor before validating profit; never skip a missing/loss year.
+    annual = annual_reports[annual_reports["end_date"].isin(periods)]
     profits = {str(row.end_date): float(row.n_income_attr_p) for row in annual.itertuples(index=False)}
     if any(period not in profits or not math.isfinite(profits[period]) for period in periods):
         return None
@@ -288,6 +298,8 @@ def load_financials(
     latest = latest_versions.iloc[-1]
     latest_profit = float(latest["n_income_attr_p"])
     return {
+        "annual_periods": list(periods),
+        "annual_ann_dates": {str(row.end_date): str(row.disclosed_at) for row in annual.itertuples(index=False)},
         "annual_net_profit": {period: profits[period] for period in periods},
         "latest_report": {
             "period": str(latest["end_date"]),

@@ -6,7 +6,7 @@ import os
 import tempfile
 import unittest
 from contextlib import redirect_stdout
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -107,7 +107,8 @@ class TotalMarketCapTests(unittest.TestCase):
         self.assertEqual(payload["summary"]["displayed_total"], 3)
         self.assertEqual(payload["summary"]["profitable_candidates"], 3)
         self.assertEqual(payload["summary"]["latest_report_candidates"], 3)
-        self.assertEqual(len(payload["filters"]["annual_periods"]), 3)
+        self.assertEqual(len(payload["rows"][0]["annual_periods"]), 3)
+        self.assertIn("per stock", payload["filters"]["annual_period_rule"])
         self.assertEqual(payload["rows"][0]["latest_report"]["net_profit"], 10000000)
         self.assertEqual(payload["trade_date"], "20260915")
         self.assertTrue(all(row["position_52w_pct"] == 50 for row in payload["rows"]))
@@ -157,10 +158,62 @@ class FinancialScreenTests(unittest.TestCase):
     def setUp(self) -> None:
         self.annual = [self.report(f"{year}1231", 10, f"{year + 1}0430") for year in (2023, 2024, 2025)]
 
-    def load(self, rows: list[dict]) -> dict | None:
+    def load(self, rows: list[dict], as_of: str = "20260916") -> dict | None:
         pro = Mock()
         pro.income.return_value = pd.DataFrame(rows)
-        return growth.load_financials(pro, "300001.SZ", self.periods, "20260916")
+        return growth.load_financials(pro, "300001.SZ", as_of)
+
+    def test_cross_year_and_staggered_annual_disclosure(self) -> None:
+        future = self.report("20261231", 20, "20270320")
+        for cutoff in ("20261231", "20270101", "20270319"):
+            self.assertEqual(self.load(self.annual + [future], cutoff)["annual_periods"], list(self.periods))
+        first = self.load(self.annual + [future], "20270320")
+        second = self.load(self.annual + [{**future, "f_ann_date": "20270420"}], "20270320")
+        self.assertEqual(first["annual_periods"], ["20241231", "20251231", "20261231"])
+        self.assertEqual(first["annual_ann_dates"]["20261231"], "20270320")
+        self.assertEqual(second["annual_periods"], list(self.periods))
+
+    def test_annual_gaps_and_latest_bad_year_never_skipped(self) -> None:
+        older = self.report("20221231", 10, "20230420")
+        self.assertIsNone(self.load([older, self.annual[0], self.annual[2]]))
+        for profit in (None, float("inf")):
+            self.assertIsNone(self.load(self.annual + [self.report("20261231", profit, "20270320")], "20270401"))
+        for profit in (0, -1):
+            result = self.load(self.annual + [self.report("20261231", profit, "20270320")], "20270401")
+            self.assertEqual(result["annual_periods"][-1], "20261231")
+            self.assertFalse(all(v > 0 for v in result["annual_net_profit"].values()))
+
+    def test_old_annual_revision_does_not_move_anchor(self) -> None:
+        result = self.load(self.annual + [self.report("20231231", 5, "20260901", report_type="4")])
+        self.assertEqual(result["annual_periods"], list(self.periods))
+        self.assertEqual(result["annual_net_profit"]["20231231"], 5)
+        self.assertEqual(result["annual_ann_dates"]["20231231"], "20260901")
+
+    def test_main_keeps_independent_windows_during_annual_season(self) -> None:
+        pro = make_pro([120000] * 2)
+        pro.trade_cal.return_value = pd.DataFrame({"cal_date": pd.bdate_range(end="2027-03-22", periods=6).strftime("%Y%m%d")})
+        pro.income.side_effect = [
+            pd.DataFrame(self.annual),
+            pd.DataFrame(self.annual + [self.report("20261231", 20, "20270320")]),
+        ]
+        bars = pd.DataFrame({"trade_date": pd.bdate_range(end="2027-03-22", periods=252).strftime("%Y%m%d"),
+                             "close": 10.0, "high": 12.0, "low": 8.0, "pct_chg": 1.0})
+        now = datetime(2027, 3, 22, 17, tzinfo=growth.BEIJING_TZ)
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "growth.json"
+            with (patch.dict(os.environ, {"TUSHARE_TOKEN": "test-token"}),
+                  patch.object(growth.ts, "pro_api", return_value=pro),
+                  patch.object(growth.ts, "pro_bar", return_value=bars),
+                  patch.object(growth, "datetime") as clock,
+                  patch.object(growth, "get_latest_trade_date", return_value="20270322"),
+                  patch.object(growth, "OUTPUT_FILE", output), patch.object(growth.time, "sleep"),
+                  redirect_stdout(io.StringIO())):
+                clock.now.return_value = now
+                growth.main()
+            data = json.loads(output.read_text(encoding="utf-8"))
+        self.assertEqual(data["rows"][0]["annual_periods"], list(self.periods))
+        self.assertEqual(data["rows"][1]["annual_periods"], ["20241231", "20251231", "20261231"])
+        self.assertEqual(data["summary"]["displayed_total"], 2)
 
     def test_selects_latest_period_not_latest_announcement(self) -> None:
         result = self.load(self.annual + [

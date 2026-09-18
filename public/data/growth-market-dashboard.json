@@ -1,45 +1,51 @@
 {
-  "updated_at": "2026-09-16 22:47",
-  "trade_date": "20260916",
+  "updated_at": "2026-09-18 09:13",
+  "trade_date": "20260917",
   "filters": {
     "code_prefixes": [
       "30",
       "688"
     ],
     "total_market_cap_lt_yi": 25.0,
-    "annual_periods": [
-      "20231231",
-      "20241231",
-      "20251231"
-    ],
+    "annual_period_rule": "latest disclosed annual report and two preceding consecutive years per stock",
     "annual_net_profit_rule": "n_income_attr_p > 0 for all three periods",
     "latest_report_net_profit_rule": "n_income_attr_p >= 0 (consolidated year-to-date)",
-    "financial_as_of": "20260916",
+    "financial_as_of": "20260918",
     "adjustment": "qfq",
     "minimum_listed_trading_days": 5
   },
   "summary": {
-    "growth_market_total": 1963,
-    "market_cap_candidates": 223,
-    "profitable_candidates": 99,
-    "latest_report_candidates": 74,
-    "displayed_total": 74
+    "growth_market_total": 1965,
+    "market_cap_candidates": 219,
+    "profitable_candidates": 96,
+    "latest_report_candidates": 71,
+    "displayed_total": 71
   },
   "rows": [
     {
       "code": "688067",
       "name": "爱威科技",
-      "close": 22.36,
-      "today_return_pct": 2.52,
-      "total_market_cap_yi": 15.2048,
-      "distance_ma250_pct": -11.1,
-      "distance_52w_high_pct": -24.54,
-      "distance_52w_low_pct": 26.83,
-      "position_52w_pct": 39.42,
+      "close": 22.54,
+      "today_return_pct": 0.81,
+      "total_market_cap_yi": 15.3272,
+      "distance_ma250_pct": -10.33,
+      "distance_52w_high_pct": -23.93,
+      "distance_52w_low_pct": 27.85,
+      "position_52w_pct": 40.92,
       "annual_net_profit": {
         "20231231": 21533773.08,
         "20241231": 22841204.65,
         "20251231": 28866943.56
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240427",
+        "20241231": "20250429",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -51,17 +57,27 @@
     {
       "code": "688681",
       "name": "科汇股份",
-      "close": 14.85,
-      "today_return_pct": 2.84,
-      "total_market_cap_yi": 15.543495000000002,
-      "distance_ma250_pct": -15.57,
-      "distance_52w_high_pct": -31.6,
-      "distance_52w_low_pct": 15.83,
-      "position_52w_pct": 22.83,
+      "close": 14.86,
+      "today_return_pct": 0.07,
+      "total_market_cap_yi": 15.553962,
+      "distance_ma250_pct": -15.48,
+      "distance_52w_high_pct": -31.55,
+      "distance_52w_low_pct": 15.91,
+      "position_52w_pct": 22.95,
       "annual_net_profit": {
         "20231231": 12718498.38,
         "20241231": 30497298.08,
         "20251231": 46877978.55
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240426",
+        "20241231": "20250425",
+        "20251231": "20260416"
       },
       "latest_report": {
         "period": "20260630",
@@ -73,17 +89,27 @@
     {
       "code": "688466",
       "name": "金科环境",
-      "close": 13.47,
-      "today_return_pct": 1.81,
-      "total_market_cap_yi": 16.454170740000002,
-      "distance_ma250_pct": -19.74,
-      "distance_52w_high_pct": -41.94,
-      "distance_52w_low_pct": 20.16,
-      "position_52w_pct": 18.85,
+      "close": 13.49,
+      "today_return_pct": 0.15,
+      "total_market_cap_yi": 16.47860158,
+      "distance_ma250_pct": -19.48,
+      "distance_52w_high_pct": -41.85,
+      "distance_52w_low_pct": 20.34,
+      "position_52w_pct": 19.02,
       "annual_net_profit": {
         "20231231": 70770893.07,
         "20241231": 66792883.25,
         "20251231": 37786246.63
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240426",
+        "20241231": "20250426",
+        "20251231": "20260424"
       },
       "latest_report": {
         "period": "20260630",
@@ -93,34 +119,12 @@
       "main_business": "公司是专业从事水深度处理及污废水资源化的国家高新技术企业，主营业务是依托公司自主研发的膜通用平台装备技术、膜系统应用技术、膜系统运营技术等三大核心技术，为客户提供水处理技术解决方案、运营服务以及资源化产品。公司业务的市场领域主要包括市政饮用水深度处理、市政污水和工业废水的深度处理及资源化利用等。"
     },
     {
-      "code": "301131",
-      "name": "聚赛龙",
-      "close": 31.61,
-      "today_return_pct": 2.13,
-      "total_market_cap_yi": 17.278816250000002,
-      "distance_ma250_pct": -24.56,
-      "distance_52w_high_pct": -39.0,
-      "distance_52w_low_pct": 13.91,
-      "position_52w_pct": 16.04,
-      "annual_net_profit": {
-        "20231231": 37152027.16,
-        "20241231": 38477743.86,
-        "20251231": 32727929.77
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260824",
-        "net_profit": 3775257.46
-      },
-      "main_business": "改性塑料的研发、生产和销售。"
-    },
-    {
       "code": "688092",
       "name": "爱科科技",
       "close": 21.02,
-      "today_return_pct": 1.25,
+      "today_return_pct": 0.0,
       "total_market_cap_yi": 17.37590974,
-      "distance_ma250_pct": -18.54,
+      "distance_ma250_pct": -18.49,
       "distance_52w_high_pct": -34.29,
       "distance_52w_low_pct": 9.71,
       "position_52w_pct": 14.5,
@@ -128,6 +132,16 @@
         "20231231": 75295080.73,
         "20241231": 67011114.3,
         "20251231": 50694811.67
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240420",
+        "20241231": "20250428",
+        "20251231": "20260424"
       },
       "latest_report": {
         "period": "20260630",
@@ -137,41 +151,61 @@
       "main_business": "智能切割设备"
     },
     {
-      "code": "301298",
-      "name": "东利机械",
-      "close": 11.88,
-      "today_return_pct": 0.76,
-      "total_market_cap_yi": 17.43984,
-      "distance_ma250_pct": -20.92,
-      "distance_52w_high_pct": -32.84,
-      "distance_52w_low_pct": 16.02,
-      "position_52w_pct": 22.01,
+      "code": "301131",
+      "name": "聚赛龙",
+      "close": 31.87,
+      "today_return_pct": 0.82,
+      "total_market_cap_yi": 17.42093875,
+      "distance_ma250_pct": -23.81,
+      "distance_52w_high_pct": -38.5,
+      "distance_52w_low_pct": 14.85,
+      "position_52w_pct": 17.12,
       "annual_net_profit": {
-        "20231231": 85667576.5,
-        "20241231": 62548942.11,
-        "20251231": 67562318.73
+        "20231231": 37152027.16,
+        "20241231": 38477743.86,
+        "20251231": 32727929.77
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240429",
+        "20241231": "20250429",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 5131496.44
+        "ann_date": "20260824",
+        "net_profit": 3775257.46
       },
-      "main_business": "汽车零部件、石油阀门零部件及其他产品的研发、生产和销售。"
+      "main_business": "改性塑料的研发、生产和销售。"
     },
     {
       "code": "301163",
       "name": "宏德股份",
-      "close": 21.39,
-      "today_return_pct": 0.14,
-      "total_market_cap_yi": 17.45424,
-      "distance_ma250_pct": -21.35,
-      "distance_52w_high_pct": -38.05,
-      "distance_52w_low_pct": 15.62,
-      "position_52w_pct": 18.03,
+      "close": 21.61,
+      "today_return_pct": 1.03,
+      "total_market_cap_yi": 17.633760000000002,
+      "distance_ma250_pct": -20.45,
+      "distance_52w_high_pct": -37.42,
+      "distance_52w_low_pct": 16.81,
+      "position_52w_pct": 19.4,
       "annual_net_profit": {
         "20231231": 48771130.07,
         "20241231": 21345725.07,
         "20251231": 40770741.29
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250429",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
@@ -183,17 +217,27 @@
     {
       "code": "301063",
       "name": "海锅股份",
-      "close": 16.84,
-      "today_return_pct": 1.32,
-      "total_market_cap_yi": 17.574341880000002,
-      "distance_ma250_pct": -25.87,
-      "distance_52w_high_pct": -48.31,
-      "distance_52w_low_pct": 14.71,
-      "position_52w_pct": 12.07,
+      "close": 16.92,
+      "today_return_pct": 0.48,
+      "total_market_cap_yi": 17.657830439999998,
+      "distance_ma250_pct": -25.39,
+      "distance_52w_high_pct": -48.07,
+      "distance_52w_low_pct": 15.26,
+      "position_52w_pct": 12.51,
       "annual_net_profit": {
         "20231231": 55811119.81,
         "20241231": 33352041.87,
         "20251231": 51201674.5
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250425",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
@@ -203,19 +247,61 @@
       "main_business": "大中型装备专用锻件的研发、生产和销售。"
     },
     {
+      "code": "301298",
+      "name": "东利机械",
+      "close": 12.03,
+      "today_return_pct": 1.26,
+      "total_market_cap_yi": 17.66004,
+      "distance_ma250_pct": -19.82,
+      "distance_52w_high_pct": -32.0,
+      "distance_52w_low_pct": 17.48,
+      "position_52w_pct": 24.03,
+      "annual_net_profit": {
+        "20231231": 85667576.5,
+        "20241231": 62548942.11,
+        "20251231": 67562318.73
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240329",
+        "20241231": "20250401",
+        "20251231": "20260401"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260827",
+        "net_profit": 5131496.44
+      },
+      "main_business": "汽车零部件、石油阀门零部件及其他产品的研发、生产和销售。"
+    },
+    {
       "code": "688013",
       "name": "天臣医疗",
-      "close": 21.96,
-      "today_return_pct": -1.52,
-      "total_market_cap_yi": 17.821769760000002,
-      "distance_ma250_pct": -43.38,
-      "distance_52w_high_pct": -66.42,
-      "distance_52w_low_pct": 4.03,
-      "position_52w_pct": 1.92,
+      "close": 22.15,
+      "today_return_pct": 0.87,
+      "total_market_cap_yi": 17.9759654,
+      "distance_ma250_pct": -42.7,
+      "distance_52w_high_pct": -66.13,
+      "distance_52w_low_pct": 4.93,
+      "position_52w_pct": 2.35,
       "annual_net_profit": {
         "20231231": 47311219.2,
         "20241231": 51894845.59,
         "20251231": 85185424.04
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240427",
+        "20241231": "20250428",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -227,17 +313,27 @@
     {
       "code": "301006",
       "name": "迈拓股份",
-      "close": 12.8,
-      "today_return_pct": 0.63,
-      "total_market_cap_yi": 17.8278528,
-      "distance_ma250_pct": -19.56,
-      "distance_52w_high_pct": -32.84,
-      "distance_52w_low_pct": 16.36,
-      "position_52w_pct": 22.33,
+      "close": 12.99,
+      "today_return_pct": 1.48,
+      "total_market_cap_yi": 18.09248499,
+      "distance_ma250_pct": -18.29,
+      "distance_52w_high_pct": -31.85,
+      "distance_52w_low_pct": 18.09,
+      "position_52w_pct": 24.69,
       "annual_net_profit": {
         "20231231": 112276341.96,
         "20241231": 79202518.55,
         "20251231": 92265886.59
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240429",
+        "20241231": "20250428",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -249,17 +345,27 @@
     {
       "code": "300923",
       "name": "研奥股份",
-      "close": 23.01,
-      "today_return_pct": 1.99,
-      "total_market_cap_yi": 18.08588301,
-      "distance_ma250_pct": -9.07,
-      "distance_52w_high_pct": -23.04,
-      "distance_52w_low_pct": 31.41,
-      "position_52w_pct": 44.39,
+      "close": 23.16,
+      "today_return_pct": 0.65,
+      "total_market_cap_yi": 18.20378316,
+      "distance_ma250_pct": -8.45,
+      "distance_52w_high_pct": -22.54,
+      "distance_52w_low_pct": 32.27,
+      "position_52w_pct": 45.6,
       "annual_net_profit": {
         "20231231": 47014684.67,
         "20241231": 42346763.65,
         "20251231": 34616014.97
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250421",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -271,17 +377,27 @@
     {
       "code": "300717",
       "name": "华信新材",
-      "close": 17.6,
-      "today_return_pct": 1.91,
-      "total_market_cap_yi": 18.0884,
-      "distance_ma250_pct": -11.75,
-      "distance_52w_high_pct": -31.7,
-      "distance_52w_low_pct": 13.55,
-      "position_52w_pct": 20.45,
+      "close": 17.75,
+      "today_return_pct": 0.85,
+      "total_market_cap_yi": 18.2425625,
+      "distance_ma250_pct": -10.95,
+      "distance_52w_high_pct": -31.12,
+      "distance_52w_low_pct": 14.52,
+      "position_52w_pct": 21.91,
       "annual_net_profit": {
         "20231231": 40981207.51,
         "20241231": 50597407.05,
         "20251231": 55040473.45
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240418",
+        "20241231": "20250416",
+        "20251231": "20260416"
       },
       "latest_report": {
         "period": "20260630",
@@ -293,17 +409,27 @@
     {
       "code": "300823",
       "name": "建科智能",
-      "close": 13.87,
-      "today_return_pct": 0.87,
-      "total_market_cap_yi": 18.167314360000002,
-      "distance_ma250_pct": -12.66,
-      "distance_52w_high_pct": -29.49,
-      "distance_52w_low_pct": 15.1,
-      "position_52w_pct": 23.88,
+      "close": 13.97,
+      "today_return_pct": 0.72,
+      "total_market_cap_yi": 18.29829716,
+      "distance_ma250_pct": -12.0,
+      "distance_52w_high_pct": -28.98,
+      "distance_52w_low_pct": 15.93,
+      "position_52w_pct": 25.2,
       "annual_net_profit": {
         "20231231": 57540354.72,
         "20241231": 44807886.67,
         "20251231": 33826576.95
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250423",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
@@ -313,63 +439,29 @@
       "main_business": "中高端数控钢筋工程成套装备的研发、设计、生产和销售,并提供数控钢筋工程全套生产解决方案。"
     },
     {
-      "code": "301010",
-      "name": "晶雪节能",
-      "close": 16.9,
-      "today_return_pct": 1.26,
-      "total_market_cap_yi": 18.252,
-      "distance_ma250_pct": -18.76,
-      "distance_52w_high_pct": -46.04,
-      "distance_52w_low_pct": 28.03,
-      "position_52w_pct": 20.42,
-      "annual_net_profit": {
-        "20231231": 38194359.37,
-        "20241231": 29949125.11,
-        "20251231": 8336607.96
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 6771172.19
-      },
-      "main_business": "金属面节能隔热保温夹芯板及配套产品研发、设计、生产和销售"
-    },
-    {
-      "code": "300549",
-      "name": "优德精密",
-      "close": 13.97,
-      "today_return_pct": 2.19,
-      "total_market_cap_yi": 18.627598000000003,
-      "distance_ma250_pct": -19.08,
-      "distance_52w_high_pct": -34.01,
-      "distance_52w_low_pct": 25.18,
-      "position_52w_pct": 28.07,
-      "annual_net_profit": {
-        "20231231": 17334178.74,
-        "20241231": 13698660.43,
-        "20251231": 7917705.21
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260828",
-        "net_profit": 3355893.67
-      },
-      "main_business": "汽车模具零部件、半导体计算机模具零部件、家电模具零部件等精密模具零部件的研发、生产及销售,同时也从事自动化设备零部件、制药模具及医疗器材零部件的研发、生产及销售。"
-    },
-    {
       "code": "688616",
       "name": "西力科技",
-      "close": 10.41,
-      "today_return_pct": 1.17,
-      "total_market_cap_yi": 18.673281030000002,
-      "distance_ma250_pct": -14.75,
-      "distance_52w_high_pct": -31.74,
-      "distance_52w_low_pct": 14.4,
-      "position_52w_pct": 21.3,
+      "close": 10.44,
+      "today_return_pct": 0.29,
+      "total_market_cap_yi": 18.727094519999998,
+      "distance_ma250_pct": -14.44,
+      "distance_52w_high_pct": -31.54,
+      "distance_52w_low_pct": 14.73,
+      "position_52w_pct": 21.79,
       "annual_net_profit": {
         "20231231": 74456846.4,
         "20241231": 103728045.88,
         "20251231": 103954463.17
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240427",
+        "20241231": "20250428",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
@@ -381,17 +473,27 @@
     {
       "code": "301192",
       "name": "泰祥股份",
-      "close": 18.46,
-      "today_return_pct": 2.33,
-      "total_market_cap_yi": 18.6892732,
-      "distance_ma250_pct": -31.33,
-      "distance_52w_high_pct": -56.26,
-      "distance_52w_low_pct": 16.84,
-      "position_52w_pct": 10.08,
+      "close": 18.5,
+      "today_return_pct": 0.22,
+      "total_market_cap_yi": 18.729770000000002,
+      "distance_ma250_pct": -31.07,
+      "distance_52w_high_pct": -56.16,
+      "distance_52w_low_pct": 17.09,
+      "position_52w_pct": 10.23,
       "annual_net_profit": {
         "20231231": 32250055.25,
         "20241231": 41846726.79,
         "20251231": 53670180.34
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250329",
+        "20251231": "20260418"
       },
       "latest_report": {
         "period": "20260630",
@@ -401,19 +503,93 @@
       "main_business": "汽车发动机零部件的研发、制造与销售。"
     },
     {
+      "code": "301010",
+      "name": "晶雪节能",
+      "close": 17.37,
+      "today_return_pct": 2.78,
+      "total_market_cap_yi": 18.7596,
+      "distance_ma250_pct": -16.47,
+      "distance_52w_high_pct": -44.54,
+      "distance_52w_low_pct": 31.59,
+      "position_52w_pct": 23.01,
+      "annual_net_profit": {
+        "20231231": 38194359.37,
+        "20241231": 29949125.11,
+        "20251231": 8336607.96
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250419",
+        "20251231": "20260427"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260827",
+        "net_profit": 6771172.19
+      },
+      "main_business": "金属面节能隔热保温夹芯板及配套产品研发、设计、生产和销售"
+    },
+    {
+      "code": "300549",
+      "name": "优德精密",
+      "close": 14.23,
+      "today_return_pct": 1.86,
+      "total_market_cap_yi": 18.974282000000002,
+      "distance_ma250_pct": -17.48,
+      "distance_52w_high_pct": -32.78,
+      "distance_52w_low_pct": 27.51,
+      "position_52w_pct": 30.67,
+      "annual_net_profit": {
+        "20231231": 17334178.74,
+        "20241231": 13698660.43,
+        "20251231": 7917705.21
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250423",
+        "20251231": "20260423"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260828",
+        "net_profit": 3355893.67
+      },
+      "main_business": "汽车模具零部件、半导体计算机模具零部件、家电模具零部件等精密模具零部件的研发、生产及销售,同时也从事自动化设备零部件、制药模具及医疗器材零部件的研发、生产及销售。"
+    },
+    {
       "code": "300371",
       "name": "汇中股份",
-      "close": 9.76,
-      "today_return_pct": 1.14,
-      "total_market_cap_yi": 19.63880848,
-      "distance_ma250_pct": -19.78,
-      "distance_52w_high_pct": -35.41,
-      "distance_52w_low_pct": 12.06,
-      "position_52w_pct": 16.41,
+      "close": 9.85,
+      "today_return_pct": 0.92,
+      "total_market_cap_yi": 19.81990405,
+      "distance_ma250_pct": -18.93,
+      "distance_52w_high_pct": -34.81,
+      "distance_52w_low_pct": 13.09,
+      "position_52w_pct": 17.81,
       "annual_net_profit": {
         "20231231": 104295891.23,
         "20241231": 57724747.8,
         "20251231": 66209906.32
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250418",
+        "20251231": "20260424"
       },
       "latest_report": {
         "period": "20260630",
@@ -423,107 +599,29 @@
       "main_business": "超声热量表、超声水表、超声流量计及相关产品的开发、制造和销售。"
     },
     {
-      "code": "301113",
-      "name": "雅艺科技",
-      "close": 16.71,
-      "today_return_pct": 1.27,
-      "total_market_cap_yi": 19.76793,
-      "distance_ma250_pct": -7.89,
-      "distance_52w_high_pct": -23.59,
-      "distance_52w_low_pct": 31.99,
-      "position_52w_pct": 43.97,
-      "annual_net_profit": {
-        "20231231": 18769612.82,
-        "20241231": 11169734.96,
-        "20251231": 7579323.58
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260824",
-        "net_profit": 4310585.93
-      },
-      "main_business": "户外火盆、气炉等户外休闲家具产品的研发、设计、生产和销售。"
-    },
-    {
-      "code": "300971",
-      "name": "博亚精工",
-      "close": 16.84,
-      "today_return_pct": 0.72,
-      "total_market_cap_yi": 19.80384,
-      "distance_ma250_pct": -24.83,
-      "distance_52w_high_pct": -38.79,
-      "distance_52w_low_pct": 3.82,
-      "position_52w_pct": 5.49,
-      "annual_net_profit": {
-        "20231231": 66258364.67,
-        "20241231": 43791315.74,
-        "20251231": 83409029.77
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260822",
-        "net_profit": 33445620.3
-      },
-      "main_business": "板带成形加工精密装备及关键零部件和特种装备配套零部件的研发、生产和销售。"
-    },
-    {
-      "code": "301065",
-      "name": "本立科技",
-      "close": 18.81,
-      "today_return_pct": 0.59,
-      "total_market_cap_yi": 19.942362,
-      "distance_ma250_pct": -12.71,
-      "distance_52w_high_pct": -24.12,
-      "distance_52w_low_pct": 13.31,
-      "position_52w_pct": 26.98,
-      "annual_net_profit": {
-        "20231231": 59615904.53,
-        "20241231": 64571985.96,
-        "20251231": 78832065.57
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260825",
-        "net_profit": 44769117.55
-      },
-      "main_business": "医药中间体、农药中间体、新材料中间体的研发、生产和销售。"
-    },
-    {
-      "code": "301429",
-      "name": "森泰股份",
-      "close": 16.88,
-      "today_return_pct": 1.93,
-      "total_market_cap_yi": 19.955536,
-      "distance_ma250_pct": -10.86,
-      "distance_52w_high_pct": -28.23,
-      "distance_52w_low_pct": 19.29,
-      "position_52w_pct": 29.14,
-      "annual_net_profit": {
-        "20231231": 47620858.56,
-        "20241231": 63283721.9,
-        "20251231": 51187041.55
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260826",
-        "net_profit": 29382027.79
-      },
-      "main_business": "高性能木塑复合材料、新型石木塑复合材料及其制品和应用的研发、设计、生产、销售。"
-    },
-    {
       "code": "301272",
       "name": "英华特",
-      "close": 34.2,
-      "today_return_pct": 5.13,
-      "total_market_cap_yi": 19.9715688,
-      "distance_ma250_pct": -14.81,
-      "distance_52w_high_pct": -34.94,
-      "distance_52w_low_pct": 21.02,
-      "position_52w_pct": 24.43,
+      "close": 34.0,
+      "today_return_pct": -0.58,
+      "total_market_cap_yi": 19.854776,
+      "distance_ma250_pct": -15.25,
+      "distance_52w_high_pct": -35.32,
+      "distance_52w_low_pct": 20.31,
+      "position_52w_pct": 23.61,
       "annual_net_profit": {
         "20231231": 87394377.93,
         "20241231": 74165383.19,
         "20251231": 36283055.78
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240427",
+        "20241231": "20250426",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
@@ -533,85 +631,61 @@
       "main_business": "专注于提供节能高效、可靠性高、噪音低的涡旋式压缩机及其应用技术的研制开发、生产销售及售前售后服务"
     },
     {
-      "code": "300851",
-      "name": "交大思诺",
-      "close": 23.05,
-      "today_return_pct": 0.92,
-      "total_market_cap_yi": 20.0381487,
-      "distance_ma250_pct": -13.57,
-      "distance_52w_high_pct": -39.33,
-      "distance_52w_low_pct": 15.37,
-      "position_52w_pct": 17.05,
+      "code": "300971",
+      "name": "博亚精工",
+      "close": 16.9,
+      "today_return_pct": 0.36,
+      "total_market_cap_yi": 19.8744,
+      "distance_ma250_pct": -24.47,
+      "distance_52w_high_pct": -38.57,
+      "distance_52w_low_pct": 4.19,
+      "position_52w_pct": 6.02,
       "annual_net_profit": {
-        "20231231": 84962877.63,
-        "20241231": 48583247.87,
-        "20251231": 74548054.97
+        "20231231": 66258364.67,
+        "20241231": 43791315.74,
+        "20251231": 83409029.77
       },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 18747616.17
-      },
-      "main_business": "轨道交通列车运行控制系统关键设备的研发设计、组织生产、销售及技术支持"
-    },
-    {
-      "code": "301130",
-      "name": "西点药业",
-      "close": 26.32,
-      "today_return_pct": 0.61,
-      "total_market_cap_yi": 20.13340504,
-      "distance_ma250_pct": -10.57,
-      "distance_52w_high_pct": -34.17,
-      "distance_52w_low_pct": 20.29,
-      "position_52w_pct": 24.53,
-      "annual_net_profit": {
-        "20231231": 50502418.8,
-        "20241231": 40268798.73,
-        "20251231": 21900019.04
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260826",
-        "net_profit": 8927235.93
-      },
-      "main_business": "化学药品原料药及制剂的研发、生产、销售。"
-    },
-    {
-      "code": "688395",
-      "name": "正弦电气",
-      "close": 23.25,
-      "today_return_pct": 2.69,
-      "total_market_cap_yi": 20.13396525,
-      "distance_ma250_pct": -6.48,
-      "distance_52w_high_pct": -29.84,
-      "distance_52w_low_pct": 29.02,
-      "position_52w_pct": 34.59,
-      "annual_net_profit": {
-        "20231231": 51124001.89,
-        "20241231": 37832410.1,
-        "20251231": 40070632.29
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240419",
+        "20241231": "20250419",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
         "ann_date": "20260822",
-        "net_profit": 25282157.35
+        "net_profit": 33445620.3
       },
-      "main_business": "工业自动化领域电机驱动和控制系统产品研发、生产和销售"
+      "main_business": "板带成形加工精密装备及关键零部件和特种装备配套零部件的研发、生产和销售。"
     },
     {
       "code": "688355",
       "name": "明志科技",
-      "close": 16.25,
-      "today_return_pct": 1.06,
-      "total_market_cap_yi": 20.14286625,
+      "close": 16.24,
+      "today_return_pct": -0.06,
+      "total_market_cap_yi": 20.13047064,
       "distance_ma250_pct": -14.66,
-      "distance_52w_high_pct": -33.46,
-      "distance_52w_low_pct": 17.24,
-      "position_52w_pct": 22.63,
+      "distance_52w_high_pct": -33.5,
+      "distance_52w_low_pct": 17.17,
+      "position_52w_pct": 22.54,
       "annual_net_profit": {
         "20231231": 14663469.8,
         "20241231": 66340005.18,
         "20251231": 79885666.74
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240413",
+        "20241231": "20250429",
+        "20251231": "20260425"
       },
       "latest_report": {
         "period": "20260630",
@@ -621,85 +695,221 @@
       "main_business": "专注于砂型铸造领域，为客户提供高效智能制芯装备、铸件开发与制造等铸造服务综合解决方案。"
     },
     {
-      "code": "301156",
-      "name": "美农生物",
-      "close": 11.34,
-      "today_return_pct": 0.71,
-      "total_market_cap_yi": 20.877733799999998,
-      "distance_ma250_pct": -16.09,
-      "distance_52w_high_pct": -30.85,
-      "distance_52w_low_pct": 16.31,
-      "position_52w_pct": 23.91,
+      "code": "301113",
+      "name": "雅艺科技",
+      "close": 17.02,
+      "today_return_pct": 1.86,
+      "total_market_cap_yi": 20.13466,
+      "distance_ma250_pct": -6.19,
+      "distance_52w_high_pct": -22.18,
+      "distance_52w_low_pct": 34.44,
+      "position_52w_pct": 47.34,
       "annual_net_profit": {
-        "20231231": 63045312.79,
-        "20241231": 49582532.45,
-        "20251231": 54810535.8
+        "20231231": 18769612.82,
+        "20241231": 11169734.96,
+        "20251231": 7579323.58
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240419",
+        "20241231": "20250331",
+        "20251231": "20260408"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 18061008.98
+        "ann_date": "20260824",
+        "net_profit": 4310585.93
       },
-      "main_business": "饲料添加剂及蛋白饲料的研发、生产、销售"
+      "main_business": "户外火盆、气炉等户外休闲家具产品的研发、设计、生产和销售。"
     },
     {
-      "code": "301331",
-      "name": "恩威医药",
-      "close": 20.34,
-      "today_return_pct": 0.49,
-      "total_market_cap_yi": 20.92821246,
-      "distance_ma250_pct": -21.98,
-      "distance_52w_high_pct": -41.32,
-      "distance_52w_low_pct": 7.79,
-      "position_52w_pct": 9.31,
+      "code": "301065",
+      "name": "本立科技",
+      "close": 19.03,
+      "today_return_pct": 1.17,
+      "total_market_cap_yi": 20.175606,
+      "distance_ma250_pct": -11.61,
+      "distance_52w_high_pct": -23.24,
+      "distance_52w_low_pct": 14.64,
+      "position_52w_pct": 29.67,
       "annual_net_profit": {
-        "20231231": 86312275.21,
-        "20241231": 37497544.35,
-        "20251231": 51944936.65
+        "20231231": 59615904.53,
+        "20241231": 64571985.96,
+        "20251231": 78832065.57
       },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 16022873.88
-      },
-      "main_business": "中成药及化学药的研发、生产及销售。"
-    },
-    {
-      "code": "300743",
-      "name": "天地数码",
-      "close": 13.88,
-      "today_return_pct": 0.8,
-      "total_market_cap_yi": 20.987156839999997,
-      "distance_ma250_pct": -19.69,
-      "distance_52w_high_pct": -40.04,
-      "distance_52w_low_pct": 7.6,
-      "position_52w_pct": 9.56,
-      "annual_net_profit": {
-        "20231231": 55641569.82,
-        "20241231": 92364405.75,
-        "20251231": 108226499.64
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250424",
+        "20251231": "20260425"
       },
       "latest_report": {
         "period": "20260630",
         "ann_date": "20260825",
-        "net_profit": 67313340.21
+        "net_profit": 44769117.55
       },
-      "main_business": "热转印碳带的研发、生产和销售"
+      "main_business": "医药中间体、农药中间体、新材料中间体的研发、生产和销售。"
+    },
+    {
+      "code": "300851",
+      "name": "交大思诺",
+      "close": 23.24,
+      "today_return_pct": 0.82,
+      "total_market_cap_yi": 20.20332216,
+      "distance_ma250_pct": -12.79,
+      "distance_52w_high_pct": -38.83,
+      "distance_52w_low_pct": 16.32,
+      "position_52w_pct": 18.1,
+      "annual_net_profit": {
+        "20231231": 84962877.63,
+        "20241231": 48583247.87,
+        "20251231": 74548054.97
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250422",
+        "20251231": "20260427"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260827",
+        "net_profit": 18747616.17
+      },
+      "main_business": "轨道交通列车运行控制系统关键设备的研发设计、组织生产、销售及技术支持"
+    },
+    {
+      "code": "301429",
+      "name": "森泰股份",
+      "close": 17.09,
+      "today_return_pct": 1.24,
+      "total_market_cap_yi": 20.203798000000003,
+      "distance_ma250_pct": -9.72,
+      "distance_52w_high_pct": -27.34,
+      "distance_52w_low_pct": 20.78,
+      "position_52w_pct": 31.38,
+      "annual_net_profit": {
+        "20231231": 47620858.56,
+        "20241231": 63283721.9,
+        "20251231": 51187041.55
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240418",
+        "20241231": "20250418",
+        "20251231": "20260428"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260826",
+        "net_profit": 29382027.79
+      },
+      "main_business": "高性能木塑复合材料、新型石木塑复合材料及其制品和应用的研发、设计、生产、销售。"
+    },
+    {
+      "code": "688395",
+      "name": "正弦电气",
+      "close": 23.57,
+      "today_return_pct": 1.38,
+      "total_market_cap_yi": 20.41107789,
+      "distance_ma250_pct": -5.18,
+      "distance_52w_high_pct": -28.88,
+      "distance_52w_low_pct": 30.8,
+      "position_52w_pct": 36.71,
+      "annual_net_profit": {
+        "20231231": 51124001.89,
+        "20241231": 37832410.1,
+        "20251231": 40070632.29
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250426",
+        "20251231": "20260425"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260822",
+        "net_profit": 25282157.35
+      },
+      "main_business": "工业自动化领域电机驱动和控制系统产品研发、生产和销售"
+    },
+    {
+      "code": "301130",
+      "name": "西点药业",
+      "close": 26.77,
+      "today_return_pct": 1.71,
+      "total_market_cap_yi": 20.47763119,
+      "distance_ma250_pct": -8.98,
+      "distance_52w_high_pct": -33.04,
+      "distance_52w_low_pct": 22.35,
+      "position_52w_pct": 27.02,
+      "annual_net_profit": {
+        "20231231": 50502418.8,
+        "20241231": 40268798.73,
+        "20251231": 21900019.04
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250423",
+        "20251231": "20260429"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260826",
+        "net_profit": 8927235.93
+      },
+      "main_business": "化学药品原料药及制剂的研发、生产、销售。"
     },
     {
       "code": "688517",
       "name": "金冠电气",
-      "close": 15.43,
-      "today_return_pct": 1.51,
-      "total_market_cap_yi": 21.079416759999997,
-      "distance_ma250_pct": -10.69,
-      "distance_52w_high_pct": -38.75,
-      "distance_52w_low_pct": 14.47,
-      "position_52w_pct": 16.65,
+      "close": 15.4,
+      "today_return_pct": -0.19,
+      "total_market_cap_yi": 21.038432800000002,
+      "distance_ma250_pct": -10.88,
+      "distance_52w_high_pct": -38.86,
+      "distance_52w_low_pct": 14.24,
+      "position_52w_pct": 16.4,
       "annual_net_profit": {
         "20231231": 80825271.76,
         "20241231": 91120320.83,
         "20251231": 80845008.78
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250424",
+        "20251231": "20260424"
       },
       "latest_report": {
         "period": "20260630",
@@ -709,63 +919,93 @@
       "main_business": "输配电及控制设备研发、制造和销售"
     },
     {
-      "code": "300387",
-      "name": "富邦科技",
-      "close": 7.32,
-      "today_return_pct": 0.41,
-      "total_market_cap_yi": 21.1589724,
-      "distance_ma250_pct": -13.43,
-      "distance_52w_high_pct": -33.58,
-      "distance_52w_low_pct": 14.02,
-      "position_52w_pct": 19.57,
+      "code": "300743",
+      "name": "天地数码",
+      "close": 13.97,
+      "today_return_pct": 0.65,
+      "total_market_cap_yi": 21.12324071,
+      "distance_ma250_pct": -19.09,
+      "distance_52w_high_pct": -39.65,
+      "distance_52w_low_pct": 8.29,
+      "position_52w_pct": 10.44,
       "annual_net_profit": {
-        "20231231": 71548067.23,
-        "20241231": 93590268.3,
-        "20251231": 59235202.13
+        "20231231": 55641569.82,
+        "20241231": 92364405.75,
+        "20251231": 108226499.64
       },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260820",
-        "net_profit": 55150223.68
-      },
-      "main_business": "化肥助剂产品的研发、生产、销售和服务。"
-    },
-    {
-      "code": "300644",
-      "name": "南京聚隆",
-      "close": 19.26,
-      "today_return_pct": 0.68,
-      "total_market_cap_yi": 21.3168717,
-      "distance_ma250_pct": -34.21,
-      "distance_52w_high_pct": -50.74,
-      "distance_52w_low_pct": 3.77,
-      "position_52w_pct": 3.41,
-      "annual_net_profit": {
-        "20231231": 72548132.91,
-        "20241231": 84339708.46,
-        "20251231": 132456807.09
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250422",
+        "20251231": "20260421"
       },
       "latest_report": {
         "period": "20260630",
         "ann_date": "20260825",
-        "net_profit": 24811001.63
+        "net_profit": 67313340.21
       },
-      "main_business": "公司主要从事改性塑料产品及塑木型材的研发、生产和销售"
+      "main_business": "热转印碳带的研发、生产和销售"
+    },
+    {
+      "code": "301331",
+      "name": "恩威医药",
+      "close": 20.53,
+      "today_return_pct": 0.93,
+      "total_market_cap_yi": 21.123707070000002,
+      "distance_ma250_pct": -21.11,
+      "distance_52w_high_pct": -40.77,
+      "distance_52w_low_pct": 8.8,
+      "position_52w_pct": 10.51,
+      "annual_net_profit": {
+        "20231231": 86312275.21,
+        "20241231": 37497544.35,
+        "20251231": 51944936.65
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240422",
+        "20241231": "20250421",
+        "20251231": "20260427"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260827",
+        "net_profit": 16022873.88
+      },
+      "main_business": "中成药及化学药的研发、生产及销售。"
     },
     {
       "code": "301036",
       "name": "双乐股份",
-      "close": 21.46,
-      "today_return_pct": 1.42,
-      "total_market_cap_yi": 21.46,
-      "distance_ma250_pct": -25.71,
-      "distance_52w_high_pct": -43.33,
-      "distance_52w_low_pct": 18.76,
-      "position_52w_pct": 17.12,
+      "close": 21.2,
+      "today_return_pct": -1.21,
+      "total_market_cap_yi": 21.2,
+      "distance_ma250_pct": -26.48,
+      "distance_52w_high_pct": -44.02,
+      "distance_52w_low_pct": 17.32,
+      "position_52w_pct": 15.81,
       "annual_net_profit": {
         "20231231": 47277214.58,
         "20241231": 120697619.07,
         "20251231": 49579853.3
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250422",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
@@ -775,41 +1015,125 @@
       "main_business": "酞菁系列及铬系颜料的研发、生产、销售"
     },
     {
-      "code": "301336",
-      "name": "趣睡科技",
-      "close": 41.37,
-      "today_return_pct": -0.17,
-      "total_market_cap_yi": 21.472891649999998,
-      "distance_ma250_pct": 0.59,
-      "distance_52w_high_pct": -18.43,
-      "distance_52w_low_pct": 21.28,
-      "position_52w_pct": 43.71,
+      "code": "300387",
+      "name": "富邦科技",
+      "close": 7.34,
+      "today_return_pct": 0.27,
+      "total_market_cap_yi": 21.216783799999998,
+      "distance_ma250_pct": -13.12,
+      "distance_52w_high_pct": -33.39,
+      "distance_52w_low_pct": 14.33,
+      "position_52w_pct": 20.0,
       "annual_net_profit": {
-        "20231231": 23861093.48,
-        "20241231": 28966560.89,
-        "20251231": 30546948.51
+        "20231231": 71548067.23,
+        "20241231": 93590268.3,
+        "20251231": 59235202.13
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240419",
+        "20241231": "20250423",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260828",
-        "net_profit": 11016118.49
+        "ann_date": "20260820",
+        "net_profit": 55150223.68
       },
-      "main_business": "高品质易安装家具、家纺等家居产品的研发、设计、生产（以外包生产方式实现）与销售。"
+      "main_business": "化肥助剂产品的研发、生产、销售和服务。"
+    },
+    {
+      "code": "301156",
+      "name": "美农生物",
+      "close": 11.55,
+      "today_return_pct": 1.85,
+      "total_market_cap_yi": 21.2643585,
+      "distance_ma250_pct": -14.47,
+      "distance_52w_high_pct": -29.57,
+      "distance_52w_low_pct": 18.46,
+      "position_52w_pct": 27.07,
+      "annual_net_profit": {
+        "20231231": 63045312.79,
+        "20241231": 49582532.45,
+        "20251231": 54810535.8
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240409",
+        "20241231": "20250426",
+        "20251231": "20260428"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260827",
+        "net_profit": 18061008.98
+      },
+      "main_business": "饲料添加剂及蛋白饲料的研发、生产、销售"
+    },
+    {
+      "code": "300644",
+      "name": "南京聚隆",
+      "close": 19.28,
+      "today_return_pct": 0.1,
+      "total_market_cap_yi": 21.3390076,
+      "distance_ma250_pct": -34.0,
+      "distance_52w_high_pct": -50.69,
+      "distance_52w_low_pct": 3.88,
+      "position_52w_pct": 3.51,
+      "annual_net_profit": {
+        "20231231": 72548132.91,
+        "20241231": 84339708.46,
+        "20251231": 132456807.09
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240420",
+        "20241231": "20250418",
+        "20251231": "20260410"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260825",
+        "net_profit": 24811001.63
+      },
+      "main_business": "公司主要从事改性塑料产品及塑木型材的研发、生产和销售"
     },
     {
       "code": "300610",
       "name": "晨化股份",
-      "close": 10.14,
-      "today_return_pct": 2.01,
-      "total_market_cap_yi": 21.50565222,
-      "distance_ma250_pct": -9.73,
-      "distance_52w_high_pct": -25.28,
-      "distance_52w_low_pct": 21.58,
-      "position_52w_pct": 34.42,
+      "close": 10.12,
+      "today_return_pct": -0.2,
+      "total_market_cap_yi": 21.463234760000002,
+      "distance_ma250_pct": -9.84,
+      "distance_52w_high_pct": -25.42,
+      "distance_52w_low_pct": 21.34,
+      "position_52w_pct": 34.03,
       "annual_net_profit": {
         "20231231": 60507708.82,
         "20241231": 83890898.01,
         "20251231": 65983318.51
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240418",
+        "20241231": "20250418",
+        "20251231": "20260410"
       },
       "latest_report": {
         "period": "20260630",
@@ -819,63 +1143,29 @@
       "main_business": "主要从事以氧化烯烃、脂肪醇、硅氧烷等为主要原料的精细化工新材料系列产品的研发、生产和销售。"
     },
     {
-      "code": "301276",
-      "name": "嘉曼服饰",
-      "close": 16.76,
-      "today_return_pct": 1.02,
-      "total_market_cap_yi": 21.72096,
-      "distance_ma250_pct": -28.2,
-      "distance_52w_high_pct": -46.54,
-      "distance_52w_low_pct": 14.48,
-      "position_52w_pct": 12.69,
-      "annual_net_profit": {
-        "20231231": 179917468.66,
-        "20241231": 171210765.36,
-        "20251231": 105536231.03
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 62168752.34
-      },
-      "main_business": "中高端童装运营"
-    },
-    {
-      "code": "300254",
-      "name": "仟源医药",
-      "close": 8.45,
-      "today_return_pct": 1.56,
-      "total_market_cap_yi": 21.7341267,
-      "distance_ma250_pct": -19.65,
-      "distance_52w_high_pct": -44.41,
-      "distance_52w_low_pct": 21.93,
-      "position_52w_pct": 18.38,
-      "annual_net_profit": {
-        "20231231": 25195587.09,
-        "20241231": 42190119.18,
-        "20251231": 24850904.53
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260825",
-        "net_profit": 4285822.49
-      },
-      "main_business": "医药研发、生产和销售。"
-    },
-    {
       "code": "301503",
       "name": "智迪科技",
-      "close": 20.9,
-      "today_return_pct": 0.87,
-      "total_market_cap_yi": 21.736,
-      "distance_ma250_pct": -20.65,
-      "distance_52w_high_pct": -34.65,
-      "distance_52w_low_pct": 14.02,
-      "position_52w_pct": 18.83,
+      "close": 20.88,
+      "today_return_pct": -0.1,
+      "total_market_cap_yi": 21.7152,
+      "distance_ma250_pct": -20.61,
+      "distance_52w_high_pct": -34.71,
+      "distance_52w_low_pct": 13.91,
+      "position_52w_pct": 18.68,
       "annual_net_profit": {
         "20231231": 66931504.86,
         "20241231": 115449701.25,
         "20251231": 106362136.71
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240427",
+        "20241231": "20250429",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -885,85 +1175,93 @@
       "main_business": "公司专注于计算机外设领域，主要从事键盘、鼠标等计算机外设产品的研发、生产及销售。"
     },
     {
-      "code": "301170",
-      "name": "锡南科技",
-      "close": 21.75,
-      "today_return_pct": 0.97,
-      "total_market_cap_yi": 21.75,
-      "distance_ma250_pct": -18.22,
-      "distance_52w_high_pct": -30.82,
-      "distance_52w_low_pct": 12.29,
-      "position_52w_pct": 19.72,
+      "code": "301336",
+      "name": "趣睡科技",
+      "close": 41.86,
+      "today_return_pct": 1.18,
+      "total_market_cap_yi": 21.7272237,
+      "distance_ma250_pct": 1.79,
+      "distance_52w_high_pct": -17.47,
+      "distance_52w_low_pct": 22.72,
+      "position_52w_pct": 46.66,
       "annual_net_profit": {
-        "20231231": 93159196.71,
-        "20241231": 109715400.24,
-        "20251231": 101400248.09
+        "20231231": 23861093.48,
+        "20241231": 28966560.89,
+        "20251231": 30546948.51
       },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260826",
-        "net_profit": 32813182.83
-      },
-      "main_business": "汽车轻量化领域铝合金零部件的研发、生产和销售。"
-    },
-    {
-      "code": "688113",
-      "name": "联测科技",
-      "close": 33.83,
-      "today_return_pct": 1.35,
-      "total_market_cap_yi": 21.78570808,
-      "distance_ma250_pct": -13.49,
-      "distance_52w_high_pct": -31.75,
-      "distance_52w_low_pct": 17.38,
-      "position_52w_pct": 24.14,
-      "annual_net_profit": {
-        "20231231": 90659004.67,
-        "20241231": 82504995.46,
-        "20251231": 90125984.35
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240430",
+        "20241231": "20250426",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
         "ann_date": "20260828",
-        "net_profit": 57664852.46
+        "net_profit": 11016118.49
       },
-      "main_business": "发行人为一家动力系统测试解决方案提供商，主营业务为动力系统智能测试装备的研发、制造和销售，以及提供动力系统测试验证服务。"
+      "main_business": "高品质易安装家具、家纺等家居产品的研发、设计、生产（以外包生产方式实现）与销售。"
     },
     {
-      "code": "300519",
-      "name": "新光药业",
-      "close": 13.65,
-      "today_return_pct": 0.15,
-      "total_market_cap_yi": 21.84,
-      "distance_ma250_pct": -8.65,
-      "distance_52w_high_pct": -23.61,
-      "distance_52w_low_pct": 18.39,
-      "position_52w_pct": 33.44,
+      "code": "301276",
+      "name": "嘉曼服饰",
+      "close": 16.82,
+      "today_return_pct": 0.36,
+      "total_market_cap_yi": 21.79872,
+      "distance_ma250_pct": -27.87,
+      "distance_52w_high_pct": -46.35,
+      "distance_52w_low_pct": 14.89,
+      "position_52w_pct": 13.05,
       "annual_net_profit": {
-        "20231231": 64356480.65,
-        "20241231": 50389992.99,
-        "20251231": 54211458.52
+        "20231231": 179917468.66,
+        "20241231": 171210765.36,
+        "20251231": 105536231.03
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250428",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260825",
-        "net_profit": 39712072.46
+        "ann_date": "20260827",
+        "net_profit": 62168752.34
       },
-      "main_business": "主要从事中成药的研发、生产和销售,是一家集研究、生产和经营于一体的现代化制药企业。"
+      "main_business": "中高端童装运营"
     },
     {
       "code": "300837",
       "name": "浙矿股份",
-      "close": 21.89,
-      "today_return_pct": 2.05,
-      "total_market_cap_yi": 21.89148852,
-      "distance_ma250_pct": -28.52,
-      "distance_52w_high_pct": -67.68,
-      "distance_52w_low_pct": 16.68,
-      "position_52w_pct": 6.39,
+      "close": 21.85,
+      "today_return_pct": -0.18,
+      "total_market_cap_yi": 21.851485800000003,
+      "distance_ma250_pct": -28.62,
+      "distance_52w_high_pct": -67.73,
+      "distance_52w_low_pct": 16.47,
+      "position_52w_pct": 6.31,
       "annual_net_profit": {
         "20231231": 107006253.3,
         "20241231": 79866269.24,
         "20251231": 76293929.23
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250422",
+        "20251231": "20260425"
       },
       "latest_report": {
         "period": "20260630",
@@ -973,19 +1271,61 @@
       "main_business": "破碎、筛选成套设备的研发、设计、生产和销售"
     },
     {
+      "code": "301170",
+      "name": "锡南科技",
+      "close": 21.95,
+      "today_return_pct": 0.92,
+      "total_market_cap_yi": 21.95,
+      "distance_ma250_pct": -17.4,
+      "distance_52w_high_pct": -30.18,
+      "distance_52w_low_pct": 13.32,
+      "position_52w_pct": 21.38,
+      "annual_net_profit": {
+        "20231231": 93159196.71,
+        "20241231": 109715400.24,
+        "20251231": 101400248.09
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250422",
+        "20251231": "20260424"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260826",
+        "net_profit": 32813182.83
+      },
+      "main_business": "汽车轻量化领域铝合金零部件的研发、生产和销售。"
+    },
+    {
       "code": "301359",
       "name": "东南电子",
-      "close": 18.24,
-      "today_return_pct": 3.17,
-      "total_market_cap_yi": 21.9201024,
-      "distance_ma250_pct": -6.62,
-      "distance_52w_high_pct": -24.81,
-      "distance_52w_low_pct": 39.24,
-      "position_52w_pct": 46.06,
+      "close": 18.28,
+      "today_return_pct": 0.22,
+      "total_market_cap_yi": 21.9681728,
+      "distance_ma250_pct": -6.37,
+      "distance_52w_high_pct": -24.65,
+      "distance_52w_low_pct": 39.54,
+      "position_52w_pct": 46.42,
       "annual_net_profit": {
         "20231231": 39061733.34,
         "20241231": 45849228.98,
         "20251231": 40442806.97
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240419",
+        "20241231": "20250418",
+        "20251231": "20260417"
       },
       "latest_report": {
         "period": "20260630",
@@ -995,19 +1335,125 @@
       "main_business": "微动开关产品的设计、研发、生产及销售"
     },
     {
+      "code": "688113",
+      "name": "联测科技",
+      "close": 34.25,
+      "today_return_pct": 1.24,
+      "total_market_cap_yi": 22.056178,
+      "distance_ma250_pct": -12.37,
+      "distance_52w_high_pct": -30.91,
+      "distance_52w_low_pct": 18.84,
+      "position_52w_pct": 26.17,
+      "annual_net_profit": {
+        "20231231": 90659004.67,
+        "20241231": 82504995.46,
+        "20251231": 90125984.35
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240430",
+        "20241231": "20250428",
+        "20251231": "20260428"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260828",
+        "net_profit": 57664852.46
+      },
+      "main_business": "发行人为一家动力系统测试解决方案提供商，主营业务为动力系统智能测试装备的研发、制造和销售，以及提供动力系统测试验证服务。"
+    },
+    {
+      "code": "300254",
+      "name": "仟源医药",
+      "close": 8.63,
+      "today_return_pct": 2.13,
+      "total_market_cap_yi": 22.197102179999998,
+      "distance_ma250_pct": -17.87,
+      "distance_52w_high_pct": -43.22,
+      "distance_52w_low_pct": 24.53,
+      "position_52w_pct": 20.56,
+      "annual_net_profit": {
+        "20231231": 25195587.09,
+        "20241231": 42190119.18,
+        "20251231": 24850904.53
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240319",
+        "20241231": "20250415",
+        "20251231": "20260428"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260825",
+        "net_profit": 4285822.49
+      },
+      "main_business": "医药研发、生产和销售。"
+    },
+    {
+      "code": "300519",
+      "name": "新光药业",
+      "close": 13.91,
+      "today_return_pct": 1.9,
+      "total_market_cap_yi": 22.256,
+      "distance_ma250_pct": -6.86,
+      "distance_52w_high_pct": -22.16,
+      "distance_52w_low_pct": 20.64,
+      "position_52w_pct": 37.54,
+      "annual_net_profit": {
+        "20231231": 64356480.65,
+        "20241231": 50389992.99,
+        "20251231": 54211458.52
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240422",
+        "20241231": "20250421",
+        "20251231": "20260421"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260825",
+        "net_profit": 39712072.46
+      },
+      "main_business": "主要从事中成药的研发、生产和销售,是一家集研究、生产和经营于一体的现代化制药企业。"
+    },
+    {
       "code": "301233",
       "name": "盛帮股份",
-      "close": 31.0,
-      "today_return_pct": 0.23,
-      "total_market_cap_yi": 22.247708,
-      "distance_ma250_pct": -16.95,
-      "distance_52w_high_pct": -37.34,
-      "distance_52w_low_pct": 15.24,
-      "position_52w_pct": 18.17,
+      "close": 31.11,
+      "today_return_pct": 0.35,
+      "total_market_cap_yi": 22.32665148,
+      "distance_ma250_pct": -16.58,
+      "distance_52w_high_pct": -37.11,
+      "distance_52w_low_pct": 15.65,
+      "position_52w_pct": 18.65,
       "annual_net_profit": {
         "20231231": 64030090.67,
         "20241231": 87003152.82,
         "20251231": 87135503.62
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250422",
+        "20251231": "20260424"
       },
       "latest_report": {
         "period": "20260630",
@@ -1019,17 +1465,27 @@
     {
       "code": "300906",
       "name": "日月明",
-      "close": 28.01,
-      "today_return_pct": 1.34,
-      "total_market_cap_yi": 22.408,
-      "distance_ma250_pct": -11.13,
-      "distance_52w_high_pct": -29.61,
-      "distance_52w_low_pct": 35.25,
-      "position_52w_pct": 38.26,
+      "close": 28.33,
+      "today_return_pct": 1.14,
+      "total_market_cap_yi": 22.664,
+      "distance_ma250_pct": -10.07,
+      "distance_52w_high_pct": -28.8,
+      "distance_52w_low_pct": 36.79,
+      "position_52w_pct": 39.94,
       "annual_net_profit": {
         "20231231": 60633333.23,
         "20241231": 75320339.1,
         "20251231": 57358005.45
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240426",
+        "20241231": "20250425",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
@@ -1041,17 +1497,27 @@
     {
       "code": "300784",
       "name": "利安科技",
-      "close": 40.05,
-      "today_return_pct": 1.24,
-      "total_market_cap_yi": 22.523158799999997,
-      "distance_ma250_pct": -17.94,
-      "distance_52w_high_pct": -36.87,
-      "distance_52w_low_pct": 17.69,
-      "position_52w_pct": 20.47,
+      "close": 40.57,
+      "today_return_pct": 1.3,
+      "total_market_cap_yi": 22.815594320000002,
+      "distance_ma250_pct": -16.76,
+      "distance_52w_high_pct": -36.05,
+      "distance_52w_low_pct": 19.22,
+      "position_52w_pct": 22.24,
       "annual_net_profit": {
         "20231231": 75702236.07,
         "20241231": 65811468.54,
         "20251231": 53686027.55
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240524",
+        "20241231": "20250419",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
@@ -1063,17 +1529,27 @@
     {
       "code": "300694",
       "name": "蠡湖股份",
-      "close": 10.45,
-      "today_return_pct": 4.6,
-      "total_market_cap_yi": 22.6838568,
-      "distance_ma250_pct": -10.84,
-      "distance_52w_high_pct": -25.62,
-      "distance_52w_low_pct": 20.25,
-      "position_52w_pct": 32.84,
+      "close": 10.52,
+      "today_return_pct": 0.67,
+      "total_market_cap_yi": 22.83580608,
+      "distance_ma250_pct": -10.16,
+      "distance_52w_high_pct": -25.12,
+      "distance_52w_low_pct": 21.06,
+      "position_52w_pct": 34.14,
       "annual_net_profit": {
         "20231231": 67629343.1,
         "20241231": 55521891.01,
         "20251231": 122702336.02
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240329",
+        "20241231": "20250418",
+        "20251231": "20260418"
       },
       "latest_report": {
         "period": "20260630",
@@ -1083,41 +1559,61 @@
       "main_business": "涡轮增压器关键零部件的研发、生产与销售"
     },
     {
-      "code": "301057",
-      "name": "汇隆新材",
-      "close": 19.89,
-      "today_return_pct": 1.53,
-      "total_market_cap_yi": 23.26521366,
-      "distance_ma250_pct": -30.6,
-      "distance_52w_high_pct": -57.79,
-      "distance_52w_low_pct": 23.85,
-      "position_52w_pct": 12.33,
+      "code": "301300",
+      "name": "远翔新材",
+      "close": 35.25,
+      "today_return_pct": -3.05,
+      "total_market_cap_yi": 23.0637225,
+      "distance_ma250_pct": -9.86,
+      "distance_52w_high_pct": -34.26,
+      "distance_52w_low_pct": 36.68,
+      "position_52w_pct": 33.99,
       "annual_net_profit": {
-        "20231231": 51338044.37,
-        "20241231": 30925191.39,
-        "20251231": 35113567.22
+        "20231231": 34406668.3,
+        "20241231": 48222435.01,
+        "20251231": 89908808.16
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240422",
+        "20241231": "20250429",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260828",
-        "net_profit": 31663269.12
+        "ann_date": "20260829",
+        "net_profit": 24322787.36
       },
-      "main_business": "符合国家节能环保战略方向的原液着色纤维的研发、生产及销售。"
+      "main_business": "沉淀法二氧化硅的研发、生产和销售。"
     },
     {
       "code": "300995",
       "name": "奇德新材",
-      "close": 25.53,
-      "today_return_pct": 2.32,
-      "total_market_cap_yi": 23.51591277,
-      "distance_ma250_pct": -29.17,
-      "distance_52w_high_pct": -59.83,
-      "distance_52w_low_pct": 21.8,
-      "position_52w_pct": 10.73,
+      "close": 25.33,
+      "today_return_pct": -0.78,
+      "total_market_cap_yi": 23.33169097,
+      "distance_ma250_pct": -29.44,
+      "distance_52w_high_pct": -60.14,
+      "distance_52w_low_pct": 20.85,
+      "position_52w_pct": 10.26,
       "annual_net_profit": {
         "20231231": 8033798.18,
         "20241231": 8686959.74,
         "20251231": 19631442.21
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240328",
+        "20241231": "20250415",
+        "20251231": "20260312"
       },
       "latest_report": {
         "period": "20260630",
@@ -1130,16 +1626,26 @@
       "code": "300960",
       "name": "通业科技",
       "close": 16.21,
-      "today_return_pct": 3.25,
+      "today_return_pct": 1.25,
       "total_market_cap_yi": 23.52806934,
-      "distance_ma250_pct": -27.47,
-      "distance_52w_high_pct": -46.16,
-      "distance_52w_low_pct": 19.81,
-      "position_52w_pct": 16.16,
+      "distance_ma250_pct": -26.4,
+      "distance_52w_high_pct": -45.49,
+      "distance_52w_low_pct": 21.33,
+      "position_52w_pct": 17.4,
       "annual_net_profit": {
         "20231231": 35844352.4,
         "20241231": 49141168.74,
         "20251231": 52758511.47
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240323",
+        "20241231": "20250328",
+        "20251231": "20260327"
       },
       "latest_report": {
         "period": "20260630",
@@ -1149,107 +1655,61 @@
       "main_business": "轨道交通机车车辆电气产品的研发、生产、销售和维保服务。"
     },
     {
-      "code": "301032",
-      "name": "新柴股份",
-      "close": 9.76,
-      "today_return_pct": 1.46,
-      "total_market_cap_yi": 23.534619839999998,
-      "distance_ma250_pct": -18.7,
-      "distance_52w_high_pct": -34.72,
-      "distance_52w_low_pct": 16.05,
-      "position_52w_pct": 20.64,
+      "code": "301057",
+      "name": "汇隆新材",
+      "close": 20.14,
+      "today_return_pct": 1.26,
+      "total_market_cap_yi": 23.557637160000002,
+      "distance_ma250_pct": -29.69,
+      "distance_52w_high_pct": -57.26,
+      "distance_52w_low_pct": 25.4,
+      "position_52w_pct": 13.14,
       "annual_net_profit": {
-        "20231231": 31958946.05,
-        "20241231": 79106015.73,
-        "20251231": 107288912.84
+        "20231231": 51338044.37,
+        "20241231": 30925191.39,
+        "20251231": 35113567.22
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250422",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260825",
-        "net_profit": 45148701.79
+        "ann_date": "20260828",
+        "net_profit": 31663269.12
       },
-      "main_business": "非道路用柴油发动机及相关零部件的研发、生产与销售。"
-    },
-    {
-      "code": "300898",
-      "name": "熊猫乳品",
-      "close": 19.05,
-      "today_return_pct": -0.05,
-      "total_market_cap_yi": 23.622,
-      "distance_ma250_pct": -20.68,
-      "distance_52w_high_pct": -36.88,
-      "distance_52w_low_pct": 7.63,
-      "position_52w_pct": 10.82,
-      "annual_net_profit": {
-        "20231231": 109014110.46,
-        "20241231": 102498052.24,
-        "20251231": 108011917.64
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260826",
-        "net_profit": 35664240.42
-      },
-      "main_business": "浓缩乳制品的研发、生产和销售以及乳品贸易"
-    },
-    {
-      "code": "688718",
-      "name": "唯赛勃",
-      "close": 13.63,
-      "today_return_pct": 2.64,
-      "total_market_cap_yi": 23.68272472,
-      "distance_ma250_pct": -8.55,
-      "distance_52w_high_pct": -32.36,
-      "distance_52w_low_pct": 32.2,
-      "position_52w_pct": 33.74,
-      "annual_net_profit": {
-        "20231231": 45940130.87,
-        "20241231": 38588062.1,
-        "20251231": 45475514.03
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 22395315.58
-      },
-      "main_business": "高性能膜材料及相关专业配套装备原创技术、自主核心知识产权、核心产品研发制造。"
-    },
-    {
-      "code": "301083",
-      "name": "百胜智能",
-      "close": 13.33,
-      "today_return_pct": 1.14,
-      "total_market_cap_yi": 23.70963111,
-      "distance_ma250_pct": -22.23,
-      "distance_52w_high_pct": -49.85,
-      "distance_52w_low_pct": 20.42,
-      "position_52w_pct": 14.57,
-      "annual_net_profit": {
-        "20231231": 35185760.39,
-        "20241231": 33023551.03,
-        "20251231": 30499780.08
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260824",
-        "net_profit": 5413564.87
-      },
-      "main_business": "各种出入口控制与管理设备的研发、生产和销售。"
+      "main_business": "符合国家节能环保战略方向的原液着色纤维的研发、生产及销售。"
     },
     {
       "code": "301353",
       "name": "普莱得",
-      "close": 18.69,
-      "today_return_pct": 2.24,
-      "total_market_cap_yi": 23.73945861,
-      "distance_ma250_pct": -7.84,
-      "distance_52w_high_pct": -21.31,
-      "distance_52w_low_pct": 26.37,
-      "position_52w_pct": 43.53,
+      "close": 18.71,
+      "today_return_pct": 0.11,
+      "total_market_cap_yi": 23.76486199,
+      "distance_ma250_pct": -7.74,
+      "distance_52w_high_pct": -21.22,
+      "distance_52w_low_pct": 26.5,
+      "position_52w_pct": 43.75,
       "annual_net_profit": {
         "20231231": 78623868.94,
         "20241231": 62999663.25,
         "20251231": 72760441.89
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240426",
+        "20241231": "20250424",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -1259,85 +1719,29 @@
       "main_business": "电动工具研发、设计、生产和销售。"
     },
     {
-      "code": "301300",
-      "name": "远翔新材",
-      "close": 36.36,
-      "today_return_pct": 13.73,
-      "total_market_cap_yi": 23.7899844,
-      "distance_ma250_pct": -7.06,
-      "distance_52w_high_pct": -32.19,
-      "distance_52w_low_pct": 40.98,
-      "position_52w_pct": 37.98,
-      "annual_net_profit": {
-        "20231231": 34406668.3,
-        "20241231": 48222435.01,
-        "20251231": 89908808.16
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260829",
-        "net_profit": 24322787.36
-      },
-      "main_business": "沉淀法二氧化硅的研发、生产和销售。"
-    },
-    {
-      "code": "300813",
-      "name": "泰林生物",
-      "close": 19.85,
-      "today_return_pct": 2.32,
-      "total_market_cap_yi": 24.0580412,
-      "distance_ma250_pct": -21.78,
-      "distance_52w_high_pct": -52.83,
-      "distance_52w_low_pct": 21.18,
-      "position_52w_pct": 13.5,
-      "annual_net_profit": {
-        "20231231": 19668950.46,
-        "20241231": 13050671.23,
-        "20251231": 16485445.79
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 20372823.69
-      },
-      "main_business": "微生物检测与控制技术系统产品、有机物分析仪器等制药装备的研发、制造和销售。"
-    },
-    {
-      "code": "301314",
-      "name": "科瑞思",
-      "close": 43.6,
-      "today_return_pct": 2.95,
-      "total_market_cap_yi": 24.089,
-      "distance_ma250_pct": -3.63,
-      "distance_52w_high_pct": -26.13,
-      "distance_52w_low_pct": 39.25,
-      "position_52w_pct": 44.35,
-      "annual_net_profit": {
-        "20231231": 35168260.94,
-        "20241231": 17898018.26,
-        "20251231": 19016387.29
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260827",
-        "net_profit": 3539900.29
-      },
-      "main_business": "小型磁环线圈绕线服务"
-    },
-    {
       "code": "300800",
       "name": "力合科技",
-      "close": 10.21,
-      "today_return_pct": 3.13,
-      "total_market_cap_yi": 24.1730939,
-      "distance_ma250_pct": -9.83,
-      "distance_52w_high_pct": -22.48,
-      "distance_52w_low_pct": 20.12,
-      "position_52w_pct": 36.62,
+      "close": 10.07,
+      "today_return_pct": -1.37,
+      "total_market_cap_yi": 23.8416313,
+      "distance_ma250_pct": -11.03,
+      "distance_52w_high_pct": -23.54,
+      "distance_52w_low_pct": 18.47,
+      "position_52w_pct": 33.62,
       "annual_net_profit": {
         "20231231": 47150318.02,
         "20241231": 39814819.95,
         "20251231": 42577654.25
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250421",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
@@ -1347,85 +1751,157 @@
       "main_business": "环境监测系统研发、生产和销售及运营服务"
     },
     {
-      "code": "300930",
-      "name": "屹通新材",
-      "close": 24.22,
-      "today_return_pct": 2.41,
-      "total_market_cap_yi": 24.22,
-      "distance_ma250_pct": -19.13,
-      "distance_52w_high_pct": -39.27,
-      "distance_52w_low_pct": 20.92,
-      "position_52w_pct": 21.11,
+      "code": "301083",
+      "name": "百胜智能",
+      "close": 13.47,
+      "today_return_pct": 1.05,
+      "total_market_cap_yi": 23.95864449,
+      "distance_ma250_pct": -21.37,
+      "distance_52w_high_pct": -49.32,
+      "distance_52w_low_pct": 21.68,
+      "position_52w_pct": 15.47,
       "annual_net_profit": {
-        "20231231": 50507476.44,
-        "20241231": 50946286.9,
-        "20251231": 56317779.2
+        "20231231": 35185760.39,
+        "20241231": 33023551.03,
+        "20251231": 30499780.08
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250421",
+        "20251231": "20260423"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260825",
-        "net_profit": 32314169.13
+        "ann_date": "20260824",
+        "net_profit": 5413564.87
       },
-      "main_business": "高性能纯铁粉、合金钢粉及添加剂用铁粉等的金属粉体制造。"
+      "main_business": "各种出入口控制与管理设备的研发、生产和销售。"
     },
     {
-      "code": "300987",
-      "name": "川网传媒",
-      "close": 14.0,
-      "today_return_pct": 1.45,
-      "total_market_cap_yi": 24.271520000000002,
-      "distance_ma250_pct": -15.16,
-      "distance_52w_high_pct": -47.25,
-      "distance_52w_low_pct": 19.66,
-      "position_52w_pct": 15.5,
+      "code": "300898",
+      "name": "熊猫乳品",
+      "close": 19.37,
+      "today_return_pct": 1.68,
+      "total_market_cap_yi": 24.0188,
+      "distance_ma250_pct": -19.22,
+      "distance_52w_high_pct": -35.82,
+      "distance_52w_low_pct": 9.44,
+      "position_52w_pct": 13.38,
       "annual_net_profit": {
-        "20231231": 31323992.65,
-        "20241231": 23800890.73,
-        "20251231": 20628484.86
+        "20231231": 109014110.46,
+        "20241231": 102498052.24,
+        "20251231": 108011917.64
       },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260829",
-        "net_profit": 741108.11
-      },
-      "main_business": "新媒体整合营销、移动信息服务等"
-    },
-    {
-      "code": "301578",
-      "name": "辰奕智能",
-      "close": 23.01,
-      "today_return_pct": 1.37,
-      "total_market_cap_yi": 24.3747231,
-      "distance_ma250_pct": -9.96,
-      "distance_52w_high_pct": -25.56,
-      "distance_52w_low_pct": 27.69,
-      "position_52w_pct": 38.71,
-      "annual_net_profit": {
-        "20231231": 90619977.89,
-        "20241231": 47213660.04,
-        "20251231": 25482420.1
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250418",
+        "20251231": "20260417"
       },
       "latest_report": {
         "period": "20260630",
         "ann_date": "20260826",
-        "net_profit": 5017183.75
+        "net_profit": 35664240.42
       },
-      "main_business": "智能遥控器和智能产品的设计、研发、生产及销售。"
+      "main_business": "浓缩乳制品的研发、生产和销售以及乳品贸易"
+    },
+    {
+      "code": "301032",
+      "name": "新柴股份",
+      "close": 9.98,
+      "today_return_pct": 2.25,
+      "total_market_cap_yi": 24.065113320000002,
+      "distance_ma250_pct": -16.77,
+      "distance_52w_high_pct": -33.24,
+      "distance_52w_low_pct": 18.67,
+      "position_52w_pct": 24.01,
+      "annual_net_profit": {
+        "20231231": 31958946.05,
+        "20241231": 79106015.73,
+        "20251231": 107288912.84
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250422",
+        "20251231": "20260423"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260825",
+        "net_profit": 45148701.79
+      },
+      "main_business": "非道路用柴油发动机及相关零部件的研发、生产与销售。"
+    },
+    {
+      "code": "688718",
+      "name": "唯赛勃",
+      "close": 13.86,
+      "today_return_pct": 1.69,
+      "total_market_cap_yi": 24.08235984,
+      "distance_ma250_pct": -6.98,
+      "distance_52w_high_pct": -31.22,
+      "distance_52w_low_pct": 34.43,
+      "position_52w_pct": 36.08,
+      "annual_net_profit": {
+        "20231231": 45940130.87,
+        "20241231": 38588062.1,
+        "20251231": 45475514.03
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240427",
+        "20241231": "20250429",
+        "20251231": "20260429"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260827",
+        "net_profit": 22395315.58
+      },
+      "main_business": "高性能膜材料及相关专业配套装备原创技术、自主核心知识产权、核心产品研发制造。"
     },
     {
       "code": "301636",
       "name": "泽润新能",
-      "close": 37.7,
-      "today_return_pct": 1.67,
-      "total_market_cap_yi": 24.3896757,
-      "distance_ma250_pct": -32.03,
-      "distance_52w_high_pct": -66.87,
-      "distance_52w_low_pct": 14.21,
-      "position_52w_pct": 5.81,
+      "close": 37.26,
+      "today_return_pct": -1.17,
+      "total_market_cap_yi": 24.105021660000002,
+      "distance_ma250_pct": -32.72,
+      "distance_52w_high_pct": -67.26,
+      "distance_52w_low_pct": 12.87,
+      "position_52w_pct": 5.26,
       "annual_net_profit": {
         "20231231": 120147562.78,
         "20241231": 131318190.08,
         "20251231": 33209669.32
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20250417",
+        "20241231": "20250417",
+        "20251231": "20260429"
       },
       "latest_report": {
         "period": "20260630",
@@ -1435,129 +1911,125 @@
       "main_business": "主要从事光伏组件接线盒等新能源电气连接、保护产品的研发、生产和销售"
     },
     {
-      "code": "300824",
-      "name": "北鼎股份",
-      "close": 7.48,
-      "today_return_pct": 0.94,
-      "total_market_cap_yi": 24.410359160000002,
-      "distance_ma250_pct": -25.4,
-      "distance_52w_high_pct": -43.5,
-      "distance_52w_low_pct": 9.04,
-      "position_52w_pct": 9.72,
+      "code": "300930",
+      "name": "屹通新材",
+      "close": 24.15,
+      "today_return_pct": -0.29,
+      "total_market_cap_yi": 24.15,
+      "distance_ma250_pct": -19.28,
+      "distance_52w_high_pct": -39.44,
+      "distance_52w_low_pct": 20.57,
+      "position_52w_pct": 20.76,
       "annual_net_profit": {
-        "20231231": 71357291.52,
-        "20241231": 69508710.23,
-        "20251231": 113540055.2
+        "20231231": 50507476.44,
+        "20241231": 50946286.9,
+        "20251231": 56317779.2
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240423",
+        "20241231": "20250421",
+        "20251231": "20260427"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260814",
-        "net_profit": 47629721.3
+        "ann_date": "20260825",
+        "net_profit": 32314169.13
       },
-      "main_business": "高品质的厨房小家电及配套产品和服务的研发、生产和销售"
+      "main_business": "高性能纯铁粉、合金钢粉及添加剂用铁粉等的金属粉体制造。"
     },
     {
-      "code": "688468",
-      "name": "科美诊断",
-      "close": 6.09,
-      "today_return_pct": 1.0,
-      "total_market_cap_yi": 24.4274772,
-      "distance_ma250_pct": -15.22,
-      "distance_52w_high_pct": -28.77,
-      "distance_52w_low_pct": 10.73,
-      "position_52w_pct": 19.34,
+      "code": "301578",
+      "name": "辰奕智能",
+      "close": 23.07,
+      "today_return_pct": 0.26,
+      "total_market_cap_yi": 24.4382817,
+      "distance_ma250_pct": -9.64,
+      "distance_52w_high_pct": -25.36,
+      "distance_52w_low_pct": 28.02,
+      "position_52w_pct": 39.18,
       "annual_net_profit": {
-        "20231231": 147373517.73,
-        "20241231": 127074717.39,
-        "20251231": 43912518.56
+        "20231231": 90619977.89,
+        "20241231": 47213660.04,
+        "20251231": 25482420.1
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240426",
+        "20241231": "20250425",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260828",
-        "net_profit": 15536159.69
+        "ann_date": "20260826",
+        "net_profit": 5017183.75
       },
-      "main_business": "公司主营业务为临床免疫化学发光诊断检测试剂和仪器的研 发、生产和销售。"
+      "main_business": "智能遥控器和智能产品的设计、研发、生产及销售。"
     },
     {
-      "code": "301320",
-      "name": "豪江智能",
-      "close": 13.46,
-      "today_return_pct": 1.97,
-      "total_market_cap_yi": 24.498545999999997,
-      "distance_ma250_pct": -17.0,
-      "distance_52w_high_pct": -30.37,
-      "distance_52w_low_pct": 23.6,
-      "position_52w_pct": 30.45,
+      "code": "301314",
+      "name": "科瑞思",
+      "close": 44.35,
+      "today_return_pct": 1.72,
+      "total_market_cap_yi": 24.503375,
+      "distance_ma250_pct": -2.0,
+      "distance_52w_high_pct": -24.86,
+      "distance_52w_low_pct": 41.65,
+      "position_52w_pct": 47.06,
       "annual_net_profit": {
-        "20231231": 47153809.17,
-        "20241231": 46880568.07,
-        "20251231": 10290036.3
+        "20231231": 35168260.94,
+        "20241231": 17898018.26,
+        "20251231": 19016387.29
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250425",
+        "20251231": "20260424"
       },
       "latest_report": {
         "period": "20260630",
-        "ann_date": "20260822",
-        "net_profit": 5719603.07
+        "ann_date": "20260827",
+        "net_profit": 3539900.29
       },
-      "main_business": "智能线性驱动系统产品的研发、生产和销售"
-    },
-    {
-      "code": "688314",
-      "name": "康拓医疗",
-      "close": 30.07,
-      "today_return_pct": 2.63,
-      "total_market_cap_yi": 24.54562981,
-      "distance_ma250_pct": -18.8,
-      "distance_52w_high_pct": -48.06,
-      "distance_52w_low_pct": 7.93,
-      "position_52w_pct": 7.36,
-      "annual_net_profit": {
-        "20231231": 75510975.16,
-        "20241231": 88399138.29,
-        "20251231": 98703534.38
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260828",
-        "net_profit": 41393683.21
-      },
-      "main_business": "三类植入医疗器械产品研发、生产、销售"
-    },
-    {
-      "code": "301278",
-      "name": "快可电子",
-      "close": 27.4,
-      "today_return_pct": 1.86,
-      "total_market_cap_yi": 24.580019399999998,
-      "distance_ma250_pct": -21.15,
-      "distance_52w_high_pct": -46.62,
-      "distance_52w_low_pct": 18.26,
-      "position_52w_pct": 15.02,
-      "annual_net_profit": {
-        "20231231": 193608721.14,
-        "20241231": 99014452.41,
-        "20251231": 20443762.42
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260828",
-        "net_profit": 16040845.52
-      },
-      "main_business": "光伏接线盒和光伏连接器的研发、生产和销售。"
+      "main_business": "小型磁环线圈绕线服务"
     },
     {
       "code": "301418",
       "name": "协昌科技",
-      "close": 33.59,
-      "today_return_pct": 2.78,
-      "total_market_cap_yi": 24.63265547,
-      "distance_ma250_pct": -14.18,
-      "distance_52w_high_pct": -43.38,
-      "distance_52w_low_pct": 16.83,
-      "position_52w_pct": 15.83,
+      "close": 33.48,
+      "today_return_pct": -0.33,
+      "total_market_cap_yi": 24.55198884,
+      "distance_ma250_pct": -14.41,
+      "distance_52w_high_pct": -43.57,
+      "distance_52w_low_pct": 16.45,
+      "position_52w_pct": 15.47,
       "annual_net_profit": {
         "20231231": 83386244.34,
         "20241231": 37047666.67,
         "20251231": 4942460.33
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240419",
+        "20241231": "20250425",
+        "20251231": "20260428"
       },
       "latest_report": {
         "period": "20260630",
@@ -1567,19 +2039,189 @@
       "main_business": "运动控制产品、功率芯片的研发、生产和销售"
     },
     {
+      "code": "300824",
+      "name": "北鼎股份",
+      "close": 7.55,
+      "today_return_pct": 0.94,
+      "total_market_cap_yi": 24.638798350000002,
+      "distance_ma250_pct": -24.55,
+      "distance_52w_high_pct": -42.98,
+      "distance_52w_low_pct": 10.06,
+      "position_52w_pct": 10.82,
+      "annual_net_profit": {
+        "20231231": 71357291.52,
+        "20241231": 69508710.23,
+        "20251231": 113540055.2
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240329",
+        "20241231": "20250327",
+        "20251231": "20260327"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260814",
+        "net_profit": 47629721.3
+      },
+      "main_business": "高品质的厨房小家电及配套产品和服务的研发、生产和销售"
+    },
+    {
+      "code": "301278",
+      "name": "快可电子",
+      "close": 27.52,
+      "today_return_pct": 0.44,
+      "total_market_cap_yi": 24.68766912,
+      "distance_ma250_pct": -20.73,
+      "distance_52w_high_pct": -46.39,
+      "distance_52w_low_pct": 18.77,
+      "position_52w_pct": 15.45,
+      "annual_net_profit": {
+        "20231231": 193608721.14,
+        "20241231": 99014452.41,
+        "20251231": 20443762.42
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250429",
+        "20251231": "20260429"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260828",
+        "net_profit": 16040845.52
+      },
+      "main_business": "光伏接线盒和光伏连接器的研发、生产和销售。"
+    },
+    {
+      "code": "688468",
+      "name": "科美诊断",
+      "close": 6.16,
+      "today_return_pct": 1.15,
+      "total_market_cap_yi": 24.7082528,
+      "distance_ma250_pct": -14.16,
+      "distance_52w_high_pct": -27.95,
+      "distance_52w_low_pct": 12.0,
+      "position_52w_pct": 21.64,
+      "annual_net_profit": {
+        "20231231": 147373517.73,
+        "20241231": 127074717.39,
+        "20251231": 43912518.56
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240430",
+        "20241231": "20250429",
+        "20251231": "20260429"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260828",
+        "net_profit": 15536159.69
+      },
+      "main_business": "公司主营业务为临床免疫化学发光诊断检测试剂和仪器的研 发、生产和销售。"
+    },
+    {
+      "code": "688314",
+      "name": "康拓医疗",
+      "close": 30.33,
+      "today_return_pct": 0.86,
+      "total_market_cap_yi": 24.757863389999997,
+      "distance_ma250_pct": -18.04,
+      "distance_52w_high_pct": -47.61,
+      "distance_52w_low_pct": 8.87,
+      "position_52w_pct": 8.23,
+      "annual_net_profit": {
+        "20231231": 75510975.16,
+        "20241231": 88399138.29,
+        "20251231": 98703534.38
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240413",
+        "20241231": "20250328",
+        "20251231": "20260331"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260828",
+        "net_profit": 41393683.21
+      },
+      "main_business": "三类植入医疗器械产品研发、生产、销售"
+    },
+    {
+      "code": "688357",
+      "name": "建龙微纳",
+      "close": 24.79,
+      "today_return_pct": -0.44,
+      "total_market_cap_yi": 24.80484921,
+      "distance_ma250_pct": -23.33,
+      "distance_52w_high_pct": -40.29,
+      "distance_52w_low_pct": 9.3,
+      "position_52w_pct": 11.2,
+      "annual_net_profit": {
+        "20231231": 153033729.73,
+        "20241231": 74756186.4,
+        "20251231": 98523649.32
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240419",
+        "20241231": "20250429",
+        "20251231": "20260421"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260825",
+        "net_profit": 37673573.56
+      },
+      "main_business": "主要致力于工业气体分离、医用氧气、能源化工、石油化工、环境治理等领域的相关分子筛吸附剂和催化剂的研发、生产、销售及技术服务"
+    },
+    {
       "code": "301469",
       "name": "恒达新材",
-      "close": 27.53,
-      "today_return_pct": 1.93,
-      "total_market_cap_yi": 24.633844,
-      "distance_ma250_pct": -9.38,
-      "distance_52w_high_pct": -35.63,
-      "distance_52w_low_pct": 22.74,
-      "position_52w_pct": 25.07,
+      "close": 27.81,
+      "today_return_pct": 1.02,
+      "total_market_cap_yi": 24.884388,
+      "distance_ma250_pct": -8.46,
+      "distance_52w_high_pct": -34.98,
+      "distance_52w_low_pct": 23.99,
+      "position_52w_pct": 26.45,
       "annual_net_profit": {
         "20231231": 87634496.44,
         "20241231": 68460185.24,
         "20251231": 80314701.0
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240422",
+        "20241231": "20250422",
+        "20251231": "20260422"
       },
       "latest_report": {
         "period": "20260630",
@@ -1589,19 +2231,61 @@
       "main_business": "公司专业从事特种纸原纸的研发、生产和销售，产品包括医疗包装原纸、食品包装原纸、工业特种纸原纸和卷烟配套原纸，其中以医疗和食品包装原纸为主。"
     },
     {
+      "code": "301320",
+      "name": "豪江智能",
+      "close": 13.73,
+      "today_return_pct": 2.01,
+      "total_market_cap_yi": 24.989973000000003,
+      "distance_ma250_pct": -15.23,
+      "distance_52w_high_pct": -28.97,
+      "distance_52w_low_pct": 26.08,
+      "position_52w_pct": 33.65,
+      "annual_net_profit": {
+        "20231231": 47153809.17,
+        "20241231": 46880568.07,
+        "20251231": 10290036.3
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240425",
+        "20241231": "20250419",
+        "20251231": "20260429"
+      },
+      "latest_report": {
+        "period": "20260630",
+        "ann_date": "20260822",
+        "net_profit": 5719603.07
+      },
+      "main_business": "智能线性驱动系统产品的研发、生产和销售"
+    },
+    {
       "code": "301388",
       "name": "欣灵电气",
-      "close": 24.11,
-      "today_return_pct": 1.22,
-      "total_market_cap_yi": 24.70011636,
-      "distance_ma250_pct": -19.54,
-      "distance_52w_high_pct": -44.54,
-      "distance_52w_low_pct": 23.58,
-      "position_52w_pct": 19.2,
+      "close": 24.4,
+      "today_return_pct": 1.2,
+      "total_market_cap_yi": 24.9972144,
+      "distance_ma250_pct": -18.5,
+      "distance_52w_high_pct": -43.87,
+      "distance_52w_low_pct": 25.06,
+      "position_52w_pct": 20.41,
       "annual_net_profit": {
         "20231231": 42811968.52,
         "20241231": 15314881.31,
         "20251231": 21156594.69
+      },
+      "annual_periods": [
+        "20231231",
+        "20241231",
+        "20251231"
+      ],
+      "annual_ann_dates": {
+        "20231231": "20240424",
+        "20241231": "20250419",
+        "20251231": "20260331"
       },
       "latest_report": {
         "period": "20260630",
@@ -1609,50 +2293,6 @@
         "net_profit": 14563182.31
       },
       "main_business": "低压电器产品的研发、生产和销售"
-    },
-    {
-      "code": "300994",
-      "name": "久祺股份",
-      "close": 10.66,
-      "today_return_pct": 1.33,
-      "total_market_cap_yi": 24.8471808,
-      "distance_ma250_pct": -24.8,
-      "distance_52w_high_pct": -45.81,
-      "distance_52w_low_pct": 10.7,
-      "position_52w_pct": 10.26,
-      "annual_net_profit": {
-        "20231231": 106465427.97,
-        "20241231": 122765208.31,
-        "20251231": 148025699.79
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260829",
-        "net_profit": 23667807.9
-      },
-      "main_business": "自行车整车及其零部件和相关衍生产品的设计、研发、生产和销售。"
-    },
-    {
-      "code": "688357",
-      "name": "建龙微纳",
-      "close": 24.9,
-      "today_return_pct": 0.0,
-      "total_market_cap_yi": 24.9149151,
-      "distance_ma250_pct": -23.07,
-      "distance_52w_high_pct": -40.03,
-      "distance_52w_low_pct": 9.79,
-      "position_52w_pct": 11.78,
-      "annual_net_profit": {
-        "20231231": 153033729.73,
-        "20241231": 74756186.4,
-        "20251231": 98523649.32
-      },
-      "latest_report": {
-        "period": "20260630",
-        "ann_date": "20260825",
-        "net_profit": 37673573.56
-      },
-      "main_business": "主要致力于工业气体分离、医用氧气、能源化工、石油化工、环境治理等领域的相关分子筛吸附剂和催化剂的研发、生产、销售及技术服务"
     }
   ]
 }
