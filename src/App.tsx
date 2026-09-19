@@ -5,6 +5,7 @@ import GrowthMarketPage from './GrowthMarketPage'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
 import { ShareholderBadge, ShareholderProvider, ShareholderRoster } from './ShareholderWatch'
+import { compareStockValues } from './stockSort'
 
 type AdjustmentKey = 'qfq' | 'none'
 type MetricKey =
@@ -41,12 +42,6 @@ const tabs: { id: MetricKey; label: string }[] = [
   { id: 'position_52w_pct', label: '52周内位置' },
 ]
 
-const descendingMetrics: MetricKey[] = [
-  'distance_ma250_pct',
-  'distance_52w_low_pct',
-  'position_52w_pct',
-]
-
 const continuousMetrics: MetricKey[] = [
   'distance_52w_high_pct',
   'distance_52w_low_pct',
@@ -70,14 +65,6 @@ const metricText: Record<MetricKey, string> = {
 const adjustmentText = { qfq: '前复权', none: '除权' }
 const dashboardUrl = `${import.meta.env.BASE_URL}data/dashboard.json`
 
-const descendingBands = [
-  { separator: '20%', test: (v: number) => v >= 20 },
-  { separator: '0%', test: (v: number) => v >= 0 && v < 20 },
-  { separator: '-10%', test: (v: number) => v > -10 && v < 0 },
-  { separator: '-20%', test: (v: number) => v <= -10 && v > -20 },
-  { separator: null, test: (v: number) => v <= -20 },
-] as const
-
 const ascendingBands = [
   { separator: '-20%', test: (v: number) => v <= -20 },
   { separator: '-10%', test: (v: number) => v <= -10 && v > -20 },
@@ -87,32 +74,30 @@ const ascendingBands = [
 ] as const
 
 const formatPct = (value: number | undefined) =>
-  value === undefined ? '—' : `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
+  typeof value !== 'number' || !Number.isFinite(value) ? '—' : `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
 
 const formatMetric = (metric: MetricKey, value: number | undefined) =>
   metric === 'position_52w_pct'
-    ? value === undefined
+    ? typeof value !== 'number' || !Number.isFinite(value)
       ? '—'
       : `${value.toFixed(1)}%`
     : formatPct(value)
 
 const getMetricTextClass = (value: number | undefined) =>
-  value === undefined ? 'text-slate-400' : value > 0 ? 'text-emerald-700' : value < 0 ? 'text-rose-600' : 'text-slate-500'
+  typeof value !== 'number' || !Number.isFinite(value) ? 'text-slate-400' : value > 0 ? 'text-emerald-700' : value < 0 ? 'text-rose-600' : 'text-slate-500'
 
 const getActiveMetricTextClass = (metric: MetricKey, value: number | undefined) =>
   metric === 'position_52w_pct'
-    ? value === undefined
+    ? typeof value !== 'number' || !Number.isFinite(value)
       ? 'text-slate-400'
       : 'text-sky-700'
     : getMetricTextClass(value)
 
 const getMetricBarWidth = (metric: MetricKey, value: number | undefined, maxMetric: number) => {
-  if (value === undefined) return 0
+  if (typeof value !== 'number' || !Number.isFinite(value)) return 0
   if (metric === 'position_52w_pct') return Math.min(Math.max(value, 0), 100)
   return (Math.abs(value) / maxMetric) * 100
 }
-
-const metricValue = (row: Row, metric: MetricKey) => row[metric] ?? Number.NEGATIVE_INFINITY
 
 const getActiveMetricCellClass = (metric: MetricKey, activeMetric: MetricKey) =>
   metric === activeMetric
@@ -149,24 +134,21 @@ function App() {
   const rows = useMemo(
     () =>
       current
-        ? [...current.rows].sort((a, b) =>
-            descendingMetrics.includes(tab)
-              ? metricValue(b, tab) - metricValue(a, tab)
-              : metricValue(a, tab) - metricValue(b, tab),
-          )
+        ? [...current.rows].sort((a, b) => compareStockValues(a, b, a[tab], b[tab]))
         : [],
     [current, tab],
   )
   const maxMetric = useMemo(
-    () => Math.max(...rows.map((row) => Math.abs(row[tab] ?? 0)), 1),
+    () => Math.max(...rows.map((row) => Number.isFinite(row[tab]) ? Math.abs(row[tab]!) : 0), 1),
     [rows, tab],
   )
   const groupedRows = useMemo(() => {
-    const activeBands = descendingMetrics.includes(tab) ? descendingBands : ascendingBands
-    return activeBands.map((band) => ({
+    const groups = ascendingBands.map((band) => ({
       ...band,
-      rows: rows.filter((row) => row[tab] !== undefined && band.test(row[tab])),
+      rows: rows.filter((row) => Number.isFinite(row[tab]) && band.test(row[tab]!)),
     }))
+    const missing = rows.filter((row) => !Number.isFinite(row[tab]))
+    return missing.length ? [...groups, { separator: null, rows: missing }] : groups
   }, [rows, tab])
   const tableGridClass = 'grid grid-cols-[4%_16%_11%_11%_12%_12%_28%] gap-[1%]'
   const displayGroups = useMemo(
@@ -263,7 +245,7 @@ function App() {
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-950">{metricText[tab]}榜单</h2>
-                <p className="mt-1 text-sm text-slate-600">当前展示基于 {adjustmentText[adjustment]} 口径排序</p>
+                <p className="mt-1 text-sm text-slate-600">{adjustmentText[adjustment]}口径 · 当前指标从低到高，表现较弱的在前；缺失数据置后</p>
                 <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500"><Copy size={12} aria-hidden="true" />点击名称或代码复制；悬停代码或点击图表图标查看 K 线</p>
               </div>
               <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">{continuousMetrics.includes(tab) ? '连续排序视图' : '可视化榜单'}</div>

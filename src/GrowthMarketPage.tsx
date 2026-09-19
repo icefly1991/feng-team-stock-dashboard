@@ -4,6 +4,7 @@ import { Copy } from 'lucide-react'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
 import { ShareholderBadge, ShareholderProvider, ShareholderRoster } from './ShareholderWatch'
+import { compareStockValues } from './stockSort'
 
 type GrowthRow = {
   code: string
@@ -136,15 +137,7 @@ function GrowthMarketPage() {
             row.main_business.toLowerCase().includes(normalized),
         )
       : eligibleRows
-    return [...filtered].sort((a, b) => {
-      const aValue = a[sort.key]
-      const bValue = b[sort.key]
-      const aValid = typeof aValue === 'number' && Number.isFinite(aValue)
-      const bValid = typeof bValue === 'number' && Number.isFinite(bValue)
-      if (aValid !== bValid) return aValid ? -1 : 1
-      const difference = aValid && bValid ? (aValue - bValue) * (sort.ascending ? 1 : -1) : 0
-      return difference || a.code.localeCompare(b.code)
-    })
+    return [...filtered].sort((a, b) => compareStockValues(a, b, a[sort.key], b[sort.key], sort.ascending))
   }, [data, query, sort])
 
   const sortButton = (key: SortKey) => (
@@ -198,7 +191,7 @@ function GrowthMarketPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-slate-950">股票榜单</h2>
-              <p className="mt-1 text-sm text-slate-500">按{sortLabels[sort.key]}{sort.ascending ? '从低到高' : '从高到低'}排列；点击表头切换排序。52 周位置越接近 100%，当前价格越靠近 52 周高点</p>
+              <p className="mt-1 text-sm text-slate-500">按{sortLabels[sort.key]}{sort.ascending ? '从低到高' : '从高到低'}排列；切换指标默认从低到高，再次点击反向。52 周位置越低、距年线数值越低的优先；总市值默认小的在前，不代表表现优劣</p>
               <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500"><Copy size={12} aria-hidden="true" />点击名称或代码复制；悬停代码或点击图表图标查看 K 线</p>
             </div>
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索名称、代码或主营业务" className="w-full rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-sky-300 focus:ring-4 focus:ring-sky-100 sm:w-72" />
