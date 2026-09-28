@@ -49,11 +49,17 @@ jobs:
           python scripts/generate_growth_market_dashboard.py
           python scripts/generate_growth_history.py
           python scripts/generate_shareholder_watch.py
+          python scripts/generate_active_dashboard.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Install Node.js dependencies
         run: npm ci
+
+      - name: Validate data logic and frontend
+        run: |
+          python -m unittest discover -s tests -v
+          npm run lint
 
       - name: Build frontend
         run: npm run build

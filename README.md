@@ -1,5 +1,11 @@
 # Feng Team Stock Dashboard
 
+## 盈利活跃 A 股
+
+新增 `#active-market`：目标约100只持续盈利、持续活跃的沪深北普通A股，中小市值加分。显示可排序的60日/120日平均真实波幅、成交额、总市值和盈利证据；点击详情查看财报、TTM计算依据，支持普通K线预览。用户已取消箱体功能。规则、公式、数据限制见 [ACTIVE_POOL.md](docs/ACTIVE_POOL.md)。
+
+生成：`python scripts/generate_active_dashboard.py`（使用已有 `TUSHARE_TOKEN`），输出 `public/data/active-dashboard.json`、`active-audit.json` 及按交易日隔离的 `active-history/`。同日请求缓存位于忽略的 `.cache-active.local`，不含密钥。不足100只不会降低盈利标准补齐。
+
 ## 项目简介
 
 `feng-team-stock-dashboard` 是一个个人股票数据看板项目，面向 A 股自选股的趋势位置观察与指标对比。

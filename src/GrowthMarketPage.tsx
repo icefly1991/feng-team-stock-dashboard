@@ -167,6 +167,7 @@ function GrowthMarketPage() {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <a href="#" className="text-sm font-medium text-sky-700 hover:text-sky-800">← 返回自选股看板</a>
+              <a href="#active-market" className="ml-4 text-sm font-medium text-sky-700 hover:text-sky-800">盈利活跃 A 股 →</a>
               <p className="mt-5 text-[11px] font-medium tracking-[0.2em] text-slate-400">GROWTH MARKET SCREENER</p>
               <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">创业板/科创板小市值股票池</h1>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">创业板与科创板普通股票，总市值低于 {data.filters.total_market_cap_lt_yi} 亿元。按每只股票最新已披露的年报及此前连续两个完整年度，归母净利润均为正，且最新已披露财报累计归母净利润不亏损（≥ 0）。各股随年报披露独立滚动，具体年份见表格；最新财报按年初至报告期末累计口径，52 周位置采用前复权价格计算。</p>

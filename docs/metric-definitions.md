@@ -1,5 +1,11 @@
 # Metric Definitions
 
+## Active A-share average daily true range (DATA-021)
+
+New active pool only: `TR_t = max(high_t-low_t, abs(high_t-close_(t-1)), abs(low_t-close_(t-1)))`; `avg_range_60d_pct = mean(100 * TR_t / close_(t-1))` for the latest 60 market sessions. The 120-day field uses the same formula over 120 sessions. Normalize each day before averaging, use the same qfq OHLC series, require 61/121 valid records, and include gaps. This is not Wilder ATR divided by today's close, a return standard deviation, or a cumulative gain. Missing history yields null. Amount is unadjusted thousand-RMB divided by 100000 to obtain yi RMB; market cap is ten-thousand-RMB divided by 10000.
+
+New active pool profitability (DATA-020) requires three consecutive disclosed annual positive attributable and recurring profits plus positive TTM values. TTM uses current cumulative + prior full year - prior same period; annual reports use their full-year value directly. Keep every component and disclosure date. This does not change DATA-018 or the original small-cap pool's latest cumulative-profit rule. See [ACTIVE_POOL.md](ACTIVE_POOL.md).
+
 ## Three Profitable Disclosed Annual Reports (DATA-018)
 
 For each stock independently, select the latest disclosed full-year consolidated cumulative report as of the Beijing generation date. Use that year and the two preceding consecutive calendar years. All three `n_income_attr_p` values must be finite and strictly positive. Select each period's latest disclosed revision before checking its value; never skip a loss, zero, missing value or missing intermediate year to find an older profitable window. The current calendar year is not a complete year. Keep the separate latest cumulative report requirement (`net_profit >= 0`).
