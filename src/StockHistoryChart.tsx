@@ -10,11 +10,11 @@ type History = {
 }
 const cache = new Map<string, Promise<History>>()
 const pct = (value: number | null) => value === null ? '—' : `${value.toFixed(1)}%`
-function loadHistory(code: string, tradeDate: string, adjustment: 'qfq' | 'none', source: 'growth' | 'watchlist' | 'active') {
+function loadHistory(code: string, tradeDate: string, adjustment: 'qfq' | 'none', source: 'growth' | 'watchlist' | 'active' | 'small-cap') {
   if (!/^\d{8}$/.test(tradeDate)) return Promise.reject(new Error('榜单缺少交易日，请更新数据后重试'))
   const key = `${source}:${adjustment}:${code}:${tradeDate}`
   if (!cache.has(key)) {
-    const directory = source === 'watchlist' ? `watchlist-history/${adjustment}` : source === 'active' ? `active-history/${tradeDate}` : 'growth-history'
+    const directory = source === 'watchlist' ? `watchlist-history/${adjustment}` : source === 'small-cap' ? `small-cap-history/${tradeDate}` : source === 'active' ? `active-history/${tradeDate}` : 'growth-history'
     const request = fetch(`${import.meta.env.BASE_URL}data/${directory}/${code}.json?v=${tradeDate}`)
       .then(async (response) => {
         if (!response.ok) throw new Error('该股票历史数据暂不可用，请稍后重试')
@@ -37,7 +37,7 @@ function loadHistory(code: string, tradeDate: string, adjustment: 'qfq' | 'none'
   return cache.get(key)!
 }
 
-export default function StockHistoryChart({ code, tradeDate, adjustment = 'qfq', source = 'growth' }: { code: string; tradeDate: string; adjustment?: 'qfq' | 'none'; source?: 'growth' | 'watchlist' | 'active' }) {
+export default function StockHistoryChart({ code, tradeDate, adjustment = 'qfq', source = 'growth' }: { code: string; tradeDate: string; adjustment?: 'qfq' | 'none'; source?: 'growth' | 'watchlist' | 'active' | 'small-cap' }) {
   const [history, setHistory] = useState<History | null>(null)
   const [error, setError] = useState('')
   const [attempt, setAttempt] = useState(0)

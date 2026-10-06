@@ -1,10 +1,20 @@
 # Feng Team Stock Dashboard
 
-## 盈利活跃 A 股
+## 板块筛选与业务摘要
 
-新增 `#active-market`：目标约100只持续盈利、持续活跃的沪深北普通A股，中小市值加分。显示可排序的60日/120日平均真实波幅、成交额、总市值和盈利证据；点击详情查看财报、TTM计算依据，支持普通K线预览。用户已取消箱体功能。规则、公式、数据限制见 [ACTIVE_POOL.md](docs/ACTIVE_POOL.md)。
+三个页面都有行业/概念列，可选择分类下拉或点击标签筛选，更多概念可展开。分类统一来自新浪财经公开公司分类页（申万行业/新浪概念），独立标注采集时间、来源链接和分类缺失。生成：`python scripts/generate_stock_sectors.py`，输出共享`public/data/stock-sectors.json`，已加入每日工作流。
 
-生成：`python scripts/generate_active_dashboard.py`（使用已有 `TUSHARE_TOKEN`），输出 `public/data/active-dashboard.json`、`active-audit.json` 及按交易日隔离的 `active-history/`。同日请求缓存位于忽略的 `.cache-active.local`，不含密钥。不足100只不会降低盈利标准补齐。
+概念默认优先显示最新交易日涨幅前20%且上涨的主题（最多两个）；通用属性及其他概念折叠，未覆盖行情的概念不猜热度。页面“板块排序与更新说明”提供方法、行情参考日和来源。工作流每个工作日北京时间16:13自动更新，发布后无需手动采集，假期保留最新真实行情日期。主营业务列另展示与业务词组匹配的已有板块。
+
+小市值双榜默认展示沪深非亏损100只；可切换全市场250名，独立隐藏北交所或亏损股。已有主营业务列改为核心词组，点击“业务原文”核对完整介绍；人工摘要存于`config/business-keywords.json`并绑定原文哈希，原文变更后旧词组失效。
+
+## 小市值双榜
+
+`#small-cap-market`（旧`#active-market`兼容）默认先排除北交所、ST/*ST、最近三年完整年报或最新累计财报亏损及财报不完整公司，再按总市值取全沪深市场最低100只；零利润允许，不限25亿元或全市场前250名。默认排名为筛选后1—100名，规则见CR-018 / DATA-029 / UI-032。
+
+可切换全A股最低市值250名，包含北交所和亏损，进入该模式初始显示全部250只，另可独立隐藏两类；该模式保留全市场排名。模式切换重置搜索、板块、排序和横滚位置。两榜保留60日真实波幅、大幅涨跌天数、成交额、业务词组、财报依据、K线及股东信息。
+
+生成：`python scripts/generate_small_cap_dashboard.py`（使用已有`TUSHARE_TOKEN`），输出schema_version=2的`public/data/small-cap-dashboard.json`，`rows`为全榜250只，`screened.rows`为默认100只，附财报核查audit；独立`small-cap-history/`、板块及股东数据覆盖两榜并集。数据不足100个完整非亏损公司时保留旧文件并报错。同日缓存在忽略的`.cache-small-cap.local`，不含密钥。当前需求见CR-017 / DATA-028 / UI-031 / OPS-007。
 
 ## 项目简介
 

@@ -48,8 +48,9 @@ jobs:
           python scripts/generate_growth_history.py --source watchlist
           python scripts/generate_growth_market_dashboard.py
           python scripts/generate_growth_history.py
+          python scripts/generate_small_cap_dashboard.py
           python scripts/generate_shareholder_watch.py
-          python scripts/generate_active_dashboard.py
+          python scripts/generate_stock_sectors.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
@@ -60,6 +61,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           npm run lint
+          npm test
 
       - name: Build frontend
         run: npm run build

@@ -2,11 +2,13 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Copy } from 'lucide-react'
 import GrowthMarketPage from './GrowthMarketPage'
-import ActiveMarketPage from './ActiveMarketPage'
+import SmallCapMarketPage from './SmallCapMarketPage'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
 import { ShareholderBadge, ShareholderProvider, ShareholderRoster } from './ShareholderWatch'
 import { compareStockValues } from './stockSort'
+import { SectorCell, SectorFilter } from './StockSectors'
+import { matchesSector, useStockSectors } from './useStockSectors'
 
 type AdjustmentKey = 'qfq' | 'none'
 type MetricKey =
@@ -111,6 +113,8 @@ function App() {
   const [adjustment, setAdjustment] = useState<AdjustmentKey>('qfq')
   const [tab, setTab] = useState<MetricKey>('distance_ma250_pct')
   const [error, setError] = useState(false)
+  const [sector, setSector] = useState('')
+  const sectors = useStockSectors()
   const headerScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -120,7 +124,10 @@ function App() {
   }, [])
 
   useEffect(() => {
-    document.title = '每日数据更新'
+    if (!['#growth-market', '#small-cap-market', '#active-market'].includes(page)) document.title = '每日数据更新'
+  }, [page])
+
+  useEffect(() => {
     let mounted = true
     fetch(dashboardUrl)
       .then((res) => (res.ok ? res.json() : Promise.reject()))
@@ -135,9 +142,9 @@ function App() {
   const rows = useMemo(
     () =>
       current
-        ? [...current.rows].sort((a, b) => compareStockValues(a, b, a[tab], b[tab]))
+        ? [...current.rows].filter(row => matchesSector(sectors.data, row.code, sector)).sort((a, b) => compareStockValues(a, b, a[tab], b[tab]))
         : [],
-    [current, tab],
+    [current, tab, sector, sectors.data],
   )
   const maxMetric = useMemo(
     () => Math.max(...rows.map((row) => Number.isFinite(row[tab]) ? Math.abs(row[tab]!) : 0), 1),
@@ -151,14 +158,14 @@ function App() {
     const missing = rows.filter((row) => !Number.isFinite(row[tab]))
     return missing.length ? [...groups, { separator: null, rows: missing }] : groups
   }, [rows, tab])
-  const tableGridClass = 'grid grid-cols-[4%_16%_11%_11%_12%_12%_28%] gap-[1%]'
+  const tableGridClass = 'grid grid-cols-[3%_14%_14%_9%_9%_10%_10%_24%] gap-[1%]'
   const displayGroups = useMemo(
     () => (continuousMetrics.includes(tab) ? [{ separator: null, rows }] : groupedRows),
     [groupedRows, rows, tab],
   )
 
   if (page === '#growth-market') return <GrowthMarketPage />
-  if (page === '#active-market') return <ActiveMarketPage />
+  if (page === '#small-cap-market' || page === '#active-market') return <SmallCapMarketPage />
   if (error || (data && !current)) return <StateView text="无法加载 /data/dashboard.json" error />
   if (!data || !current) return <StateView text="加载中..." />
 
@@ -183,7 +190,7 @@ function App() {
                   <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1">按指标排序浏览</span>
                   <span className="rounded-full border border-slate-200 bg-white/70 px-3 py-1">支持前复权 / 除权</span>
                   <a href="#growth-market" className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-medium text-sky-700 transition hover:bg-sky-100">查看创业板/科创板小市值股票池</a>
-                  <a href="#active-market" className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-medium text-sky-700 transition hover:bg-sky-100">盈利活跃 A 股</a>
+                  <a href="#small-cap-market" className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 font-medium text-sky-700 transition hover:bg-sky-100">小市值双榜</a>
                 </div>
               </div>
               <div className="rounded-[1.4rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.72))] px-4 py-3 text-sm text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur">
@@ -255,15 +262,18 @@ function App() {
               </div>
             </div>
 
+            <SectorFilter data={sectors.data} error={sectors.error} codes={current.rows.map(row => row.code)} value={sector} onChange={setSector} />
+            {!rows.length && <p className="py-5 text-center text-sm text-slate-400">没有符合板块筛选的股票</p>}
             <div className="mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
               <div ref={headerScrollRef} className="sticky top-[72px] z-40 overflow-hidden rounded-t-[1.5rem] bg-[#fcfcfb] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
-                <div className={`${tableGridClass} min-w-[960px] min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-[29px] py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400`}>
+                <div className={`${tableGridClass} min-w-[1160px] min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-[29px] py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400`}>
                   <div className="sticky left-0 z-10 flex items-center justify-center bg-[#fcfcfb]">
                     <span className="text-[10px] text-slate-300">#</span>
                   </div>
-                  <div className="sticky left-[5%] z-10 flex -translate-x-1 items-center justify-center bg-[#fcfcfb] px-2 text-center">
+                  <div className="sticky left-[4%] z-10 flex -translate-x-1 items-center justify-center bg-[#fcfcfb] px-2 text-center">
                     <span>股票</span>
                   </div>
+                  <div className="flex items-center px-2"><span>所属板块</span></div>
                   <div className="flex items-center justify-end px-2">
                     <span>收盘价</span>
                   </div>
@@ -288,7 +298,7 @@ function App() {
               <div className="overflow-x-auto rounded-b-[1.5rem]" onScroll={(event) => {
                 if (headerScrollRef.current) headerScrollRef.current.scrollLeft = event.currentTarget.scrollLeft
               }}>
-                <div className="min-w-[960px]">
+                <div className="min-w-[1160px]">
                 <div className="space-y-3 px-3 py-3">
                   {displayGroups.map((group, groupIndex) => (
                     <div key={group.separator ?? `all-${groupIndex}`} className="space-y-2">
@@ -302,7 +312,7 @@ function App() {
                                 <p className="text-[11px] font-medium tabular-nums text-slate-300">{index}</p>
                               </div>
 
-                              <div className="sticky left-[5%] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
+                              <div className="sticky left-[4%] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
                                 <div className="min-w-0 rounded-[0.95rem] px-3 py-2">
                                   <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} textClassName="text-[15px] font-medium tracking-[-0.01em] text-slate-900" />
                                   <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date ?? ''} adjustment={adjustment} source="watchlist">
@@ -312,6 +322,7 @@ function App() {
                                 </div>
                               </div>
 
+                              <SectorCell data={sectors.data} code={row.code} onSelect={setSector} />
                               <div className="px-2 text-right text-[15px] font-medium tabular-nums text-slate-900">{row.close.toFixed(1)}</div>
                               <div className={`px-2 text-right text-[13px] font-medium tabular-nums ${getMetricTextClass(row.today_return_pct)}`}>{formatPct(row.today_return_pct)}</div>
 

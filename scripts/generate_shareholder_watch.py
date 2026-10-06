@@ -78,7 +78,7 @@ def build_stock(frame: pd.DataFrame, names: set[str], as_of: str) -> dict:
             "previous": previous, "matches": matches}
 
 
-def generate() -> None:
+def generate(source: str = "all", extra_rows=()) -> None:
     token = os.environ.get("TUSHARE_TOKEN", "").strip()
     if not token:
         raise RuntimeError("Missing TUSHARE_TOKEN")
@@ -92,13 +92,23 @@ def generate() -> None:
     folder = ROOT / "public/data"
     main = json.loads((folder / "dashboard.json").read_text(encoding="utf-8"))
     growth = json.loads((folder / "growth-market-dashboard.json").read_text(encoding="utf-8"))
-    stocks = {row["code"]: row["name"] for row in main["adjustments"]["qfq"]["rows"] + growth["rows"]}
+    small_cap_path = folder / "small-cap-dashboard.json"
+    small_cap = json.loads(small_cap_path.read_text(encoding="utf-8")) if small_cap_path.exists() else {}
+    small_cap_rows = list({row['code']: row for row in small_cap.get('rows', []) + small_cap.get('screened', {}).get('rows', []) + list(extra_rows)}.values())
+    stocks = {row["code"]: row["name"] for row in main["adjustments"]["qfq"]["rows"] + growth["rows"] + small_cap_rows}
+    ts_codes = {row["code"]: row["ts_code"] for row in small_cap_rows}
     now = datetime.now(ZoneInfo("Asia/Shanghai"))
     as_of = now.strftime("%Y%m%d")
     start = (pd.Timestamp(as_of) - pd.DateOffset(years=2)).strftime("%Y%m%d")
     payload = {"schema_version": 1, "as_of": as_of, "updated_at": now.isoformat(timespec="seconds"),
                "source": "Tushare top10_floatholders", "source_url": "https://tushare.pro/document/2?doc_id=62",
                "roster": roster, "stocks": {}}
+    if source == "small-cap":
+        existing = json.loads((folder / "shareholder-watch.json").read_text(encoding="utf-8"))
+        if existing["as_of"] != as_of or not small_cap_rows:
+            raise ValueError("Partial refresh requires a complete same-day snapshot and the small-cap list")
+        payload["stocks"] = existing["stocks"]
+        stocks = {row["code"]: row["name"] for row in small_cap_rows}
     pro = ts.pro_api(token)
     errors = 0
     for index, (code, name) in enumerate(sorted(stocks.items())):
@@ -106,7 +116,7 @@ def generate() -> None:
         for attempt in range(3):
             try:
                 time.sleep(0.65 + attempt)
-                frame = pro.top10_floatholders(ts_code=normalize_ts_code(code), start_date=start, end_date=as_of)
+                frame = pro.top10_floatholders(ts_code=ts_codes.get(code, normalize_ts_code(code)), start_date=start, end_date=as_of)
                 result = build_stock(frame, names, as_of)
                 break
             except Exception as exc:
@@ -124,4 +134,7 @@ def generate() -> None:
 
 
 if __name__ == "__main__":
-    generate()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source", choices=("all", "small-cap"), default="all")
+    generate(parser.parse_args().source)

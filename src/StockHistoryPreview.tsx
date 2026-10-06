@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom'
 import { ChartCandlestick, X } from 'lucide-react'
 
 const HistoryChart = lazy(() => import('./StockHistoryChart'))
-type Stock = { code: string; name: string; tradeDate: string; adjustment?: 'qfq' | 'none'; source?: 'growth' | 'watchlist' | 'active' }
+type Stock = { code: string; name: string; tradeDate: string; adjustment?: 'qfq' | 'none'; source?: 'growth' | 'watchlist' | 'active' | 'small-cap' }
 type Preview = Stock & { left: number; top: number; pinned: boolean; trigger: HTMLElement }
 const PreviewContext = createContext<{
   open: (stock: Stock, anchor: HTMLElement, pinned: boolean) => void

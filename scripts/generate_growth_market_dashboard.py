@@ -12,6 +12,11 @@ import pandas as pd
 import tushare as ts
 
 try:
+    from scripts.data_pipeline.business_keywords import business_keywords
+except ModuleNotFoundError:
+    from data_pipeline.business_keywords import business_keywords
+
+try:
     from scripts.data_pipeline.exporter import dashboard_exists, export_dashboard
 except ModuleNotFoundError:  # Direct execution adds scripts/ rather than the repo root to sys.path.
     from data_pipeline.exporter import dashboard_exists, export_dashboard
@@ -91,6 +96,7 @@ def main() -> None:
                     "annual_ann_dates": candidate["annual_ann_dates"],
                     "latest_report": candidate["latest_report"],
                     "main_business": candidate["main_business"],
+                    "main_business_keywords": business_keywords(candidate["symbol"], candidate["main_business"]),
                 }
             )
         except Exception as exc:  # noqa: BLE001
