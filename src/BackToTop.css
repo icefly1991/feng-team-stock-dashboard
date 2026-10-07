@@ -1,0 +1,31 @@
+.back-to-top {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgb(148 163 184 / 35%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 94%);
+  backdrop-filter: blur(8px);
+  color: #334155;
+  box-shadow: 0 4px 18px rgb(15 23 42 / 10%);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background: #f0f9ff;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 3px;
+}

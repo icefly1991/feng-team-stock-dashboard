@@ -1,4 +1,6 @@
+import { listingRisk, useListingStatus } from './listingStatus'
 import BusinessCell from './BusinessCell'
+import { RiskScoreCell, RiskCoverageNote } from './RiskWatch'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
@@ -31,8 +33,8 @@ const number = (v: number | null | undefined) => typeof v === 'number' && Number
 const pct = (v: number | null | undefined) => v == null ? '—' : `${number(v)}%`
 const profit = (v: number | null | undefined) => v == null ? '—' : `${number(v / 100_000_000)}亿`
 const date = (v: string | null | undefined) => v ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}` : '—'
-const grid = 'grid grid-cols-[28px_112px_132px_52px_56px_72px_64px_100px_120px_minmax(104px,1fr)_100px_136px] gap-3 items-center px-4 [&>div]:min-w-0'
-const width = 'min-w-[1240px] w-full'
+const grid = 'stock-grid small-grid grid grid-cols-[28px_112px_150px_132px_52px_56px_72px_64px_100px_120px_minmax(104px,1fr)_100px_136px] gap-3 items-center px-4 [&>div]:min-w-0'
+const width = 'min-w-[1402px] w-full'
 
 function validate(data: Data) {
   if (data.schema_version !== 2 || data.adjustment !== 'qfq' || !/^\d{8}$/.test(data.trade_date) ||
@@ -59,23 +61,10 @@ export default function SmallCapMarketPage() {
   const [mode, setMode] = useState<'screened' | 'all'>('screened')
   const [sector, setSector] = useState('')
   const sectors = useStockSectors()
+  const listing = useListingStatus()
   const [sort, setSort] = useState<{ key: SortKey; ascending: boolean }>({ key: 'total_market_cap_yi', ascending: true })
   const header = useRef<HTMLDivElement>(null)
   const tableScroll = useRef<HTMLDivElement>(null)
-  const [scrollState, setScrollState] = useState({ left: false, right: false })
-  const updateScrollState = () => {
-    const element = tableScroll.current
-    if (element) setScrollState({ left: element.scrollLeft > 1, right: element.scrollLeft + element.clientWidth < element.scrollWidth - 1 })
-  }
-  useEffect(() => {
-    const element = tableScroll.current
-    if (!element) return
-    const observer = new ResizeObserver(() => {
-      setScrollState({ left: element.scrollLeft > 1, right: element.scrollLeft + element.clientWidth < element.scrollWidth - 1 })
-    })
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [data])
   useEffect(() => {
     document.title = mode === 'screened' ? '沪深非亏损小市值榜' : '全A股最低市值250榜'
   }, [mode])
@@ -89,7 +78,7 @@ export default function SmallCapMarketPage() {
     }).catch((e: unknown) => { if (live) setError(e instanceof Error ? e.message : '无法加载榜单') })
     return () => { live = false }
   }, [])
-  const poolRows = mode === 'screened' ? data?.screened.rows : data?.rows
+  const poolRows = useMemo(() => (mode === 'screened' ? data?.screened.rows : data?.rows)?.filter(row => !listingRisk(row, undefined, listing)), [data, mode, listing])
   const matchedRows = useMemo(() => (poolRows ?? [])
     .filter(r => `${r.code} ${r.name} ${r.main_business} ${(r.main_business_keywords ?? []).join(' ')} ${r.industry}`.toLowerCase().includes(query.trim().toLowerCase()))
     .filter(r => matchesSector(sectors.data, r.code, sector)), [poolRows, query, sector, sectors.data])
@@ -111,12 +100,12 @@ export default function SmallCapMarketPage() {
     <div className="mx-auto max-w-[1440px] space-y-5">
       <nav className="flex flex-wrap gap-4 text-sm text-sky-700"><a href="#">← 自选股看板</a><a href="#growth-market">创业板/科创板小市值股票池</a></nav>
       <section className="rounded-3xl border border-white bg-white/90 p-5 shadow-sm sm:p-7">
-        <p className="text-xs tracking-widest text-slate-400">SMALL-CAP · {mode === 'screened' ? 'SHANGHAI / SHENZHEN 100' : 'ALL A-SHARES 250'}</p>
+        <p className="text-xs tracking-widest text-slate-400">小市值榜 · {mode === 'screened' ? '沪深非亏损100只' : '全市场250名'}</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight">{mode === 'screened' ? '沪深非亏损小市值榜' : '全A股最低市值250榜'}</h1>
         <div className="mt-4 flex flex-wrap gap-2" aria-label="榜单模式">
           {([['screened', '沪深非亏损100只'], ['all', '全A股最低市值250只']] as const).map(([key, label]) => <button key={key} type="button" aria-pressed={mode === key} onClick={() => changeMode(key)} className={`min-h-11 rounded-full border px-4 py-2 text-sm ${mode === key ? 'border-sky-600 bg-sky-600 text-white' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`}>{label}</button>)}
         </div>
-        <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">{mode === 'screened' ? '先排除北交所、ST/*ST、已确认亏损及财报不完整的公司，再从全沪深A股按总市值取最低100只；零利润可入选，不受全市场前250名限制。' : '按全沪深北总市值选最低250只，包含北交所、ST/*ST及亏损公司；可独立隐藏北交所或亏损股，仍保留全榜排名。'} 最近三个已披露完整年度或最新累计财报任一归母净利润为负则标记亏损，财报不全时单独提示。</p>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">{mode === 'screened' ? '先排除北交所、ST/*ST、已确认亏损及财报不完整的公司，再从全沪深A股按总市值取最低100只；零利润可入选，不受全市场前250名限制。' : '按全沪深北总市值选最低250只，包含北交所、ST/*ST及亏损公司，排除已决定终止上市、退市整理期及已退市公司；可独立隐藏北交所或亏损股，仍保留全榜排名。'} 最近三个已披露完整年度或最新累计财报任一归母净利润为负则标记亏损，财报不全时单独提示。</p>
         {data && <>
           <p className="mt-3 text-xs leading-6 text-slate-500">{mode === 'all' && data.filters.include_bj ? '沪深北 A 股' : '沪深 A 股'} · {mode === 'all' && data.filters.include_st ? '包含 ST / *ST' : '排除 ST / *ST'} · 行情 {date(data.trade_date)} · 财报截至 {date(data.financial_as_of)} · 生成 {data.updated_at}（北京时间）· Tushare · 前复权</p>
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -139,18 +128,15 @@ export default function SmallCapMarketPage() {
           <p role="status" className="text-xs text-slate-500">显示 {rows.length} 只{!showBeijing && ` · 已隐藏 ${hiddenBeijingCount} 只北交所股票`}{!showLosses && ` · 已隐藏 ${hiddenLossCount} 只亏损股`}；隐藏数量不重复计算，# 保留全榜250只市值排名</p>
         </div> : <p role="status" className="mt-4 text-xs text-slate-500">显示 {rows.length} / 100 只；已排除北交所、ST/*ST、亏损及财报不完整公司</p>}
         <SectorFilter data={sectors.data} error={sectors.error} codes={(poolRows ?? []).map(r => r.code)} value={sector} onChange={setSector} />
-        {(scrollState.left || scrollState.right) && <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-          <span>表格可左右滑动</span>
-          <button type="button" disabled={!scrollState.left} onClick={() => tableScroll.current?.scrollTo({ left: 0 })} className="min-h-11 rounded-lg border border-slate-200 px-3 text-sky-700 disabled:opacity-40">← 返回股票列</button>
-          <button type="button" disabled={!scrollState.right} onClick={() => tableScroll.current?.scrollTo({ left: tableScroll.current.scrollWidth })} className="min-h-11 rounded-lg border border-slate-200 px-3 text-sky-700 disabled:opacity-40">查看活跃度 →</button>
-        </div>}
-        <div className="mt-5 rounded-2xl border border-slate-200">
+        <RiskCoverageNote />
+        <div className="mobile-sort my-3 flex items-center gap-3 text-sm"><label>排序 <select aria-label="榜单排序指标" value={sort.key} onChange={e => setSort({ key: e.target.value as SortKey, ascending: true })} className="rounded-lg border border-slate-200 p-2">{Object.entries(labels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label><button type="button" className="min-h-11 rounded-lg border border-slate-200 px-3" onClick={() => setSort(s => ({ ...s, ascending: !s.ascending }))}>{sort.ascending ? '从低到高 ↑' : '从高到低 ↓'}</button></div>
+        <div className="stock-table small-table mt-5 rounded-2xl border border-slate-200">
           <div ref={header} className="sticky top-0 z-30 overflow-hidden rounded-t-2xl border-b border-slate-200 bg-slate-50">
-            <div className={`${grid} ${width} py-3 text-xs`}><div className="sticky left-0 z-20 bg-slate-50">#</div><div className="sticky left-[40px] z-20 bg-slate-50 shadow-[-12px_0_0_#f8fafc]">股票</div><div>所属板块</div><div className="text-right">收盘价</div><div className="text-right">今日</div><div className="text-right">{sortButton('total_market_cap_yi')}</div><div className="text-right">{sortButton('distance_ma250_pct')}</div><div className="text-right">最新年报归母净利</div><div className="text-right">最新财报归母净利（累计）</div><div>主营业务</div><div className="text-center">{sortButton('position_52w_pct')}</div><div className="text-right">{sortButton('avg_range_60d_pct')}</div></div>
+            <div className={`${grid} stock-head ${width} py-3 text-xs`}><div className="sticky left-0 z-20 bg-slate-50">#</div><div className="sticky left-[40px] z-20 bg-slate-50 shadow-[-12px_0_0_#f8fafc]">股票</div><div>风险评分</div><div>所属板块</div><div className="text-right">收盘价</div><div className="text-right">今日</div><div className="text-right">{sortButton('total_market_cap_yi')}</div><div className="text-right">{sortButton('distance_ma250_pct')}</div><div className="text-right">最新年报归母净利</div><div className="text-right">最新财报归母净利（累计）</div><div>主营业务</div><div className="text-center">{sortButton('position_52w_pct')}</div><div className="text-right">{sortButton('avg_range_60d_pct')}</div></div>
           </div>
-          <div ref={tableScroll} tabIndex={0} aria-label="股票榜单，可左右滚动查看全部列" className="overflow-x-auto rounded-b-2xl" onScroll={e => { if (header.current) header.current.scrollLeft = e.currentTarget.scrollLeft; updateScrollState() }}>
+          <div ref={tableScroll} tabIndex={0} aria-label="股票榜单，所有指标完整显示" className="overflow-x-auto rounded-b-2xl" onScroll={e => { if (header.current) header.current.scrollLeft = e.currentTarget.scrollLeft }}>
             <div className={`${width} divide-y divide-slate-100`}>
-              {rows.map(row => <div key={row.code} className={`group ${grid} py-4 text-sm hover:bg-slate-50`}>
+              {rows.map(row => <div key={row.code} className={`group ${grid} stock-row py-4 text-sm hover:bg-slate-50`}>
                 <div className="sticky left-0 z-10 self-stretch bg-white text-xs text-slate-400 group-hover:bg-slate-50">{row.market_cap_rank}</div>
                 <div className="sticky left-[40px] z-10 self-stretch bg-white shadow-[-12px_0_0_white,12px_0_14px_white] group-hover:bg-slate-50">
                   <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} textClassName={row.loss_status === 'loss' ? 'font-medium text-rose-600' : undefined} />
@@ -160,6 +146,7 @@ export default function SmallCapMarketPage() {
                   {!row.financial_complete && <p className="mt-1 text-xs text-amber-700">财报待核实</p>}
                   <ShareholderBadge code={row.code} />
                 </div>
+                <div><RiskScoreCell code={row.code} name={row.name} compact /></div>
                 <SectorCell data={sectors.data} code={row.code} onSelect={setSector} />
                 <div className="text-right tabular-nums">{number(row.close)}</div><div className={`text-right tabular-nums ${row.today_return_pct != null && row.today_return_pct < 0 ? 'text-rose-600' : 'text-slate-600'}`}>{pct(row.today_return_pct)}</div>
                 <div className="text-right tabular-nums">{number(row.total_market_cap_yi)}亿</div><div className="text-right tabular-nums">{pct(row.distance_ma250_pct)}</div>

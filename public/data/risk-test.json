@@ -1,0 +1,3219 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-07T15:21:44+08:00",
+  "as_of": "20261007",
+  "rules": {
+    "version": "0.1.1",
+    "formula": "min(100, max(raw_score + interaction_score, risk_floor))",
+    "normalization": "none",
+    "weights_enabled": false,
+    "pending_rules": [
+      "应收账款/营收显著高于历史或同行：数值阈值待确认",
+      "资金占用25–40分：分档待确认",
+      "违规担保25–40分：分档待确认"
+    ],
+    "thresholds": [
+      {
+        "market": "主板",
+        "effective_from": "20240101",
+        "revenue_yuan": 300000000,
+        "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20260424_10816589.shtml"
+      },
+      {
+        "market": "科创板",
+        "effective_from": "20240101",
+        "revenue_yuan": 100000000,
+        "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/staripo/c/c_20260424_10816592.shtml"
+      },
+      {
+        "market": "创业板",
+        "effective_from": "20240101",
+        "revenue_yuan": 100000000,
+        "url": "https://investor.szse.cn/lawrules/rule/allrules/bussiness/t20260424_620189.html"
+      },
+      {
+        "market": "北交所",
+        "effective_from": "20240101",
+        "revenue_yuan": 50000000,
+        "url": "https://dataclouds.cninfo.com.cn/sjother2/regulatory/2026/20260424/a8eb1135a3db4e26a210495e08d1d897.pdf"
+      }
+    ]
+  },
+  "sample_note": "默认沪深榜市值最小的12只 + 卓然/海利/元道退案例；退市案例仅供回归验证，不进入股票榜。",
+  "coverage_note": "公告仅含已核实样本，未接入完整公告扫描；未发现事件不能解释为没有风险。历史截面按披露日期过滤，供应商可能存在后续更正回填。",
+  "rows": [
+    {
+      "id": "600455.SH-20261007",
+      "ts_code": "600455.SH",
+      "name": "博通股份",
+      "market": "主板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260815",
+        "metric_dates": {
+          "deducted_net_profit": "20260815",
+          "consecutive_loss_years": "20260403",
+          "revenue_to_st_threshold": "20260815",
+          "lowest_profit_metric": "20260815",
+          "net_asset_growth": "20260815",
+          "negative_net_assets": "20260815",
+          "goodwill_to_equity": "20260815",
+          "cfo_negative_years": "20260403",
+          "cash_conversion_3y": "20260403",
+          "ar_growth_minus_revenue_growth": "20260815",
+          "ar_to_revenue": "20260815",
+          "ar_ratio_abnormal": "20260815",
+          "other_receivables_to_equity": "20260815",
+          "cash_to_short_debt": "20260815",
+          "interest_coverage": "20260815",
+          "annual_st_trigger": "20260403",
+          "annual_report_inquiry": "20260815",
+          "inquiry_severity": "20260815",
+          "second_inquiry": "20260815",
+          "audit_opinion": "20260815",
+          "internal_control_opinion": "20260815",
+          "csrc_or_governance_event": "20260815",
+          "profit_loss_known": "20260815",
+          "no_short_debt": "20260815",
+          "no_interest_expense": "20260815"
+        },
+        "revenue_ttm": 306302876.94000006,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 299814924.55,
+        "net_assets": 358827584.98,
+        "ar_net": 1891539.13,
+        "short_debt": null,
+        "interest_expense_ttm": 7901346.359999999
+      },
+      "metrics": {
+        "deducted_net_profit": 47689595.22,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 1.0210095898000002,
+        "lowest_profit_metric": 47689595.22,
+        "net_asset_growth": 15.60240143640983,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 2.9281734090824623,
+        "ar_growth_minus_revenue_growth": 23.43386154807474,
+        "ar_to_revenue": 0.0061753880632682496,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.004974526025081072,
+        "cash_to_short_debt": null,
+        "interest_coverage": 9.317486078410566,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 15,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 15
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 15,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 15,
+            "title": "年度 / TTM 营收为收入阈值的 1.02 倍",
+            "metric": "revenue_to_st_threshold",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/600455.SH.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": "20260815"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/600455.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "600455.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260403",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688681.SH-20261007",
+      "ts_code": "688681.SH",
+      "name": "科汇股份",
+      "market": "科创板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260829",
+        "metric_dates": {
+          "deducted_net_profit": "20260829",
+          "consecutive_loss_years": "20260416",
+          "revenue_to_st_threshold": "20260829",
+          "lowest_profit_metric": "20260829",
+          "net_asset_growth": "20260829",
+          "negative_net_assets": "20260829",
+          "goodwill_to_equity": "20260829",
+          "cfo_negative_years": "20260416",
+          "cash_conversion_3y": "20260416",
+          "ar_growth_minus_revenue_growth": "20260829",
+          "ar_to_revenue": "20260829",
+          "ar_ratio_abnormal": "20260829",
+          "other_receivables_to_equity": "20260829",
+          "cash_to_short_debt": "20260829",
+          "interest_coverage": "20260829",
+          "annual_st_trigger": "20260416",
+          "annual_report_inquiry": "20260829",
+          "inquiry_severity": "20260829",
+          "second_inquiry": "20260829",
+          "audit_opinion": "20260829",
+          "internal_control_opinion": "20260829",
+          "csrc_or_governance_event": "20260829",
+          "profit_loss_known": "20260829",
+          "no_short_debt": "20260829",
+          "no_interest_expense": "20260829"
+        },
+        "revenue_ttm": 531767658.73,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 505493645.02,
+        "net_assets": 611826257.06,
+        "ar_net": 235890712.6,
+        "short_debt": 4173954.5300000003,
+        "interest_expense_ttm": 490163.36
+      },
+      "metrics": {
+        "deducted_net_profit": 41671064.42,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 5.3176765873,
+        "lowest_profit_metric": 41671064.42,
+        "net_asset_growth": 5.375642951510051,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.7375767690123347,
+        "ar_growth_minus_revenue_growth": -10.271220832337026,
+        "ar_to_revenue": 0.4435973281326822,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.006846144492274106,
+        "cash_to_short_debt": 24.759173267754786,
+        "interest_coverage": 77.34483407735739,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 0,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 0,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": null
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688681.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688681.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260416",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688067.SH-20261007",
+      "ts_code": "688067.SH",
+      "name": "爱威科技",
+      "market": "科创板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260828",
+        "metric_dates": {
+          "deducted_net_profit": "20260828",
+          "consecutive_loss_years": "20260429",
+          "revenue_to_st_threshold": "20260828",
+          "lowest_profit_metric": "20260828",
+          "net_asset_growth": "20260828",
+          "negative_net_assets": "20260828",
+          "goodwill_to_equity": "20260828",
+          "cfo_negative_years": "20260429",
+          "cash_conversion_3y": "20260429",
+          "ar_growth_minus_revenue_growth": "20260828",
+          "ar_to_revenue": "20260828",
+          "ar_ratio_abnormal": "20260828",
+          "other_receivables_to_equity": "20260828",
+          "cash_to_short_debt": "20260828",
+          "interest_coverage": "20260828",
+          "annual_st_trigger": "20260429",
+          "annual_report_inquiry": "20260828",
+          "inquiry_severity": "20260828",
+          "second_inquiry": "20260828",
+          "audit_opinion": "20260828",
+          "internal_control_opinion": "20260828",
+          "csrc_or_governance_event": "20260828",
+          "profit_loss_known": "20260828",
+          "no_short_debt": "20260828",
+          "no_interest_expense": "20260828"
+        },
+        "revenue_ttm": 223375719.41000003,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 219673933.07,
+        "net_assets": 525333267.28,
+        "ar_net": 6467070.82,
+        "short_debt": null,
+        "interest_expense_ttm": null
+      },
+      "metrics": {
+        "deducted_net_profit": 26243839.669999998,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 2.2337571941000003,
+        "lowest_profit_metric": 26243839.669999998,
+        "net_asset_growth": 4.4032416158721555,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.1834373504048752,
+        "ar_growth_minus_revenue_growth": 6.539478084626937,
+        "ar_to_revenue": 0.028951538856064604,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.00502475096174153,
+        "cash_to_short_debt": null,
+        "interest_coverage": null,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": null
+      },
+      "risk": {
+        "score": 0,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 0,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt",
+          "goodwill_to_equity",
+          "interest_coverage"
+        ],
+        "latest_warning": null
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688067.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688067.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260429",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688466.SH-20261007",
+      "ts_code": "688466.SH",
+      "name": "金科环境",
+      "market": "科创板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260821",
+        "metric_dates": {
+          "deducted_net_profit": "20260821",
+          "consecutive_loss_years": "20260424",
+          "revenue_to_st_threshold": "20260821",
+          "lowest_profit_metric": "20260821",
+          "net_asset_growth": "20260821",
+          "negative_net_assets": "20260821",
+          "goodwill_to_equity": "20260821",
+          "cfo_negative_years": "20260424",
+          "cash_conversion_3y": "20260424",
+          "ar_growth_minus_revenue_growth": "20260821",
+          "ar_to_revenue": "20260821",
+          "ar_ratio_abnormal": "20260821",
+          "other_receivables_to_equity": "20260821",
+          "cash_to_short_debt": "20260821",
+          "interest_coverage": "20260821",
+          "annual_st_trigger": "20260424",
+          "annual_report_inquiry": "20260821",
+          "inquiry_severity": "20260821",
+          "second_inquiry": "20260821",
+          "audit_opinion": "20260821",
+          "internal_control_opinion": "20260821",
+          "csrc_or_governance_event": "20260821",
+          "profit_loss_known": "20260821",
+          "no_short_debt": "20260821",
+          "no_interest_expense": "20260821"
+        },
+        "revenue_ttm": 455585424.76,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 523436926.69,
+        "net_assets": 1128559378.65,
+        "ar_net": 413176379.36,
+        "short_debt": null,
+        "interest_expense_ttm": 15128300.680000002
+      },
+      "metrics": {
+        "deducted_net_profit": 16220243.820000004,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 4.5558542476,
+        "lowest_profit_metric": 16220243.820000004,
+        "net_asset_growth": -1.4797754387763873,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.0011776142355839345,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.7051109251651229,
+        "ar_growth_minus_revenue_growth": 16.455811918159647,
+        "ar_to_revenue": 0.9069130769002524,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.03846754364128468,
+        "cash_to_short_debt": null,
+        "interest_coverage": 2.676891301052591,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 0,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 0,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt"
+        ],
+        "latest_warning": null
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688466.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688466.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260424",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "600137.SH-20261007",
+      "ts_code": "600137.SH",
+      "name": "浪莎股份",
+      "market": "主板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260825",
+        "metric_dates": {
+          "deducted_net_profit": "20260825",
+          "consecutive_loss_years": "20260428",
+          "revenue_to_st_threshold": "20260825",
+          "lowest_profit_metric": "20260825",
+          "net_asset_growth": "20260825",
+          "negative_net_assets": "20260825",
+          "goodwill_to_equity": "20260825",
+          "cfo_negative_years": "20260428",
+          "cash_conversion_3y": "20260428",
+          "ar_growth_minus_revenue_growth": "20260825",
+          "ar_to_revenue": "20260825",
+          "ar_ratio_abnormal": "20260825",
+          "other_receivables_to_equity": "20260825",
+          "cash_to_short_debt": "20260825",
+          "interest_coverage": "20260825",
+          "annual_st_trigger": "20260428",
+          "annual_report_inquiry": "20260825",
+          "inquiry_severity": "20260825",
+          "second_inquiry": "20260825",
+          "audit_opinion": "20260825",
+          "internal_control_opinion": "20260825",
+          "csrc_or_governance_event": "20260825",
+          "profit_loss_known": "20260825",
+          "no_short_debt": "20260825",
+          "no_interest_expense": "20260825"
+        },
+        "revenue_ttm": 392987203.15999997,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 389829667.07,
+        "net_assets": 544653542.84,
+        "ar_net": 32908652.21,
+        "short_debt": null,
+        "interest_expense_ttm": null
+      },
+      "metrics": {
+        "deducted_net_profit": 31084867.049999997,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 1.3099573438666665,
+        "lowest_profit_metric": 30472478.889999997,
+        "net_asset_growth": 2.0668015813598117,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 2.057129401911607,
+        "ar_growth_minus_revenue_growth": -0.041926243856793555,
+        "ar_to_revenue": 0.08373975525254354,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.006204262130344173,
+        "cash_to_short_debt": null,
+        "interest_coverage": null,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": null
+      },
+      "risk": {
+        "score": 8,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 8
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 8,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 8,
+            "title": "年度 / TTM 营收为收入阈值的 1.31 倍",
+            "metric": "revenue_to_st_threshold",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/600137.SH.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt",
+          "goodwill_to_equity",
+          "interest_coverage"
+        ],
+        "latest_warning": "20260825"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/600137.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "600137.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260428",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "603860.SH-20261007",
+      "ts_code": "603860.SH",
+      "name": "中公高科",
+      "market": "主板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260829",
+        "metric_dates": {
+          "deducted_net_profit": "20260829",
+          "consecutive_loss_years": "20260325",
+          "revenue_to_st_threshold": "20260829",
+          "lowest_profit_metric": "20260829",
+          "net_asset_growth": "20260829",
+          "negative_net_assets": "20260829",
+          "goodwill_to_equity": "20260829",
+          "cfo_negative_years": "20260325",
+          "cash_conversion_3y": "20260325",
+          "ar_growth_minus_revenue_growth": "20260829",
+          "ar_to_revenue": "20260829",
+          "ar_ratio_abnormal": "20260829",
+          "other_receivables_to_equity": "20260829",
+          "cash_to_short_debt": "20260829",
+          "interest_coverage": "20260829",
+          "annual_st_trigger": "20260325",
+          "annual_report_inquiry": "20260829",
+          "inquiry_severity": "20260829",
+          "second_inquiry": "20260829",
+          "audit_opinion": "20260829",
+          "internal_control_opinion": "20260829",
+          "csrc_or_governance_event": "20260829",
+          "profit_loss_known": "20260829",
+          "no_short_debt": "20260829",
+          "no_interest_expense": "20260829"
+        },
+        "revenue_ttm": 277395881.60999995,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 274429125.09,
+        "net_assets": 828964112.39,
+        "ar_net": 144905475.71,
+        "short_debt": null,
+        "interest_expense_ttm": null
+      },
+      "metrics": {
+        "deducted_net_profit": 47790172.56,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 0.9246529386999999,
+        "lowest_profit_metric": 47790172.56,
+        "net_asset_growth": 4.387315778756284,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.3330594896648271,
+        "ar_growth_minus_revenue_growth": -4.4280674249090435,
+        "ar_to_revenue": 0.5223778913694451,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.009011610006206724,
+        "cash_to_short_debt": null,
+        "interest_coverage": null,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": null
+      },
+      "risk": {
+        "score": 15,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 15
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 15,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 15,
+            "title": "年度 / TTM 营收为收入阈值的 0.92 倍",
+            "metric": "revenue_to_st_threshold",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603860.SH.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt",
+          "goodwill_to_equity",
+          "interest_coverage"
+        ],
+        "latest_warning": "20260829"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/603860.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "603860.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260325",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "600493.SH-20261007",
+      "ts_code": "600493.SH",
+      "name": "凤竹纺织",
+      "market": "主板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260829",
+        "metric_dates": {
+          "deducted_net_profit": "20260829",
+          "consecutive_loss_years": "20260331",
+          "revenue_to_st_threshold": "20260829",
+          "lowest_profit_metric": "20260829",
+          "net_asset_growth": "20260829",
+          "negative_net_assets": "20260829",
+          "goodwill_to_equity": "20260829",
+          "cfo_negative_years": "20260331",
+          "cash_conversion_3y": "20260331",
+          "ar_growth_minus_revenue_growth": "20260829",
+          "ar_to_revenue": "20260829",
+          "ar_ratio_abnormal": "20260829",
+          "other_receivables_to_equity": "20260829",
+          "cash_to_short_debt": "20260829",
+          "interest_coverage": "20260829",
+          "annual_st_trigger": "20260331",
+          "annual_report_inquiry": "20260829",
+          "inquiry_severity": "20260829",
+          "second_inquiry": "20260829",
+          "audit_opinion": "20260829",
+          "internal_control_opinion": "20260829",
+          "csrc_or_governance_event": "20260829",
+          "profit_loss_known": "20260829",
+          "no_short_debt": "20260829",
+          "no_interest_expense": "20260829"
+        },
+        "revenue_ttm": 960085980.0999999,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 920894717.38,
+        "net_assets": 1118155090.25,
+        "ar_net": 155511312.34,
+        "short_debt": 212389688.60999998,
+        "interest_expense_ttm": 6524820.17
+      },
+      "metrics": {
+        "deducted_net_profit": 2555772.869999999,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 3.200286600333333,
+        "lowest_profit_metric": 2555772.869999999,
+        "net_asset_growth": 0.1872978890885335,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 0.30112387550242437,
+        "ar_growth_minus_revenue_growth": -12.492165269886568,
+        "ar_to_revenue": 0.1619764433220891,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.005309136095488074,
+        "cash_to_short_debt": 0.7999727831513959,
+        "interest_coverage": 1.0219606864659383,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 13,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 8
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 5
+          }
+        ],
+        "raw_score": 13,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 0.30",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/600493.SH.json"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 5,
+            "title": "利息保障 1.02 倍",
+            "metric": "interest_coverage",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/600493.SH.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": "20260829"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/600493.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "600493.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260331",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "603022.SH-20261007",
+      "ts_code": "603022.SH",
+      "name": "新通联",
+      "market": "主板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260828",
+        "metric_dates": {
+          "deducted_net_profit": "20260828",
+          "consecutive_loss_years": "20260430",
+          "revenue_to_st_threshold": "20260828",
+          "lowest_profit_metric": "20260828",
+          "net_asset_growth": "20260828",
+          "negative_net_assets": "20260828",
+          "goodwill_to_equity": "20260828",
+          "cfo_negative_years": "20260430",
+          "cash_conversion_3y": "20260430",
+          "ar_growth_minus_revenue_growth": "20260828",
+          "ar_to_revenue": "20260828",
+          "ar_ratio_abnormal": "20260828",
+          "other_receivables_to_equity": "20260828",
+          "cash_to_short_debt": "20260828",
+          "interest_coverage": "20260828",
+          "annual_st_trigger": "20260430",
+          "annual_report_inquiry": "20260828",
+          "inquiry_severity": "20260828",
+          "second_inquiry": "20260828",
+          "audit_opinion": "20260828",
+          "internal_control_opinion": "20260828",
+          "csrc_or_governance_event": "20260828",
+          "profit_loss_known": "20260828",
+          "no_short_debt": "20260828",
+          "no_interest_expense": "20260828"
+        },
+        "revenue_ttm": 1029235389.56,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 979508162.62,
+        "net_assets": 850316432.88,
+        "ar_net": 346514153.38,
+        "short_debt": 75061746.65,
+        "interest_expense_ttm": 1007253.83
+      },
+      "metrics": {
+        "deducted_net_profit": 45820940.03,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 3.4307846318666666,
+        "lowest_profit_metric": 45820940.03,
+        "net_asset_growth": 5.601716970109383,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.2385192499906756,
+        "ar_growth_minus_revenue_growth": 10.15594358122145,
+        "ar_to_revenue": 0.33667143288585855,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.007335160310703085,
+        "cash_to_short_debt": 2.3844296257126865,
+        "interest_coverage": 71.2424984871986,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 0,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 0,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": null
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/603022.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "603022.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260430",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "301131.SZ-20261007",
+      "ts_code": "301131.SZ",
+      "name": "聚赛龙",
+      "market": "创业板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260824",
+        "metric_dates": {
+          "deducted_net_profit": "20260824",
+          "consecutive_loss_years": "20260429",
+          "revenue_to_st_threshold": "20260824",
+          "lowest_profit_metric": "20260824",
+          "net_asset_growth": "20260824",
+          "negative_net_assets": "20260824",
+          "goodwill_to_equity": "20260824",
+          "cfo_negative_years": "20260429",
+          "cash_conversion_3y": "20260429",
+          "ar_growth_minus_revenue_growth": "20260824",
+          "ar_to_revenue": "20260824",
+          "ar_ratio_abnormal": "20260824",
+          "other_receivables_to_equity": "20260824",
+          "cash_to_short_debt": "20260824",
+          "interest_coverage": "20260824",
+          "annual_st_trigger": "20260429",
+          "annual_report_inquiry": "20260824",
+          "inquiry_severity": "20260824",
+          "second_inquiry": "20260824",
+          "audit_opinion": "20260824",
+          "internal_control_opinion": "20260824",
+          "csrc_or_governance_event": "20260824",
+          "profit_loss_known": "20260824",
+          "no_short_debt": "20260824",
+          "no_interest_expense": "20260824"
+        },
+        "revenue_ttm": 1793847619.0300002,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 1623805207.71,
+        "net_assets": 1072270216.38,
+        "ar_net": 508707431.73,
+        "short_debt": 315406599.67,
+        "interest_expense_ttm": 16488533.559999999
+      },
+      "metrics": {
+        "deducted_net_profit": 15351660.04,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 17.9384761903,
+        "lowest_profit_metric": 14892647.539999995,
+        "net_asset_growth": 22.503521270993907,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": -0.39180228262944117,
+        "ar_growth_minus_revenue_growth": 13.081471661657629,
+        "ar_to_revenue": 0.28358452877122137,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.009796006463241648,
+        "cash_to_short_debt": 0.4134563435782275,
+        "interest_coverage": 3.787904017827041,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 16,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 8
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 8
+          }
+        ],
+        "raw_score": 16,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 -0.39",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/301131.SZ.json"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 8,
+            "title": "现金 / 短债 0.4135 倍（低于0.5）",
+            "metric": "cash_to_short_debt",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/301131.SZ.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": "20260824"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/301131.SZ.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "301131.SZ-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260429",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688092.SH-20261007",
+      "ts_code": "688092.SH",
+      "name": "爱科科技",
+      "market": "科创板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260829",
+        "metric_dates": {
+          "deducted_net_profit": "20260829",
+          "consecutive_loss_years": "20260424",
+          "revenue_to_st_threshold": "20260829",
+          "lowest_profit_metric": "20260829",
+          "net_asset_growth": "20260829",
+          "negative_net_assets": "20260829",
+          "goodwill_to_equity": "20260829",
+          "cfo_negative_years": "20260424",
+          "cash_conversion_3y": "20260424",
+          "ar_growth_minus_revenue_growth": "20260829",
+          "ar_to_revenue": "20260829",
+          "ar_ratio_abnormal": "20260829",
+          "other_receivables_to_equity": "20260829",
+          "cash_to_short_debt": "20260829",
+          "interest_coverage": "20260829",
+          "annual_st_trigger": "20260424",
+          "annual_report_inquiry": "20260829",
+          "inquiry_severity": "20260829",
+          "second_inquiry": "20260829",
+          "audit_opinion": "20260829",
+          "internal_control_opinion": "20260829",
+          "csrc_or_governance_event": "20260829",
+          "profit_loss_known": "20260829",
+          "no_short_debt": "20260829",
+          "no_interest_expense": "20260829"
+        },
+        "revenue_ttm": 462375267.7600001,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 448591551.29,
+        "net_assets": 666204223.92,
+        "ar_net": 101776196.79,
+        "short_debt": 37712652.08,
+        "interest_expense_ttm": 1077333.58
+      },
+      "metrics": {
+        "deducted_net_profit": 29571127.339999996,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 4.6237526776000015,
+        "lowest_profit_metric": 29571127.339999996,
+        "net_asset_growth": 3.2010177976632193,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.007218456334160794,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.2332104493629048,
+        "ar_growth_minus_revenue_growth": 4.803968055410945,
+        "ar_to_revenue": 0.22011600508621457,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.004230325474997928,
+        "cash_to_short_debt": 16.382655985831693,
+        "interest_coverage": 40.61332999571033,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 0,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 0,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal"
+        ],
+        "latest_warning": null
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688092.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688092.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260424",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "300923.SZ-20261007",
+      "ts_code": "300923.SZ",
+      "name": "研奥股份",
+      "market": "创业板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260827",
+        "metric_dates": {
+          "deducted_net_profit": "20260827",
+          "consecutive_loss_years": "20260429",
+          "revenue_to_st_threshold": "20260827",
+          "lowest_profit_metric": "20260827",
+          "net_asset_growth": "20260827",
+          "negative_net_assets": "20260827",
+          "goodwill_to_equity": "20260827",
+          "cfo_negative_years": "20260429",
+          "cash_conversion_3y": "20260429",
+          "ar_growth_minus_revenue_growth": "20260827",
+          "ar_to_revenue": "20260827",
+          "ar_ratio_abnormal": "20260827",
+          "other_receivables_to_equity": "20260827",
+          "cash_to_short_debt": "20260827",
+          "interest_coverage": "20260827",
+          "annual_st_trigger": "20260429",
+          "annual_report_inquiry": "20260827",
+          "inquiry_severity": "20260827",
+          "second_inquiry": "20260827",
+          "audit_opinion": "20260827",
+          "internal_control_opinion": "20260827",
+          "csrc_or_governance_event": "20260827",
+          "profit_loss_known": "20260827",
+          "no_short_debt": "20260827",
+          "no_interest_expense": "20260827"
+        },
+        "revenue_ttm": 385180095.33,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 464174940.75,
+        "net_assets": 1117641188.45,
+        "ar_net": 495139417.6,
+        "short_debt": null,
+        "interest_expense_ttm": 292827.27
+      },
+      "metrics": {
+        "deducted_net_profit": 20421941.549999997,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 3.8518009532999997,
+        "lowest_profit_metric": 20421941.549999997,
+        "net_asset_growth": -0.6766212398324534,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 1,
+        "cash_conversion_3y": -0.9229006647148346,
+        "ar_growth_minus_revenue_growth": 17.485769132445494,
+        "ar_to_revenue": 1.2854750897130167,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.0012050274577548386,
+        "cash_to_short_debt": null,
+        "interest_coverage": 84.41639458647414,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 8,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 8
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 8,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 -0.92",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/300923.SZ.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": "20260429"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/300923.SZ.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "300923.SZ-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260429",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "301298.SZ-20261007",
+      "ts_code": "301298.SZ",
+      "name": "东利机械",
+      "market": "创业板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260827",
+        "metric_dates": {
+          "deducted_net_profit": "20260827",
+          "consecutive_loss_years": "20260401",
+          "revenue_to_st_threshold": "20260827",
+          "lowest_profit_metric": "20260827",
+          "net_asset_growth": "20260827",
+          "negative_net_assets": "20260827",
+          "goodwill_to_equity": "20260827",
+          "cfo_negative_years": "20260401",
+          "cash_conversion_3y": "20260401",
+          "ar_growth_minus_revenue_growth": "20260827",
+          "ar_to_revenue": "20260827",
+          "ar_ratio_abnormal": "20260827",
+          "other_receivables_to_equity": "20260827",
+          "cash_to_short_debt": "20260827",
+          "interest_coverage": "20260827",
+          "annual_st_trigger": "20260401",
+          "annual_report_inquiry": "20260827",
+          "inquiry_severity": "20260827",
+          "second_inquiry": "20260827",
+          "audit_opinion": "20260827",
+          "internal_control_opinion": "20260827",
+          "csrc_or_governance_event": "20260827",
+          "profit_loss_known": "20260827",
+          "no_short_debt": "20260827",
+          "no_interest_expense": "20260827"
+        },
+        "revenue_ttm": 632187566.5,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 647137966.89,
+        "net_assets": 910958874.86,
+        "ar_net": 111774241.11,
+        "short_debt": 203712813.28,
+        "interest_expense_ttm": 6687869.890000001
+      },
+      "metrics": {
+        "deducted_net_profit": 25667357.22,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 6.321875665,
+        "lowest_profit_metric": 25667357.22,
+        "net_asset_growth": -1.2420417813967966,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 1.0233299232772666,
+        "ar_growth_minus_revenue_growth": 1.0867458794006302,
+        "ar_to_revenue": 0.1768055036716702,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.004013184481639576,
+        "cash_to_short_debt": 0.8723137930737431,
+        "interest_coverage": 6.863675164888711,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 0,
+        "level": "CLEAN",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 0,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": null
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/301298.SZ.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "301298.SZ-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260401",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688121.SH-20261007",
+      "ts_code": "688121.SH",
+      "name": "卓然股份",
+      "market": "科创板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260831",
+        "metric_dates": {
+          "deducted_net_profit": "20260831",
+          "consecutive_loss_years": "20260806",
+          "revenue_to_st_threshold": "20260831",
+          "lowest_profit_metric": "20260831",
+          "net_asset_growth": "20260831",
+          "negative_net_assets": "20260831",
+          "goodwill_to_equity": "20260831",
+          "cfo_negative_years": "20260806",
+          "cash_conversion_3y": "20260806",
+          "ar_growth_minus_revenue_growth": "20260831",
+          "ar_to_revenue": "20260831",
+          "ar_ratio_abnormal": "20260831",
+          "other_receivables_to_equity": "20260831",
+          "cash_to_short_debt": "20260831",
+          "interest_coverage": "20260831",
+          "annual_st_trigger": "20260806",
+          "annual_report_inquiry": "20260831",
+          "inquiry_severity": "20260831",
+          "second_inquiry": "20260831",
+          "audit_opinion": "20260831",
+          "internal_control_opinion": "20260831",
+          "csrc_or_governance_event": "20260831",
+          "profit_loss_known": "20260831",
+          "no_short_debt": "20260831",
+          "no_interest_expense": "20260831"
+        },
+        "revenue_ttm": 1227721820.1100001,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 1848999424.43,
+        "net_assets": 2191575080.44,
+        "ar_net": 1817055536.52,
+        "short_debt": 706489204.72,
+        "interest_expense_ttm": 42766543.56999999
+      },
+      "metrics": {
+        "deducted_net_profit": -452374106.72999996,
+        "consecutive_loss_years": 1,
+        "revenue_to_st_threshold": 12.277218201100002,
+        "lowest_profit_metric": -452374106.72999996,
+        "net_asset_growth": -13.810307345290218,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.007230822471671122,
+        "cfo_negative_years": 1,
+        "cash_conversion_3y": -12.391553483627892,
+        "ar_growth_minus_revenue_growth": 36.97400702385799,
+        "ar_to_revenue": 1.4800221896823478,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.016366980593153363,
+        "cash_to_short_debt": 0.21273189101249598,
+        "interest_coverage": -7.128239542225882,
+        "annual_st_trigger": null,
+        "annual_report_inquiry": true,
+        "inquiry_severity": "severe",
+        "second_inquiry": null,
+        "audit_opinion": "disclaimer",
+        "internal_control_opinion": "adverse",
+        "csrc_or_governance_event": [
+          "csrc_investigation"
+        ],
+        "profit_loss_known": true,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 100,
+        "level": "HARD AVOID",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 8
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 13
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 80
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 13
+          }
+        ],
+        "raw_score": 114,
+        "combination_points": 25,
+        "floor": 90,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 8,
+            "title": "年度 / TTM 扣非净利润为负",
+            "metric": "deducted_net_profit",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 -12.39",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "quality",
+            "points": 5,
+            "title": "应收增速高于营收 37.0 个百分点",
+            "metric": "ar_growth_minus_revenue_growth",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "regulatory",
+            "points": 15,
+            "title": "严重年报问询：收入确认、客户关联及资金往来核查",
+            "metric": null,
+            "source": {
+              "title": "公司2025-022年报问询回复（第1、29–30页）",
+              "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"
+            }
+          },
+          {
+            "module": "regulatory",
+            "points": 30,
+            "title": "2025年度内控审计：否定意见",
+            "metric": null,
+            "source": {
+              "title": "公司2026-046公告·风险提示",
+              "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459687.PDF"
+            }
+          },
+          {
+            "module": "regulatory",
+            "points": 35,
+            "title": "公司及实控人因涉嫌信息披露违法违规被证监会立案",
+            "metric": null,
+            "source": {
+              "title": "公司2025-053公告·指定披露报刊B041",
+              "url": "https://epaper.cs.com.cn/zgzqb/images/2025-12/20/B041/zqB04120.pdf"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 8,
+            "title": "现金 / 短债 0.2127 倍（低于0.5）",
+            "metric": "cash_to_short_debt",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 5,
+            "title": "利息保障 -7.13 倍",
+            "metric": "interest_coverage",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          }
+        ],
+        "combinations": [
+          {
+            "points": 15,
+            "title": "严重问询 + 证监会立案"
+          },
+          {
+            "points": 10,
+            "title": "现金流差 + 应收异常增长"
+          }
+        ],
+        "floors": [
+          {
+            "score": 90,
+            "title": "2025年度财报审计：无法表示意见",
+            "source": {
+              "title": "2025年度报告·审计报告",
+              "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459676.PDF"
+            }
+          },
+          {
+            "score": 70,
+            "title": "2025年度内控审计：否定意见",
+            "source": {
+              "title": "公司2026-046公告·风险提示",
+              "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459687.PDF"
+            }
+          },
+          {
+            "score": 70,
+            "title": "财务 / 信披问题立案：最低70分",
+            "source": {
+              "title": "公司2025-053公告·指定披露报刊B041",
+              "url": "https://epaper.cs.com.cn/zgzqb/images/2025-12/20/B041/zqB04120.pdf"
+            }
+          }
+        ],
+        "missing": [
+          "announcement_coverage",
+          "annual_st_trigger",
+          "ar_ratio_abnormal"
+        ],
+        "latest_warning": "20260831"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688121.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688121-2025-053-csrc",
+          "kind": "csrc_investigation",
+          "scope": "disclosure",
+          "published_at": "20251220",
+          "title": "公司及实控人因涉嫌信息披露违法违规被证监会立案",
+          "source": {
+            "title": "公司2025-053公告·指定披露报刊B041",
+            "url": "https://epaper.cs.com.cn/zgzqb/images/2025-12/20/B041/zqB04120.pdf"
+          }
+        },
+        {
+          "id": "688121-2024-inquiry-0144",
+          "letter_id": "上证科创公函[2025]0144",
+          "kind": "annual_inquiry",
+          "severity": "severe",
+          "published_at": "20250628",
+          "title": "严重年报问询：收入确认、客户关联及资金往来核查",
+          "source": {
+            "title": "公司2025-022年报问询回复（第1、29–30页）",
+            "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"
+          },
+          "note": "采用已核实的回复披露日，原函首次公开日期尚未核实；不将回复算作二次问询。"
+        },
+        {
+          "id": "688121-2025-audit",
+          "kind": "audit_opinion",
+          "opinion": "disclaimer",
+          "published_at": "20260806",
+          "title": "2025年度财报审计：无法表示意见",
+          "source": {
+            "title": "2025年度报告·审计报告",
+            "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459676.PDF"
+          }
+        },
+        {
+          "id": "688121-2025-internal",
+          "kind": "internal_control_opinion",
+          "opinion": "adverse",
+          "published_at": "20260806",
+          "title": "2025年度内控审计：否定意见",
+          "source": {
+            "title": "公司2026-046公告·风险提示",
+            "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459687.PDF"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688121.SH-20250628",
+      "ts_code": "688121.SH",
+      "name": "卓然股份",
+      "market": "科创板",
+      "as_of": "20250628",
+      "historical": true,
+      "context": {
+        "period": "20250331",
+        "annual_period": "20241231",
+        "ann_date": "20250429",
+        "metric_dates": {
+          "deducted_net_profit": "20250429",
+          "consecutive_loss_years": "20250422",
+          "revenue_to_st_threshold": "20250429",
+          "lowest_profit_metric": "20250429",
+          "net_asset_growth": "20250429",
+          "negative_net_assets": "20250429",
+          "goodwill_to_equity": "20250429",
+          "cfo_negative_years": "20250422",
+          "cash_conversion_3y": "20250422",
+          "ar_growth_minus_revenue_growth": "20250429",
+          "ar_to_revenue": "20250429",
+          "ar_ratio_abnormal": "20250429",
+          "other_receivables_to_equity": "20250429",
+          "cash_to_short_debt": "20250429",
+          "interest_coverage": "20250429",
+          "annual_st_trigger": "20250422",
+          "annual_report_inquiry": "20250429",
+          "inquiry_severity": "20250429",
+          "second_inquiry": "20250429",
+          "audit_opinion": "20250429",
+          "internal_control_opinion": "20250429",
+          "csrc_or_governance_event": "20250429",
+          "profit_loss_known": "20250429",
+          "no_short_debt": "20250429",
+          "no_interest_expense": "20250429"
+        },
+        "revenue_ttm": 2955315617.9300003,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 2838278460.69,
+        "net_assets": 2534677386.17,
+        "ar_net": 1667330956.4,
+        "short_debt": 974562574.38,
+        "interest_expense_ttm": 37138631.18
+      },
+      "metrics": {
+        "deducted_net_profit": 114547662.94,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 29.553156179300004,
+        "lowest_profit_metric": 114547662.94,
+        "net_asset_growth": 1.83999620568569,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.0062520344508005775,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 0.0698221408254317,
+        "ar_growth_minus_revenue_growth": -247.03190736696232,
+        "ar_to_revenue": 0.5641803353537763,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": null,
+        "cash_to_short_debt": 0.4452666683266237,
+        "interest_coverage": 6.270436654256895,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": true,
+        "inquiry_severity": "severe",
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 31,
+        "level": "WATCH",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 8
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 15
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 8
+          }
+        ],
+        "raw_score": 31,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 0.07",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "regulatory",
+            "points": 15,
+            "title": "严重年报问询：收入确认、客户关联及资金往来核查",
+            "metric": null,
+            "source": {
+              "title": "公司2025-022年报问询回复（第1、29–30页）",
+              "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 8,
+            "title": "现金 / 短债 0.4453 倍（低于0.5）",
+            "metric": "cash_to_short_debt",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "other_receivables_to_equity"
+        ],
+        "latest_warning": "20250628"
+      },
+      "documents": [
+        {
+          "title": "当时披露的公司财报原文",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-04-22/1223196007.PDF"
+        },
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688121.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688121-2024-inquiry-0144",
+          "letter_id": "上证科创公函[2025]0144",
+          "kind": "annual_inquiry",
+          "severity": "severe",
+          "published_at": "20250628",
+          "title": "严重年报问询：收入确认、客户关联及资金往来核查",
+          "source": {
+            "title": "公司2025-022年报问询回复（第1、29–30页）",
+            "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"
+          },
+          "note": "采用已核实的回复披露日，原函首次公开日期尚未核实；不将回复算作二次问询。"
+        },
+        {
+          "id": "688121.SH-vendor-audit-20241231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20250422",
+          "title": "2024年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "688121.SH-20250830",
+      "ts_code": "688121.SH",
+      "name": "卓然股份",
+      "market": "科创板",
+      "as_of": "20250830",
+      "historical": true,
+      "context": {
+        "period": "20250630",
+        "annual_period": "20241231",
+        "ann_date": "20250830",
+        "metric_dates": {
+          "deducted_net_profit": "20250830",
+          "consecutive_loss_years": "20250422",
+          "revenue_to_st_threshold": "20250830",
+          "lowest_profit_metric": "20250830",
+          "net_asset_growth": "20250830",
+          "negative_net_assets": "20250830",
+          "goodwill_to_equity": "20250830",
+          "cfo_negative_years": "20250422",
+          "cash_conversion_3y": "20250422",
+          "ar_growth_minus_revenue_growth": "20250830",
+          "ar_to_revenue": "20250830",
+          "ar_ratio_abnormal": "20250830",
+          "other_receivables_to_equity": "20250830",
+          "cash_to_short_debt": "20250830",
+          "interest_coverage": "20250830",
+          "annual_st_trigger": "20250422",
+          "annual_report_inquiry": "20250830",
+          "inquiry_severity": "20250830",
+          "second_inquiry": "20250830",
+          "audit_opinion": "20250830",
+          "internal_control_opinion": "20250830",
+          "csrc_or_governance_event": "20250830",
+          "profit_loss_known": "20250830",
+          "no_short_debt": "20250830",
+          "no_interest_expense": "20250830"
+        },
+        "revenue_ttm": 2445360670.53,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 2838278460.69,
+        "net_assets": 2542734534.65,
+        "ar_net": 2501072088.05,
+        "short_debt": 1195564002.97,
+        "interest_expense_ttm": 39450989.0
+      },
+      "metrics": {
+        "deducted_net_profit": 46902741.56,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 24.4536067053,
+        "lowest_profit_metric": 46902741.56,
+        "net_asset_growth": 0.5117116269679256,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.00623222366474103,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 0.0698221408254317,
+        "ar_growth_minus_revenue_growth": 56.450193153236384,
+        "ar_to_revenue": 1.0227824951105986,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.0006712322095530634,
+        "cash_to_short_debt": 0.49966736754869495,
+        "interest_coverage": 3.53226162745882,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": true,
+        "inquiry_severity": "severe",
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 51,
+        "level": "HIGH",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 0
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 18
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 15
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 8
+          }
+        ],
+        "raw_score": 41,
+        "combination_points": 10,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 0.07",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "quality",
+            "points": 10,
+            "title": "应收增速高于营收 56.5 个百分点",
+            "metric": "ar_growth_minus_revenue_growth",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          },
+          {
+            "module": "regulatory",
+            "points": 15,
+            "title": "严重年报问询：收入确认、客户关联及资金往来核查",
+            "metric": null,
+            "source": {
+              "title": "公司2025-022年报问询回复（第1、29–30页）",
+              "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 8,
+            "title": "现金 / 短债 0.4997 倍（低于0.5）",
+            "metric": "cash_to_short_debt",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/688121.SH.json"
+            }
+          }
+        ],
+        "combinations": [
+          {
+            "points": 10,
+            "title": "现金流差 + 应收异常增长"
+          }
+        ],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal"
+        ],
+        "latest_warning": "20250830"
+      },
+      "documents": [
+        {
+          "title": "当时披露的公司财报原文",
+          "url": "https://dataclouds.cninfo.com.cn/shgonggao/2025/2025-08-30/46ae3faa84cf11f09dd8fa163e957f7a.pdf"
+        },
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/688121.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "688121-2024-inquiry-0144",
+          "letter_id": "上证科创公函[2025]0144",
+          "kind": "annual_inquiry",
+          "severity": "severe",
+          "published_at": "20250628",
+          "title": "严重年报问询：收入确认、客户关联及资金往来核查",
+          "source": {
+            "title": "公司2025-022年报问询回复（第1、29–30页）",
+            "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"
+          },
+          "note": "采用已核实的回复披露日，原函首次公开日期尚未核实；不将回复算作二次问询。"
+        },
+        {
+          "id": "688121.SH-vendor-audit-20241231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20250422",
+          "title": "2024年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "603718.SH-20261007",
+      "ts_code": "603718.SH",
+      "name": "海利生物",
+      "market": "主板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260829",
+        "metric_dates": {
+          "deducted_net_profit": "20260829",
+          "consecutive_loss_years": "20260430",
+          "revenue_to_st_threshold": "20260829",
+          "lowest_profit_metric": "20260829",
+          "net_asset_growth": "20260829",
+          "negative_net_assets": "20260829",
+          "goodwill_to_equity": "20260829",
+          "cfo_negative_years": "20260430",
+          "cash_conversion_3y": "20260430",
+          "ar_growth_minus_revenue_growth": "20260829",
+          "ar_to_revenue": "20260829",
+          "ar_ratio_abnormal": "20260829",
+          "other_receivables_to_equity": "20260829",
+          "cash_to_short_debt": "20260829",
+          "interest_coverage": "20260829",
+          "annual_st_trigger": "20260430",
+          "annual_report_inquiry": "20260829",
+          "inquiry_severity": "20260829",
+          "second_inquiry": "20260829",
+          "audit_opinion": "20260829",
+          "internal_control_opinion": "20260829",
+          "csrc_or_governance_event": "20260829",
+          "profit_loss_known": "20260829",
+          "no_short_debt": "20260829",
+          "no_interest_expense": "20260829"
+        },
+        "revenue_ttm": 213984841.77999997,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 187870337.79,
+        "net_assets": 892903579.57,
+        "ar_net": 125797293.58,
+        "short_debt": 38337355.16,
+        "interest_expense_ttm": 1356126.28
+      },
+      "metrics": {
+        "deducted_net_profit": -620926060.29,
+        "consecutive_loss_years": 1,
+        "revenue_to_st_threshold": 0.7132828059333333,
+        "lowest_profit_metric": -620926060.29,
+        "net_asset_growth": -43.545427029028104,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.6311789823055776,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": null,
+        "ar_growth_minus_revenue_growth": -2.1474650947512997,
+        "ar_to_revenue": 0.5878794616178163,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.013631620388241244,
+        "cash_to_short_debt": 3.9059414817493114,
+        "interest_coverage": 28.03594927015203,
+        "annual_st_trigger": true,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": true,
+        "no_short_debt": false,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 91,
+        "level": "HARD AVOID",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 76
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 76,
+        "combination_points": 15,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 8,
+            "title": "年度 / TTM 扣非净利润为负",
+            "metric": "deducted_net_profit",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          },
+          {
+            "module": "financial",
+            "points": 15,
+            "title": "年度 / TTM 营收为收入阈值的 0.71 倍",
+            "metric": "revenue_to_st_threshold",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          },
+          {
+            "module": "financial",
+            "points": 35,
+            "title": "正式年度 / 业绩预告收入低于阈值且利润孰低为负",
+            "metric": "annual_st_trigger",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          },
+          {
+            "module": "financial",
+            "points": 8,
+            "title": "净资产同比下降 43.5%",
+            "metric": "net_asset_growth",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          },
+          {
+            "module": "financial",
+            "points": 10,
+            "title": "商誉 / 净资产 63.1%",
+            "metric": "goodwill_to_equity",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          }
+        ],
+        "combinations": [
+          {
+            "points": 15,
+            "title": "亏损 + 营收接近收入阈值"
+          }
+        ],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_conversion_3y"
+        ],
+        "latest_warning": "20260829"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/603718.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "603718.SH-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20260430",
+          "title": "2025年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "603718.SH-20250828",
+      "ts_code": "603718.SH",
+      "name": "海利生物",
+      "market": "主板",
+      "as_of": "20250828",
+      "historical": true,
+      "context": {
+        "period": "20250630",
+        "annual_period": "20241231",
+        "ann_date": "20250828",
+        "metric_dates": {
+          "deducted_net_profit": "20250828",
+          "consecutive_loss_years": "20250422",
+          "revenue_to_st_threshold": "20250828",
+          "lowest_profit_metric": "20250828",
+          "net_asset_growth": "20250828",
+          "negative_net_assets": "20250828",
+          "goodwill_to_equity": "20250828",
+          "cfo_negative_years": "20250422",
+          "cash_conversion_3y": "20250422",
+          "ar_growth_minus_revenue_growth": "20250828",
+          "ar_to_revenue": "20250828",
+          "ar_ratio_abnormal": "20250828",
+          "other_receivables_to_equity": "20250828",
+          "cash_to_short_debt": "20250828",
+          "interest_coverage": "20250828",
+          "annual_st_trigger": "20250422",
+          "annual_report_inquiry": "20250828",
+          "inquiry_severity": "20250828",
+          "second_inquiry": "20250828",
+          "audit_opinion": "20250828",
+          "internal_control_opinion": "20250828",
+          "csrc_or_governance_event": "20250828",
+          "profit_loss_known": "20250828",
+          "no_short_debt": "20250828",
+          "no_interest_expense": "20250828"
+        },
+        "revenue_ttm": 273218323.7,
+        "revenue_threshold": 300000000,
+        "annual_revenue": 271039818.26,
+        "net_assets": 1581631978.74,
+        "ar_net": 103416652.81,
+        "short_debt": null,
+        "interest_expense_ttm": 3652566.2400000007
+      },
+      "metrics": {
+        "deducted_net_profit": 39080621.79,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 0.9107277456666666,
+        "lowest_profit_metric": 39080621.79,
+        "net_asset_growth": 25.917124050318275,
+        "negative_net_assets": false,
+        "goodwill_to_equity": 0.6446794922497053,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": 0.9306988771242479,
+        "ar_growth_minus_revenue_growth": 19.815828334007346,
+        "ar_to_revenue": 0.3785128735492641,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.0017785136478088456,
+        "cash_to_short_debt": null,
+        "interest_coverage": 20.45940184783616,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "standard",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": false,
+        "no_short_debt": null,
+        "no_interest_expense": false
+      },
+      "risk": {
+        "score": 25,
+        "level": "WATCH",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 25
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 0
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 0
+          }
+        ],
+        "raw_score": 25,
+        "combination_points": 0,
+        "floor": 0,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 15,
+            "title": "年度 / TTM 营收为收入阈值的 0.91 倍",
+            "metric": "revenue_to_st_threshold",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          },
+          {
+            "module": "financial",
+            "points": 10,
+            "title": "商誉 / 净资产 64.5%",
+            "metric": "goodwill_to_equity",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/603718.SH.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "cash_to_short_debt"
+        ],
+        "latest_warning": "20250828"
+      },
+      "documents": [
+        {
+          "title": "当时披露的公司财报原文",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-08-28/1224587431.PDF"
+        },
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/603718.SH.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "603718.SH-vendor-audit-20241231",
+          "kind": "audit_opinion",
+          "opinion": "standard",
+          "published_at": "20250422",
+          "title": "2024年财报审计：标准无保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    },
+    {
+      "id": "301139.SZ-20261007",
+      "ts_code": "301139.SZ",
+      "name": "元道退",
+      "market": "创业板",
+      "as_of": "20261007",
+      "historical": false,
+      "context": {
+        "period": "20260630",
+        "annual_period": "20251231",
+        "ann_date": "20260829",
+        "metric_dates": {
+          "deducted_net_profit": "20260829",
+          "consecutive_loss_years": "20260429",
+          "revenue_to_st_threshold": "20260829",
+          "lowest_profit_metric": "20260829",
+          "net_asset_growth": "20260829",
+          "negative_net_assets": "20260829",
+          "goodwill_to_equity": "20260829",
+          "cfo_negative_years": "20260429",
+          "cash_conversion_3y": "20260429",
+          "ar_growth_minus_revenue_growth": "20260829",
+          "ar_to_revenue": "20260829",
+          "ar_ratio_abnormal": "20260829",
+          "other_receivables_to_equity": "20260829",
+          "cash_to_short_debt": "20260829",
+          "interest_coverage": "20260829",
+          "annual_st_trigger": "20260429",
+          "annual_report_inquiry": "20260829",
+          "inquiry_severity": "20260829",
+          "second_inquiry": "20260829",
+          "audit_opinion": "20260829",
+          "internal_control_opinion": "20260829",
+          "csrc_or_governance_event": "20260829",
+          "profit_loss_known": "20260829",
+          "no_short_debt": "20260829",
+          "no_interest_expense": "20260829"
+        },
+        "revenue_ttm": 1294351995.71,
+        "revenue_threshold": 100000000,
+        "annual_revenue": 1386820577.55,
+        "net_assets": 1888905741.19,
+        "ar_net": 676198965.82,
+        "short_debt": 475802740.95,
+        "interest_expense_ttm": 24430222.089999996
+      },
+      "metrics": {
+        "deducted_net_profit": -65650512.17,
+        "consecutive_loss_years": 0,
+        "revenue_to_st_threshold": 12.943519957100001,
+        "lowest_profit_metric": -65650512.17,
+        "net_asset_growth": -3.190950173323104,
+        "negative_net_assets": false,
+        "goodwill_to_equity": null,
+        "cfo_negative_years": 0,
+        "cash_conversion_3y": -2.1134595884635,
+        "ar_growth_minus_revenue_growth": 0.43852481119104336,
+        "ar_to_revenue": 0.5224227783950531,
+        "ar_ratio_abnormal": null,
+        "other_receivables_to_equity": 0.007898950278270766,
+        "cash_to_short_debt": 0.09892963900547702,
+        "interest_coverage": -1.6739739086015,
+        "annual_st_trigger": false,
+        "annual_report_inquiry": null,
+        "inquiry_severity": null,
+        "second_inquiry": null,
+        "audit_opinion": "qualified",
+        "internal_control_opinion": null,
+        "csrc_or_governance_event": [],
+        "profit_loss_known": true,
+        "no_short_debt": false,
+        "no_interest_expense": false,
+        "listing_status": "termination_decided",
+        "listing_risk_title": "已收到终止上市决定，9月30日起进入退市整理期",
+        "listing_source_url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-09-21/d60f2508-dee7-4b50-9f42-57500e4d24b0.PDF",
+        "listing_source_title": "元道通信2026-097：关于公司股票进入退市整理期交易的公告"
+      },
+      "risk": {
+        "score": 100,
+        "level": "HARD AVOID",
+        "complete": false,
+        "modules": [
+          {
+            "key": "financial",
+            "label": "财务风险",
+            "score": 8
+          },
+          {
+            "key": "quality",
+            "label": "财务质量",
+            "score": 8
+          },
+          {
+            "key": "regulatory",
+            "label": "审计 / 监管 / 治理",
+            "score": 0
+          },
+          {
+            "key": "liquidity",
+            "label": "生存 / 流动性",
+            "score": 13
+          }
+        ],
+        "raw_score": 29,
+        "combination_points": 0,
+        "floor": 100,
+        "triggers": [
+          {
+            "module": "financial",
+            "points": 8,
+            "title": "年度 / TTM 扣非净利润为负",
+            "metric": "deducted_net_profit",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/301139.SZ.json"
+            }
+          },
+          {
+            "module": "quality",
+            "points": 8,
+            "title": "三年累计现金转化率 -2.11",
+            "metric": "cash_conversion_3y",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/301139.SZ.json"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 8,
+            "title": "现金 / 短债 0.0989 倍（低于0.5）",
+            "metric": "cash_to_short_debt",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/301139.SZ.json"
+            }
+          },
+          {
+            "module": "liquidity",
+            "points": 5,
+            "title": "利息保障 -1.67 倍",
+            "metric": "interest_coverage",
+            "source": {
+              "title": "本次Tushare原始财报记录",
+              "url": "data/risk-test-financials/301139.SZ.json"
+            }
+          }
+        ],
+        "combinations": [],
+        "floors": [
+          {
+            "score": 100,
+            "title": "已收到终止上市决定，9月30日起进入退市整理期",
+            "source": {
+              "title": "元道通信2026-097：关于公司股票进入退市整理期交易的公告",
+              "url": "https://disc.static.szse.cn/download/disc/disk03/finalpage/2026-09-21/d60f2508-dee7-4b50-9f42-57500e4d24b0.PDF"
+            }
+          }
+        ],
+        "missing": [
+          "announcement_coverage",
+          "ar_ratio_abnormal",
+          "goodwill_to_equity"
+        ],
+        "latest_warning": "20260921"
+      },
+      "documents": [
+        {
+          "title": "本次Tushare原始财报记录",
+          "url": "data/risk-test-financials/301139.SZ.json"
+        },
+        {
+          "title": "利润表 · income",
+          "url": "https://tushare.pro/document/2?doc_id=33"
+        },
+        {
+          "title": "资产负债表 · balancesheet",
+          "url": "https://tushare.pro/document/2?doc_id=36"
+        },
+        {
+          "title": "现金流 · cashflow",
+          "url": "https://tushare.pro/document/2?doc_id=44"
+        },
+        {
+          "title": "扣非净利 · fina_indicator",
+          "url": "https://tushare.pro/document/2?doc_id=79"
+        }
+      ],
+      "events": [
+        {
+          "id": "301139.SZ-vendor-audit-20251231",
+          "kind": "audit_opinion",
+          "opinion": "qualified",
+          "published_at": "20260429",
+          "title": "2025年财报审计：保留意见",
+          "source": {
+            "title": "Tushare财务审计意见（供应商记录）",
+            "url": "https://tushare.pro/document/2?doc_id=80"
+          }
+        }
+      ],
+      "trend": null
+    }
+  ],
+  "errors": []
+}

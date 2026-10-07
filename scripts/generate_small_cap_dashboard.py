@@ -9,6 +9,10 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import tushare as ts
+try:
+    from scripts.data_pipeline.listing_risk import listing_risk
+except ModuleNotFoundError:
+    from data_pipeline.listing_risk import listing_risk
 
 try:
     from scripts.data_pipeline.business_keywords import business_keywords
@@ -34,12 +38,13 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = 250
 
 
-def select_smallest(basic: pd.DataFrame, market: pd.DataFrame, *, include_st=True, include_bj=True, target=TARGET):
+def select_smallest(basic: pd.DataFrame, market: pd.DataFrame, *, include_st=True, include_bj=True, target=TARGET, as_of=None):
     merged = basic.merge(market, on="ts_code", validate="one_to_one")
     a_share = ((merged.ts_code.str.endswith(".SH") & merged.symbol.str.startswith("6")) |
                (merged.ts_code.str.endswith(".SZ") & merged.symbol.str.startswith(("0", "3"))) |
                (merged.ts_code.str.endswith(".BJ") & include_bj))
     merged = merged[a_share].copy()
+    merged = merged.loc[[not listing_risk(row, as_of or '99999999', use_snapshot=as_of is not None) for row in merged.to_dict('records')]].copy()
     if not include_st:
         merged = merged[~merged.name.str.contains("ST", case=False, na=False)].copy()
     merged["total_market_cap_yi"] = pd.to_numeric(merged.total_mv, errors="coerce") / 10000
@@ -73,7 +78,7 @@ def assess_losses(frame: pd.DataFrame, as_of: str) -> dict:
 def screen_non_loss(candidates, load_financial, target=100, progress=None):
     selected, audit = [], []
     for item in candidates:
-        if item['ts_code'].endswith('.BJ') or 'ST' in str(item.get('name', '')).upper():
+        if listing_risk(item) or item['ts_code'].endswith('.BJ') or 'ST' in str(item.get('name', '')).upper():
             continue
         report = load_financial(item)
         audit.append({"code": str(item['symbol']), "total_market_cap_yi": item['total_market_cap_yi'],
@@ -104,7 +109,7 @@ def main():
     basic = source.all_rows("stock_basic", exchange="", list_status="L",
                             fields="ts_code,symbol,name,market,industry,list_date")
     market = source.all_rows("daily_basic", trade_date=trade_date, fields="ts_code,trade_date,close,total_mv")
-    candidates, universe = select_smallest(basic, market, include_st=not args.exclude_st, include_bj=not args.exclude_bj)
+    candidates, universe = select_smallest(basic, market, include_st=not args.exclude_st, include_bj=not args.exclude_bj, as_of=as_of)
     if len(candidates) != TARGET:
         raise RuntimeError(f"Cannot generate the smallest {TARGET}: incomplete market snapshot")
     business = {}
@@ -129,7 +134,7 @@ def main():
                 financials[code] = assess_losses(pd.DataFrame(), as_of)
         return financials[code]
 
-    screened_candidates, screened_universe = select_smallest(basic, market, include_st=False, include_bj=False, target=None)
+    screened_candidates, screened_universe = select_smallest(basic, market, include_st=False, include_bj=False, target=None, as_of=as_of)
     def progress(checked, selected):
         if checked % 10 == 0 or selected == 100:
             print(f"Financial scan: {checked} checked, {selected}/100 selected", flush=True)
@@ -175,7 +180,7 @@ def main():
     screened_rows = [{**by_code[str(item['symbol'])], 'market_cap_rank': i + 1} for i, item in enumerate(screened)]
     rows = rows[:TARGET]
     payload = {"schema_version": 2, "trade_date": trade_date, "updated_at": now.strftime("%Y-%m-%d %H:%M"),
-               "financial_as_of": as_of, "adjustment": "qfq", "filters": {"include_st": not args.exclude_st, "include_bj": not args.exclude_bj, "target": TARGET},
+               "financial_as_of": as_of, "adjustment": "qfq", "filters": {"include_st": not args.exclude_st, "include_bj": not args.exclude_bj, "exclude_delisting": True, "target": TARGET},
                "summary": {"universe": universe, "selected": len(rows)}, "rows": rows,
                "screened": {"target": 100, "include_st": False, "universe": screened_universe, "checked": len(audit), "audit": audit, "rows": screened_rows}}
     if errors:

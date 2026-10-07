@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-strip-types --test tests/sector_display.test.mjs",
+    "test": "node --experimental-strip-types --test tests/sector_display.test.mjs tests/risk_display.test.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

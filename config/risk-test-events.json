@@ -1,0 +1,9 @@
+{
+  "688121.SH": [
+    {"id": "688121-2025-053-csrc", "kind": "csrc_investigation", "scope": "disclosure", "published_at": "20251220", "title": "公司及实控人因涉嫌信息披露违法违规被证监会立案", "source": {"title": "公司2025-053公告·指定披露报刊B041", "url": "https://epaper.cs.com.cn/zgzqb/images/2025-12/20/B041/zqB04120.pdf"}},
+    {"id": "688121-2024-inquiry-0144", "letter_id": "上证科创公函[2025]0144", "kind": "annual_inquiry", "severity": "severe", "published_at": "20250628", "title": "严重年报问询：收入确认、客户关联及资金往来核查", "source": {"title": "公司2025-022年报问询回复（第1、29–30页）", "url": "https://epaper.stcn.com/pic/202506/28/4ab5027d2eb157758830a81dc67d6698.pdf"}, "note": "采用已核实的回复披露日，原函首次公开日期尚未核实；不将回复算作二次问询。"},
+    {"id": "688121-2025-audit", "kind": "audit_opinion", "opinion": "disclaimer", "published_at": "20260806", "title": "2025年度财报审计：无法表示意见", "source": {"title": "2025年度报告·审计报告", "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459676.PDF"}},
+    {"id": "688121-2025-internal", "kind": "internal_control_opinion", "opinion": "adverse", "published_at": "20260806", "title": "2025年度内控审计：否定意见", "source": {"title": "公司2026-046公告·风险提示", "url": "https://static.cninfo.com.cn/finalpage/2026-08-06/1225459687.PDF"}}
+  ],
+  "603718.SH": []
+}

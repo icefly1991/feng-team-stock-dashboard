@@ -1,0 +1,64 @@
+
+/* CR-023: fluid desktop columns and stacked mobile rows; no horizontal panning. */
+.stock-table { min-width: 0; }
+.stock-table [class*="min-w-["] { min-width: 0 !important; }
+.stock-table [class*="overflow-x-auto"] { overflow-x: visible; }
+.stock-grid { width: 100%; gap: clamp(4px, .6vw, 10px) !important; padding-inline: 12px !important; }
+.small-grid { grid-template-columns: 20px minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.55fr) minmax(0,.6fr) minmax(0,.65fr) minmax(0,.65fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,1.15fr) minmax(0,.85fr) minmax(0,1.15fr) !important; }
+.growth-grid { grid-template-columns: 20px minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.6fr) minmax(0,.65fr) minmax(0,.7fr) minmax(0,.7fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,.9fr) !important; }
+.watch-grid { grid-template-columns: 20px minmax(0,1.1fr) minmax(0,1.25fr) minmax(0,1.2fr) minmax(0,.7fr) minmax(0,.75fr) minmax(0,.8fr) minmax(0,.85fr) minmax(0,1.4fr) !important; }
+.stock-grid > * { min-width: 0; overflow-wrap: anywhere; }
+.stock-grid > .sticky { position: static; box-shadow: none; transform: none; }
+.stock-head { letter-spacing: normal; font-size: 11px; }
+.stock-grid button { white-space: normal; }
+.stock-grid .truncate { white-space: normal; overflow: visible; text-overflow: clip; }
+.stock-row { font-size: 12px; }
+.stock-row > * { padding-inline: 0 !important; }
+.watch-table .space-y-3.px-3 { padding-inline: 0; }
+.stock-row .risk-cell { padding-inline: 0; }
+.business-phrases { line-height: 1.9; }
+@media (min-width: 1100px) { .mobile-sort { display: none; } }
+@media (max-width: 1099px) {
+  .stock-table > div:has(> .stock-head) { display: none; }
+  .stock-row.stock-grid { position: relative; grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 16px 20px !important; padding: 20px 16px !important; align-items: start; }
+  .stock-row > :first-child { display: flex; position: absolute; top: 20px; right: 16px; left: auto; gap: 3px; }
+  .stock-row > :nth-child(2) { grid-column: 1 / -1; padding-right: 32px !important; }
+  .stock-row > *::before { display: block; margin-bottom: 5px; color: #718297; font-size: 11px; text-align: left; }
+  .stock-row > .hidden { display: none; }
+  .stock-row > * { text-align: left; }
+  .stock-row > :first-child::before { content: '#'; }
+  .small-grid.stock-row > :nth-child(11), .small-grid.stock-row > :nth-child(13), .growth-grid.stock-row > :nth-child(11) { grid-column: 1 / -1; }
+  .stock-row .risk-score-line strong { font-size: 22px; }
+}
+
+@media (max-width:1099px) {
+.small-grid.stock-row > :nth-child(3)::before { content: "风险评分"; }
+.small-grid.stock-row > :nth-child(4)::before { content: "所属板块"; }
+.small-grid.stock-row > :nth-child(5)::before { content: "收盘价"; }
+.small-grid.stock-row > :nth-child(6)::before { content: "今日涨跌"; }
+.small-grid.stock-row > :nth-child(7)::before { content: "总市值"; }
+.small-grid.stock-row > :nth-child(8)::before { content: "距年线"; }
+.small-grid.stock-row > :nth-child(9)::before { content: "最新年报归母净利"; }
+.small-grid.stock-row > :nth-child(10)::before { content: "最新财报归母净利（累计）"; }
+.small-grid.stock-row > :nth-child(11)::before { content: "主营业务"; }
+.small-grid.stock-row > :nth-child(12)::before { content: "52周内位置"; }
+.small-grid.stock-row > :nth-child(13)::before { content: "60日活跃度"; }
+.growth-grid.stock-row > :nth-child(3)::before { content: "风险评分"; }
+.growth-grid.stock-row > :nth-child(4)::before { content: "所属板块"; }
+.growth-grid.stock-row > :nth-child(5)::before { content: "收盘价"; }
+.growth-grid.stock-row > :nth-child(6)::before { content: "今日涨跌"; }
+.growth-grid.stock-row > :nth-child(7)::before { content: "总市值"; }
+.growth-grid.stock-row > :nth-child(8)::before { content: "距年线"; }
+.growth-grid.stock-row > :nth-child(9)::before { content: "最新年报归母净利"; }
+.growth-grid.stock-row > :nth-child(10)::before { content: "最新财报归母净利（累计）"; }
+.growth-grid.stock-row > :nth-child(11)::before { content: "主营业务"; }
+.growth-grid.stock-row > :nth-child(12)::before { content: "52周内位置"; }
+.watch-grid.stock-row > :nth-child(3)::before { content: "风险评分"; }
+.watch-grid.stock-row > :nth-child(4)::before { content: "所属板块"; }
+.watch-grid.stock-row > :nth-child(5)::before { content: "收盘价"; }
+.watch-grid.stock-row > :nth-child(6)::before { content: "今日涨跌"; }
+.watch-grid.stock-row > :nth-child(7)::before { content: "距年线"; }
+.watch-grid.stock-row > :nth-child(8)::before { content: "今年涨跌幅"; }
+.watch-grid.stock-row > :nth-child(9)::before { content: "距52周高点"; }
+.watch-grid.stock-row > :nth-child(10)::before { content: "当前排序指标"; }
+}

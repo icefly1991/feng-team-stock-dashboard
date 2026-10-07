@@ -1,8 +1,11 @@
+import { listingRisk, useListingStatus } from './listingStatus'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Copy } from 'lucide-react'
 import GrowthMarketPage from './GrowthMarketPage'
 import SmallCapMarketPage from './SmallCapMarketPage'
+import RiskTestPage from './RiskTestPage'
+import { RiskScoreCell, RiskCoverageNote } from './RiskWatch'
 import { CopyStockButton, StockCopyProvider } from './StockCopy'
 import { StockHistoryCode, StockHistoryProvider } from './StockHistoryPreview'
 import { ShareholderBadge, ShareholderProvider, ShareholderRoster } from './ShareholderWatch'
@@ -115,7 +118,9 @@ function App() {
   const [error, setError] = useState(false)
   const [sector, setSector] = useState('')
   const sectors = useStockSectors()
+  const listing = useListingStatus()
   const headerScrollRef = useRef<HTMLDivElement>(null)
+  const tableScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleHashChange = () => setPage(window.location.hash)
@@ -124,7 +129,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (!['#growth-market', '#small-cap-market', '#active-market'].includes(page)) document.title = '每日数据更新'
+    if (!['#growth-market', '#small-cap-market', '#active-market', '#risk-test'].includes(page)) document.title = '每日数据更新'
   }, [page])
 
   useEffect(() => {
@@ -142,9 +147,9 @@ function App() {
   const rows = useMemo(
     () =>
       current
-        ? [...current.rows].filter(row => matchesSector(sectors.data, row.code, sector)).sort((a, b) => compareStockValues(a, b, a[tab], b[tab]))
+        ? [...current.rows].filter(row => !listingRisk(row, undefined, listing)).filter(row => matchesSector(sectors.data, row.code, sector)).sort((a, b) => compareStockValues(a, b, a[tab], b[tab]))
         : [],
-    [current, tab, sector, sectors.data],
+    [current, tab, sector, sectors.data, listing],
   )
   const maxMetric = useMemo(
     () => Math.max(...rows.map((row) => Number.isFinite(row[tab]) ? Math.abs(row[tab]!) : 0), 1),
@@ -158,13 +163,14 @@ function App() {
     const missing = rows.filter((row) => !Number.isFinite(row[tab]))
     return missing.length ? [...groups, { separator: null, rows: missing }] : groups
   }, [rows, tab])
-  const tableGridClass = 'grid grid-cols-[3%_14%_14%_9%_9%_10%_10%_24%] gap-[1%]'
+  const tableGridClass = 'stock-grid watch-grid grid grid-cols-[32px_154px_150px_156px_84px_84px_100px_100px_minmax(174px,1fr)] gap-3'
   const displayGroups = useMemo(
     () => (continuousMetrics.includes(tab) ? [{ separator: null, rows }] : groupedRows),
     [groupedRows, rows, tab],
   )
 
   if (page === '#growth-market') return <GrowthMarketPage />
+  if (page === '#risk-test') return <RiskTestPage />
   if (page === '#small-cap-market' || page === '#active-market') return <SmallCapMarketPage />
   if (error || (data && !current)) return <StateView text="无法加载 /data/dashboard.json" error />
   if (!data || !current) return <StateView text="加载中..." />
@@ -182,7 +188,7 @@ function App() {
           <div className="relative flex flex-col gap-5">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
-                <div className="inline-flex rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-[11px] font-medium tracking-[0.22em] text-slate-500">DAILY MARKET SNAPSHOT</div>
+                <div className="inline-flex rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-[11px] font-medium tracking-[0.22em] text-slate-500">每日行情概览</div>
                 <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">每日数据更新</h1>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">每个交易日下午 4:30 后更新数据。</p>
                 <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-500">
@@ -194,7 +200,7 @@ function App() {
                 </div>
               </div>
               <div className="rounded-[1.4rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.72))] px-4 py-3 text-sm text-slate-600 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur">
-                <div className="text-[11px] font-medium tracking-[0.16em] text-slate-400">LAST REFRESH</div>
+                <div className="text-[11px] font-medium tracking-[0.16em] text-slate-400">最近更新</div>
                 <div className="mt-1 text-sm font-medium text-slate-900">更新时间：{data.updated_at}</div>
                 {data.trade_date && <div className="mt-1 text-xs text-slate-500">交易日：{data.trade_date}</div>}
               </div>
@@ -217,7 +223,7 @@ function App() {
 
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-[1.6rem] border border-slate-200/80 bg-white/65 px-4 py-3 text-sm text-slate-600">
               <div>当前口径：<span className="font-medium text-slate-900">{adjustmentText[adjustment]}</span>，下方榜单与汇总数据已同步切换。</div>
-              <div className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white">FOCUS MODE</div>
+              <div className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white">专注浏览</div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
@@ -263,16 +269,18 @@ function App() {
             </div>
 
             <SectorFilter data={sectors.data} error={sectors.error} codes={current.rows.map(row => row.code)} value={sector} onChange={setSector} />
+            <RiskCoverageNote />
             {!rows.length && <p className="py-5 text-center text-sm text-slate-400">没有符合板块筛选的股票</p>}
-            <div className="mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
+            <div className="stock-table watch-table mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
               <div ref={headerScrollRef} className="sticky top-[72px] z-40 overflow-hidden rounded-t-[1.5rem] bg-[#fcfcfb] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
-                <div className={`${tableGridClass} min-w-[1160px] min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-[29px] py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400`}>
+                <div className={`${tableGridClass} stock-head min-w-[1300px] min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-[29px] py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400`}>
                   <div className="sticky left-0 z-10 flex items-center justify-center bg-[#fcfcfb]">
                     <span className="text-[10px] text-slate-300">#</span>
                   </div>
-                  <div className="sticky left-[4%] z-10 flex -translate-x-1 items-center justify-center bg-[#fcfcfb] px-2 text-center">
+                  <div className="sticky left-[44px] z-10 flex -translate-x-1 items-center justify-center bg-[#fcfcfb] px-2 text-center">
                     <span>股票</span>
                   </div>
+                  <div className="px-2">风险评分</div>
                   <div className="flex items-center px-2"><span>所属板块</span></div>
                   <div className="flex items-center justify-end px-2">
                     <span>收盘价</span>
@@ -284,7 +292,7 @@ function App() {
                     <span>距年线</span>
                   </div>
                   <div className={`${tab === 'ytd_return_pct' ? 'hidden' : 'flex'} translate-x-1 items-center justify-self-center px-2 text-center`}>
-                    <span>YTD</span>
+                    <span>今年涨跌幅</span>
                   </div>
                   <div className={`${continuousMetrics.includes(tab) ? 'hidden' : 'flex'} items-center justify-end px-2`}>
                     <span>52周高点</span>
@@ -295,10 +303,10 @@ function App() {
                 </div>
 
               </div>
-              <div className="overflow-x-auto rounded-b-[1.5rem]" onScroll={(event) => {
+              <div ref={tableScrollRef} tabIndex={0} aria-label="自选股榜单，所有指标完整显示" className="overflow-x-auto rounded-b-[1.5rem]" onScroll={(event) => {
                 if (headerScrollRef.current) headerScrollRef.current.scrollLeft = event.currentTarget.scrollLeft
               }}>
-                <div className="min-w-[1160px]">
+                <div className="min-w-[1300px]">
                 <div className="space-y-3 px-3 py-3">
                   {displayGroups.map((group, groupIndex) => (
                     <div key={group.separator ?? `all-${groupIndex}`} className="space-y-2">
@@ -307,12 +315,12 @@ function App() {
                           {group.rows.map((row) => {
                           const index = rows.findIndex((item) => item.code === row.code) + 1
                           return (
-                            <div key={`${adjustment}-${group.separator ?? 'all'}-${row.code}`} className={`${tableGridClass} items-center rounded-[1.2rem] border border-slate-200/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-slate-300/75 hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.05)]`}>
+                            <div key={`${adjustment}-${group.separator ?? 'all'}-${row.code}`} className={`${tableGridClass} stock-row items-center rounded-[1.2rem] border border-slate-200/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-slate-300/75 hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.05)]`}>
                               <div className="sticky left-0 z-10 flex justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))]">
                                 <p className="text-[11px] font-medium tabular-nums text-slate-300">{index}</p>
                               </div>
 
-                              <div className="sticky left-[4%] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
+                              <div className="sticky left-[44px] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
                                 <div className="min-w-0 rounded-[0.95rem] px-3 py-2">
                                   <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} textClassName="text-[15px] font-medium tracking-[-0.01em] text-slate-900" />
                                   <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date ?? ''} adjustment={adjustment} source="watchlist">
@@ -322,6 +330,7 @@ function App() {
                                 </div>
                               </div>
 
+                              <div className="min-w-0"><RiskScoreCell code={row.code} name={row.name} compact /></div>
                               <SectorCell data={sectors.data} code={row.code} onSelect={setSector} />
                               <div className="px-2 text-right text-[15px] font-medium tabular-nums text-slate-900">{row.close.toFixed(1)}</div>
                               <div className={`px-2 text-right text-[13px] font-medium tabular-nums ${getMetricTextClass(row.today_return_pct)}`}>{formatPct(row.today_return_pct)}</div>

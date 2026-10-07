@@ -10,6 +10,10 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 import tushare as ts
+try:
+    from scripts.data_pipeline.listing_risk import listing_risk
+except ModuleNotFoundError:
+    from data_pipeline.listing_risk import listing_risk
 
 try:
     from scripts.data_pipeline.business_keywords import business_keywords
@@ -177,6 +181,7 @@ def load_candidates(pro: Any, trade_date: str) -> tuple[list[dict[str, Any]], in
         fields="ts_code,trade_date,close,total_mv",
     )
     merged = basic.merge(daily, on="ts_code", how="inner")
+    merged = merged.loc[[not listing_risk(row) for row in merged.to_dict('records')]].copy()
     merged["total_mv"] = pd.to_numeric(merged["total_mv"], errors="coerce")
     valid_market_cap = (merged["total_mv"] > 0) & (merged["total_mv"] < float("inf"))
     prefix_mask = merged["symbol"].astype(str).str.startswith(SUPPORTED_PREFIXES)

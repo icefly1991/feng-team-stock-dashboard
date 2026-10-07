@@ -1,0 +1,13 @@
+{
+  "version": "0.1.1",
+  "formula": "min(100, max(raw_score + interaction_score, risk_floor))",
+  "normalization": "none",
+  "weights_enabled": false,
+  "pending_rules": ["应收账款/营收显著高于历史或同行：数值阈值待确认", "资金占用25–40分：分档待确认", "违规担保25–40分：分档待确认"],
+  "thresholds": [
+    {"market": "主板", "effective_from": "20240101", "revenue_yuan": 300000000, "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/mainipo/c/c_20260424_10816589.shtml"},
+    {"market": "科创板", "effective_from": "20240101", "revenue_yuan": 100000000, "url": "https://www.sse.com.cn/lawandrules/sselawsrules2025/stocks/staripo/c/c_20260424_10816592.shtml"},
+    {"market": "创业板", "effective_from": "20240101", "revenue_yuan": 100000000, "url": "https://investor.szse.cn/lawrules/rule/allrules/bussiness/t20260424_620189.html"},
+    {"market": "北交所", "effective_from": "20240101", "revenue_yuan": 50000000, "url": "https://dataclouds.cninfo.com.cn/sjother2/regulatory/2026/20260424/a8eb1135a3db4e26a210495e08d1d897.pdf"}
+  ]
+}

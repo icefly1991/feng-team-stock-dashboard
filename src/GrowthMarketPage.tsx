@@ -1,4 +1,6 @@
+import { listingRisk, useListingStatus } from './listingStatus'
 import BusinessCell from './BusinessCell'
+import { RiskScoreCell, RiskCoverageNote } from './RiskWatch'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Copy } from 'lucide-react'
@@ -57,8 +59,8 @@ const sortLabels: Record<SortKey, string> = {
 const dataUrl = `${import.meta.env.BASE_URL}data/growth-market-dashboard.json`
 // The minimum includes all ten columns, nine gaps and the row's horizontal padding.
 // Split the remaining space equally between business text and the position indicator.
-const tableGridClass = 'grid grid-cols-[28px_120px_156px_64px_68px_78px_72px_90px_132px_minmax(134px,1fr)_minmax(134px,1fr)] gap-3 [&>div]:min-w-0'
-const tableWidthClass = 'w-full min-w-[1228px]'
+const tableGridClass = 'stock-grid growth-grid grid grid-cols-[28px_120px_150px_156px_64px_68px_78px_72px_90px_132px_minmax(134px,1fr)_minmax(134px,1fr)] gap-3 [&>div]:min-w-0'
+const tableWidthClass = 'w-full min-w-[1390px]'
 
 const formatPct = (value: number | undefined) =>
   typeof value !== 'number' || !Number.isFinite(value) ? '—' : `${value > 0 ? '+' : ''}${value.toFixed(1)}%`
@@ -79,8 +81,10 @@ function GrowthMarketPage() {
   const [query, setQuery] = useState('')
   const [sector, setSector] = useState('')
   const sectors = useStockSectors()
+  const listing = useListingStatus()
   const [sort, setSort] = useState<{ key: SortKey; ascending: boolean }>({ key: 'position_52w_pct', ascending: true })
   const headerScrollRef = useRef<HTMLDivElement>(null)
+  const tableScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     document.title = '创业板/科创板小市值股票池'
@@ -134,7 +138,7 @@ function GrowthMarketPage() {
   const rows = useMemo(() => {
     const normalized = query.trim().toLowerCase()
     if (!data) return []
-    const eligibleRows = data.rows.filter((row) => !isStStock(row) && matchesSector(sectors.data, row.code, sector))
+    const eligibleRows = data.rows.filter((row) => !isStStock(row) && !listingRisk(row, undefined, listing) && matchesSector(sectors.data, row.code, sector))
     const filtered = normalized
       ? eligibleRows.filter(
           (row) =>
@@ -144,7 +148,7 @@ function GrowthMarketPage() {
         )
       : eligibleRows
     return [...filtered].sort((a, b) => compareStockValues(a, b, a[sort.key], b[sort.key], sort.ascending))
-  }, [data, query, sort, sector, sectors.data])
+  }, [data, query, sort, sector, sectors.data, listing])
 
   const sortButton = (key: SortKey) => (
     <button
@@ -174,7 +178,7 @@ function GrowthMarketPage() {
             <div>
               <a href="#" className="text-sm font-medium text-sky-700 hover:text-sky-800">← 返回自选股看板</a>
               <a href="#small-cap-market" className="ml-4 text-sm font-medium text-sky-700 hover:text-sky-800">小市值双榜 →</a>
-              <p className="mt-5 text-[11px] font-medium tracking-[0.2em] text-slate-400">GROWTH MARKET SCREENER</p>
+              <p className="mt-5 text-[11px] font-medium tracking-[0.2em] text-slate-400">创业板 / 科创板股票池</p>
               <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">创业板/科创板小市值股票池</h1>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">创业板与科创板普通股票，总市值低于 {data.filters.total_market_cap_lt_yi} 亿元。按每只股票最新已披露的年报及此前连续两个完整年度，归母净利润均为正，且最新已披露财报累计归母净利润不亏损（≥ 0）。各股随年报披露独立滚动，具体年份见表格；最新财报按年初至报告期末累计口径，52 周位置采用前复权价格计算。</p>
             </div>
@@ -204,11 +208,13 @@ function GrowthMarketPage() {
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索名称、代码或主营业务" className="w-full rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-sky-300 focus:ring-4 focus:ring-sky-100 sm:w-72" />
           </div>
 
-          <SectorFilter data={sectors.data} error={sectors.error} codes={data.rows.filter(row => !isStStock(row)).map(row => row.code)} value={sector} onChange={setSector} />
-          <div className="mt-5 rounded-[1.5rem] border border-slate-200/80">
+          <SectorFilter data={sectors.data} error={sectors.error} codes={data.rows.filter(row => !isStStock(row) && !listingRisk(row, undefined, listing)).map(row => row.code)} value={sector} onChange={setSector} />
+          <RiskCoverageNote />
+          <div className="mobile-sort my-3 flex items-center gap-3 text-sm"><label>排序 <select aria-label="股票池排序指标" value={sort.key} onChange={e => setSort({ key: e.target.value as SortKey, ascending: true })} className="rounded-lg border border-slate-200 p-2">{Object.entries(sortLabels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label><button type="button" className="min-h-11 rounded-lg border border-slate-200 px-3" onClick={() => setSort(s => ({ ...s, ascending: !s.ascending }))}>{sort.ascending ? '从低到高 ↑' : '从高到低 ↓'}</button></div>
+          <div className="stock-table growth-table mt-5 rounded-[1.5rem] border border-slate-200/80">
             <div ref={headerScrollRef} className="sticky top-0 z-30 overflow-hidden rounded-t-[1.5rem] border-b border-slate-200/90 bg-slate-50/95 shadow-[0_8px_20px_rgba(15,23,42,0.06)] backdrop-blur-xl">
-              <div className={`${tableGridClass} ${tableWidthClass} items-center px-4 py-4 text-[11px] font-medium tracking-[0.12em] text-slate-400`}>
-                <div className="sticky left-0 z-20 self-stretch bg-slate-50/95 py-0.5">#</div><div className="sticky left-[40px] z-20 self-stretch bg-slate-50/95 py-0.5 shadow-[-12px_0_0_#f8fafc,14px_0_18px_rgba(248,250,252,0.98)]">股票</div><div>所属板块</div><div className="text-right">收盘价</div><div className="text-right">今日</div>
+              <div className={`${tableGridClass} stock-head ${tableWidthClass} items-center px-4 py-4 text-[11px] font-medium tracking-[0.12em] text-slate-400`}>
+                <div className="sticky left-0 z-20 self-stretch bg-slate-50/95 py-0.5">#</div><div className="sticky left-[40px] z-20 self-stretch bg-slate-50/95 py-0.5 shadow-[-12px_0_0_#f8fafc,14px_0_18px_rgba(248,250,252,0.98)]">股票</div><div>风险评分</div><div>所属板块</div><div className="text-right">收盘价</div><div className="text-right">今日</div>
                 <div className="text-right">{sortButton('total_market_cap_yi')}</div>
                 <div className="text-right">{sortButton('distance_ma250_pct')}</div>
                 <div className="text-right"><span className="block">最新已披露年报</span>归母净利</div><div className="text-right"><span className="block">最新财报</span>归母净利（累计）</div><div className="text-center">主营业务</div>
@@ -216,6 +222,9 @@ function GrowthMarketPage() {
               </div>
             </div>
             <div
+              ref={tableScrollRef}
+              tabIndex={0}
+              aria-label="创业板科创板榜单，所有指标完整显示"
               className="overflow-x-auto rounded-b-[1.5rem]"
               onScroll={(event) => {
                 if (headerScrollRef.current) headerScrollRef.current.scrollLeft = event.currentTarget.scrollLeft
@@ -223,7 +232,7 @@ function GrowthMarketPage() {
             >
               <div className={`${tableWidthClass} divide-y divide-slate-100 bg-white`}>
                 {rows.map((row, index) => (
-                  <div key={row.code} className={`group ${tableGridClass} items-center px-4 py-3.5 text-sm hover:bg-slate-50/80`}>
+                  <div key={row.code} className={`group ${tableGridClass} stock-row items-center px-4 py-3.5 text-sm hover:bg-slate-50/80`}>
                     <div className="sticky left-0 z-10 self-stretch bg-white py-0.5 text-xs tabular-nums text-slate-300 group-hover:bg-slate-50">{index + 1}</div>
                     <div className="sticky left-[40px] z-10 self-stretch bg-white py-0.5 shadow-[-12px_0_0_white,14px_0_18px_rgba(255,255,255,0.98)] group-hover:bg-slate-50">
                       <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} />
@@ -242,6 +251,7 @@ function GrowthMarketPage() {
                         </div>
                       </details>
                     </div>
+                    <div><RiskScoreCell code={row.code} name={row.name} compact /></div>
                     <SectorCell data={sectors.data} code={row.code} onSelect={setSector} />
                     <div className="text-right font-medium tabular-nums">{row.close.toFixed(2)}</div>
                     <div className={`text-right font-medium tabular-nums ${row.today_return_pct > 0 ? 'text-emerald-700' : row.today_return_pct < 0 ? 'text-rose-600' : 'text-slate-500'}`}>{formatPct(row.today_return_pct)}</div>
