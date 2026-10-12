@@ -1,5 +1,5 @@
 import { listingRisk, useListingStatus } from './listingStatus'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Copy } from 'lucide-react'
 import GrowthMarketPage from './GrowthMarketPage'
@@ -40,18 +40,12 @@ type DashboardData = {
   adjustments: Record<AdjustmentKey, { summary: Record<SummaryKey, number>; rows: Row[] }>
 }
 
-const tabs: { id: MetricKey; label: string }[] = [
+const metrics: { id: MetricKey; label: string }[] = [
   { id: 'distance_ma250_pct', label: '距年线' },
   { id: 'ytd_return_pct', label: '今年涨跌幅' },
   { id: 'distance_52w_high_pct', label: '距52周高点' },
   { id: 'distance_52w_low_pct', label: '距52周低点' },
   { id: 'position_52w_pct', label: '52周内位置' },
-]
-
-const continuousMetrics: MetricKey[] = [
-  'distance_52w_high_pct',
-  'distance_52w_low_pct',
-  'position_52w_pct',
 ]
 
 const cards: { key: SummaryKey; label: string; note: string }[] = [
@@ -60,7 +54,11 @@ const cards: { key: SummaryKey; label: string; note: string }[] = [
   { key: 'today_down', label: '今日下跌', note: '回撤个股' },
 ]
 
-const metricText: Record<MetricKey, string> = {
+type SortKey = MetricKey | 'close' | 'today_return_pct'
+
+const metricText: Record<SortKey, string> = {
+  close: '收盘价',
+  today_return_pct: '今日涨跌幅',
   distance_ma250_pct: '距年线',
   ytd_return_pct: '今年涨跌幅',
   distance_52w_high_pct: '距52周高点',
@@ -70,14 +68,6 @@ const metricText: Record<MetricKey, string> = {
 
 const adjustmentText = { qfq: '前复权', none: '除权' }
 const dashboardUrl = `${import.meta.env.BASE_URL}data/dashboard.json`
-
-const ascendingBands = [
-  { separator: '-20%', test: (v: number) => v <= -20 },
-  { separator: '-10%', test: (v: number) => v <= -10 && v > -20 },
-  { separator: '0%', test: (v: number) => v > -10 && v < 0 },
-  { separator: '20%', test: (v: number) => v >= 0 && v < 20 },
-  { separator: null, test: (v: number) => v >= 20 },
-] as const
 
 const formatPct = (value: number | undefined) =>
   typeof value !== 'number' || !Number.isFinite(value) ? '—' : `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
@@ -99,28 +89,15 @@ const getActiveMetricTextClass = (metric: MetricKey, value: number | undefined) 
       : 'text-sky-700'
     : getMetricTextClass(value)
 
-const getMetricBarWidth = (metric: MetricKey, value: number | undefined, maxMetric: number) => {
-  if (typeof value !== 'number' || !Number.isFinite(value)) return 0
-  if (metric === 'position_52w_pct') return Math.min(Math.max(value, 0), 100)
-  return (Math.abs(value) / maxMetric) * 100
-}
-
-const getActiveMetricCellClass = (metric: MetricKey, activeMetric: MetricKey) =>
-  metric === activeMetric
-    ? 'mx-auto w-[84%] rounded-[1.1rem] border border-sky-100/90 bg-[linear-gradient(180deg,rgba(249,252,255,0.98),rgba(242,248,252,0.94))] px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_8px_24px_rgba(15,23,42,0.06)]'
-    : 'w-full px-2 py-2'
-
 function App() {
   const [page, setPage] = useState(window.location.hash)
   const [data, setData] = useState<DashboardData | null>(null)
   const [adjustment, setAdjustment] = useState<AdjustmentKey>('qfq')
-  const [tab, setTab] = useState<MetricKey>('distance_ma250_pct')
+  const [sort, setSort] = useState<{ key: SortKey; ascending: boolean }>({ key: 'position_52w_pct', ascending: true })
   const [error, setError] = useState(false)
   const [sector, setSector] = useState('')
   const sectors = useStockSectors()
   const listing = useListingStatus()
-  const headerScrollRef = useRef<HTMLDivElement>(null)
-  const tableScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleHashChange = () => setPage(window.location.hash)
@@ -147,26 +124,23 @@ function App() {
   const rows = useMemo(
     () =>
       current
-        ? [...current.rows].filter(row => !listingRisk(row, undefined, listing)).filter(row => matchesSector(sectors.data, row.code, sector)).sort((a, b) => compareStockValues(a, b, a[tab], b[tab]))
+        ? [...current.rows].filter(row => !listingRisk(row, undefined, listing)).filter(row => matchesSector(sectors.data, row.code, sector)).sort((a, b) => compareStockValues(a, b, a[sort.key], b[sort.key], sort.ascending))
         : [],
-    [current, tab, sector, sectors.data, listing],
+    [current, sort, sector, sectors.data, listing],
   )
-  const maxMetric = useMemo(
-    () => Math.max(...rows.map((row) => Number.isFinite(row[tab]) ? Math.abs(row[tab]!) : 0), 1),
-    [rows, tab],
-  )
-  const groupedRows = useMemo(() => {
-    const groups = ascendingBands.map((band) => ({
-      ...band,
-      rows: rows.filter((row) => Number.isFinite(row[tab]) && band.test(row[tab]!)),
-    }))
-    const missing = rows.filter((row) => !Number.isFinite(row[tab]))
-    return missing.length ? [...groups, { separator: null, rows: missing }] : groups
-  }, [rows, tab])
-  const tableGridClass = 'stock-grid watch-grid grid grid-cols-[32px_154px_150px_156px_84px_84px_100px_100px_minmax(174px,1fr)] gap-3'
-  const displayGroups = useMemo(
-    () => (continuousMetrics.includes(tab) ? [{ separator: null, rows }] : groupedRows),
-    [groupedRows, rows, tab],
+  const tableGridClass = 'stock-grid watch-grid grid gap-3'
+  const toggleSort = (key: SortKey) => setSort(previous => ({
+    key,
+    ascending: previous.key === key ? !previous.ascending : true,
+  }))
+  const sortHeader = (key: SortKey) => (
+    <div role="columnheader" aria-sort={sort.key === key ? (sort.ascending ? 'ascending' : 'descending') : 'none'} className="flex items-center justify-end">
+      <button type="button" onClick={() => toggleSort(key)}
+        aria-label={`${metricText[key]}，点击按${sort.key === key && sort.ascending ? '降序' : '升序'}排序`}
+        className={`min-h-11 rounded-lg px-1.5 py-2 text-right transition hover:bg-sky-50 focus-visible:outline-2 focus-visible:outline-sky-500 ${sort.key === key ? 'bg-sky-50 font-semibold text-sky-700' : 'text-slate-500'}`}>
+        {metricText[key]} <span aria-hidden="true">{sort.key === key ? (sort.ascending ? '↑' : '↓') : '↕'}</span>
+      </button>
+    </div>
   )
 
   if (page === '#growth-market') return <GrowthMarketPage />
@@ -179,8 +153,8 @@ function App() {
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(186,230,253,0.2),transparent_30%),linear-gradient(180deg,#fcfbf8_0%,#f5f1ea_58%,#f1ece5_100%)] px-4 py-6 text-slate-900 sm:px-6 sm:py-8">
       <StockCopyProvider>
       <ShareholderProvider>
-      <StockHistoryProvider key={`${adjustment}:${tab}`}>
-      <div className="mx-auto max-w-6xl space-y-6">
+      <StockHistoryProvider key={adjustment}>
+      <div className="mx-auto max-w-[1440px] space-y-6">
         <ShareholderRoster />
         <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-[linear-gradient(135deg,rgba(255,255,255,0.97),rgba(247,242,234,0.94))] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.06)] sm:p-7">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(191,219,254,0.32),transparent_72%)]" />
@@ -222,7 +196,7 @@ function App() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 rounded-[1.6rem] border border-slate-200/80 bg-white/65 px-4 py-3 text-sm text-slate-600">
-              <div>当前口径：<span className="font-medium text-slate-900">{adjustmentText[adjustment]}</span>，下方榜单与汇总数据已同步切换。</div>
+              <div>当前口径：<span className="font-medium text-slate-900">{adjustmentText[adjustment]}</span>，下方表格与汇总数据已同步切换。</div>
               <div className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium tracking-[0.14em] text-white">专注浏览</div>
             </div>
 
@@ -239,153 +213,69 @@ function App() {
         </motion.section>
 
         <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08, duration: 0.35 }} className="rounded-[2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(250,250,248,0.78))] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.05)] backdrop-blur-sm sm:p-6">
-          <div className="sticky top-0 z-40 -mx-1 pb-1 backdrop-blur-xl">
-            <div className="overflow-x-auto">
-              <div className="flex min-w-max gap-2 px-1">
-              {tabs.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setTab(item.id)}
-                  className={`rounded-full border px-4 py-2.5 text-sm font-medium transition ${tab === item.id ? 'border-slate-300/90 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,247,249,0.92))] text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_8px_22px_rgba(15,23,42,0.08)]' : 'border-slate-200/80 bg-white/72 text-slate-600 hover:border-slate-300/80 hover:bg-white/90'}`}
-                >
-                  {item.label}
-                </button>
-              ))}
-              </div>
-            </div>
-          </div>
-
           <div className="mt-5 rounded-[1.85rem] border border-slate-200/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(248,247,244,0.92))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_18px_44px_rgba(15,23,42,0.04)] sm:p-5">
             <div className="-mx-4 -mt-4 mb-5 border-b border-slate-200/60 bg-[rgba(255,255,255,0.72)] px-4 py-4 backdrop-blur-xl sm:-mx-5 sm:-mt-5 sm:px-5 sm:py-5">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-xl font-semibold tracking-tight text-slate-950">{metricText[tab]}榜单</h2>
-                <p className="mt-1 text-sm text-slate-600">{adjustmentText[adjustment]}口径 · 当前指标从低到高，表现较弱的在前；缺失数据置后</p>
+                <h2 className="text-xl font-semibold tracking-tight text-slate-950">自选股指标总览</h2>
+                <p className="mt-1 text-sm text-slate-600">{adjustmentText[adjustment]}口径 · {metricText[sort.key]}{sort.ascending ? '从低到高' : '从高到低'} · 缺失数据置后</p>
                 <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500"><Copy size={12} aria-hidden="true" />点击名称或代码复制；悬停代码或点击图表图标查看 K 线</p>
               </div>
-              <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">{continuousMetrics.includes(tab) ? '连续排序视图' : '可视化榜单'}</div>
+              <div className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500">点击列头切换升序／降序</div>
               </div>
             </div>
 
+            <div className="mobile-sort mb-4 flex flex-wrap items-center gap-2 text-sm">
+              <label htmlFor="watchlist-sort" className="text-slate-500">排序指标</label>
+              <select id="watchlist-sort" value={sort.key} onChange={event => setSort({ key: event.target.value as SortKey, ascending: true })} className="min-h-11 max-w-full rounded-xl border border-slate-200 bg-white px-3 text-slate-700">
+                {Object.entries(metricText).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
+              </select>
+              <button type="button" onClick={() => toggleSort(sort.key)} aria-label={`切换为${sort.ascending ? '降序' : '升序'}排序`} className="min-h-11 rounded-xl border border-sky-200 bg-sky-50 px-3 text-sky-700">{sort.ascending ? '升序 ↑' : '降序 ↓'}</button>
+            </div>
             <SectorFilter data={sectors.data} error={sectors.error} codes={current.rows.map(row => row.code)} value={sector} onChange={setSector} />
             <RiskCoverageNote />
             {!rows.length && <p className="py-5 text-center text-sm text-slate-400">没有符合板块筛选的股票</p>}
-            <div className="stock-table watch-table mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
-              <div ref={headerScrollRef} className="sticky top-[72px] z-40 overflow-hidden rounded-t-[1.5rem] bg-[#fcfcfb] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
-                <div className={`${tableGridClass} stock-head min-w-[1300px] min-h-[108px] border-b border-slate-200/85 bg-[#fcfcfb] px-[29px] py-3.5 text-[11px] font-medium tracking-[0.18em] text-slate-400`}>
-                  <div className="sticky left-0 z-10 flex items-center justify-center bg-[#fcfcfb]">
-                    <span className="text-[10px] text-slate-300">#</span>
-                  </div>
-                  <div className="sticky left-[44px] z-10 flex -translate-x-1 items-center justify-center bg-[#fcfcfb] px-2 text-center">
-                    <span>股票</span>
-                  </div>
-                  <div className="px-2">风险评分</div>
-                  <div className="flex items-center px-2"><span>所属板块</span></div>
-                  <div className="flex items-center justify-end px-2">
-                    <span>收盘价</span>
-                  </div>
-                  <div className="flex items-center justify-end px-2">
-                    <span>今日</span>
-                  </div>
-                  <div className={`${tab === 'distance_ma250_pct' ? 'hidden' : 'flex'} items-center justify-end px-2`}>
-                    <span>距年线</span>
-                  </div>
-                  <div className={`${tab === 'ytd_return_pct' ? 'hidden' : 'flex'} translate-x-1 items-center justify-self-center px-2 text-center`}>
-                    <span>今年涨跌幅</span>
-                  </div>
-                  <div className={`${continuousMetrics.includes(tab) ? 'hidden' : 'flex'} items-center justify-end px-2`}>
-                    <span>52周高点</span>
-                  </div>
-                  <div className="flex items-center justify-center px-2 text-slate-700">
-                    <span>{metricText[tab]}</span>
-                  </div>
+            <div role="table" aria-label="自选股指标总览" aria-rowcount={rows.length + 1} aria-colcount={11} className="stock-table watch-table mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
+              <div role="rowgroup" className="sticky top-0 z-40 rounded-t-[1.5rem] bg-[#fcfcfb] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
+                <div role="row" className={`${tableGridClass} stock-head min-h-[80px] items-center border-b border-slate-200/85 px-3 py-3 text-[11px] font-medium text-slate-400`}>
+                  <div role="columnheader" className="text-center">#</div>
+                  <div role="columnheader" className="px-2">股票</div>
+                  <div role="columnheader">风险评分</div>
+                  <div role="columnheader">所属板块</div>
+                  {sortHeader('close')}
+                  {sortHeader('today_return_pct')}
+                  {metrics.map(metric => <Fragment key={metric.id}>{sortHeader(metric.id)}</Fragment>)}
                 </div>
-
               </div>
-              <div ref={tableScrollRef} tabIndex={0} aria-label="自选股榜单，所有指标完整显示" className="overflow-x-auto rounded-b-[1.5rem]" onScroll={(event) => {
-                if (headerScrollRef.current) headerScrollRef.current.scrollLeft = event.currentTarget.scrollLeft
-              }}>
-                <div className="min-w-[1300px]">
-                <div className="space-y-3 px-3 py-3">
-                  {displayGroups.map((group, groupIndex) => (
-                    <div key={group.separator ?? `all-${groupIndex}`} className="space-y-2">
-                      {group.rows.length ? (
-                        <>
-                          {group.rows.map((row) => {
-                          const index = rows.findIndex((item) => item.code === row.code) + 1
-                          return (
-                            <div key={`${adjustment}-${group.separator ?? 'all'}-${row.code}`} className={`${tableGridClass} stock-row items-center rounded-[1.2rem] border border-slate-200/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)] transition hover:border-slate-300/75 hover:bg-white hover:shadow-[0_12px_30px_rgba(15,23,42,0.05)]`}>
-                              <div className="sticky left-0 z-10 flex justify-center bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))]">
-                                <p className="text-[11px] font-medium tabular-nums text-slate-300">{index}</p>
-                              </div>
-
-                              <div className="sticky left-[44px] z-10 min-w-0 rounded-[0.95rem] pr-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] shadow-[14px_0_22px_rgba(250,250,249,0.98)]">
-                                <div className="min-w-0 rounded-[0.95rem] px-3 py-2">
-                                  <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} textClassName="text-[15px] font-medium tracking-[-0.01em] text-slate-900" />
-                                  <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date ?? ''} adjustment={adjustment} source="watchlist">
-                                    <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} textClassName="text-[12px] font-medium tracking-[0.08em] text-slate-400" secondary />
-                                  </StockHistoryCode>
-                                  <ShareholderBadge code={row.code} />
-                                </div>
-                              </div>
-
-                              <div className="min-w-0"><RiskScoreCell code={row.code} name={row.name} compact /></div>
-                              <SectorCell data={sectors.data} code={row.code} onSelect={setSector} />
-                              <div className="px-2 text-right text-[15px] font-medium tabular-nums text-slate-900">{row.close.toFixed(1)}</div>
-                              <div className={`px-2 text-right text-[13px] font-medium tabular-nums ${getMetricTextClass(row.today_return_pct)}`}>{formatPct(row.today_return_pct)}</div>
-
-                              <div className={`${tab === 'distance_ma250_pct' ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
-                                <div className="flex items-center justify-end gap-3">
-                                  <span className={`font-medium ${getMetricTextClass(row.distance_ma250_pct)}`}>{formatPct(row.distance_ma250_pct)}</span>
-                                </div>
-                              </div>
-
-                              <div className={`${tab === 'ytd_return_pct' ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
-                                <div className="flex items-center justify-end gap-3">
-                                  <span className={`font-medium ${getMetricTextClass(row.ytd_return_pct)}`}>{formatPct(row.ytd_return_pct)}</span>
-                                </div>
-                              </div>
-
-                              <div className={`${continuousMetrics.includes(tab) ? 'hidden' : 'block'} px-2 text-right text-[13px] tabular-nums py-2`}>
-                                <div className="flex items-center justify-end gap-3">
-                                  <span className={`font-medium ${getMetricTextClass(row.distance_52w_high_pct)}`}>{formatPct(row.distance_52w_high_pct)}</span>
-                                </div>
-                              </div>
-
-                              <div className="px-2">
-                                <div className={`text-center text-[13px] tabular-nums ${getActiveMetricCellClass(tab, tab)}`}>
-                                  <div className="flex items-center justify-center gap-3">
-                                    <span className={`font-medium ${getActiveMetricTextClass(tab, row[tab])}`}>{formatMetric(tab, row[tab])}</span>
-                                  </div>
-                                  <div className="mt-2 h-[6px] w-full overflow-hidden rounded-full bg-slate-200/70">
-                                    <div
-                                      className={`h-full rounded-full ${tab === 'position_52w_pct' ? 'bg-[linear-gradient(90deg,rgba(14,165,233,0.72),rgba(56,189,248,0.92))]' : (row[tab] ?? 0) >= 0 ? 'bg-[linear-gradient(90deg,rgba(16,185,129,0.72),rgba(52,211,153,0.92))]' : 'bg-[linear-gradient(90deg,rgba(245,158,11,0.72),rgba(251,191,36,0.92))]'}`}
-                                      style={{ width: `${getMetricBarWidth(tab, row[tab], maxMetric)}%` }}
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          )
-                        })}
-                          {group.separator ? (
-                            <div className="flex items-center gap-2 px-1 pt-1.5">
-                              <div className="flex items-center gap-2 text-[11px] font-medium tabular-nums tracking-[0.14em] text-slate-300">
-                                <span className="h-px w-3 bg-slate-300" />
-                                <span>{group.separator}</span>
-                              </div>
-                              <div className="h-px flex-1 bg-slate-200/90" />
-                            </div>
-                          ) : null}
-                        </>
-                      ) : (
-                        <div className="px-1 py-2 text-sm text-slate-400">这个区间暂无股票</div>
-                      )}
+              <div role="rowgroup" className="space-y-2 px-3 py-3">
+                {rows.map((row, index) => (
+                  <div role="row" key={row.code} className={`${tableGridClass} stock-row items-center rounded-[1.2rem] border border-slate-200/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,248,0.88))] px-3 py-3.5 transition hover:border-slate-300/75 hover:bg-white`}>
+                    <div role="cell" className="flex justify-center text-[11px] font-medium tabular-nums text-slate-300">{index + 1}</div>
+                    <div role="cell" className="min-w-0">
+                      <div className="min-w-0 rounded-[0.95rem] px-2 py-2">
+                        <CopyStockButton value={row.name} label="股票名称" target={`${row.code}:name`} textClassName="text-[15px] font-medium tracking-[-0.01em] text-slate-900" />
+                        <StockHistoryCode code={row.code} name={row.name} tradeDate={data.trade_date ?? ''} adjustment={adjustment} source="watchlist">
+                          <CopyStockButton value={row.code} label="股票代码" target={`${row.code}:code`} textClassName="text-[12px] font-medium tracking-[0.08em] text-slate-400" secondary />
+                        </StockHistoryCode>
+                        <ShareholderBadge code={row.code} />
+                      </div>
                     </div>
-                  ))}
+                    <div role="cell" className="min-w-0"><RiskScoreCell code={row.code} name={row.name} compact /></div>
+                    <div role="cell"><SectorCell data={sectors.data} code={row.code} onSelect={setSector} /></div>
+                    <div role="cell" className={`watch-number text-right text-[13px] font-medium tabular-nums text-slate-900 ${sort.key === 'close' ? 'rounded-xl bg-sky-50/70 py-3' : ''}`}>{Number.isFinite(row.close) ? row.close.toFixed(1) : '—'}</div>
+                    <div role="cell" className={`watch-number text-right text-[13px] font-medium tabular-nums ${getMetricTextClass(row.today_return_pct)} ${sort.key === 'today_return_pct' ? 'rounded-xl bg-sky-50/70 py-3' : ''}`}>{formatPct(row.today_return_pct)}</div>
+                    {metrics.map(metric => (
+                      <div role="cell" key={metric.id} className={`watch-number text-right text-[13px] font-medium tabular-nums ${sort.key === metric.id ? 'rounded-xl bg-sky-50/70 py-3' : ''}`}>
+                        <span className={getActiveMetricTextClass(metric.id, row[metric.id])}>{formatMetric(metric.id, row[metric.id])}</span>
+                        {metric.id === 'position_52w_pct' && Number.isFinite(row[metric.id]) && (
+                          <div aria-hidden="true" className="mt-2 h-[5px] overflow-hidden rounded-full bg-slate-200/70">
+                            <div className="h-full rounded-full bg-sky-400" style={{ width: `${Math.min(Math.max(row[metric.id]!, 0), 100)}%` }} />
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
-                </div>
+                ))}
               </div>
             </div>
             </div>

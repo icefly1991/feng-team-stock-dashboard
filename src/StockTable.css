@@ -6,7 +6,7 @@
 .stock-grid { width: 100%; gap: clamp(4px, .6vw, 10px) !important; padding-inline: 12px !important; }
 .small-grid { grid-template-columns: 20px minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.55fr) minmax(0,.6fr) minmax(0,.65fr) minmax(0,.65fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,1.15fr) minmax(0,.85fr) minmax(0,1.15fr) !important; }
 .growth-grid { grid-template-columns: 20px minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.6fr) minmax(0,.65fr) minmax(0,.7fr) minmax(0,.7fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,.9fr) !important; }
-.watch-grid { grid-template-columns: 20px minmax(0,1.1fr) minmax(0,1.25fr) minmax(0,1.2fr) minmax(0,.7fr) minmax(0,.75fr) minmax(0,.8fr) minmax(0,.85fr) minmax(0,1.4fr) !important; }
+.watch-grid { grid-template-columns: 20px minmax(0,1.1fr) minmax(0,1.25fr) minmax(0,1.2fr) minmax(0,.65fr) minmax(0,.75fr) minmax(0,.8fr) minmax(0,.85fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1fr) !important; }
 .stock-grid > * { min-width: 0; overflow-wrap: anywhere; }
 .stock-grid > .sticky { position: static; box-shadow: none; transform: none; }
 .stock-head { letter-spacing: normal; font-size: 11px; }
@@ -14,7 +14,7 @@
 .stock-grid .truncate { white-space: normal; overflow: visible; text-overflow: clip; }
 .stock-row { font-size: 12px; }
 .stock-row > * { padding-inline: 0 !important; }
-.watch-table .space-y-3.px-3 { padding-inline: 0; }
+.watch-table .space-y-2.px-3 { padding-inline: 0; }
 .stock-row .risk-cell { padding-inline: 0; }
 .business-phrases { line-height: 1.9; }
 @media (min-width: 1100px) { .mobile-sort { display: none; } }
@@ -60,5 +60,8 @@
 .watch-grid.stock-row > :nth-child(7)::before { content: "距年线"; }
 .watch-grid.stock-row > :nth-child(8)::before { content: "今年涨跌幅"; }
 .watch-grid.stock-row > :nth-child(9)::before { content: "距52周高点"; }
-.watch-grid.stock-row > :nth-child(10)::before { content: "当前排序指标"; }
+.watch-grid.stock-row > :nth-child(10)::before { content: "距52周低点"; }
+.watch-grid.stock-row > :nth-child(11)::before { content: "52周内位置"; }
 }
+
+.watch-grid.stock-row > .watch-number { padding-inline: 6px !important; }
