@@ -4,12 +4,18 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      reuse_data_run_id:
+        description: "Optional: reuse saved generated data from a run (freshness is rechecked)"
+        required: false
+        type: string
   schedule:
     # 08:13 UTC = 16:13 Beijing time (UTC+8) on weekdays; shifted off the half-hour peak.
     - cron: "13 8 * * 1-5"
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -55,53 +61,118 @@ jobs:
           npm test
           npm run build
 
+      - name: Set data cache day
+        id: cache-day
+        if: ${{ !inputs.reuse_data_run_id }}
+        run: echo "day=$(TZ=Asia/Shanghai date +%Y%m%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore same-day source responses
+        if: ${{ !inputs.reuse_data_run_id }}
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .cache-small-cap.local
+            .cache-risk.local
+            .cache-listing.local
+            .cache-sectors.local
+            .cache-active.local
+          key: pipeline-${{ runner.os }}-${{ hashFiles('requirements.lock') }}-${{ steps.cache-day.outputs.day }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: pipeline-${{ runner.os }}-${{ hashFiles('requirements.lock') }}-${{ steps.cache-day.outputs.day }}-
+
       - name: Check imports, credentials and trading calendar
+        id: preflight
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/update_health.py preflight
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate watchlist dashboard
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_dashboard.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate watchlist charts
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_growth_history.py --source watchlist
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate listing status
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_listing_status.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate growth market dashboard
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_growth_market_dashboard.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate growth market charts
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_growth_history.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate small-cap rankings and charts
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_small_cap_dashboard.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate risk dashboard
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_risk_dashboard.py --scope all
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate shareholder watch
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_shareholder_watch.py
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Generate stock sectors
+        if: ${{ !inputs.reuse_data_run_id }}
         run: python scripts/generate_stock_sectors.py
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+
+      - name: Retain generated data for diagnosis and safe retries
+        if: ${{ always() && steps.preflight.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-data
+          path: public/data
+          retention-days: 3
+          overwrite: true
+
+      - name: Save same-day source responses
+        if: ${{ always() && steps.preflight.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .cache-small-cap.local
+            .cache-risk.local
+            .cache-listing.local
+            .cache-sectors.local
+            .cache-active.local
+          key: pipeline-${{ runner.os }}-${{ hashFiles('requirements.lock') }}-${{ steps.cache-day.outputs.day }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Restore explicitly selected data artifact
+        if: ${{ inputs.reuse_data_run_id != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: dashboard-data
+          path: public/data
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.reuse_data_run_id }}
+
+      - name: Recheck saved data against fresh trading calendar
+        if: ${{ inputs.reuse_data_run_id != '' }}
+        run: python scripts/update_health.py recheck
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 

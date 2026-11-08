@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import re
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -68,16 +70,26 @@ def main():
         if existing or len(issues) < 100:
             break
     action = incident_action(existing, healthy, datetime.now(timezone.utc))
+    fingerprint = f"<!-- feng-update-detail:{hashlib.sha256(detail.encode()).hexdigest()} -->"
+    if existing and not healthy and fingerprint not in (existing.get("body") or ""):
+        action = "update"
     category = "自动更新/发布失败" if args.kind == "deployment" else "线上数据过期或不可验证"
-    body = f"{marker}\n\n{detail}\n\n[检查日志]({url})\n\n请订阅本 Issue 接收故障、每日提醒及恢复通知。通知邮件取决于个人 GitHub 设置。"
+    body = f"{marker}\n{fingerprint}\n\n{detail}\n\n[检查日志]({url})\n\n请订阅本 Issue 接收故障、每日提醒及恢复通知。通知邮件取决于个人 GitHub 设置。"
     if action == "create":
         issue = write("/issues", {"title": f"[更新告警] {category}", "body": body, "assignees": [repo.split('/')[0]]})
         print(f"Incident created: {issue['html_url']}")
-    elif action in ("remind", "resolve"):
-        message = f"{'已恢复，线上验证通过。' if healthy else '故障仍未恢复，请检查。'}\n\n{detail}\n\n[检查日志]({url})"
+    elif action in ("remind", "resolve", "update"):
+        status = '已恢复，线上验证通过。' if healthy else '故障情况有变化，请核查。' if action == 'update' else '故障仍未恢复，请检查。'
+        message = f"{status}\n\n{detail}\n\n[检查日志]({url})"
         write(f"/issues/{existing['number']}/comments", {"body": message})
         if action == "resolve":
             write(f"/issues/{existing['number']}", {"state": "closed", "state_reason": "completed"}, "PATCH")
+        elif action == "update":
+            previous = existing.get("body") or ""
+            updated = re.sub(r'<!-- feng-update-detail:[a-f0-9]+ -->', fingerprint, previous)
+            if updated == previous and fingerprint not in previous:
+                updated += "\n" + fingerprint
+            write(f"/issues/{existing['number']}", {"body": updated}, "PATCH")
         print(f"Incident {action}: {existing['html_url']}")
     else:
         print("No incident change needed")

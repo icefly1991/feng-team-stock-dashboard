@@ -70,7 +70,7 @@ export default function SmallCapMarketPage() {
   }, [mode])
   useEffect(() => {
     let live = true
-    fetch(`${import.meta.env.BASE_URL}data/small-cap-dashboard.json`).then(async response => {
+    fetch(`${import.meta.env.BASE_URL}data/small-cap-dashboard.json`, { cache: 'no-store' }).then(async response => {
       if (!response.ok) throw new Error('最低市值250榜单尚未生成，请更新数据后重试')
       const json: Data = await response.json()
       validate(json)

@@ -86,8 +86,12 @@ def validate_core(name, data, expected):
         raise ValueError(f"{name}: expected trade_date {expected}, got {data.get('trade_date')}")
     if not data.get("updated_at"):
         raise ValueError(f"{name}: missing generation time")
-    if data.get("errors"):
-        raise ValueError(f"{name}: {len(data['errors'])} data generation errors; inspect generation logs")
+    errors = data.get("errors") or []
+    if errors and name != "small-cap-dashboard.json":
+        raise ValueError(f"{name}: {len(errors)} data generation errors; inspect generation logs")
+    if errors and any(error.get("stage") not in ("history", "financial", "business") for error in errors):
+        raise ValueError(f"{name}: unclassified generation error")
+    missing_history = {error["code"] for error in errors if error.get("stage") == "history"}
     groups = [data.get("rows")]
     if name == "dashboard.json":
         adjustments = data.get("adjustments", {})
@@ -100,6 +104,9 @@ def validate_core(name, data, expected):
         groups.append(data.get("screened", {}).get("rows"))
         if [len(group or []) for group in groups] != [250, 100]:
             raise ValueError(f"{name}: rankings must contain 250 and 100 rows")
+        screened_codes = {row.get("code") for row in groups[1]}
+        if any(error.get("stage") == "financial" and error.get("code") in screened_codes for error in errors):
+            raise ValueError(f"{name}: screened financial data unavailable")
     for rows in groups:
         # A genuinely empty growth pool is permitted by its declared summary.
         if not isinstance(rows, list) or (not rows and not (
@@ -109,7 +116,8 @@ def validate_core(name, data, expected):
         codes = [row.get("code") for row in rows]
         if any(not code for code in codes) or len(set(codes)) != len(codes):
             raise ValueError(f"{name}: missing or duplicate stock codes")
-        if any(not isinstance(row.get("close"), (int, float)) or not 0 < row["close"] < float("inf") for row in rows):
+        if any(not (name == "small-cap-dashboard.json" and row.get("close") is None and row.get("code") in missing_history)
+               and (not isinstance(row.get("close"), (int, float)) or not 0 < row["close"] < float("inf")) for row in rows):
             raise ValueError(f"{name}: invalid close price")
     return sum(len(group) for group in groups)
 
@@ -131,10 +139,21 @@ def preflight(directory):
     print("Dependency imports, credentials and trading calendar verified")
 
 
+def recheck(directory):
+    context = json.loads((directory / "update-context.json").read_text(encoding="utf-8"))
+    now = datetime.now(TZ)
+    calendar = trading_calendar(now)
+    if context["expected_trade_date"] != expected_trade_date(calendar, now):
+        raise ValueError("Saved artifact is stale; regenerate data instead of reusing it")
+    context["calendar"] = calendar
+    write_json(directory / "update-context.json", context)
+    print("Saved artifact trading date is still current")
+
+
 def seal(directory, run_id):
     context = json.loads((directory / "update-context.json").read_text(encoding="utf-8"))
     expected = context["expected_trade_date"]
-    files = {}
+    files, warnings = {}, []
     for name in CORE + AUX:
         raw = (directory / name).read_bytes()
         data = json.loads(raw)
@@ -147,6 +166,9 @@ def seal(directory, run_id):
         count = validate_core(name, data, expected) if name in CORE else None
         if name in AUX and not isinstance(data.get("stocks"), dict):
             raise ValueError(f"{name}: invalid stocks dictionary")
+        for error in data.get("errors") or []:
+            # Only identifiers, never provider exception messages or credentials.
+            warnings.append(f"{name}: {error.get('code', 'unknown')} / {error.get('stage', 'source')}")
         files[name] = {"sha256": hashlib.sha256(raw).hexdigest(), "updated_at": data["updated_at"], "rows": count}
     # Check chart assets too; a new table must not publish stale K-lines.
     main = json.loads((directory / "dashboard.json").read_text(encoding="utf-8"))
@@ -154,14 +176,15 @@ def seal(directory, run_id):
     small = json.loads((directory / "small-cap-dashboard.json").read_text(encoding="utf-8"))
     jobs = [(f"watchlist-history/{mode}/{row['code']}.json", row) for mode in ("qfq", "none") for row in main["adjustments"][mode]["rows"]]
     jobs += [(f"growth-history/{row['code']}.json", row) for row in growth["rows"]]
-    jobs += [(f"small-cap-history/{expected}/{row['code']}.json", row) for row in small["rows"] + small["screened"]["rows"]]
+    unavailable = {error["code"] for error in small.get("errors", []) if error.get("stage") == "history"}
+    jobs += [(f"small-cap-history/{expected}/{row['code']}.json", row) for row in small["rows"] + small["screened"]["rows"] if row["code"] not in unavailable]
     for name, row in jobs:
         chart = json.loads((directory / name).read_text(encoding="utf-8"))
         if chart.get("trade_date") != expected or abs(chart["metrics"]["close"] - row["close"]) > .011:
             raise ValueError(f"{name}: chart date/close mismatch")
     write_json(directory / "update-health.json", {
         "schema_version": 1, "run_id": run_id, "generated_at": datetime.now(TZ).isoformat(),
-        "trade_date": expected, "calendar": context["calendar"], "files": files,
+        "trade_date": expected, "calendar": context["calendar"], "files": files, "warnings": sorted(set(warnings)),
     })
     # Do not publish internal build context.
     (directory / "update-context.json").unlink()
@@ -210,7 +233,7 @@ def fetch_bytes(url):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=("preflight", "seal", "verify", "monitor"))
+    parser.add_argument("mode", choices=("preflight", "recheck", "seal", "verify", "monitor"))
     parser.add_argument("--directory", type=Path, default=ROOT / "public/data")
     parser.add_argument("--base-url", default="https://icefly1991.github.io/feng-team-stock-dashboard/")
     parser.add_argument("--run-id", default=os.environ.get("GITHUB_RUN_ID", "local") + "." + os.environ.get("GITHUB_RUN_ATTEMPT", "1"))
@@ -219,6 +242,8 @@ def main():
     try:
         if args.mode == "preflight":
             preflight(args.directory)
+        elif args.mode == "recheck":
+            recheck(args.directory)
         elif args.mode == "seal":
             seal(args.directory, args.run_id)
         else:
@@ -232,6 +257,12 @@ def main():
                 now = datetime.now(TZ)
                 expected = expected_trade_date(trading_calendar(now), now, morning=True)
             result = check_online(args.base_url, expected, args.run_id if args.mode == "verify" else None)
+            warnings = result.get("warnings") or []
+            if args.mode == "monitor" and warnings:
+                detail = f"行情日期已更新至 {result['trade_date']}，存在局部数据缺失，请核查：\n" + "\n".join(warnings)
+                write_json(args.report, {"ok": False, "detail": detail})
+                print(detail)
+                raise SystemExit(1)
             write_json(args.report, {"ok": True, "detail": f"Online release {result['run_id']}, trade date {result['trade_date']}; expected >= {expected}"})
             print("Published data verified")
     except Exception as exc:

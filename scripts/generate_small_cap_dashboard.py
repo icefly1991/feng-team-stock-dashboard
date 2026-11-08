@@ -185,6 +185,8 @@ def main():
                "screened": {"target": 100, "include_st": False, "universe": screened_universe, "checked": len(audit), "audit": audit, "rows": screened_rows}}
     if errors:
         payload["errors"] = errors
+        for error in errors:
+            print(f"Data warning: {error['code']} / {error['stage']}: {error['error']}", flush=True)
     write_json(ROOT / "public/data/small-cap-dashboard.json", payload)
 
 

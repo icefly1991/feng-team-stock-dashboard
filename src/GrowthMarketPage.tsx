@@ -89,7 +89,7 @@ function GrowthMarketPage() {
   useEffect(() => {
     document.title = '创业板/科创板小市值股票池'
     let mounted = true
-    fetch(dataUrl)
+    fetch(dataUrl, { cache: 'no-store' })
       .then((response) => (response.ok ? response.json() : Promise.reject()))
       .then((json: GrowthMarketData) => {
         if (!mounted) return

@@ -111,7 +111,7 @@ function App() {
 
   useEffect(() => {
     let mounted = true
-    fetch(dashboardUrl)
+    fetch(dashboardUrl, { cache: 'no-store' })
       .then((res) => (res.ok ? res.json() : Promise.reject()))
       .then((json: DashboardData) => mounted && setData(json))
       .catch(() => mounted && setError(true))

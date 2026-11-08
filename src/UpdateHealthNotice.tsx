@@ -4,6 +4,7 @@ type ReleaseHealth = {
   trade_date: string
   generated_at: string
   calendar: { days: Record<string, string> }
+  warnings?: string[]
 }
 
 export default function UpdateHealthNotice() {
@@ -45,6 +46,8 @@ export default function UpdateHealthNotice() {
     message = '暂时无法确认数据更新状态，请核对各页面行情日期。'
   } else if (health && expected && health.trade_date < expected) {
     message = `数据更新延迟：当前行情日期 ${health.trade_date}，应更新至 ${expected}。请谨慎使用旧数据。`
+  } else if (health?.warnings?.length) {
+    message = `行情已更新至 ${health.trade_date}，部分数据暂缺（${health.warnings.length}项），请核对表内缺失标记。`
   }
   if (!message) return null
   return <aside role="status" style={{ margin: '12px auto', maxWidth: 1280, padding: '12px 16px', background: '#fff7ed', color: '#9a3412', border: '1px solid #fed7aa', borderRadius: 12, overflowWrap: 'anywhere' }}>{message}</aside>

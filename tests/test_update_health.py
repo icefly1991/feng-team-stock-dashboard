@@ -60,6 +60,34 @@ class UpdateHealthTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "250 and 100"):
             health.validate_core("small-cap-dashboard.json", {"trade_date": "20261106", "updated_at": "2026-11-06 17:00", "rows": []}, "20261106")
 
+    def test_explicit_small_cap_missing_data_preserves_ranks_but_unreported_missing_is_rejected(self):
+        rows = [{"code": str(i).zfill(6), "close": 3} for i in range(250)]
+        data = {"trade_date": "20261106", "updated_at": "2026-11-06 17:00", "rows": rows, "screened": {"rows": rows[:100]}}
+        rows[-1]['close'] = None
+        with self.assertRaisesRegex(ValueError, 'invalid close'):
+            health.validate_core('small-cap-dashboard.json', data, '20261106')
+        data['errors'] = [{'code': rows[-1]['code'], 'stage': 'history'}]
+        self.assertEqual(health.validate_core('small-cap-dashboard.json', data, '20261106'), 350)
+        data['errors'].append({'code': rows[0]['code'], 'stage': 'financial'})
+        with self.assertRaisesRegex(ValueError, 'screened financial'):
+            health.validate_core('small-cap-dashboard.json', data, '20261106')
+
+    def test_reuse_rechecks_current_calendar_and_refuses_stale_artifact(self):
+        now = datetime.now(health.TZ)
+        yesterday = (now - timedelta(days=1)).strftime('%Y%m%d')
+        calendar = {'days': {yesterday: '1', now.strftime('%Y%m%d'): '1'}}
+        with tempfile.TemporaryDirectory() as folder, patch.object(health, 'trading_calendar', return_value=calendar):
+            path = Path(folder)
+            context = {'started_at': now.isoformat(), 'expected_trade_date': '20250101'}
+            health.write_json(path / 'update-context.json', context)
+            with self.assertRaisesRegex(ValueError, 'stale'):
+                health.recheck(path)
+            context['expected_trade_date'] = health.expected_trade_date(calendar, now)
+            health.write_json(path / 'update-context.json', context)
+            health.recheck(path)
+            saved = json.loads((path / 'update-context.json').read_text())
+            self.assertEqual(saved['started_at'], context['started_at'])
+
     def test_online_rejects_wrong_release_and_content_hash(self):
         with patch.object(health, "request_json", return_value={"schema_version": 1, "run_id": "old", "trade_date": "20261106"}):
             with self.assertRaisesRegex(ValueError, "current workflow"):
@@ -122,9 +150,18 @@ class UpdateHealthTests(unittest.TestCase):
                 url = f"http://127.0.0.1:{server.server_port}"
                 result = health.check_online(url, day, "release.1")
                 self.assertEqual(result["trade_date"], day)
+                small = json.loads((directory / 'small-cap-dashboard.json').read_text())
+                small['rows'][-1]['close'] = None
+                small['errors'] = [{'code': small['rows'][-1]['code'], 'stage': 'history'}]
+                health.write_json(directory / 'small-cap-dashboard.json', small)
+                (directory / f"small-cap-history/{day}/{small['rows'][-1]['code']}.json").unlink()
+                health.write_json(directory / 'update-context.json', {'started_at': stamp, 'expected_trade_date': day, 'calendar': {'days': {day: '1'}}})
+                health.seal(directory, 'release.2')
+                result = health.check_online(url, day, 'release.2')
+                self.assertIn(small['rows'][-1]['code'], result['warnings'][0])
                 (directory / "dashboard.json").write_text('{}', encoding='utf-8')
                 with self.assertRaisesRegex(ValueError, "differs"):
-                    health.check_online(url, day, "release.1")
+                    health.check_online(url, day, "release.2")
             finally:
                 server.shutdown()
                 server.server_close()
