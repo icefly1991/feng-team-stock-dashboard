@@ -108,7 +108,7 @@ npm run build
 Python 数据生成：
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt -r requirements.lock
 python scripts/generate_dashboard.py
 python scripts/generate_growth_history.py --source watchlist
 python scripts/generate_growth_market_dashboard.py
@@ -130,7 +130,7 @@ python -m unittest discover -s tests -v
 - 存在 `npm run lint`
 - 存在 `npm run build`
 - 当前没有单独定义 `npm run typecheck`
-- 当前没有定义 `npm test`
+- `npm test` 运行Node展示逻辑测试
 
 ## 数据更新
 
@@ -240,3 +240,7 @@ python -m unittest discover -s tests -v
 - 本项目用于个人研究、观察和记录，不构成投资建议
 - 数据依赖第三方数据源和自动化任务，可能存在延迟、缺失或失败情况
 - 页面展示的时间和数值应结合数据口径与生成时间一起理解，不能默认视为实时行情
+
+## 自动更新监控与报警
+
+依赖固定、发布后验证、每日北京时间08:07独立过期检查及GitHub Issue告警说明见[更新监控与处置](docs/UPDATE_MONITORING.md)。请开启仓库Issues通知或订阅告警Issue；邮件依赖个人GitHub通知设置。

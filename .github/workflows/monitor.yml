@@ -1,0 +1,53 @@
+name: Monitor Dashboard Updates
+
+on:
+  schedule:
+    # 08:07 Beijing daily. GitHub scheduling may be delayed.
+    - cron: "7 0 * * *"
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Deploy Dashboard]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: dashboard-update-monitor
+  cancel-in-progress: false
+
+jobs:
+  freshness:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Check live data against independent trading calendar
+        run: python3 scripts/update_health.py monitor
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+      - name: Report freshness incident or recovery
+        if: always()
+        run: python3 scripts/report_update_alert.py --kind freshness
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  deployment-alert:
+    if: github.event_name == 'workflow_run'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Report failed deployment or verified recovery
+        run: python3 scripts/report_update_alert.py --kind deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}

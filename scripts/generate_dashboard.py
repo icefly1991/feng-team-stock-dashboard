@@ -21,7 +21,7 @@ def main() -> None:
         status = "Kept existing dashboard.json." if dashboard_exists(config.output_json_file) else "No dashboard.json written."
         print(status)
         print(f"Output file path: {config.output_json_file}")
-        return
+        raise RuntimeError("No valid dashboard rows generated; " + status)
 
     payload = build_dashboard_payload(
         result.rows_by_adjustment,

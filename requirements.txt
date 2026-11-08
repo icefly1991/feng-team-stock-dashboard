@@ -1,2 +1,5 @@
-tushare
-pandas
+# Direct dependencies. The complete, tested dependency set is in requirements.lock.
+tushare==1.4.29
+pandas==3.0.5
+six==1.17.0
+tzdata==2026.3

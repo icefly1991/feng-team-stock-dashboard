@@ -6,9 +6,10 @@ import App from './App.tsx'
 import { RiskProvider } from './RiskWatch'
 import { ListingStatusProvider } from './listingStatus'
 import BackToTop from './BackToTop'
+import UpdateHealthNotice from './UpdateHealthNotice'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ListingStatusProvider><RiskProvider><App /><BackToTop /></RiskProvider></ListingStatusProvider>
+    <ListingStatusProvider><RiskProvider><UpdateHealthNotice /><App /><BackToTop /></RiskProvider></ListingStatusProvider>
   </StrictMode>,
 )
