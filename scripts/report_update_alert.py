@@ -22,6 +22,12 @@ def incident_action(existing, healthy, now):
     return "remind" if now - last >= timedelta(hours=23) else "none"
 
 
+def incident_fingerprint(detail):
+    # A new run/job URL is not a new failure cause.
+    stable = re.sub(r'https://github\.com/[^\s)]+', '[run-log]', detail)
+    return f"<!-- feng-update-detail:{hashlib.sha256(stable.encode()).hexdigest()} -->"
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--kind", choices=("deployment", "freshness"), required=True)
@@ -53,6 +59,16 @@ def main():
                 failed = [step["name"] for step in job.get("steps", []) if step.get("conclusion") in ("failure", "cancelled", "timed_out")]
                 if failed or job.get("conclusion") in ("failure", "cancelled", "timed_out"):
                     details.append(f"- {job['name']}: {', '.join(failed) or job.get('conclusion')} ([日志]({job['html_url']}))")
+                    check_id = (job.get('check_run_url') or '').rsplit('/', 1)[-1]
+                    if check_id.isdigit():
+                        try:
+                            notes = get(f'/check-runs/{check_id}/annotations?per_page=30')
+                            for note in notes:
+                                if note.get('annotation_level') == 'failure':
+                                    details.append('  ' + str(note.get('message', ''))[:1000])
+                        except RuntimeError:
+                            # Optional diagnostics must not prevent the incident itself.
+                            pass
             if len(jobs) < 100:
                 break
         detail = "\n".join(details) or f"Workflow conclusion: {os.environ.get('DEPLOY_CONCLUSION', 'unknown')}"
@@ -70,7 +86,7 @@ def main():
         if existing or len(issues) < 100:
             break
     action = incident_action(existing, healthy, datetime.now(timezone.utc))
-    fingerprint = f"<!-- feng-update-detail:{hashlib.sha256(detail.encode()).hexdigest()} -->"
+    fingerprint = incident_fingerprint(detail)
     if existing and not healthy and fingerprint not in (existing.get("body") or ""):
         action = "update"
     category = "自动更新/发布失败" if args.kind == "deployment" else "线上数据过期或不可验证"

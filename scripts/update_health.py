@@ -270,6 +270,9 @@ def main():
         detail = str(exc).replace(os.environ.get("TUSHARE_TOKEN") or "\0", "[redacted]")
         write_json(args.report, {"ok": False, "detail": f"{args.mode}: {type(exc).__name__}: {detail}"})
         print(f"Update health check failed: {detail}")
+        if os.environ.get("GITHUB_ACTIONS") == "true":
+            annotation = detail.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+            print(f"::error title=Update health check failed::{annotation}")
         raise SystemExit(1) from None
 
 

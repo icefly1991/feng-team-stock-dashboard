@@ -115,6 +115,13 @@ class UpdateHealthTests(unittest.TestCase):
         existing["updated_at"] = (now - timedelta(days=1)).isoformat()
         self.assertEqual(alert.incident_action(existing, False, now), "remind")
 
+    def test_new_run_log_url_does_not_create_a_new_failure_cause(self):
+        first = 'build: data check failed ([log](https://github.com/team/repo/actions/runs/100/job/200))'
+        retry = 'build: data check failed ([log](https://github.com/team/repo/actions/runs/101/job/201))'
+        changed = retry.replace('data check failed', 'dependency import failed')
+        self.assertEqual(alert.incident_fingerprint(first), alert.incident_fingerprint(retry))
+        self.assertNotEqual(alert.incident_fingerprint(first), alert.incident_fingerprint(changed))
+
     def test_seal_and_live_verification_then_tampering(self):
         class QuietHandler(SimpleHTTPRequestHandler):
             def log_message(self, *args):
