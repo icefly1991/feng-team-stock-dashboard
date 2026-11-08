@@ -5,6 +5,7 @@ import json
 import sys
 import tempfile
 import unittest
+import urllib.error
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch
@@ -25,6 +26,23 @@ class UpdateHealthTests(unittest.TestCase):
     def test_missing_calendar_is_not_assumed_weekday(self):
         with self.assertRaises(ValueError):
             health.expected_trade_date({"days": {}}, datetime(2026, 11, 2, 8, tzinfo=health.TZ), morning=True)
+
+    def test_permanent_http_errors_do_not_retry_and_transient_failures_are_bounded(self):
+        error = urllib.error.HTTPError('https://example.test', 403, 'Forbidden', {}, None)
+        with patch.object(health.urllib.request, 'urlopen', side_effect=error) as request:
+            with self.assertRaisesRegex(RuntimeError, 'HTTP 403'):
+                health.request_json('https://example.test')
+            self.assertEqual(request.call_count, 1)
+        error = urllib.error.URLError('temporary failure')
+        with patch.object(health.urllib.request, 'urlopen', side_effect=error) as request, patch.object(health.time, 'sleep'):
+            with self.assertRaisesRegex(RuntimeError, 'after 3 attempts'):
+                health.request_json('https://example.test')
+            self.assertEqual(request.call_count, 3)
+
+    def test_online_error_identifies_missing_file(self):
+        with patch.object(health, 'request_json', side_effect=RuntimeError('HTTP 404')):
+            with self.assertRaisesRegex(RuntimeError, 'update-health.json: cannot read online data'):
+                health.check_online('https://example.test', '20261106')
 
     def test_core_rejects_stale_partial_errors_and_invalid_price(self):
         good = {"trade_date": "20261106", "updated_at": "2026-11-06 17:00", "rows": [{"code": "1", "close": 3}]}

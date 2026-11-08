@@ -171,7 +171,10 @@ def seal(directory, run_id):
 def check_online(base_url, expected, run_id=None):
     nonce = str(time.time_ns())
     def fetch(name):
-        return request_json(f"{base_url.rstrip('/')}/data/{name}?health={nonce}")
+        try:
+            return request_json(f"{base_url.rstrip('/')}/data/{name}?health={nonce}")
+        except RuntimeError as exc:
+            raise RuntimeError(f"{name}: cannot read online data ({exc})") from None
     manifest = fetch("update-health.json")
     if manifest.get("schema_version") != 1 or not manifest.get("run_id"):
         raise ValueError("Missing valid publication manifest")
@@ -182,7 +185,10 @@ def check_online(base_url, expected, run_id=None):
     for name in CORE + AUX:
         # Fetch bytes to compare with the exact build artifact, not reserialized JSON.
         url = f"{base_url.rstrip('/')}/data/{name}?health={nonce}"
-        raw = fetch_bytes(url)
+        try:
+            raw = fetch_bytes(url)
+        except RuntimeError as exc:
+            raise RuntimeError(f"{name}: {exc}") from None
         entry = manifest.get("files", {}).get(name, {})
         if hashlib.sha256(raw).hexdigest() != entry.get("sha256"):
             raise ValueError(f"{name}: published file differs from release manifest")

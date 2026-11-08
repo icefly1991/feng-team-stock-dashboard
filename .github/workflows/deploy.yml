@@ -21,6 +21,8 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     timeout-minutes: 180
+    outputs:
+      release_id: ${{ steps.release.outputs.release_id }}
 
     steps:
       - name: Checkout repository
@@ -104,7 +106,10 @@ jobs:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
 
       - name: Validate generated data and create release manifest
-        run: python scripts/update_health.py seal
+        id: release
+        run: |
+          python scripts/update_health.py seal
+          echo "release_id=${GITHUB_RUN_ID}.${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
 
       - name: Build frontend
         run: npm run build
@@ -131,9 +136,10 @@ jobs:
       - name: Verify published release and data
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          EXPECTED_RELEASE: ${{ needs.build.outputs.release_id }}
         run: |
           for attempt in 1 2 3 4 5; do
-            if python3 scripts/update_health.py verify --base-url "$PAGE_URL"; then
+            if python3 scripts/update_health.py verify --base-url "$PAGE_URL" --run-id "$EXPECTED_RELEASE"; then
               exit 0
             fi
             if [ "$attempt" -lt 5 ]; then sleep 20; fi
