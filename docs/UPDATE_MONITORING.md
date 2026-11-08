@@ -61,3 +61,26 @@ Monitor Dashboard Updates在北京时间每天08:07（计划时间，可能延�
 独立工作流仍与更新任务共用GitHub Actions；Actions整体停摆、工作流被禁用或仓库权限不足时，Issue告警也可能无法执行。
 外部心跳监控需另接外部服务，目前未配置。首次推送后验证一次实际部署和监控；故障分支通过离线模拟测试，
 不为演练故意破坏线上数据或发送虚假故障通知。
+
+## 实施与验收记录（2026-11-08）
+
+对应OPS-008 / CR-026 / ADR-020，指标公式与股票池筛选口径不变。
+
+| 文件 | 修改目的 |
+| --- | --- |
+| requirements.txt、requirements.lock | 显式声明six并固定经过测试的完整依赖集合 |
+| .github/workflows/deploy.yml | 前置检查、数据门禁、产物/缓存、复用、发布与线上哈希验收 |
+| .github/workflows/monitor.yml | 独立日检、发布故障事件及GitHub Issue通知 |
+| scripts/update_health.py、scripts/report_update_alert.py | 日历/完整性/哈希验证、错误摘要、告警去重和恢复 |
+| scripts/generate_dashboard.py、scripts/generate_small_cap_dashboard.py | 无有效自选股时失败退出、打印明确的单股缺失记录 |
+| src/UpdateHealthNotice.tsx、src/main.tsx | 过期/不可验证/局部缺失提示 |
+| src/App.tsx、src/GrowthMarketPage.tsx、src/SmallCapMarketPage.tsx | 榜单请求禁用浏览器数据缓存 |
+| tests/test_update_health.py | 14项监控回归及真实本地HTTP发布/篡改/明确缺失检测 |
+| README.md、docs/REQUIREMENTS.md、docs/DECISIONS.md、docs/CHANGE_REQUESTS.md、docs/CHANGELOG.md、本文件 | 配置、验收、决定与维护流程 |
+
+- 113项Python及11项Node测试、pip check、完整锁定版本与导入、lint/build及差异检查通过。
+- Chrome在390/1280px检查正常、过期、不可验证及局部缺失四种状态；真实线上页面交易日正确、缺失提示一致、无横向溢出。未做手机真机验证。
+- [全量发布42469663318](https://github.com/icefly1991/feng-team-stock-dashboard/actions/runs/42469663318)成功，自选股111只/两种复权、创业板池95只、小市值250/100名均为2026-11-06行情。
+- [快速复用发布42474145494](https://github.com/icefly1991/feng-team-stock-dashboard/actions/runs/42474145494)跳过重新采集，完成113项测试、产物下载、最新日历复查、完整性和上线验证；发布标识为42474145494.1。独立客户端逐个核对七个JSON哈希，原文件生成时间全部保留。
+- [Issue #2](https://github.com/icefly1991/feng-team-stock-dashboard/issues/2)已由自动化记录发布恢复并关闭；同一故障重复运行未重复建Issue。
+- [Issue #1详细诊断](https://github.com/icefly1991/feng-team-stock-dashboard/issues/1#issuecomment-6720668457)保留两项历史数据覆盖告警：汉维科技920957有37个历史日线日期缺有效复权因子（2021-12-23至2022-06-14），惠同新材920751有254个（2021-11-08至2022-12-23）。已只读重放确认Missing adjustment factor；保留空值和当前口径，待数据补全或另行确认历史区间策略后重新生成，不能宣称完全健康。
