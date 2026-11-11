@@ -1,5 +1,13 @@
 # Metric Definitions
 
+## Watchlist since November 2 low (DATA-035 / UI-041)
+
+- Select exactly November 2 within the year of the pipeline's `year_start`. If that session is absent, return null without substituting another session.
+- `since_nov2_return_pct = (latest close / baseline low - 1) * 100`, rounded to two decimal places in JSON and one decimal place for display. Per the user's clarification, the base is the session's low, not its close.
+- `since_nov2_low` is that baseline session's intraday low, displayed in parentheses with two decimal places, not the minimum over the interval. `since_nov2_date` records the actual baseline session as YYYYMMDD.
+- Compute qfq and none independently using the existing respective series. Missing baseline yields null for all three fields; invalid/nonpositive baseline low yields null for both price and return. Never substitute the previous year's November or zero.
+- Frontend presents and sorts the Python values; legacy JSON with absent fields displays missing values. Other metrics retain their definitions.
+
 ## Active A-share average daily true range (DATA-021)
 
 DATA-021 / DATA-023: `TR_t = max(high_t-low_t, abs(high_t-close_(t-1)), abs(low_t-close_(t-1)))`; `avg_range_60d_pct = mean(100 * TR_t / close_(t-1))` for the latest 60 market sessions. The former active pool's 120-day field uses the same formula over 120 sessions. Normalize each day before averaging, use the same qfq OHLC series, require 61/121 valid records, and include gaps. This is not Wilder ATR divided by today's close, a return standard deviation, or a cumulative gain. Missing history yields null. Amount is unadjusted thousand-RMB divided by 100000 to obtain yi RMB; market cap is ten-thousand-RMB divided by 10000.

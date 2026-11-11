@@ -20,6 +20,7 @@ type MetricKey =
   | 'distance_52w_high_pct'
   | 'distance_52w_low_pct'
   | 'position_52w_pct'
+  | 'since_nov2_return_pct'
 type SummaryKey = 'watchlist_total' | 'today_up' | 'today_down'
 
 type Row = {
@@ -32,6 +33,9 @@ type Row = {
   distance_52w_high_pct: number
   distance_52w_low_pct?: number
   position_52w_pct?: number
+  since_nov2_return_pct?: number | null
+  since_nov2_low?: number | null
+  since_nov2_date?: string | null
 }
 
 type DashboardData = {
@@ -46,6 +50,7 @@ const metrics: { id: MetricKey; label: string }[] = [
   { id: 'distance_52w_high_pct', label: '距52周高点' },
   { id: 'distance_52w_low_pct', label: '距52周低点' },
   { id: 'position_52w_pct', label: '52周内位置' },
+  { id: 'since_nov2_return_pct', label: 'since 11/2' },
 ]
 
 const cards: { key: SummaryKey; label: string; note: string }[] = [
@@ -57,6 +62,7 @@ const cards: { key: SummaryKey; label: string; note: string }[] = [
 type SortKey = MetricKey | 'close' | 'today_return_pct'
 
 const metricText: Record<SortKey, string> = {
+  since_nov2_return_pct: 'since 11/2',
   close: '收盘价',
   today_return_pct: '今日涨跌幅',
   distance_ma250_pct: '距年线',
@@ -69,20 +75,20 @@ const metricText: Record<SortKey, string> = {
 const adjustmentText = { qfq: '前复权', none: '除权' }
 const dashboardUrl = `${import.meta.env.BASE_URL}data/dashboard.json`
 
-const formatPct = (value: number | undefined) =>
+const formatPct = (value: number | null | undefined) =>
   typeof value !== 'number' || !Number.isFinite(value) ? '—' : `${value > 0 ? '+' : value < 0 ? '-' : ''}${Math.abs(value).toFixed(1)}%`
 
-const formatMetric = (metric: MetricKey, value: number | undefined) =>
+const formatMetric = (metric: MetricKey, value: number | null | undefined) =>
   metric === 'position_52w_pct'
     ? typeof value !== 'number' || !Number.isFinite(value)
       ? '—'
       : `${value.toFixed(1)}%`
     : formatPct(value)
 
-const getMetricTextClass = (value: number | undefined) =>
+const getMetricTextClass = (value: number | null | undefined) =>
   typeof value !== 'number' || !Number.isFinite(value) ? 'text-slate-400' : value > 0 ? 'text-emerald-700' : value < 0 ? 'text-rose-600' : 'text-slate-500'
 
-const getActiveMetricTextClass = (metric: MetricKey, value: number | undefined) =>
+const getActiveMetricTextClass = (metric: MetricKey, value: number | null | undefined) =>
   metric === 'position_52w_pct'
     ? typeof value !== 'number' || !Number.isFinite(value)
       ? 'text-slate-400'
@@ -234,8 +240,9 @@ function App() {
             </div>
             <SectorFilter data={sectors.data} error={sectors.error} codes={current.rows.map(row => row.code)} value={sector} onChange={setSector} />
             <RiskCoverageNote />
+            <p className="mt-2 text-xs leading-5 text-slate-500">since 11/2：相对今年 11 月 2 日最低价的涨跌幅，括号为该日最低价，均随当前复权口径切换；当日无行情时显示 —，不顺延。</p>
             {!rows.length && <p className="py-5 text-center text-sm text-slate-400">没有符合板块筛选的股票</p>}
-            <div role="table" aria-label="自选股指标总览" aria-rowcount={rows.length + 1} aria-colcount={11} className="stock-table watch-table mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
+            <div role="table" aria-label="自选股指标总览" aria-rowcount={rows.length + 1} aria-colcount={12} className="stock-table watch-table mt-5 overflow-visible rounded-[1.5rem] border border-slate-200/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(250,250,249,0.9))] shadow-[inset_0_1px_0_rgba(255,255,255,0.92)]">
               <div role="rowgroup" className="sticky top-0 z-40 rounded-t-[1.5rem] bg-[#fcfcfb] shadow-[0_10px_24px_rgba(15,23,42,0.06)]">
                 <div role="row" className={`${tableGridClass} stock-head min-h-[80px] items-center border-b border-slate-200/85 px-3 py-3 text-[11px] font-medium text-slate-400`}>
                   <div role="columnheader" className="text-center">#</div>
@@ -267,6 +274,11 @@ function App() {
                     {metrics.map(metric => (
                       <div role="cell" key={metric.id} className={`watch-number text-right text-[13px] font-medium tabular-nums ${sort.key === metric.id ? 'rounded-xl bg-sky-50/70 py-3' : ''}`}>
                         <span className={getActiveMetricTextClass(metric.id, row[metric.id])}>{formatMetric(metric.id, row[metric.id])}</span>
+                        {metric.id === 'since_nov2_return_pct' && (
+                          <span className="text-slate-500" title={row.since_nov2_date ? `基准交易日：${row.since_nov2_date}，当日最低价` : '暂无基准行情'}>
+                            {' '}({typeof row.since_nov2_low === 'number' && Number.isFinite(row.since_nov2_low) ? row.since_nov2_low.toFixed(2) : '—'})
+                          </span>
+                        )}
                         {metric.id === 'position_52w_pct' && Number.isFinite(row[metric.id]) && (
                           <div aria-hidden="true" className="mt-2 h-[5px] overflow-hidden rounded-full bg-slate-200/70">
                             <div className="h-full rounded-full bg-sky-400" style={{ width: `${Math.min(Math.max(row[metric.id]!, 0), 100)}%` }} />

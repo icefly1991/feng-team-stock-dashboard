@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+import math
 from typing import Any
 
 import pandas as pd
 
 
-def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, float]:
+def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, Any]:
     ordered = normalize_history(frame)
     current_year = first_rows_of_year(ordered, year_start)
     latest = ordered.iloc[-1]
@@ -31,7 +32,26 @@ def build_metrics(frame: pd.DataFrame, year_start: str) -> dict[str, float]:
         "distance_52w_high_pct": round(percent_change(close, high_52w), 2),
         "distance_52w_low_pct": round(percent_change(close, low_52w), 2),
         "position_52w_pct": round(range_position(close, low_52w, high_52w), 2),
+        **build_since_november_metrics(ordered, year_start),
     }
+
+
+def build_since_november_metrics(ordered: pd.DataFrame, year_start: str) -> dict[str, Any]:
+    """Compare the latest close with the exact November 2 session's low."""
+    result = {"since_nov2_return_pct": None, "since_nov2_low": None, "since_nov2_date": None}
+    year = year_start[:4]
+    sessions = ordered[ordered["trade_date"] == f"{year}1102"]
+    if sessions.empty:
+        return result
+    baseline = sessions.iloc[0]
+    result["since_nov2_date"] = str(baseline["trade_date"])
+    base_low = float(baseline["low"])
+    close = float(ordered.iloc[-1]["close"])
+    if math.isfinite(base_low) and base_low > 0:
+        result["since_nov2_low"] = round(base_low, 2)
+    if math.isfinite(base_low) and base_low > 0 and math.isfinite(close) and close > 0:
+        result["since_nov2_return_pct"] = round(percent_change(close, base_low), 2)
+    return result
 
 
 def normalize_history(frame: pd.DataFrame) -> pd.DataFrame:

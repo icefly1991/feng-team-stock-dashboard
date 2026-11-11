@@ -6,7 +6,7 @@
 .stock-grid { width: 100%; gap: clamp(4px, .6vw, 10px) !important; padding-inline: 12px !important; }
 .small-grid { grid-template-columns: 20px minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.55fr) minmax(0,.6fr) minmax(0,.65fr) minmax(0,.65fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,1.15fr) minmax(0,.85fr) minmax(0,1.15fr) !important; }
 .growth-grid { grid-template-columns: 20px minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.1fr) minmax(0,.6fr) minmax(0,.65fr) minmax(0,.7fr) minmax(0,.7fr) minmax(0,.85fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,.9fr) !important; }
-.watch-grid { grid-template-columns: 20px minmax(0,1.1fr) minmax(0,1.25fr) minmax(0,1.2fr) minmax(0,.65fr) minmax(0,.75fr) minmax(0,.8fr) minmax(0,.85fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1fr) !important; }
+.watch-grid { grid-template-columns: 20px minmax(0,1.1fr) minmax(0,1.25fr) minmax(0,1.2fr) minmax(0,.65fr) minmax(0,.75fr) minmax(0,.8fr) minmax(0,.85fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1fr) minmax(0,1.25fr) !important; }
 .stock-grid > * { min-width: 0; overflow-wrap: anywhere; }
 .stock-grid > .sticky { position: static; box-shadow: none; transform: none; }
 .stock-head { letter-spacing: normal; font-size: 11px; }
@@ -62,6 +62,7 @@
 .watch-grid.stock-row > :nth-child(9)::before { content: "距52周高点"; }
 .watch-grid.stock-row > :nth-child(10)::before { content: "距52周低点"; }
 .watch-grid.stock-row > :nth-child(11)::before { content: "52周内位置"; }
+.watch-grid.stock-row > :nth-child(12)::before { content: "since 11/2"; }
 }
 
 .watch-grid.stock-row > .watch-number { padding-inline: 6px !important; }
